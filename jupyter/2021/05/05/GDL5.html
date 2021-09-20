@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>5 | geometric deep learning</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="5" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="GDL" />
+<meta property="og:description" content="GDL" />
+<link rel="canonical" href="https://the-ninth-wave.github.io/geometric-deep-learning/jupyter/2021/05/05/GDL5.html" />
+<meta property="og:url" content="https://the-ninth-wave.github.io/geometric-deep-learning/jupyter/2021/05/05/GDL5.html" />
+<meta property="og:site_name" content="geometric deep learning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-05T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"GDL","url":"https://the-ninth-wave.github.io/geometric-deep-learning/jupyter/2021/05/05/GDL5.html","@type":"BlogPosting","headline":"5","dateModified":"2021-05-05T00:00:00-05:00","datePublished":"2021-05-05T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://the-ninth-wave.github.io/geometric-deep-learning/jupyter/2021/05/05/GDL5.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/geometric-deep-learning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://the-ninth-wave.github.io/geometric-deep-learning/feed.xml" title="geometric deep learning" /><link rel="shortcut icon" type="image/x-icon" href="/geometric-deep-learning/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/geometric-deep-learning/">geometric deep learning</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/geometric-deep-learning/about/">About Me</a><a class="page-link" href="/geometric-deep-learning/search/">Search</a><a class="page-link" href="/geometric-deep-learning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">5</h1><p class="page-description">GDL</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-05-05T00:00:00-05:00" itemprop="datePublished">
+        May 5, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/geometric-deep-learning/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/the-ninth-wave/geometric-deep-learning/tree/master/_notebooks/2021-05-05-GDL5.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/geometric-deep-learning/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/the-ninth-wave/geometric-deep-learning/master?filepath=_notebooks%2F2021-05-05-GDL5.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/geometric-deep-learning/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/the-ninth-wave/geometric-deep-learning/blob/master/_notebooks/2021-05-05-GDL5.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/geometric-deep-learning/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#2-$\quad$-Geometric-deep-learning-models">2 $\quad$ Geometric deep learning models </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#2.1-$\quad$-Learning-with-scalar-signals-on-a-cyclic-group">2.1 $\quad$ Learning with scalar signals on a cyclic group </a></li>
+<li class="toc-entry toc-h2"><a href="#2.2-$\quad$-A-simple-CNN">2.2 $\quad$ A simple CNN </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-05-05-GDL5.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2-$\quad$-Geometric-deep-learning-models">
+<a class="anchor" href="#2-%24%5Cquad%24-Geometric-deep-learning-models" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2 $\quad$ Geometric deep learning models</strong><a class="anchor-link" href="#2-%24%5Cquad%24-Geometric-deep-learning-models"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.1-$\quad$-Learning-with-scalar-signals-on-a-cyclic-group">
+<a class="anchor" href="#2.1-%24%5Cquad%24-Learning-with-scalar-signals-on-a-cyclic-group" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2.1 $\quad$ Learning with scalar signals on a cyclic group</strong><a class="anchor-link" href="#2.1-%24%5Cquad%24-Learning-with-scalar-signals-on-a-cyclic-group"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the simplest setting we consider, the underlying domain is a one-dimensional grid, and the signals only have a single channel. We can identify this grid $\Omega$ with the Cayley graph of cyclic group
+$$
+C_n = \langle \, a : a^n = 1 \, \rangle \equiv \{ \, 1, a, a^2, \dots, a^{n-1} \, \}.
+$$
+It is convenient to parametrize the group, and hence the grid, through the exponent of the generator 
+$$
+C_n \equiv \{ 0, 1, \dots, n -1 \}
+$$
+as this indexing is consistent with the way most programming languages index vectors, reinterpreting the group operation as addition modulo $n$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The vector space of single-channeled (i.e. real-valued) signals
+$$
+\mathcal{X}(C_n,\mathbb{R}) = \{ x : C_n \to \mathbb{R} \} ,
+$$
+is finite dimensional, and each $x \in \mathcal{X}(C_n, \mathbb{R})$ may be expressed as 
+$$
+x = 
+\left[ 
+\begin{matrix}
+x_0\\ 
+\vdots\\
+\,x_{n-1}\,
+\end{matrix}
+\right] 
+$$
+with respect to some implicit coordinate system used by the computer, the <em>input coordinate system</em>. This is the same coordinate system used to express the representation $\rho$ of translation group $G \equiv C_n$, which we now describe.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given a vector $\theta = (\theta_0 , \dots, \theta_{n-1})$, recall the associated <em>circulant matrix</em> is the $n \times n$ matrix with entries 
+$$
+\mathcal{C}(\theta) := \left( \, \theta_{ (u - v) \mod n} \right)_{ 0 \, \leq \,u,\,v \, \leq n-1 } 
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Consider the case of $\theta_S := (0,1,0,\dots, 0)^T$, the associated circulant matrix, $\mathbf{S} := \mathbf{C}(\theta_S)$ acts on vectors by shifting the entries of vectors to the right by one position, modulo $n$. This is a shift or translation operator, which we denote $\mathbf{S}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Lemma</strong> $\quad$
+A matrix is circulant if and only if it commutes with $\mathbf{S}$. Moreover, given any two vectors $\theta, \eta \in \mathbb{R}^n$, one has $\mathbf{C}(\theta) \mathbf{C}(\eta) = \mathbf{C}(\eta) \mathbf{C}(\theta)$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The importance of $\mathbf{S}$ to the present discussion is that it generates a group isomorphic to the one-dimensional translation group $C_n$. This is to say, a natural representation of $C_n = \langle \, a : a^n = 1 \, \rangle$ to consider is the group isomorphism induced by mapping the generator $a$ of $C_n$ to $\mathbf{S}$. Specifically, the representation $\rho$ of $G$ over $\mathcal{X}( C_n, \mathbb{R})$ is given by
+$$
+\rho ( a^j ) := \mathbf{S}^j 
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Corollary</strong> $\quad$ Any $f : \mathcal{X}(C_n, \mathbb{R}) \to \mathcal{X}(C_n,\mathbb{R})$ which is linear and $C_n$-equivariant can be expressed ( in the input coordinate system ) as an $n \times n$ circulant matrix $\mathbf{C}(\theta)$ for some vector $\theta$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<p><strong>Example</strong> $\quad$ 
+Our previous recipe for designing an equivariant function $F= \Phi( \mathbf{X}, \mathbf{A})$ using a local aggregation function $\varphi$. In this case, we can express
+$$
+\varphi ( \mathbf{x}_u, \mathbf{X}_{\mathcal{N}(u)} ) = \varphi( \mathbf{x}_{u-1}, \, \mathbf{x}_u, \, \mathbf{x}_{u+1} ),
+$$
+where the addition and subtraction in the indices above is understood to be modulo $n$.</p>
+<p>If in addition, we insist that $\varphi$ is linear, then it has the form 
+$$
+ \varphi( \mathbf{x}_{u-1}, \, \mathbf{x}_u, \, \mathbf{x}_{u+1} ) = \theta_{-1} \mathbf{x}_{u-1} + \theta_0 \mathbf{x}_u + \theta_1 \mathbf{x}_{u+1},
+$$
+and in this case we can express $\mathbf{F} = \Phi (\mathbf{X}, \mathbf{A} )$ through the following matrix multiplication:
+$$
+\left[
+\begin{matrix}
+\theta_0 &amp; \theta_1 &amp; \text{ } &amp; \text{ } &amp; \theta_{-1} \\
+\theta_{-1} &amp; \theta_0 &amp; \theta_1 &amp; \text{ } &amp;   \text{ } \\
+\text{} &amp; \ddots &amp; \ddots &amp; \ddots &amp; \text{ } \\
+\text{ } &amp; \text{ } &amp; \theta_{-1} &amp; \theta_0 &amp; \theta_1 \\
+\theta_1 &amp; \text{ } &amp; \text{ } &amp; \theta_{-1} &amp; \theta_0 
+\end{matrix} 
+\right]
+\left[
+\begin{matrix}
+\mathbf{x}_0 \\
+\mathbf{x}_1 \\
+\vdots \\
+\,\mathbf{x}_{n-2} \, \\
+\mathbf{x}_{n-1}  
+\end{matrix}
+\right]
+$$
+This special multi-diagonal structure is sometimes referred to as ``weight sharing" in the machine learning literature.</p>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Circulant matrices are synonymous with discrete convolutions; for $x \in \mathcal{X}(\Omega,\mathbb{R})$ and $\theta \in \mathbb{R}^n$, their <em>convolution</em> $x \star \theta$ is defined by 
+$$
+( x \star \theta )_u := \sum_{v = 0}^{n-1} x_{v \mod n}\, \theta_{ (u-v) \mod n}  \, ,
+$$
+$$
+\equiv \mathbf{C}(\theta) x 
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Rmk</strong> $\quad$ This leads to an alternate, equivalent definition of convolution as a translation equivariant linear operation. Moreover by replacing translations by a more general group $G$, one can generalize convolution to settings whose domain has symmetry other than translational.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.2-$\quad$-A-simple-CNN">
+<a class="anchor" href="#2.2-%24%5Cquad%24-A-simple-CNN" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2.2 $\quad$ A simple CNN</strong><a class="anchor-link" href="#2.2-%24%5Cquad%24-A-simple-CNN"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We consider possibly the simplest neural network that we can construct through the above blueprint. Suppose we have a binary classification problem, with the following hypothesis space. Let $\textsf{H}_1$ denote the hypothesis space of functions $f : \mathcal{X}( C_n, \mathbb{R}) \to \{0,1\}$ of the form</p>
+$$
+f = A \circ P \circ \mathbf{a} \circ B \,,
+$$<p>where the components of $f$ are</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>where the components of $f$ are</p>
+<ul>
+<li>
+<p>$B$  : $\quad$ A $C_n$-equivariant function, to be learned. It is represented as a circulant matrix $\mathbf{C}(\theta)$, where $\theta$ is a vector $\theta \equiv (\theta_0, \dots, \theta_{n-1})$ whose entries $\theta_j$ are parameters to be learned.</p>
+</li>
+<li>
+<p>$ \mathbf{a} $ : $\quad$ We consider the ReLU activation function, $a : \mathbb{R} \to \mathbb{R}_{\geq\, 0}$ defined by $a(w) = \max(0,w)$, for $w \in \mathbb{R}$. The bold-face $\mathbf{a}$ denotes the entry-wise action of this function on a given vector;for $y \equiv (\,y_1, \,\dots, \, y_n \, ) \in \mathcal{X}(C_n, \mathbb{R})$, which we imagine as the output of $B(x)$ for some input signal $x$, we have $\mathbf{a} (y ) = ( \,  \max(0,y_1), \,  \dots, \, \max(0,y_n) )$. There are no learned parameters in this layer.</p>
+</li>
+<li>
+<p>$P$ : $\quad$ A coarsening operator. In this case, let us say it is a <em>zero-padded group homomorphism</em>.</p>
+<p>$P : C_n \to C_{n / d }$ for some divisor $d \mid n$ \footnote{zero-padding} , and let us say that it operates through max-pooling on the signal, over the pre-images of each element of $C_{n / d}$.</p>
+</li>
+<li>
+<p>$A$ : $\quad$ A global-pooling layer. We assume this has the form of a fully-connected layer, followed by a softmax. Specifically,</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/geometric-deep-learning/jupyter/2021/05/05/GDL5.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/geometric-deep-learning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/geometric-deep-learning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/geometric-deep-learning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>...</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/geometric-deep-learning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/geometric-deep-learning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
