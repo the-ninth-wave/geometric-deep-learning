@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      24 min read
     
 </span></p>
 
@@ -132,9 +132,21 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#1.1-categories-and-groups">1.1 categories and groups </a>
+<li class="toc-entry toc-h2"><a href="#$1.1$-$\quad$-Algebra">$1.1$ $\quad$ Algebra </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#$\quad$-group-representations">$\quad$ group representations </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#$1.2$-$\quad$-Equivariance">$1.2$ $\quad$ Equivariance </a></li>
+<li class="toc-entry toc-h2"><a href="#$1.3$-$\quad$-Equivariance-and-convolution">$1.3$ $\quad$ Equivariance and convolution </a></li>
+<li class="toc-entry toc-h2"><a href="#$1.4$-$\quad$-Tensors">$1.4$ $\quad$ Tensors </a></li>
+<li class="toc-entry toc-h2"><a href="#$1.5$-$\quad$-GDL-blueprint-(with-fixed-input-domain)">$1.5$ $\quad$ GDL blueprint (with fixed input domain) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Setup">$\quad$ Setup </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-coarsening-operator">$\quad$ coarsening operator </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-GDL-block">$\quad$ GDL block </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Hypothesis-space">$\quad$ Hypothesis space </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Discussion">$\quad$ Discussion </a></li>
 </ul>
 </li>
 </ul><!--
@@ -159,8 +171,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.1-categories-and-groups">
-<a class="anchor" href="#1.1-categories-and-groups" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>1.1 categories and groups</strong><a class="anchor-link" href="#1.1-categories-and-groups"> </a>
+<h2 id="$1.1$-$\quad$-Algebra">
+<a class="anchor" href="#%241.1%24-%24%5Cquad%24-Algebra" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.1$ $\quad$ Algebra<a class="anchor-link" href="#%241.1%24-%24%5Cquad%24-Algebra"> </a>
 </h2>
 </div>
 </div>
@@ -409,6 +421,620 @@ hence the nomenclature <em>one-hot</em>. In the preceding example, if one consid
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>$\vdots$</p>
 <p>The term 'features' is compatible with the usage in ML, supposing that our input signal has domain some graph $\mathcal{G}$. In this case, we can think of a neural network as a sequence of node-layers built ``on top of" the graph $\mathcal{G}$. An input signal endows the first node layer of a NN with features, and the weights of the neural network propagate these through to node features on the nodes of the rest of the network. The features on the last layer of the network can be read off as the output of the NN function.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="$1.2$-$\quad$-Equivariance">
+<a class="anchor" href="#%241.2%24-%24%5Cquad%24-Equivariance" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.2$ $\quad$ Equivariance<a class="anchor-link" href="#%241.2%24-%24%5Cquad%24-Equivariance"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We henceforth consider groups $G$ acting on some space of signals $\mathcal{X}(\Omega)$ over a (fixed) signal domain $\Omega$. The group action is encoded in a linear representation $\rho$, assumed to be described in a given <em>input coordinate system</em>, just as we would need to specify to a computer. Thus, if $\dim ( \mathcal{X}(\Omega) ) = n$, for each $g \in G$, we have that $\rho(g)$ is an $n \times n$ matrix with real entries.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The learning dynamics occur in the <em>hypothesis space</em> $\textsf{H}$, a collection of functions 
+$$
+\textsf{H} \subset \{\, F : \mathcal{X}(\Omega) \to \mathcal{Y}\, \} ,
+$$
+where $\mathcal{Y}$ is some unspecified (context-specific) space of output signals. We describe $\textsf{H}$ explicitly in the "learning blueprint", up to hyperparameters such as depth and layer widths.</p>
+<p>A key aspect of this blueprint is that $F \in \textsf{H}$ should be expressed as a composition of functions, most of which are $G$-equivariant. The requirement of $G$-equivariance constitutes a <em>geometric prior</em> from which one can derive the architecture of a generic CNN when $G$ corresponds to translations, and a family of generalizations for other domains and group actions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Def</strong> $\quad$ Let $\rho$ be a representation of group $G$ over $\mathcal{X}(\Omega)$, and let $\rho'$ be a representation of the same group over the $\mathbb{R}$-vector space $\mathcal{Y}$. A function $F: \mathcal{X}(\Omega) \to \mathcal{Y}$ is <em>$G$-equivariant</em> if for all $g \in G$ and all $x \in \mathcal{X}(\Omega)$, we have $\rho'(g) F(x) = F ( \rho(g) x )$. We say $F$ is <em>$G$-invariant</em> if this holds when $\rho'$ is the trivial representation, which is to say $F ( \rho(g) x) = F(x)$ for all $g \in G$ and $x \in \mathcal{X}(\Omega)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<p><strong>Example</strong> $\quad$ Suppose we are given either a set $\mathcal{V}$, or more generally a graph $\mathcal{G} = ( \mathcal{V}, \mathcal{E} )$, with $\# \mathcal{V} = n$ in either case. As discussed, a signal over $\mathcal{V} = \{ v_1, \dots, v_n \}$ can be thought of as a collection of node features $\{ \, x(v_1), \dots, x(v_n) \, \}$, with $x(v_j) \in \mathbb{R}^s$. We stack the node features as rows of the $n \times s$ <em>design matrix</em></p>
+$$
+\mathbf{X} = 
+\left[ 
+\begin{matrix}
+x_1\\ 
+\vdots\\
+x_n
+\end{matrix}
+\right] ,
+$$<p>which is effectively the same object as signal $x$, provided the vertices are labeled as described. The action of $g \in \mathfrak{S}_n$ on this input data is naturally represented as an $n \times n$ permutation matrix, $\mathbf{P} \equiv \rho(g)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One standard way to construct a permutation invariant function $F$ in this setting is through the following recipe: a function $\psi$ is independently applied to every node's features, and $\varphi$ is applied on its sum-aggregated outputs.
+$$
+    F( \mathbf{X}) = \varphi \left( \, \sum_{j \, = \, 1}^n \psi(x_j) \, \right) .
+$$ 
+Such a function can be thought of as reporting some "global statistic" of signal $x$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Equivariance manifests even more naturally. Suppose we want to apply a function $F$ to the signal to "update" the node features, producing a set of <em>latent</em> (node) features.</p>
+<p>This is the case in which the NN outputs an image segmentation mask; the underlying domain does not change, but the features at each node are updated to the extent that they may not even agree on the number of channels.</p>
+<p>We can stack these latent features into another design matrix, $\mathbf{H} = F(\mathbf{X})$. The order of the rows of $\mathbf{H}$ should clearly be tied to the order of the rows of $\mathbf{X}$, i.e. permutation equivariant: for any permutation matrix $\mathbf{P}$, it holds that $F(\mathbf{P} \mathbf{X} ) = \mathbf{P} F(\mathbf{X})$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a concrete example of a permutation equivariant function, consider a weight matrix $\theta \in \mathbb{R}^{s \, \times \, s'}$. This matrix can be used to map a length-$s$ feature vector at a given node to some new, updated feature vector with $s'$-channels.</p>
+<p>Applying this matrix to each row of the design matrix is an example of a <em>shared node-wise linear transform</em>, and constitutes a linear, $\mathfrak{S}_n$-equivariant map. Note that, if one wishes to express this map in coordinates, it seems the correct object to consider is a $3$-tensor, "$\Theta,$" constructed as a stack of $n$ copies of $\theta$.</p>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The above example considered signals over the nodes of a graph only, thus label permutation symmetry applies equally well, regardless of the graph structure ( or lack of structure ) underlying such functions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the case that signals $x$ have a domain with graph structure, encoded by adjacency matrix $\mathbf{A}$, it feels right to work with a hypothesis space recognizing this structure.</p>
+<p>This is to say that we wish to consider functions $F \in \textsf{H}$ with $F \equiv F( \mathbf{X}, \mathbf{A} )$. Such a function is (label) <em>permutation invariant</em> if $F( \mathbf{P} \mathbf{X},\, \mathbf{P} \mathbf{A} \mathbf{P}^{\textrm{T}} ) = F ( \mathbf{X}, \mathbf{A})$, and is <em>permutation equivariant</em> if
+$$
+F( \mathbf{P} \mathbf{X}, \mathbf{P} \mathbf{A} \mathbf{P}^T ) = \mathbf{P}F( \mathbf{X}, \mathbf{A})
+$$
+for any permutation matrix $\mathbf{P}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Rmk</strong> $\quad$ One can characterize linear $\mathfrak{S}_n$-equivariant functions on nodes. From [BBCV21]:</p>
+<blockquote>
+<p>"One can verify any such map can be written as a linear combination of two generators, the identity and the average. As observed by Maron et al. 2018, any linear permutation equivariant $\mathbf{F}$ can be expressed as a linear combination of fifteen linear generators; remarkably, this family is independent of $n \equiv \# \mathcal{V}$."</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Rmk</strong> $\quad$ Amongst the generators just discussed, the geometric learning blueprint "specifically advocates" for those that are also local, in the sense that the output on node $u$ directly depends on its neighboring nodes in the graph.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can formalize this constraint explicitly, by defining the <em>$1$-hop neighborhood</em> of node $u$ as
+$$
+\mathcal{N}(u) := \{ v : \{ u,v \} \in \mathcal{E} \} ,
+$$
+as well as the corresponding \emph{\B{neighborhood features}}, 
+$$
+\mathbf{X}_{\mathcal{N}(u)} := \{ \{ \, x_v : v \in \mathcal{N}(u) \, \} \} ,
+$$
+which is a multiset ( indicated by double-brackets ) for the simple reason that distinct nodes may be decorated with the same feature vector.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<p><strong>Example</strong> $\quad$ The node-wise linear transformation described in the previous example can be thought of as operating on `$0$-hop neighborhoods' of nodes. We generalize this with an example of a function operating on $1$-hop neighborhoods. Instead of a fixed map between feature spaces $\theta : \mathbb{R}^s \to \mathbb{R}^{s'}$, cloned to a pointwise map $\Theta$, we instead specify a \emph{local} function 
+$$
+\varphi \equiv \varphi( \, x_u, \, \mathbf{X}_{\mathcal{N}(u)} \, )
+$$</p>
+<p>operating on the features of a node as well as those of its $1$-hop neighborhood.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We may construct a permutation equivariant function $\Phi$ ( the analogue of $\Theta$ here, just as $\varphi$ corresponds to $\theta$ ) by applying $\varphi$ to each $1$-hop neighborhood in isolation, and then collecting these into a new feature matrix. As before, for $\mathcal{V} = \{ v_1, \dots, v_n \}$, we write $x_j$ in place of $x_{v(j)}$, and we similarly write $\mathcal{N}_j$ instead of $\mathcal{N}( v(j) )$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$
+\Phi ( \mathbf{X}, \mathbf{A} ) = 
+\left[
+\begin{matrix}
+\varphi( \, x_1 , \, \mathbf{X}_{\mathcal{N}_1} \, ) \\
+\varphi( \, x_2 , \, \mathbf{X}_{\mathcal{N}_2} \, ) \\
+\vdots \\
+\varphi( \, x_n , \, \mathbf{X}_{\mathcal{N}_n} \, )
+\end{matrix}
+\right]
+$$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ being independent of the ordering of the nodes in $\mathcal{N}_u$. Thus, if $\varphi$ is permutation invariant ( a local averaging ) this property is satisfied.</p>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>[BBCV21] :"The choice of $\varphi$ plays a crucial role in the expressive power of the learning scheme."</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When considering signals $x \equiv \mathbf{X}$ over graphs, it is natural to consider a hypothesis space whose functions operates on the pair $( \mathbf{X}, \mathbf{A})$, where $\mathbf{A}$ is the adjacency matrix of the signal domain. Thus, for such signals the domain naturally becomes part of the input.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The GDL blueprint distinguishes between two contexts: one in which the input domain is fixed, and another in which the input domain varies from signal to signal. The preceding example demonstrates that, even in the former context, it can be essential that elements of $\textsf{H}$ treat the (fixed) domain as an argument.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When the signal domain has geometric structure, it can often be leveraged to construct a <em>coarsening operator</em>, one of the components of a GDL block in the learning blueprint. Such an operator passes a signal $x \in \mathcal{X}(\Omega)$ to a signal $y \in \mathcal{X}( \Omega')$, where $\Omega'$ is a `coarsened version' of $\Omega$.</p>
+<p>As the blueprint calls for a sequence of such blocks, we often wish to act on the latent signal $y$ by a pointwise non-linearity, followed by the action of an equivariant function on signals in $\mathcal{X}( \Omega')$.</p>
+<p>The domain may be fixed for each input, but this domain changes as the signal passes through the layers of the NN, and it is natural that the functions the NN is built out of should pass this data forward.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>[BBCV21] "Due to their additional structure, graphs and grids, unlike sets, can be coarsened in a non-trivial way, giving rise to a variety of pooling operations... more precisely, we cannot define a non-trivial coarsening assuming set structure alone. There exist established approaches that infer topological structure from unordered sets, and those can admit non-trivial coarsening"</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="$1.3$-$\quad$-Equivariance-and-convolution">
+<a class="anchor" href="#%241.3%24-%24%5Cquad%24-Equivariance-and-convolution" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.3$ $\quad$ Equivariance and convolution<a class="anchor-link" href="#%241.3%24-%24%5Cquad%24-Equivariance-and-convolution"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="$1.4$-$\quad$-Tensors">
+<a class="anchor" href="#%241.4%24-%24%5Cquad%24-Tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.4$ $\quad$ Tensors<a class="anchor-link" href="#%241.4%24-%24%5Cquad%24-Tensors"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Consider a pair of orthonormal bases, the 'original basis' $(e_1, \dots, e_n)$ and the 'new basis' $(\tilde{e}_1, \dots, \tilde{e}_n )$. A signal $x \in \mathbb{R}^n$ can be expressed in either coordinate system 
+$$
+x = e_1 x^1 + \dots + e_nx^n\, \equiv \,e_jx^j 
+$$
+$$
+x = \tilde{e}_1 \tilde{x}^1 + \dots + \tilde{e}_n \tilde{x}^n\, \equiv\, \tilde{e}_j  \tilde{x}^j ,
+$$
+where we have used the Einstein summation convention. We adopt this notation going forward.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can express the basis $( \tilde{e}_j )$ in terms of the $( e_j)$ via
+$$
+\tilde{e}_j = e_i \mathbf{S}^i_j \, ,
+$$
+where $\mathbf{S}$ is called the <em>direct transformation matrix</em> from original basis to the new. We let $\mathbf{T}$ denote $\mathbf{S}^{-1}$, and observe that the coordinate coefficients transform \emph{contravariantly}:
+$$
+\tilde{x}^j =  \mathbf{T}_i^j x^i\,.
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We assume that the underlying vector space is $\mathbb{R}^n$, and moreover, we equip it with the usual inner product ( in order to make sense of orthogonality ), and note that the Riesz representation theorem allows us to assign a given orthonormal basis $(e_j)$ of vector space $V$ to a canonical dual basis $(e^j)$ on the dual vector space $V^*$. Elements of $V^*$ are called dual vectors, or covectors. This canonical dual basis is given by
+$$
+e^j = \langle e_j, \cdot \rangle 
+$$
+$$
+\equiv e_i  \, \delta^{ij} 
+$$
+and thus,
+$$
+e_j = \delta_{ij} \, e^i. 
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The dual basis can be thought of as a `coordinate selector,' acting on a vector $x \in V$ by 
+$$
+e^j(x) = e^j \, e_k \, x^k 
+$$
+$$
+=x^k \, e^j \,e_k  
+$$
+$$
+= \delta_k^j  \, x^k
+$$
+$$
+= x^j.
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us consider how the objects 
+$$
+\delta_{ij} \, \equiv \, e_i \, e_j ,\quad  \delta_i^j  \, \equiv\, e_i \, e^k ,\quad  \delta^{ij} \,\equiv \, e^i \, e^j
+$$
+transform with the bases, i.e. how to express the following new basis objects
+$$
+\tilde{\delta}_{ij}, \quad \, \tilde{\delta}_i^j,  \quad \, \tilde{\delta}^{ij}
+$$
+in terms of the corresponding old, via the matrices $\mathbf{S}$ and $\mathbf{T}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One has
+$$
+\tilde{\delta}_{ij} \equiv \tilde{e}_i\, \tilde{e}_j = e_{\ell}\, \mathbf{S}^\ell_i  \, e_k  \,\mathbf{S}^k_j 
+$$
+$$
+=  \mathbf{S}^\ell_i \, \delta_{\ell k} \, \mathbf{S}^k_j 
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Likewise, one has
+$$
+\tilde{\delta}_i^j \, = \, \mathbf{S}_i^\ell \, \delta_\ell^k \, \mathbf{T}_k^j \quad \text{ and } \quad \tilde{\delta}^{ij} \, = \, \mathbf{T}_\ell^i \, \delta^{\ell k } \, \mathbf{T}_k^j
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given a change of basis $(e_j) \mapsto (\tilde{e}_j)$, the induced transformation $(e^j) \mapsto (\tilde{e}^j)$ is contravariant, which is consistent with the transformations described above:
+$$
+\tilde{e}^j  \equiv \tilde{e}_i \, \delta^{ij} \, \quad \,\\\
+\quad\quad\quad= e_\ell \, \mathbf{S}_i^\ell \, \mathbf{T}_\ell^i \, \delta^{\ell k} \, \mathbf{T}_k^j \\
+\,\,\,\,\,\,= e_\ell \,  \delta^{\ell k } \, \mathbf{T}_k^{j} \\
+=  \mathbf{T}_k^j e^k\,
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Def</strong> $\quad$  A <em>tensor of type</em>, or <em>valency</em> $(r,s)$ over vector space $V$ is a multilinear map 
+$$
+\mathbf{A} : \underbrace{V^* \times \, \dots \, \times V^*}_{ k \text{ copies }}  \,\times \, \underbrace{ V \times \, \dots \, \times V }_{ \ell \text{ copies }} \to \mathbb{R}
+$$</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When a basis $(e_j)$ is given, we can express $\mathbf{A}$ with respect to this coordinate system through a total of $n^{r+s}$ scalars, denoted generically by $\mathbf{A}_{ \quad j_1, \, \dots\, , \, j_s} ^ { i_1, \, \dots \, , \, i_r} $. The coordinate indices $i_1, \dots, i_r$ are the <em>contravariant indices</em>, while the $j_1, \dots, j_s$ are the <em>covariant indices</em>. They are so-named because of the transformation law of the entries under a change of basis $(e_j ) \mapsto (\tilde{e}_j)$ induces the linear transformation</p>
+$$
+\tilde{\mathbf{A}} _{ \quad j_1, \, \dots\, , \, j_s} ^ { i_1, \, \dots \, , \, i_r} 
+=
+\mathbf{T}_{k_1}^{i_1} \, \dots \, \mathbf{T}_{k_r}^{i_r} \, \mathbf{A} _{ \quad \ell_1, \, \dots\, , \, \ell_s} ^ { k_1, \, \dots \, , \, k_r} \, \mathbf{S}_{j_1}^{\ell_1}  \, \dots \, \mathbf{S}_{j_s}^{\ell_s} 
+$$<p>Let $\mathcal{T}(r,s)$ denote the vector space of type-$(r,s)$ tensors over $V$. The dimension of this vector space is $n^{r+s}$, i.e. the number of scalar entries in the coordinate representation of such a tensor.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are two operations on tensors of interest</p>
+<ul>
+<li>contraction</li>
+<li>outer product</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="$1.5$-$\quad$-GDL-blueprint-(with-fixed-input-domain)">
+<a class="anchor" href="#%241.5%24-%24%5Cquad%24-GDL-blueprint-(with-fixed-input-domain)" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.5$ $\quad$ GDL blueprint (with fixed input domain)<a class="anchor-link" href="#%241.5%24-%24%5Cquad%24-GDL-blueprint-(with-fixed-input-domain)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad$-Setup">
+<a class="anchor" href="#%24%5Cquad%24-Setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>Setup</strong></em><a class="anchor-link" href="#%24%5Cquad%24-Setup"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our formal treatment of a classification problem requires the following objects:</p>
+<ul>
+<li>
+<p>$\Omega$ : A graph with $n$ vertices. This is the domain of the signals considered.</p>
+</li>
+<li>
+<p>$\mathcal{X}(\Omega,\mathbb{R}^s)$ :  The space of $s$-channel signals $x : \Omega \to \mathbb{R}^s$.</p>
+</li>
+<li>
+<p>$(e_j)_{j\,=\,1}^{\,n}$ : A 'spatial' coordinate system for scalar-valued signals $\mathcal{X} \to \mathbb{R}$.</p>
+</li>
+<li>
+<p>$(z_c)_{c \,=\,1}^{\,s}$ : A channel coordinate system.</p>
+</li>
+<li>
+<p>$G$ : A group $G$ acting on $\Omega$, via $\Omega \ni u \mapsto g.u \in \Omega$. This induces the `pointwise' action on the space of signals $\mathcal{X}(\Omega,\mathbb{R}^s)$, denoted $x \mapsto \mathbf{g}.x$.</p>
+</li>
+<li>
+<p>$\rho$ : The representation of the induced action of $G$, $x \mapsto \mathbf{g}.x$.</p>
+</li>
+</ul>
+<p>The basis 
+$$
+\{ e_j \otimes z_c : 1 \leq j \leq n,\, 1 \leq c \leq s  \}
+$$</p>
+<p>is the one in which signals are expressed to a computer. Given $x \in \mathcal{X}(\Omega,\mathbb{R}^s)$. In terms of this basis, one can write $x$ as
+$$
+x = \mathbf{X}^{cj} e_j \otimes z_c ,
+$$
+Note that $\mathbf{X}$ is the so-called design matrix previously introduced.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\vdots$</p>
+<p>Let $g \in G$. In the basis $e_j \otimes z_c$, we can then identify $\rho(g)$ with a tensor... <em>(say more)</em></p>
+<p>$\vdots$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad$-coarsening-operator">
+<a class="anchor" href="#%24%5Cquad%24-coarsening-operator" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>coarsening operator</strong></em><a class="anchor-link" href="#%24%5Cquad%24-coarsening-operator"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $\Omega$ and $\Omega'$ be domains, $G$ a symmetry group over $\Omega$, and write $\Omega' \prec \Omega$ if $\Omega'$ arises from $\Omega$ through some coarsening operator (presumably this coarsening operator needs to commute with the group action).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad$-GDL-block">
+<a class="anchor" href="#%24%5Cquad%24-GDL-block" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>GDL block</strong></em><a class="anchor-link" href="#%24%5Cquad%24-GDL-block"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li><em>linear $G$-equivariant layer</em></li>
+</ol>
+$$
+B : \mathcal{X}(\Omega, \mathcal{C}) \to \mathcal{X}(\Omega' , \mathcal{C}')
+$$<p>
+such that $B(g.x) = g.B(x)$ for all $g \in G$ and $x \in \mathcal{X}(\Omega, \mathcal{C})$.</p>
+<ol>
+<li>
+<p><em>nonlinearity</em>, or <em>activation function</em> 
+$$
+a : \mathcal{C} \to \mathcal{C}'
+$$ 
+applied domain-pointwise as $(\mathbf{a}(x))(u) = a(x(u))$.</p>
+</li>
+<li>
+<p><em>local pooling operator</em> or <em>coarsening operator</em> 
+$$
+P : \mathcal{X}(\Omega, \mathcal{C}) \to \mathcal{X}(\Omega', \mathcal{C})
+$$ 
+which gives us our notion $\Omega' \prec \Omega$.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The last ingredient is a global pooling layer applied last, compositionally.</p>
+<ol>
+<li>
+<em>$G$-invariant layer</em>, or <em>global pooling layer</em>
+$$
+A : \mathcal{X} (\Omega, \mathcal{C}) \to \mathcal{Y}
+$$ 
+satisfying $A(g.x) = A(x)$ for all $g \in G$ and $x \in \mathcal{X}(\Omega, \mathcal{C})$. </li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad$-Hypothesis-space">
+<a class="anchor" href="#%24%5Cquad%24-Hypothesis-space" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>Hypothesis space</strong></em><a class="anchor-link" href="#%24%5Cquad%24-Hypothesis-space"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These objects can be used to define a class of $G$-invariant functions $f: \mathcal{X}(\Omega, \mathcal{C}) \to \mathcal{Y}$ of the form
+$$
+f = A \circ \mathbf{a}_J \circ B_J \circ P_{J-1} \circ \dots \circ P_1 \circ \mathbf{a}_1 \circ B_1 ,
+$$
+where the blocks are selected so that the output space of each block matches the input space of the next one. Different blocks may exploit different choices of symmetry groups $G$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad$-Discussion">
+<a class="anchor" href="#%24%5Cquad%24-Discussion" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>Discussion</strong></em><a class="anchor-link" href="#%24%5Cquad%24-Discussion"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Shift-invariance arises naturally in vision and pattern recognition. In this case, the desired function $f \in \textsf{H}$, typically implemented as a CNN, inputs an image and outputs the probability of the image to contain an object from a certain class. It is often reasonably assumed that the classification result should not be affected by the position of the object in the image, i.e., the function $f$ must be shift-invariant.</p>
+<p>Multi-layer perceptrons lack this property, a reason why early (1970s) attempts to apply these architectures to pattern recognition problems failed. The development of NN architectures with local weight sharing, as epitomized by CNNs, was among other reasons motivated by the need for shift-invariant object classification.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A prototypical application requiring shift-equivariance is image segmentation, where the output of $f$ is a pixel-wise image mask. This segmentation mask must follow shifts in the input image. In this example, the domains of the input and output are the same, but since the input has three color channels while the output has \emph{one channel per class}, the representations $(\rho, \mathcal{X}(\Omega, \mathcal{C}) )$ and $(\rho', \mathcal{Y} \equiv \mathcal{X}(\Omega, \mathcal{C}'))$ are somewhat different.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When $f$ is implemented as a CNN, it may be written as a composition of $L$ functions, where $L$ is determined by the depth and other hyperparameters:
+$$
+f = f_L \circ f_{L-1} \circ \dots \circ f_2 \circ f_1 .
+$$</p>
+<p>Examining the individual layer functions making up CNN, one finds they are not shift-invariant in general but rather shift-equivariant. The last function applied, namely $f_L$, is typically a ``global-pooling" function that is genuinely shift-invariant, causing $f$ to be shift-invariant, but to focus on this ignores the structure we will leverage for purposes of expressivity and regularity.</p>
 
 </div>
 </div>
