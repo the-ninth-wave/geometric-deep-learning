@@ -132,14 +132,22 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#$1.1$-$\quad$-Algebra">$1.1$ $\quad$ Algebra </a>
+<li class="toc-entry toc-h2"><a href="#1.1-$\quad$-Algebra">1.1 $\quad$ Algebra </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#$\quad$-group-representations">$\quad$ group representations </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Graphs,-categories,-groups">$\quad$ Graphs, categories, groups </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Group-representations">$\quad$ Group representations </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Example:-shifts-of-RGB-images">$\quad$ Example: shifts of RGB images </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Example:-1-hot-encoding">$\quad$ Example: 1-hot encoding </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#$1.2$-$\quad$-Equivariance">$1.2$ $\quad$ Equivariance </a></li>
-<li class="toc-entry toc-h2"><a href="#$1.3$-$\quad$-Equivariance-and-convolution">$1.3$ $\quad$ Equivariance and convolution </a></li>
-<li class="toc-entry toc-h2"><a href="#$1.4$-$\quad$-Tensors">$1.4$ $\quad$ Tensors </a></li>
+<li class="toc-entry toc-h2"><a href="#1.2-$\quad$-Equivariance">1.2 $\quad$ Equivariance </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Example:-permutation-invariance-and-equivariance-in-data">$\quad$ Example: permutation invariance and equivariance in data </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad$-Example:-permutations-and-local-averaging">$\quad$ Example: permutations and local averaging </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#1.3-$\quad$-Equivariance-and-convolution">1.3 $\quad$ Equivariance and convolution </a></li>
+<li class="toc-entry toc-h2"><a href="#1.4-$\quad$-Tensors">1.4 $\quad$ Tensors </a></li>
 <li class="toc-entry toc-h2"><a href="#$1.5$-$\quad$-GDL-blueprint-(with-fixed-input-domain)">$1.5$ $\quad$ GDL blueprint (with fixed input domain) </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#$\quad$-Setup">$\quad$ Setup </a></li>
@@ -161,9 +169,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Modern neural network (NN) design is built on two algorithmic principles: hierarchical feature learning ( concerning the architecture of the NN ), and learning by local gradient-descent driven by backpropagation ( concerning the learning dynamics undergone by the NN ).</p>
-<p>An instance of training data is modeled as an element of some high-dimensional vector space, making a generic learning problem subject to the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>. Fortunately, most tasks of interest are not generic, inheriting regularities from the underlying low-dimensionality and structure of the physical world.</p>
-<p>Exploiting known symmetries of a large system is a useful, classical remedy against the curse of dimensionality, and forms the basis of most physical theories. The notes [BBCV21] construct a blueprint for neural network architecture which incorporates these ``physical" priors, termed <em>geometric priors</em> throughout the notes. Importantly, this blueprint provides a unified perspective of the most successful neural network architectures.</p>
+<p>Modern neural network (NN) design is built on two algorithmic principles: hierarchical feature learning (this concerns the architecture of the NN), and learning by local gradient-descent driven by backpropagation (concerning the learning dynamics undergone by the NN).</p>
+<p>An instance of training data is modeled as an element of some high-dimensional vector space, making a generic learning problem subject to the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>. Most tasks of interest are not generic; the data comes from the physical world, and so it inherits low-dimensional structure and symmetries. Requiring an NN to respect the symmetries of the data upon which it acts amounts to a prior.</p>
+<p>The notes [BBCV21] construct a blueprint for neural network architecture incorporating these priors, termed <em>geometric priors</em> throughout the notes. Importantly, this blueprint provides a unified perspective of the most successful neural network architectures, at least at the level of the building blocks chosen for the network.</p>
 
 </div>
 </div>
@@ -171,9 +179,18 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="$1.1$-$\quad$-Algebra">
-<a class="anchor" href="#%241.1%24-%24%5Cquad%24-Algebra" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.1$ $\quad$ Algebra<a class="anchor-link" href="#%241.1%24-%24%5Cquad%24-Algebra"> </a>
+<h2 id="1.1-$\quad$-Algebra">
+<a class="anchor" href="#1.1-%24%5Cquad%24-Algebra" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1 $\quad$ Algebra<a class="anchor-link" href="#1.1-%24%5Cquad%24-Algebra"> </a>
 </h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad$-Graphs,-categories,-groups">
+<a class="anchor" href="#%24%5Cquad%24-Graphs,-categories,-groups" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Graphs, categories, groups</em><a class="anchor-link" href="#%24%5Cquad%24-Graphs,-categories,-groups"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -199,7 +216,12 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ Consider an arrow $f$ of a directed graph $\mathcal{G} = ( \mathcal{V}, \mathcal{A})$, specifically $f \equiv (a,b) \in \mathcal{A}$, with $a,b \in \mathcal{V}$. The operations $\mathbb{dom}$ and $\mathbb{cod}$ act on the arrows $f \in \mathcal{A}$ via $\mathbb{dom}f = a,\, \mathbb{cod} f = b$, and are called the <em>domain</em> operation and <em>codomain</em> operation,  respectively.</p>
+<p><strong>Def</strong> $\quad$ Consider an arrow $f$ of a directed graph $\mathcal{G} = ( \mathcal{V}, \mathcal{A})$, specifically $f \equiv (a,b) \in \mathcal{A}$, with $a,b \in \mathcal{V}$. The operations $\textsf{dom}$ and $\textsf{cod}$ act on the arrows $f \in \mathcal{A}$ via 
+$$
+\textsf{dom}f = a,\, \textsf{cod} f = b\,,
+$$ 
+and are called the <em>domain</em> operation and <em>codomain</em> operation,  respectively.</p>
+<hr>
 
 </div>
 </div>
@@ -207,15 +229,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<p>$\vdots$</p>
-<p>Given two arrows, $f$ and $g$ in some directed graph, we say that the ordered pair of arrows $(g,f)$ is a <em>composable pair</em> if $\mathbb{dom} g = \mathbb{cod} f$. 
-Going forward, let us express the relations $a = \mathbb{dom} f$ and $b = \mathbb{cod} f$ more concisely via
+<p>Given two arrows, $f$ and $g$ in some directed graph, we say that the ordered pair of arrows $(g,f)$ is a <em>composable pair</em> if $\textsf{dom} g = \textsf{cod} f$. 
+Going forward, let us express the relations $a = \textsf{dom} f$ and $b = \textsf{cod} f$ more concisely via
 $$
 f : a \to b \, \quad \text { or equivalently, } \, \quad a \xrightarrow[\,]{ f} b  
 $$</p>
 <p>The next definition formalizes the behavior of a collection of structure-respecting maps between mathematical objects.</p>
-<p>$\vdots$</p>
 
 </div>
 </div>
@@ -233,7 +252,9 @@ $$
 $$</p>
 </li>
 <li>
-<p>For each composable pair $(g, f)$ of arrows, there is a unique arrow $g \circ f$ called their <em>composite</em>, with $g \circ f : \mathbb{dom} f \to \mathbb{cod} g$, such that the composition operation is associative. Namely, for given objects and arrows in the configuration $a \xrightarrow[\,]{ f} b \xrightarrow[\,]{ g} c \xrightarrow[\,]{ k} d$,
+<p>For each composable pair $(g, f)$ of arrows, there is a unique arrow $g \circ f$ called their <em>composite</em>, with $g \circ f : \textsf{dom} f \to \textsf{cod} g$, such that the composition operation is associative. Namely, for given objects and arrows in the configuration 
+$$a \xrightarrow[\,]{ f} b \xrightarrow[\,]{ g} c \xrightarrow[\,]{ k} d \,,
+$$
 one always has the equality $k \circ (g \circ f) = (k \circ g ) \circ f$.</p>
 </li>
 </ol>
@@ -245,10 +266,9 @@ one always has the equality $k \circ (g \circ f) = (k \circ g ) \circ f$.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\vdots$</p>
 <p>Given a category $\mathcal{C} = (\mathcal{O},\mathcal{A})$, let
 $$
-\mathbb{hom} (b,c) := \{ \, f : f \in \mathcal{A},  \, \mathbb{dom} f = b \in \mathcal{O}, \, \mathbb{cod} f = c \in \mathcal{O} \, \}
+\textsf{hom} (b,c) := \{ \, f : f \in \mathcal{A},  \, \textsf{dom} f = b \in \mathcal{O}, \, \textsf{cod} f = c \in \mathcal{O} \, \}
 $$
 denote the set of arrows from $b$ to $c$. Henceforth, we use the terms <em>morphism</em> and arrow interchangeably.</p>
 
@@ -259,7 +279,7 @@ denote the set of arrows from $b$ to $c$. Henceforth, we use the terms <em>morph
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Groups are collections of symmetries. A <em>group</em> $G$ is a category $\mathcal{C} = (\mathcal{O}, \mathcal{A})$ with $\mathcal{O} = \{ o \}$ ( so that we may identify $G$ with the collection of arrows $\mathcal{A}$ ) such that each arrow has a unique inverse: for $g \in \mathcal{A}$, there is an arrow $h$ such that $g \circ h = h \circ g = \mathbf{1}_o$.</p>
-<p>Each arrow $g \in \mathcal{A}$ thus has $\mathbb{dom} g = \mathbb{cod} g = o$. As remarked, the arrows $g \in \mathcal{A}$ correspond to group elements $g \in G$. The categorical interpretation suggests that the group \emph{acts} on some abstract object $o \in \mathcal{O}$. In the present context, we care how groups act on data, and how this action is represented to a computer.</p>
+<p>Each arrow $g \in \mathcal{A}$ thus has $\textsf{dom} g = \textsf{cod} g = o$. As remarked, the arrows $g \in \mathcal{A}$ correspond to group elements $g \in G$. The categorical interpretation suggests that the group acts on some abstract object $o \in \mathcal{O}$. In the present context, we care how groups act on data, and how this action is represented to a computer.</p>
 
 </div>
 </div>
@@ -267,8 +287,8 @@ denote the set of arrows from $b$ to $c$. Henceforth, we use the terms <em>morph
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="$\quad$-group-representations">
-<a class="anchor" href="#%24%5Cquad%24-group-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>group representations</strong></em><a class="anchor-link" href="#%24%5Cquad%24-group-representations"> </a>
+<h3 id="$\quad$-Group-representations">
+<a class="anchor" href="#%24%5Cquad%24-Group-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Group representations</em><a class="anchor-link" href="#%24%5Cquad%24-Group-representations"> </a>
 </h3>
 </div>
 </div>
@@ -293,7 +313,6 @@ denote the set of arrows from $b$ to $c$. Henceforth, we use the terms <em>morph
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The map $\varphi$ is <em>$\mathbb{R}$-linear</em> if it is compatible with the $\mathbb{R}$-vector space structure on $V$, i.e. additive and homogeneous. Specifically, if for all $v,w \in V$ and all scalars $\lambda \in \mathbb{R}$, one has $g.(v+w) = g.v + g.w$ and $g.(\lambda v) = \lambda g.v$.</p>
-<p>$\vdots$</p>
 
 </div>
 </div>
@@ -312,7 +331,6 @@ An <em>$\mathbb{R}$-linear representation</em> of group $G$ over $\mathbb{R}$-ve
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\vdots$</p>
 <p>The next example illustrates how linear group representations arise naturally when considering group actions on data. As mentioned, we consider input data as members of some vector space $V$, which we may assume to be finite dimensional for any practical discussion. Specifically, we consider some finite, discrete domain $\Omega$, which may also have the structure of an undirected graph.</p>
 
 </div>
@@ -321,8 +339,7 @@ An <em>$\mathbb{R}$-linear representation</em> of group $G$ over $\mathbb{R}$-ve
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A \emph{\B{signal}} over $\Omega$ is a function $x : \Omega \to \mathbb{R}^s$, where $s$ is the number of <em>channels</em>. The vector space $\mathcal{X}(\Omega,\mathbb{R}^s)$ is defined to be the collection of all such signals, for given $\Omega$ and $s$.</p>
-<p>$\vdots$</p>
+<p>A <em>signal</em> over $\Omega$ is a function $x : \Omega \to \mathbb{R}^s$, where $s$ is the number of <em>channels</em>. The vector space $\mathcal{X}(\Omega,\mathbb{R}^s)$ is defined to be the collection of all such signals, for given $\Omega$ and $s$.</p>
 
 </div>
 </div>
@@ -332,7 +349,10 @@ An <em>$\mathbb{R}$-linear representation</em> of group $G$ over $\mathbb{R}$-ve
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <hr>
-<p><em><strong>Example</strong></em> $\quad$  Consider, for some $n \in \mathbb{N}$, a signal domain $\Omega = \mathbb{T}_n^2$, where $\mathbb{T}_n^2$ denotes the two-dimensional discrete torus of side-length $n$, namely $( \mathbb{Z} / n\mathbb{Z} )^2$. This domain has natural graph as well as group structures.</p>
+<h3 id="$\quad$-Example:-shifts-of-RGB-images">
+<a class="anchor" href="#%24%5Cquad%24-Example:-shifts-of-RGB-images" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Example: shifts of RGB images</em><a class="anchor-link" href="#%24%5Cquad%24-Example:-shifts-of-RGB-images"> </a>
+</h3>
+<p>$\quad$  Consider, for some $n \in \mathbb{N}$, a signal domain $\Omega = \mathbb{T}_n^2$, where $\mathbb{T}_n^2$ denotes the two-dimensional discrete torus of side-length $n$, namely $( \mathbb{Z} / n\mathbb{Z} )^2$. This domain has natural graph as well as group structures.</p>
 <p>If we imagine each vertex of $\Omega$ to be a pixel, we can express an $n \times n$-pixel color (RGB) image as a signal $x : \Omega \to \mathbb{R}^3$, with the first, second and third coordinates of $\mathbb{R}^3$ reporting R, G and B values of a given pixel.</p>
 
 </div>
@@ -372,9 +392,7 @@ where the bold $(\mathbf{g}.)$ is used to distinguish the action on signals from
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\vdots$</p>
 <p>To summarize: any $G$-action on the domain $\Omega$ induces an $\mathbb{R}$-linear representation of $G$ over the vector space of signals on $\Omega$.</p>
-<p>$\vdots$</p>
 
 </div>
 </div>
@@ -384,7 +402,10 @@ where the bold $(\mathbf{g}.)$ is used to distinguish the action on signals from
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <hr>
-<p><em><strong>Example</strong></em> $\quad$  It seems like standard practice to encode the collection of classes associated to some ML classification problem as an orthonormal basis. These are given ( to the computer ) in the usual coordinate basis 
+<h3 id="$\quad$-Example:-1-hot-encoding">
+<a class="anchor" href="#%24%5Cquad%24-Example:-1-hot-encoding" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Example: 1-hot encoding</em><a class="anchor-link" href="#%24%5Cquad%24-Example:-1-hot-encoding"> </a>
+</h3>
+<p>$\quad$  It seems like standard practice to encode the collection of classes associated to some ML classification problem as an orthonormal basis. These are given ( to the computer ) in the usual coordinate basis 
 $$
 e_1 \equiv (1, 0, \dots, 0),\, e_2 \equiv (0,1,\dots, 0),\, \dots, \, e_n \equiv (0,\dots, 0,1) \,,
 $$
@@ -399,9 +420,7 @@ hence the nomenclature <em>one-hot</em>. In the preceding example, if one consid
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\vdots$</p>
 <p>The following definition reformulates the notion of a signal over the nodes of some graph as <em>node features</em>.</p>
-<p>$\vdots$</p>
 
 </div>
 </div>
@@ -410,7 +429,7 @@ hence the nomenclature <em>one-hot</em>. In the preceding example, if one consid
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ We say a graph $\mathcal{G} = ( \mathcal{V}, \mathcal{E} )$ is equipped with \emph{\B{node features}} if for each $v  \in \mathcal{V}$, one has the additional data of an $s$-dimensional vector $x(v) \in \mathbb{R}^s$, called the <em>features</em> of node $v$.</p>
+<p><strong>Def</strong> $\quad$ We say a graph $\mathcal{G} = ( \mathcal{V}, \mathcal{E} )$ is equipped with <em>node features</em> if for each $v  \in \mathcal{V}$, one has the additional data of an $s$-dimensional vector $x(v) \in \mathbb{R}^s$, called the <em>features</em> of node $v$.</p>
 <hr>
 
 </div>
@@ -419,7 +438,6 @@ hence the nomenclature <em>one-hot</em>. In the preceding example, if one consid
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\vdots$</p>
 <p>The term 'features' is compatible with the usage in ML, supposing that our input signal has domain some graph $\mathcal{G}$. In this case, we can think of a neural network as a sequence of node-layers built ``on top of" the graph $\mathcal{G}$. An input signal endows the first node layer of a NN with features, and the weights of the neural network propagate these through to node features on the nodes of the rest of the network. The features on the last layer of the network can be read off as the output of the NN function.</p>
 
 </div>
@@ -428,8 +446,8 @@ hence the nomenclature <em>one-hot</em>. In the preceding example, if one consid
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="$1.2$-$\quad$-Equivariance">
-<a class="anchor" href="#%241.2%24-%24%5Cquad%24-Equivariance" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.2$ $\quad$ Equivariance<a class="anchor-link" href="#%241.2%24-%24%5Cquad%24-Equivariance"> </a>
+<h2 id="1.2-$\quad$-Equivariance">
+<a class="anchor" href="#1.2-%24%5Cquad%24-Equivariance" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2 $\quad$ Equivariance<a class="anchor-link" href="#1.2-%24%5Cquad%24-Equivariance"> </a>
 </h2>
 </div>
 </div>
@@ -469,7 +487,10 @@ where $\mathcal{Y}$ is some unspecified (context-specific) space of output signa
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <hr>
-<p><strong>Example</strong> $\quad$ Suppose we are given either a set $\mathcal{V}$, or more generally a graph $\mathcal{G} = ( \mathcal{V}, \mathcal{E} )$, with $\# \mathcal{V} = n$ in either case. As discussed, a signal over $\mathcal{V} = \{ v_1, \dots, v_n \}$ can be thought of as a collection of node features $\{ \, x(v_1), \dots, x(v_n) \, \}$, with $x(v_j) \in \mathbb{R}^s$. We stack the node features as rows of the $n \times s$ <em>design matrix</em></p>
+<h3 id="$\quad$-Example:-permutation-invariance-and-equivariance-in-data">
+<a class="anchor" href="#%24%5Cquad%24-Example:-permutation-invariance-and-equivariance-in-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Example: permutation invariance and equivariance in data</em><a class="anchor-link" href="#%24%5Cquad%24-Example:-permutation-invariance-and-equivariance-in-data"> </a>
+</h3>
+<p>$\quad$ Suppose we are given either a set $\mathcal{V}$, or more generally a graph $\mathcal{G} = ( \mathcal{V}, \mathcal{E} )$, with $\# \mathcal{V} = n$ in either case. As discussed, a signal over $\mathcal{V} = \{ v_1, \dots, v_n \}$ can be thought of as a collection of node features $\{ \, x(v_1), \dots, x(v_n) \, \}$, with $x(v_j) \in \mathbb{R}^s$. We stack the node features as rows of the $n \times s$ <em>design matrix</em></p>
 $$
 \mathbf{X} = 
 \left[ 
@@ -581,7 +602,10 @@ which is a multiset ( indicated by double-brackets ) for the simple reason that 
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <hr>
-<p><strong>Example</strong> $\quad$ The node-wise linear transformation described in the previous example can be thought of as operating on `$0$-hop neighborhoods' of nodes. We generalize this with an example of a function operating on $1$-hop neighborhoods. Instead of a fixed map between feature spaces $\theta : \mathbb{R}^s \to \mathbb{R}^{s'}$, cloned to a pointwise map $\Theta$, we instead specify a \emph{local} function 
+<h3 id="$\quad$-Example:-permutations-and-local-averaging">
+<a class="anchor" href="#%24%5Cquad%24-Example:-permutations-and-local-averaging" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Example: permutations and local averaging</em><a class="anchor-link" href="#%24%5Cquad%24-Example:-permutations-and-local-averaging"> </a>
+</h3>
+<p>$\quad$ The node-wise linear transformation described in the previous example can be thought of as operating on `$0$-hop neighborhoods' of nodes. We generalize this with an example of a function operating on $1$-hop neighborhoods. Instead of a fixed map between feature spaces $\theta : \mathbb{R}^s \to \mathbb{R}^{s'}$, cloned to a pointwise map $\Theta$, we instead specify a \emph{local} function 
 $$
 \varphi \equiv \varphi( \, x_u, \, \mathbf{X}_{\mathcal{N}(u)} \, )
 $$</p>
@@ -667,8 +691,8 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="$1.3$-$\quad$-Equivariance-and-convolution">
-<a class="anchor" href="#%241.3%24-%24%5Cquad%24-Equivariance-and-convolution" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.3$ $\quad$ Equivariance and convolution<a class="anchor-link" href="#%241.3%24-%24%5Cquad%24-Equivariance-and-convolution"> </a>
+<h2 id="1.3-$\quad$-Equivariance-and-convolution">
+<a class="anchor" href="#1.3-%24%5Cquad%24-Equivariance-and-convolution" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.3 $\quad$ Equivariance and convolution<a class="anchor-link" href="#1.3-%24%5Cquad%24-Equivariance-and-convolution"> </a>
 </h2>
 </div>
 </div>
@@ -676,8 +700,8 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="$1.4$-$\quad$-Tensors">
-<a class="anchor" href="#%241.4%24-%24%5Cquad%24-Tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.4$ $\quad$ Tensors<a class="anchor-link" href="#%241.4%24-%24%5Cquad%24-Tensors"> </a>
+<h2 id="1.4-$\quad$-Tensors">
+<a class="anchor" href="#1.4-%24%5Cquad%24-Tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.4 $\quad$ Tensors<a class="anchor-link" href="#1.4-%24%5Cquad%24-Tensors"> </a>
 </h2>
 </div>
 </div>
@@ -685,14 +709,11 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Consider a pair of orthonormal bases, the 'original basis' $(e_1, \dots, e_n)$ and the 'new basis' $(\tilde{e}_1, \dots, \tilde{e}_n )$. A signal $x \in \mathbb{R}^n$ can be expressed in either coordinate system 
-$$
-x = e_1 x^1 + \dots + e_nx^n\, \equiv \,e_jx^j 
-$$
-$$
-x = \tilde{e}_1 \tilde{x}^1 + \dots + \tilde{e}_n \tilde{x}^n\, \equiv\, \tilde{e}_j  \tilde{x}^j ,
-$$
-where we have used the Einstein summation convention. We adopt this notation going forward.</p>
+<p>Consider a pair of orthonormal bases, the 'original basis' $(e_1, \dots, e_n)$ and the 'new basis' $(\tilde{e}_1, \dots, \tilde{e}_n )$. A signal $x \in \mathbb{R}^n$ can be expressed in either coordinate system</p>
+\begin{align}
+x &amp;= e_1 x^1 + \dots + e_nx^n\, \equiv \,e_jx^j \\
+x &amp;= \tilde{e}_1 \tilde{x}^1 + \dots + \tilde{e}_n \tilde{x}^n\, \equiv\, \tilde{e}_j  \tilde{x}^j ,
+\end{align}<p>where we have used the Einstein summation convention. We adopt this notation going forward.</p>
 
 </div>
 </div>
@@ -715,14 +736,11 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We assume that the underlying vector space is $\mathbb{R}^n$, and moreover, we equip it with the usual inner product ( in order to make sense of orthogonality ), and note that the Riesz representation theorem allows us to assign a given orthonormal basis $(e_j)$ of vector space $V$ to a canonical dual basis $(e^j)$ on the dual vector space $V^*$. Elements of $V^*$ are called dual vectors, or covectors. This canonical dual basis is given by
-$$
-e^j = \langle e_j, \cdot \rangle 
-$$
-$$
-\equiv e_i  \, \delta^{ij} 
-$$
-and thus,
+<p>We assume that the underlying vector space is $\mathbb{R}^n$, and moreover, we equip it with the usual inner product ( in order to make sense of orthogonality ), and note that the Riesz representation theorem allows us to assign a given orthonormal basis $(e_j)$ of vector space $V$ to a canonical dual basis $(e^j)$ on the dual vector space $V^*$. Elements of $V^*$ are called dual vectors, or covectors. This canonical dual basis is given by</p>
+\begin{align}
+e^j &amp;= \langle e_j, \cdot \rangle \\
+&amp;\equiv e_i  \, \delta^{ij} 
+\end{align}<p>and thus,
 $$
 e_j = \delta_{ij} \, e^i. 
 $$</p>
@@ -733,20 +751,13 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The dual basis can be thought of as a `coordinate selector,' acting on a vector $x \in V$ by 
-$$
-e^j(x) = e^j \, e_k \, x^k 
-$$
-$$
-=x^k \, e^j \,e_k  
-$$
-$$
-= \delta_k^j  \, x^k
-$$
-$$
-= x^j.
-$$</p>
-
+<p>The dual basis can be thought of as a `coordinate selector,' acting on a vector $x \in V$ by</p>
+\begin{align}
+e^j(x) &amp;= e^j \, e_k \, x^k \\
+&amp;=x^k \, e^j \,e_k  \\
+&amp;= \delta_k^j  \, x^k \\
+&amp;= x^j.
+\end{align}
 </div>
 </div>
 </div>
@@ -769,14 +780,13 @@ in terms of the corresponding old, via the matrices $\mathbf{S}$ and $\mathbf{T}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>One has
-$$
-\tilde{\delta}_{ij} \equiv \tilde{e}_i\, \tilde{e}_j = e_{\ell}\, \mathbf{S}^\ell_i  \, e_k  \,\mathbf{S}^k_j 
-$$
-$$
-=  \mathbf{S}^\ell_i \, \delta_{\ell k} \, \mathbf{S}^k_j 
-$$</p>
-
+<p>One has</p>
+\begin{align}
+\tilde{\delta}_{ij} 
+&amp;\equiv \tilde{e}_i\, \tilde{e}_j \\
+&amp;= e_{\ell}\, \mathbf{S}^\ell_i  \, e_k  \,\mathbf{S}^k_j \\
+&amp;=  \mathbf{S}^\ell_i \, \delta_{\ell k} \, \mathbf{S}^k_j 
+\end{align}
 </div>
 </div>
 </div>
@@ -794,14 +804,14 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Given a change of basis $(e_j) \mapsto (\tilde{e}_j)$, the induced transformation $(e^j) \mapsto (\tilde{e}^j)$ is contravariant, which is consistent with the transformations described above:
-$$
-\tilde{e}^j  \equiv \tilde{e}_i \, \delta^{ij} \, \quad \,\\\
-\quad\quad\quad= e_\ell \, \mathbf{S}_i^\ell \, \mathbf{T}_\ell^i \, \delta^{\ell k} \, \mathbf{T}_k^j \\
-\,\,\,\,\,\,= e_\ell \,  \delta^{\ell k } \, \mathbf{T}_k^{j} \\
-=  \mathbf{T}_k^j e^k\,
-$$</p>
-
+<p>Given a change of basis $(e_j) \mapsto (\tilde{e}_j)$, the induced transformation $(e^j) \mapsto (\tilde{e}^j)$ is contravariant, which is consistent with the transformations described above:</p>
+\begin{align}
+\tilde{e}^j  
+&amp;\equiv \tilde{e}_i \, \delta^{ij} \\
+&amp;= e_\ell \, \mathbf{S}_i^\ell \, \mathbf{T}_\ell^i \, \delta^{\ell k} \, \mathbf{T}_k^j \\
+&amp;= e_\ell \,  \delta^{\ell k } \, \mathbf{T}_k^{j} \\
+&amp;=  \mathbf{T}_k^j e^k\,
+\end{align}
 </div>
 </div>
 </div>
@@ -856,7 +866,7 @@ $$<p>Let $\mathcal{T}(r,s)$ denote the vector space of type-$(r,s)$ tensors over
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="$\quad$-Setup">
-<a class="anchor" href="#%24%5Cquad%24-Setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>Setup</strong></em><a class="anchor-link" href="#%24%5Cquad%24-Setup"> </a>
+<a class="anchor" href="#%24%5Cquad%24-Setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Setup</em><a class="anchor-link" href="#%24%5Cquad%24-Setup"> </a>
 </h3>
 </div>
 </div>
@@ -901,9 +911,9 @@ Note that $\mathbf{X}$ is the so-called design matrix previously introduced.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\vdots$</p>
+<blockquote>
 <p>Let $g \in G$. In the basis $e_j \otimes z_c$, we can then identify $\rho(g)$ with a tensor... <em>(say more)</em></p>
-<p>$\vdots$</p>
+</blockquote>
 
 </div>
 </div>
@@ -912,7 +922,7 @@ Note that $\mathbf{X}$ is the so-called design matrix previously introduced.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="$\quad$-coarsening-operator">
-<a class="anchor" href="#%24%5Cquad%24-coarsening-operator" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>coarsening operator</strong></em><a class="anchor-link" href="#%24%5Cquad%24-coarsening-operator"> </a>
+<a class="anchor" href="#%24%5Cquad%24-coarsening-operator" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>coarsening operator</em><a class="anchor-link" href="#%24%5Cquad%24-coarsening-operator"> </a>
 </h3>
 </div>
 </div>
@@ -929,7 +939,7 @@ Note that $\mathbf{X}$ is the so-called design matrix previously introduced.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="$\quad$-GDL-block">
-<a class="anchor" href="#%24%5Cquad%24-GDL-block" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>GDL block</strong></em><a class="anchor-link" href="#%24%5Cquad%24-GDL-block"> </a>
+<a class="anchor" href="#%24%5Cquad%24-GDL-block" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>GDL block</em><a class="anchor-link" href="#%24%5Cquad%24-GDL-block"> </a>
 </h3>
 </div>
 </div>
@@ -984,7 +994,7 @@ satisfying $A(g.x) = A(x)$ for all $g \in G$ and $x \in \mathcal{X}(\Omega, \mat
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="$\quad$-Hypothesis-space">
-<a class="anchor" href="#%24%5Cquad%24-Hypothesis-space" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>Hypothesis space</strong></em><a class="anchor-link" href="#%24%5Cquad%24-Hypothesis-space"> </a>
+<a class="anchor" href="#%24%5Cquad%24-Hypothesis-space" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Hypothesis space</em><a class="anchor-link" href="#%24%5Cquad%24-Hypothesis-space"> </a>
 </h3>
 </div>
 </div>
@@ -1005,7 +1015,7 @@ where the blocks are selected so that the output space of each block matches the
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="$\quad$-Discussion">
-<a class="anchor" href="#%24%5Cquad%24-Discussion" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em><strong>Discussion</strong></em><a class="anchor-link" href="#%24%5Cquad%24-Discussion"> </a>
+<a class="anchor" href="#%24%5Cquad%24-Discussion" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad$ <em>Discussion</em><a class="anchor-link" href="#%24%5Cquad%24-Discussion"> </a>
 </h3>
 </div>
 </div>
