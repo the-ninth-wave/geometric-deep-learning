@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      27 min read
+      35 min read
     
 </span></p>
 
@@ -148,7 +148,9 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#1.3-$\quad$-Equivariance-in-neural-networks">1.3 $\quad$ Equivariance in neural networks </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#$\quad\quad$-_Neural-networks_">$\quad\quad$ _Neural networks_ </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad\quad$-_Feed-forward-neural-networks_">$\quad\quad$ _Feed-forward neural networks_ </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad\quad$-_Equivariant-neural-networks_">$\quad\quad$ _Equivariant neural networks_ </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad\quad$-_Convolution_-">$\quad\quad$ _Convolution_  </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#1.4-$\quad$-Tensors">1.4 $\quad$ Tensors </a></li>
@@ -758,8 +760,8 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="$\quad\quad$-_Neural-networks_">
-<a class="anchor" href="#%24%5Cquad%5Cquad%24-_Neural-networks_" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad\quad$ <font color="teal">_Neural networks_</font><a class="anchor-link" href="#%24%5Cquad%5Cquad%24-_Neural-networks_"> </a>
+<h3 id="$\quad\quad$-_Feed-forward-neural-networks_">
+<a class="anchor" href="#%24%5Cquad%5Cquad%24-_Feed-forward-neural-networks_" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad\quad$ <font color="teal">_Feed-forward neural networks_</font><a class="anchor-link" href="#%24%5Cquad%5Cquad%24-_Feed-forward-neural-networks_"> </a>
 </h3>
 </div>
 </div>
@@ -800,9 +802,9 @@ is a directed graph $(\textsf{N},\textsf{S})$, called the <font color="purple">_
 <li>
 <p>For all layers but the input layer, and given an input vector $x$, we also denote the <font color="purple">_activation at layer $\ell$_</font> and the <font color="purple">_activation at neuron $\mathfrak{n}_j^\ell$_</font> by $a^{\ell}$ and by $a_j^\ell$ respectively. The activations are defined inductively by
 $$
-a_j^\ell = a \left( \left( \sum_{i} w_{ij} a_i^{\ell-1} \right) + b_j^{\ell}\right) , 
+a_j^\ell = a \left( \left( \sum_{i} w_{ij}^\ell a_i^{\ell-1} \right) + b_j^{\ell}\right) , 
 $$
-with the activation at the $0$th layer, $a^0$ is defined as some input signal $x$, and where the biases at the input layer are always set to $0$.</p>
+with the activation at the $0$th layer, $a^0$ is defined as some input signal $x$, without any transformation applied to it.</p>
 </li>
 </ul>
 <hr>
@@ -814,7 +816,229 @@ with the activation at the $0$th layer, $a^0$ is defined as some input signal $x
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The parameter $L$, controlling the number of layers, is the <font color="purple">_depth_</font> of the network, while the <font color="purple">_width of layer $\ell$_</font> is the number of neurons in the layer.</p>
-<p>We will often abuse notation slightly, and write $\textsf{N}$ in place of the quintuple $(\textsf{N}, \textsf{S}, b, w, a )$. Each feed-forward neural network $\textsf{N}$ of depth $L$ can be associated to a function $F_{\textsf{N}} \equiv a^L(\textsf{N})$</p>
+<p>We will often abuse notation slightly, and write $\textsf{N}$ in place of the quintuple $(\textsf{N}, \textsf{S}, b, w, a )$. Each feed-forward neural network $\textsf{N}$ of depth $L$ is associated to a function 
+
+$$x \mapsto F_{\textsf{N}}(x) \equiv a^L(\textsf{N},x)$$
+</p>
+<p>The function $F_{\textsf{N}}$ can be expressed as the the alternating composition of nonlinearities and transformations between layers</p>
+$$
+\mathbf{a} \circ B_L \circ \mathbf{a} \circ B_{L-1} \circ \mathbf{a} \dots \circ  \mathbf{a} \circ B_1,
+$$<p>where $\mathbf{a}$ denotes the nonlinearity $a$ applied entrywise to its vector argument.</p>
+<p>In the present subsection, it is convenient to consider each layer of neurons as embedded in $\mathbb{N}$ through some enumeration. Signals in the input layer are thus compactly supported functions $x : \mathbb{N} \to \mathcal{C}$, where $\mathcal{C}$ is the input channel vector space.</p>
+<p>As signal $x$ is propagated forward in the network, its codomain may change to a different channel vector space, so that in general,</p>
+$$
+B_\ell : \mathcal{X}_c(\mathbb{N}, \mathcal{C}_{\ell-1} ) \to \mathcal{X}_c (\mathbb{N}, \mathcal{C}_\ell ), \quad z \mapsto w^\ell z + b^\ell
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We may thus express $F_{\textsf{N}}$ as</p>
+$$ \mathcal{X}_c( \mathbb{N}, \mathcal{C} ) \xrightarrow[\,]{ B_1} \mathcal{X}_c( \mathbb{N}, \mathcal{C}_1 )  \xrightarrow[\,]{ \mathbf{a}} \mathcal{X}_c( \mathbb{N}, \mathcal{C}_1 )  \xrightarrow[\,]{ B_2} \mathcal{X}_c(\mathbb{N}, \mathcal{C}_2) \xrightarrow[\,]{ \mathbf{a} }  \, \dots \, \xrightarrow[\,]{ B_L} \mathcal{X}_c(\mathbb{N}, \mathcal{C}_L) \xrightarrow[\,]{ \mathbf{a} } \mathcal{X}_c(\mathbb{N}, \mathcal{C}_L)
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This view obscures the width of each layer, as well as the shape of the signal as it propagates through the layers. Nonetheless, it suffices to discuss equivariance in the context of such functions. Henceforth, we use the term neural network to indicate a feed forward neural network.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad\quad$-_Equivariant-neural-networks_">
+<a class="anchor" href="#%24%5Cquad%5Cquad%24-_Equivariant-neural-networks_" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad\quad$ <font color="teal">_Equivariant neural networks_</font><a class="anchor-link" href="#%24%5Cquad%5Cquad%24-_Equivariant-neural-networks_"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the present context, we suppose there is a group $G$ acting on each of the signal domains.</p>
+<p>As discussed, the signal domains have been obscured by embedding each domain into $\mathbb{N}$. We should keep in mind that these signal domains are changing, a priori, with each new layer. As such, the group $G$ may act differently on the signal domain at each layer, leading to different representations of $G$, which we wish to distinguish in our notation.</p>
+<p>For $\ell = 0, \dots, L$, let $\rho^\ell$ denote the representation of $G$ at the $\ell$th layer, so that for each $g \in G$, $\rho_g^\ell$ is an invertible linear map,</p>
+$$
+\rho_g^\ell : \mathcal{X}_c( \mathbb{N} , \mathcal{C}_\ell) \to  \mathcal{X}_c( \mathbb{N} , \mathcal{C}_\ell).
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Def</strong> $\quad$ Let $\textsf{N}$ be a feed-forward neural network of depth $L$. Let $G$ be a group acting on the signal domain of each layer of $\mathbb{N}$. The associated representation of this action on signals, at layer $\ell$, is denoted $\rho^\ell$ as above. The network $\textsf{N}$ is said to be <em><font color="purple">$G$-equivariant</font></em> if each $B_\ell$ is $G$-equivariant, in the sense that for all $g \in G$, and all appropriately supported $z \in \mathcal{X}_c(\mathbb{N}, \mathcal{C}_{\ell-1})$, one has</p>
+$$
+\rho_g^{\ell} B_\ell (z) = B_\ell (\rho_g^{\ell-1}z ) 
+$$<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The main result of <a href="https://arxiv.org/abs/1802.03690">KT 18</a> is a classification of equivariant neural networks: they show each $B_\ell$ corresponds to a "generalized" convolutional layer, which we now introduce.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad\quad$-_Convolution_-">
+<a class="anchor" href="#%24%5Cquad%5Cquad%24-_Convolution_-" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad\quad$ <font color="teal">_Convolution_ </font><a class="anchor-link" href="#%24%5Cquad%5Cquad%24-_Convolution_-"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>According to the usual analytic definition, given $\varphi, \theta : \mathbb{R} \to \mathbb{R}$ sufficiently nice, their <font color="purple">_convolution_</font> $\varphi \star \theta$ is defined by
+$$
+( \varphi \star \theta ) (u) = \int_{\mathbb{R}} \varphi(u-v) \theta (v) \, \textrm{d} v
+$$
+This operation is commutative, and we can interchangeably think of $\varphi$ and $\theta$ as signal and filter.</p>
+<p>This definition can be generalized to (say, $\mathbb{R}$-valued) functions/signals over other domains, in particular compact groups, which admit unique Haar probability measures.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Def</strong>  $\quad$ Letting $\mu_G$ denote the unique Haar probability measure of compact group $G$, we define the <font color="purple">_convolution_</font> of two functions $\varphi, \theta : G \to \mathbb{R}$ by
+$$
+(\varphi \star \theta) (g) = \int_G \varphi(gh^{-1}) \theta(h) \, \textrm{d}\mu_G(h)
+$$</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have already seen an instance in which the signal domain is a compact group $-$ when modeling images, RGB or grayscale, we took the domain to be the discrete two-dimensional torus $\mathbb{T}_n^2$.</p>
+<p>The domains of the signals that propagate through the network aren't necessarily groups. In general, we require these domains to be <font color="purple">_homogeneous spaces_</font>, which means they are equipped with a <font color="purple">_transitive_</font> $G$-action. Going forward, we also assume that $G$ is some finite group, which is reasonable if $G$ is to be represented to a computer.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $G$ be a compact group acting on homogeneous space $\Omega$. Let us fix a distinguished "basepoint" $\omega_* \in \Omega$.</p>
+<p>The basepoint allows us to index the space $\Omega$ using $G$, through the transitivity of its action. Any $\omega \in \Omega$ can be expressed as $g.\omega_\circ$ for some $g \in G$. Let us write
+$$
+[g]_{\Omega} := g.\omega_\circ
+$$
+to suppress the dependence of this indexing on the basepoint.</p>
+<p>Observe that group elements of $G$ which fix $\omega_0$ form a subgroup, the <font color="purple">_stabilizer_</font> of $\omega_\circ$, denoted $H$. The <font color="purple">_(left) quotient space_</font> $G / H$ is the collection of <font color="purple">left coset</font>s</p>
+$$
+gH := \{ gh : h \in H \},
+$$<p>and through the map $[ \cdot ]_\Omega$, this quotient space can be identified with the domain $\Omega$ itself.</p>
+<p>For each coset $gH$, we may pick a <font color="purple">_coset representative_</font> $g' \in gH$. For $\omega \in \Omega$, let $\bar{\omega}$ denote a coset representative of the coset of group elements which map $\omega_\circ$ to $\omega$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Def</strong> $\quad$ Consider a function $\varphi : G \to \mathbb{R}$, and suppose that $G$ acts on some homogeneous space $\Omega$, with stabilizer $H$, so that $\Omega \cong G/H$. The <font color="purple">_projection_</font> of $\varphi$ to $\Omega$ is the function $\varphi_\downarrow : \Omega \to \mathbb{R}$ given by averaging $\varphi$ over the coset corresponding to a given $\omega \in \Omega$:
+$$
+\varphi_\downarrow (\omega) := \frac{1}{\# H} \sum_{g \in \bar{\omega}H} f(g).
+$$
+Conversely, given $\varphi : \Omega \to \mathbb{R}$, the <font color="purple">_lift_</font> of $\varphi$ to $G$ is the function $\varphi^\uparrow: G \to \mathbb{R}$ given by
+$$
+\varphi^\uparrow (g) := \varphi([g]_\Omega).
+$$</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The notion of a lift allows us to generalize convolution to pairs of functions whose domains are (perhaps distinct) quotient spaces of the group $G$. Let $\Omega$ and $\Omega'$ be such quotient spaces, and consider $\varphi: \Omega \to \mathbb{R}$ and $\theta : \Omega \to \mathbb{R}$; their <font color="purple">_convolution_</font> $\varphi \star \theta : G \to \mathbb{R}$ is defined by
+$$
+(\varphi \star \theta) (g) = \sum_{h \in G} \varphi^\uparrow(gh^{-1}) \theta^\uparrow(h)
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The definition of a lift generalizes to functions with domain some right quotient space $H \backslash G$, consisting of right cosets 
+$$
+Hg := \{ hg : h \in H \},
+$$
+as well as to functions defined on the double quotient space $H \backslash G / K$, for some subgroups $H, K \subset G$, whose elements are the double cosets
+$$
+HgK := \{ hgk : h \in H, k \in K \}.
+$$</p>
+<p>Thus, the definition of convolution can be extended to pairs of functions whose domains are any type of quotient space associated to $G$, and the two functions need not have the same type of domain.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Def</strong> $\quad$ Let $G$ be a finite group, and consider two, perhaps distinct, associated homogeneous space $\Omega$ and $\Omega'$. Consider functions $\varphi : \Omega \to \mathbb{R}$ and $\theta : \Omega' \to \mathbb{R}$. The <font color="purple">_generalized convolution_</font> $\varphi \star \theta : G \to \mathbb{R}$ is 
+$$
+(\varphi \star \theta) (g) = \sum_{h \in G} \varphi^\uparrow(gh^{-1}) \theta^\uparrow(h). 
+$$</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we have some understanding of the structural requirements we make of signal domains, we are more specific about the output $F_{\textsf{N}}$ of some neural network $\textsf{N}$; it can be expressed as</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$ \mathcal{X}( \Omega, \mathcal{C} ) \xrightarrow[\,]{ B_1} \mathcal{X}( \Omega_1, \mathcal{C}_1 )  \xrightarrow[\,]{ \mathbf{a}} \mathcal{X}( \Omega_1, \mathcal{C}_1 )  \xrightarrow[\,]{ B_2} \mathcal{X}(\Omega_2, \mathcal{C}_2) \xrightarrow[\,]{ \mathbf{a} }  \, \dots \, \xrightarrow[\,]{ B_L} \mathcal{X}(\Omega_L, \mathcal{C}_L) \xrightarrow[\,]{ \mathbf{a} } \mathcal{X}(\Omega_L, \mathcal{C}_L),
+$$<p>where $\Omega \equiv \Omega_0, \Omega_1, \dots, \Omega_L$ is a sequence of homogeneous spaces associated to $G$. In particular, we may identify each $\Omega_\ell$ with its stabilizer subgroup $H_\ell$ in $G$, so that $\Omega_\ell \cong G / H_\ell$.</p>
+<p>Let us remark that each affine block $B_\ell$ consists of a linear transformation $T_\ell : \mathcal{X}(\Omega_{\ell-1}, \mathcal{C}_{\ell-1}) \to \mathcal{X}(\Omega_\ell, \mathcal{C}_\ell)$, followed by addition of the bias vector $b^\ell$. Previously, $T_\ell$ appeared as the matrix $w^\ell \equiv [ w_{ij}^\ell ]_{i,j}$, but it may be most natural to reshape this into a tensor depending on the context.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Def</strong> $\quad$ Let $\textsf{N}$ be a feed-forward neural network of depth $L$, whose layers $\Omega \equiv \Omega_0, \Omega_1, \dots, \Omega_L$ are homogeneous spaces associated to finite group $G$, with each $\Omega_\ell$ in correspondence with its stabilizer in $G$, denoted $H_\ell$. The affine blocks of $\textsf{N}$ are, as usual, denoted $B_\ell$ for $\ell \in \{1, \dots, L\}$, and the linear transformation within each block is denoted $T_\ell$. We call $\textsf{N}$ a <font color="purple">_$G$-convolutional neural network_ ($G$-CNN)</font> if each $T_\ell$ may be expressed as
+$$
+T_\ell (z) = z \star \theta_\ell,
+$$
+for some <font color="purple">_filter_</font> $$
+\theta_\ell \in \mathcal{X} ( H_{\ell-1} \backslash G / H_\ell , \mathbb{R} )
+$$</p>
+<hr>
 
 </div>
 </div>
@@ -847,7 +1071,7 @@ x &amp;= \tilde{e}_1 \tilde{x}^1 + \dots + \tilde{e}_n \tilde{x}^n\, \equiv\, \t
 $$
 \tilde{e}_j = e_i \mathbf{S}^i_j \, ,
 $$
-where $\mathbf{S}$ is called the <em>direct transformation matrix</em> from original basis to the new. We let $\mathbf{T}$ denote $\mathbf{S}^{-1}$, and observe that the coordinate coefficients transform \emph{contravariantly}:
+where $\mathbf{S}$ is called the <em>direct transformation matrix</em> from original basis to the new. We let $\mathbf{T}$ denote $\mathbf{S}^{-1}$, and observe that the coordinate coefficients transform <em>contravariantly</em>:
 $$
 \tilde{x}^j =  \mathbf{T}_i^j x^i\,.
 $$</p>
