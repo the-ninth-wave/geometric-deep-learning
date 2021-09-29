@@ -800,7 +800,8 @@ is a directed graph $(\textsf{N},\textsf{S})$, called the <em><font color="purpl
 <p>Each synapse $\mathfrak{s}_{ij}^{\ell}$ is equipped with a <em><font color="purple">weight</font></em> parameter, $w_{ij}^{\ell}$. The collection of weights associated to neurons in layer $\ell$ is denoted $w^\ell$, and the collection of all weights across all layers, $w$.</p>
 </li>
 <li>
-<p>For all layers but the input layer, and given an input vector $x$, we also denote the <em><font color="purple">activation at layer $\ell$</font></em> and the _<font color="purple">activation at neuron $\mathfrak{n}_j^\ell$</font>_ by $a^{\ell}$ and by $a_j^\ell$ respectively. The activations are defined inductively by
+<p>For all layers but the input layer, and given an input vector $x$, we also denote the <em><font color="purple">activation at layer $\ell$</font></em> and the 
+_<font color="purple">activation at neuron $\mathfrak{n}_j^\ell$</font>_ by $a^{\ell}$ and by $a_j^\ell$ respectively. The activations are defined inductively by
 $$
 a_j^\ell = a \left( \left( \sum_{i} w_{ij}^\ell a_i^{\ell-1} \right) + b_j^{\ell}\right) , 
 $$
@@ -1039,6 +1040,32 @@ for some <em><font color="purple">filter</font></em> $$
 \theta_\ell \in \mathcal{X} ( H_{\ell-1} \backslash G / H_\ell , \mathbb{R} )
 $$</p>
 <hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The relevance of $G$-CNN's to equivariance in neural networks is encapsulated in the following theorem.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Theorem</strong> (<a href="https://arxiv.org/abs/1802.03690">KT 18</a>, Theorem 1) $\quad$ Let $G$ be a compact group with transitive action on each layer of the feed-forward neural network $\textsf{N}$. Then $\textsf{N}$ is $G$-equivariant, in the sense described <a href="https://colab.research.google.com/drive/13S7RUk6kP5SX8xUycbvJRm3rufkcTisN#scrollTo=ME1hkruixTRy&amp;line=1&amp;uniqifier=1">above</a>, if and only if it is a $G$-CNN.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus, if we feel that $G$-equivariance constitutes an important prior on the network structure, the notion of a $G$-CNN is fundamental.</p>
 
 </div>
 </div>
