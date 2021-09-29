@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      35 min read
+      37 min read
     
 </span></p>
 
@@ -154,13 +154,20 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#1.4-$\quad$-Tensors">1.4 $\quad$ Tensors </a></li>
-<li class="toc-entry toc-h2"><a href="#$1.5$-$\quad$-GDL-blueprint-(with-fixed-input-domain)">$1.5$ $\quad$ GDL blueprint (with fixed input domain) </a>
+<li class="toc-entry toc-h2"><a href="#1.5-$\quad$-GDL-blueprint-(with-fixed-input-domain)">1.5 $\quad$ GDL blueprint (with fixed input domain) </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#$\quad$-Setup">$\quad$ Setup </a></li>
 <li class="toc-entry toc-h3"><a href="#$\quad$-coarsening-operator">$\quad$ coarsening operator </a></li>
 <li class="toc-entry toc-h3"><a href="#$\quad$-GDL-block">$\quad$ GDL block </a></li>
 <li class="toc-entry toc-h3"><a href="#$\quad$-Hypothesis-space">$\quad$ Hypothesis space </a></li>
 <li class="toc-entry toc-h3"><a href="#$\quad$-Discussion">$\quad$ Discussion </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#1.6-$\quad$-Tensors-in-PyTorch">1.6 $\quad$ Tensors in PyTorch </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#$\quad\quad$-Initializing-tensors">$\quad\quad$ Initializing tensors </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad\quad$-Tensors-attributes-and-operations">$\quad\quad$ Tensors attributes and operations </a></li>
+<li class="toc-entry toc-h3"><a href="#$\quad\quad$-Converting-between-other-objects-and-tensors">$\quad\quad$ Converting between other objects and tensors </a></li>
 </ul>
 </li>
 </ul><!--
@@ -1229,8 +1236,8 @@ $$<p>Let $\mathcal{T}(r,s)$ denote the vector space of type-$(r,s)$ tensors over
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="$1.5$-$\quad$-GDL-blueprint-(with-fixed-input-domain)">
-<a class="anchor" href="#%241.5%24-%24%5Cquad%24-GDL-blueprint-(with-fixed-input-domain)" aria-hidden="true"><span class="octicon octicon-link"></span></a>$1.5$ $\quad$ GDL blueprint (with fixed input domain)<a class="anchor-link" href="#%241.5%24-%24%5Cquad%24-GDL-blueprint-(with-fixed-input-domain)"> </a>
+<h2 id="1.5-$\quad$-GDL-blueprint-(with-fixed-input-domain)">
+<a class="anchor" href="#1.5-%24%5Cquad%24-GDL-blueprint-(with-fixed-input-domain)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.5 $\quad$ GDL blueprint (with fixed input domain)<a class="anchor-link" href="#1.5-%24%5Cquad%24-GDL-blueprint-(with-fixed-input-domain)"> </a>
 </h2>
 </div>
 </div>
@@ -1419,6 +1426,212 @@ f = f_L \circ f_{L-1} \circ \dots \circ f_2 \circ f_1 .
 $$</p>
 <p>Examining the individual layer functions making up CNN, one finds they are not shift-invariant in general but rather shift-equivariant. The last function applied, namely $f_L$, is typically a ``global-pooling" function that is genuinely shift-invariant, causing $f$ to be shift-invariant, but to focus on this ignores the structure we will leverage for purposes of expressivity and regularity.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.6-$\quad$-Tensors-in-PyTorch">
+<a class="anchor" href="#1.6-%24%5Cquad%24-Tensors-in-PyTorch" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.6 $\quad$ Tensors in PyTorch<a class="anchor-link" href="#1.6-%24%5Cquad%24-Tensors-in-PyTorch"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>imports</em></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span> <span class="o">--</span><span class="n">upgrade</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Requirement already satisfied: torch in /usr/local/lib/python3.7/dist-packages (1.9.0+cu102)
+Collecting torch
+  Downloading torch-1.9.1-cp37-cp37m-manylinux1_x86_64.whl (831.4 MB)
+     |████████████████████████████████| 831.4 MB 6.1 kB/s 
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.7/dist-packages (from torch) (3.7.4.3)
+Installing collected packages: torch
+  Attempting uninstall: torch
+    Found existing installation: torch 1.9.0+cu102
+    Uninstalling torch-1.9.0+cu102:
+      Successfully uninstalled torch-1.9.0+cu102
+<span class="ansi-red-fg">ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchvision 0.10.0+cu102 requires torch==1.9.0, but you have torch 1.9.1 which is incompatible.
+torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.9.1 which is incompatible.</span>
+Successfully installed torch-1.9.1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.utils.data</span> <span class="k">as</span> <span class="nn">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Using torch"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Using torch 1.9.1+cu102
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;torch._C.Generator at 0x7f6b883ecd10&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad\quad$-Initializing-tensors">
+<a class="anchor" href="#%24%5Cquad%5Cquad%24-Initializing-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad\quad$ <em><font color="teal">Initializing tensors</font></em><a class="anchor-link" href="#%24%5Cquad%5Cquad%24-Initializing-tensors"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Tensors are similar to NumPy's <code>ndarrays</code>, except that tensors can run on GPUs or other hardware accelerators. Tensors and NumPy arrays can often share the same underlying memory, eliminating the need to copy data. Tensors are also optimized for automatic differentiation</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here are some ways they can be initialized in torch.</p>
+<ol>
+<li>
+<p>from lists: $\quad$ <code>X_1 = torch.tensor( list_object )</code></p>
+</li>
+<li>
+<p>from a numpy array $\quad$ <code>X_2 = torch.from_numpy( array_object )</code></p>
+</li>
+<li>
+<p>with random or constant values, of a given shape. For example,</p>
+<p>a. entries all ones: $\quad$ <code>X_3_a = torch.ones( shape )</code></p>
+<p>b. entries all zeros $\quad$ <code>X_3_b = torch.zeros( shape )</code></p>
+<p>c. entries are i.i.d. $\text{Unif}(0,1)$ $\quad$ <code>X_3_c = torch.rand( shape )</code></p>
+<p>d. entries are i.i.d. standard normal $\quad$ <code>X_3_d = torch.randn( shape )</code></p>
+<p>e. from values stored in memory $\quad$ <code>X_3_e = torch.Tensor( shape )</code></p>
+<p>f. a list of consecutive integers between $N$ and $M$, inclusive, as tensor object $\quad$ <code>X_3_f = torch.arrange(N,M)</code></p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad\quad$-Tensors-attributes-and-operations">
+<a class="anchor" href="#%24%5Cquad%5Cquad%24-Tensors-attributes-and-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad\quad$ <em><font color="teal">Tensors attributes and operations</font></em><a class="anchor-link" href="#%24%5Cquad%5Cquad%24-Tensors-attributes-and-operations"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\quad\quad$-Converting-between-other-objects-and-tensors">
+<a class="anchor" href="#%24%5Cquad%5Cquad%24-Converting-between-other-objects-and-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\quad\quad$ <em><font color="teal">Converting between other objects and tensors</font></em><a class="anchor-link" href="#%24%5Cquad%5Cquad%24-Converting-between-other-objects-and-tensors"> </a>
+</h3>
 </div>
 </div>
 </div>
