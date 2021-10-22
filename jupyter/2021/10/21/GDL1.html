@@ -111,19 +111,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/the-ninth-wave/geometric-deep-learning/tree/master/_notebooks/2021-10-4-GDL1.ipynb" role="button" target="_blank">
+    <a href="https://github.com/the-ninth-wave/geometric-deep-learning/tree/master/_notebooks/2021-10-21-GDL1.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/geometric-deep-learning/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/the-ninth-wave/geometric-deep-learning/master?filepath=_notebooks%2F2021-10-4-GDL1.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/the-ninth-wave/geometric-deep-learning/master?filepath=_notebooks%2F2021-10-21-GDL1.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/geometric-deep-learning/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/the-ninth-wave/geometric-deep-learning/blob/master/_notebooks/2021-10-4-GDL1.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/the-ninth-wave/geometric-deep-learning/blob/master/_notebooks/2021-10-21-GDL1.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/geometric-deep-learning/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -156,404 +156,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#1.4-...-tensors-">1.4 ... tensors  </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#...-vectors-and-covectors,-through-the-lens-of-rep.-theory-">... vectors and covectors, through the lens of rep. theory  </a></li>
-<li class="toc-entry toc-h3"><a href="#-vectors-and-covectors-in-coordinatesh3divdivdivthus-it-is-natural-to-assume-that-an-orthonormal-basis-e_j_j1n-for-some-n-dimensional-vector-space-v-is-always-given-alongside-v-and-it-is-through-the-lens-of-this-basis-that-we-explore-the-covector-representation-described-abovethe-basis-furnishes-a-canonical-isomorphism-between-v-and-mathbbrn-and-hence-between-textrmglv-and-textrmgln-mathbbr-on-the-other-hand-the-inner-product-langle-cdot-cdot-rangle-furnishes-a-canonical-isomorphism-between-v-and-its-dual-vfollowing-the-arrows-of-an-imaginary-diagram-we-have-that-any-representation-rho-of-g-corresponds-uniquely-to-a-representation-of-g-over-mathbbrn-as-well-as-to-a-representation-of-g-over-the-dual-space--mathbbrnin-either-case-group-elements-can-effectively-be-identified-with-n-times-n-matriceswe-will-write-coordinates-of-a-vector-x-in-v-using-raised-indices-ie-forx---x1e_1--dots--xne_n-equiv-xje_jthe-xj-are-the-coordinates-of-x-we-are-adopting-the-usual-summation-convention-for-tensorsthe-basis-e_j-allows-us-to-identify-the-vector-x-with-the-n-tuple-x1-dots-xn-in-mathbbrn-it-also-gives-rise-to-a-canonical-identification-with-a-dual-basis-through-the-inner-product-this-identification-induces-the-isomorphism-of-v-and-v-mentioned-abovegiven-e_j-the-associated-dual-basis-vector-ej-is-given-bybeginalignej--langle-e_j-cdot-rangle-endalignhaving-assumed-an-orthogonal-representation-the-action-of-any-group-element-through-the-representation-takes-the-ej-to-some-other-orthonormal-basis-say-tildee_jthis-leads-to-the-question-of-how-the-dual-basis-ej-transforms-under-mapping-ej-mapsto-langle-tildee_j-cdot-rangle--and-of-how-coordinates-xj_j1n-describing-vector-x-transform-under-this-change-of-basis-which-is-effectively-the-same-questionwe-can-express-the-basis--tildee_j--in-terms-of-the--e_j-viatildee_j--si_je_i---where-s-is-called-the-direct-transformation-matrix-from-original-basis-to-the-new-let-t-denote-s-1-the-direct-transition-matrix-from-the-new-basis-to-the-olde_i--t_ij-tildee_j-this-inverse-determines-how-the-coordinates-xj-transform-namely-coefficients-transform-contravariantlytildexj---t_ij-xito-see-this-one-starts-with-the-two-equivalent-expressions-for-x-namely-xi-e_i-and-tildexj-tildee_j-and-then-uses-the-identity-e_i--t_ij-tildee_j-on-the-first-expressionlet-us-now-explain-the-form-of-the-covector-representation-described-above-we-think-of-the-action-of-group-element-g-as-describing-a-change-of-coordinates-the-vector-representation-describes-this-coordinate-change-directly-as-an-action-on-vectorsthe-covector-representation-encodes-how-covectors-transform-under-the-same-change-in-coordinates-from-the-above-discussion-we-know-that-this-transformation-on-covectors-is-contravariant-namely-the-induced-action-on-covectors-is-given-bylangle-v--cdot-rangle-mapsto-langle-g-1v-cdot-rangle-but-the-inner-product-allows-us-to-transfer-this-to-yet-another-action-on-vectors-through-the-relationlangle-g-1-v-w-rangle--langle-v-g-t-w-rangle-thus-the-covector-representation-describes-how-vectors-see-the-induced-contravariant-transformation-conveniently-in-the-orthogonal-setting-the-vector-and-covector-representations-coincide-the-abstract-index-notation--tensors--schwarz-loosely-defines-tensors-with-k-upper-indices-and-ell-lower-indices-as-quantities-transforming-like-a-product-of-k-vectors-and-ell-covectors-more-precisely-such-a-tensor-x-has-components-x_-quad-j_1--dots---j_ell---i_1--dots----i_k-where-each-index-ranges-from-1-to-n-and-where-each-component-or-entry-takes-values-in-either-mathbbr-or-mathbbcthe-space-of-such-objects-denoted-mathcaltkell-is-isomorphic-to-either-mathbbrn-or-mathbbcn-where-n--nk--ell-the-transformation-rules-for-tensors-allow-us-to-consider-a-family-of-induced-representations-over-the-vector-spaces-mathcaltk-ell-with-kell--012dots-arising-from-the-action-of-some-group-element-g-represented-as-a-matrix-on-the-original-vector-space-v-cong-mathbbrn-writing-this-matrix-as-g_ij-the-induced-action-on-given-x-in-mathcaltk-ell-is-to-transform-it-to-the-tensor-y-in-mathcaltk-ell-with-componentsy_-quad-j_1--dots---j_k---i_1--dots----i_ell--g_i_1m_1-dots-g_i_ellm_ell-gamma_n_1j_1-dots-gamma_n_kj_k-x_-quad-m_1--dots---m_ell---n_1--dots----n_k-where-above-gamma_ij-is-the-matrix-corresponding-to-g-1the-concept-of-a-tensor-is-closely-related-to-that-of-a-tensor-product-of-representations-recall-that-the-tensor-product-v_1-otimes-v_2-of-two-vector-spaces-v_1-and-v_2-with-respective-bases-e_1-1-dots-e_1-m-and-e_2-1-dots-e_2-n-is-the-space-of-formal-linear-combinations-of-the-symbols-e_1-a-otimes--e_2-bmeaning-that-each-element-of-v_1-otimes-v_2-can-be-uniquely-expressed-in-the-formcab-e_1-a-otimes--e_2-b-where-cab-are-the-coefficients-of-the-linear-combinationsuppose-rho_1-is-a-representation-of-g-over-v_1-and-that-rho_2-is-a-representation-of-g-over-v_2-suppose-that-a--a1-dots-am-in-v_1-and-that-b--b1-dots-bm-in-v_2-so-that-a-and-b-are-each-transformed-under-the-g-action-on-each-space-by-definition-the-quantity-with-components-aibj-transforms-according-to-the-tensor-product-representation-rho_1-otimes-rho_2-over-v_1-otimes-v_2the-representation-rho_1-otimes-rho_2-acting-in-v-otimes-v_2-changes-the-coordinates-cab-according-to-the-following-law-we-denote-the-result-of-this-transformation-by-dabdab--rho_1g_karho_2g_ellb-ckellwhere-rho_1g_ka-is-the-matrix-of-rho_1g-in-the-basis-e_1-1-dots-e_1-m-and-analogously-for-the-other-matrixthe-following-is-a-coordinate-free-definition-of-a-tensor-with-k-upper-indices-and-ell-lower-indices-we-say-such-a-tensor-has-valency-k-elldef-quad--a-tensor-of-type-or-valency-kell-over-vector-space-v-is-a-multilinear-map-a--underbracev-times--dots--times-v_-k-text-copies---times--underbrace-v-times--dots--times-v-_-ell-text-copies--to-mathbbrtensor-operations-aside-from-the-operations-which-give-mathcaltk-ell-the-structure-of-a-vector-space-there-are-two-other-operations-worth-mentioningthe-first-is-called-contraction-with-respect-to-the-ith-dual-vector-and-jth-vector-slots-for-k-ell-geq-1-contraction-is-a-map-textsfc--mathcaltk-ell-to-mathcaltk-1-ell-1given-bytextsfc-t--t-dots-eadots--dots-e_a-dots--where-the-repeated-indexing-denotes-a-sum-indexed-by-a-which-runs-over-the-dimensions-of-v-and-where-e_a-is-an-orthonormal-basis-for-v-with-ea-the-corresponding-orthonormal-basis-for-v-the-ea-are-in-the-ith-slot-of-t-while-the-e_a-are-in-the-jth-slot-of-tnote-that-the-contraction-of-a-tensor-of-type-11-when-viewed-as-a-linear-map-from-v-to-itself-is-just-the-trace-of-this-map-contraction-thus-generalizes-trace-and-both-objects-are-independent-of-the-choice-of-e_athe-second-operation-of-tensors-we-define-is-the-outer-product-of-tensors-x-in-mathcaltk-ell-and-y-in-mathcaltk-ell-denoted-x-otimes-y-the-tensor-x-otimes-y-lies-in-mathcalt-k--k-ell--ell--and-is-defined-as-followsgiven-kk-dual-vectors-v1-dots-vkk-and-ell--ell-vectors-w_1-dots-w_ell--ell-we-define-the-action-of-x-otimes-y-on-these-objects-to-be-the-productx-v1-dots-vk--w_1-dots-w_ell-cdot-y--vk1-dots-vk--k--w_ell1-dots-w_ell--ell-todorefine-edit-the-above-sectionfollow-walds-discussion-of-abstract-index-notation15--gdl-blueprint-fixed-input-domain--setup-our-formal-treatment-of-a-classification-problem-requires-the-following-objectsa-finite-group-ga-sequence-of-discrete-domains--omega_j-_j0l-with-omega-equiv-omega_0-the-domain-of-input-signalsa-sequence-of-finite-dimensional-channel-vector-spaces--mathcalc_j-_j0l-with-mathcalc_0-equiv-mathcalc-the-space-of-input-channelseach-omega_j-is-a-homogeneous-space-with-respect-to-g-meaning-each-domain-admits-a-transitive-g-action-denoted-xi_j-in-particular-we-can-write-omega_j-cong-g--h_j-for-some-subgroup-h_j-subset-gthe-representations-xi_j-induce-representions-rho_j-over-respective-signal-vector-spaces-mathcalxomega_j-mathcalc_ja-collection-of-orthonormal-bases-for-each-signal-vector-space-unless-stated-otherwise-for-each-j-these-are--assumed-to-have-the-form-e_j-textrmspace--i-otimes-e_j-textrmchannel--awhere-the-index-i-runs-between-1-and--omega_j-while-index-a-runs-between-1-and-textrmdimmathcalc_j-three-flavors-of-equivariant-map-the-essential-components-of-the-gdl-blueprint-are-g-equivariant-mapsthese-fall-under-three-general-cases-which-we-distinguish-from-one-another-each-object-below-should-be-imagined-as-associated-to-some-layer-j-though-we-omit-the-subscripts-for-the-time-being-we-consider-at-most-two-domains-omega-tildeomega-and-at-most-two-channel-spaces-mathcalc-tildemathcalc-the-signal-domains-are-as-described-in-the-setup-and-thus-can-be-expressed-as-omega-equiv-g--h-and-tildeomega-equiv-g--tildeh-for-subgroups-h-tildeh-subset-g-the-cases-areaffine-g-equivariant-maps-tildeb--mathcalx-omega-mathcalc-to-mathcalx--tildeomega-tildemathcalcof-the-following-form-first-a-generalized-convolution-with-filter-tildetheta-in-mathcalxh-backslash-g--tildeh---mathcalc-otimes-tildemathcalc--followed-by-the-addition-of-a-bias-vector-tildeb-in-mathcalx-tildeomega-tildemathcalc--the-convolution-itself-can-be-expressed-as-a-matrix-with-respect-to-basise_textrmspaceell-otimes-tildee_textrmspace-k-otimes-e_textrmchannel-a-otimes-tildee_textrmchannelbwhere-ell--1-dots--omega-k--1-dots-tildeomega-likewise-a--1-dots-textrmdimmathcalc-and-b--1-dots-textrmdimtildemathcalc-the-entries-of-this-matrix-as-well-as-those-of-the-bias-vector-tildeb-are-all-learnednon-linear-activation-function-mathbfa--mathcalx-omega-mathcalc-to-mathcalx-omega-mathcalc-applied-entrywise-to-a-given-input-this-implicitly-assumes-that-the-input-is-expressed-with-respect-to-the-basise_textrmspace-ell--otimes-e_textrmchannelathere-are-no-learned-parameters-associated-to-this-map-despite-its-basis-dependence-the-entrywise-application-of-the-nonlinearity-is-the-reason-this-map-is-equivariantequivariant-local-pooling-operators-p--mathcalxomega-mathcalc-to-mathcalxtildeomega-tildemathcalc-which-contain-no-learnable-parameters-these-perform-a-kind-of-renormalization-or-coarse-graining-of-omega-these-are-not-in-general-convolutions-because-in-particular-they-are-not-necessarily-linear-in-addition-to-the-hope-that-such-renormalization-works-as-in-its-physics-useage-washing-away-non-essential-information-a-smaller-output-layer-usually-means-fewer-learned-parameters-in-the-network-overall-it-is-also-a-way-to-ensure-that-the-successive-map-examines-the-preceding-signal-with-an-aperture-of-at-least-a-certain-widthbefore-discussing-some-examples-of-equivariant-pooling-in-the-sense-of-3-above-we-remark-that-convolutional-layers-can-effectively-function-as-renormalization-operations-as-wellwe-give-three-examples-of-equivariant-pooling-example-strideless-g-pooling-let-g-be-a-finite-group-an-example-we-will-bear-in-mind-is-the-usual-one-for-images-with-g-equiv-omega-equiv-mathbbt_2n-in-addition-to-the-domain-being-the-group-acting-on-itself-we-additionally-identify-mathbbt_2n-with-its-cayley-graphthus-the-graph-distance-in-the-cayley-graph-endows-mathbbt_2-n-with-a-natural-notion-of-distance-in-general-we-write-textsfd_g-to-denote-this-graph-distance-and-we-let-textsfb_ggr-for-r-in-mathbbn-denote-the-ball-around-g-in-g-of-radius-r-with-respect-to-textsfd_glet-us-consider-textsfb_ger-the-ball-of-radius-r-centered-at-the-group-identity-let-us-denote-this-neighborhood-as-u-for-brevity-the-following-defines-a-pooling-operation-p-on-signals-x-in-mathcalxg-mathcalcpxg--x-left-textrmargmax_h--in--g-u---xh-_mathcalc-rightwhere--cdot-_mathcalc--denotes-some-norm-on-the-channel-vector-space-mathcalc-example-subsampling--example-coset-pooling--hypothesis-space---discussion--shift-invariance-arises-naturally-in-vision-and-pattern-recognition-in-this-case-the-desired-function-f-in-textsfh-typically-implemented-as-a-cnn-inputs-an-image-and-outputs-the-probability-of-the-image-to-contain-an-object-from-a-certain-class-it-is-often-reasonably-assumed-that-the-classification-result-should-not-be-affected-by-the-position-of-the-object-in-the-image-ie-the-function-f-must-be-shift-invariantmulti-layer-perceptrons-lack-this-property-a-reason-why-early-1970s-attempts-to-apply-these-architectures-to-pattern-recognition-problems-failed-the-development-of-nn-architectures-with-local-weight-sharing-as-epitomized-by-cnns-was-among-other-reasons-motivated-by-the-need-for-shift-invariant-object-classificationa-prototypical-application-requiring-shift-equivariance-is-image-segmentation-where-the-output-of-f-is-a-pixel-wise-image-mask-this-segmentation-mask-must-follow-shifts-in-the-input-image-in-this-example-the-domains-of-the-input-and-output-are-the-same-but-since-the-input-has-three-color-channels-while-the-output-has-emphone-channel-per-class-the-representations-rho-mathcalxomega-mathcalc--and-rho-mathcaly-equiv-mathcalxomega-mathcalc-are-somewhat-differentwhen-f-is-implemented-as-a-cnn-it-may-be-written-as-a-composition-of-l-functions-where-l-is-determined-by-the-depth-and-other-hyperparametersf--f_l-circ-f_l-1-circ-dots-circ-f_2-circ-f_1-examining-the-individual-layer-functions-making-up-cnn-one-finds-they-are-not-shift-invariant-in-general-but-rather-shift-equivariant-the-last-function-applied-namely-f_l-is-typically-a-global-pooling-function-that-is-genuinely-shift-invariant-causing-f-to-be-shift-invariant-but-to-focus-on-this-ignores-the-structure-we-will-leverage-for-purposes-of-expressivity-and-regularitydiv-">... vectors and covectors, in coordinates&lt;/h3&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-
-Thus it is natural to assume that an orthonormal basis $(e_j)_{j=1}^n$ for some $n$-dimensional vector space $V$ is always given alongside $V$, and it is through the lens of this basis that we explore the covector representation described above.
-The basis furnishes a canonical isomorphism between $V$ and $\mathbb{R}^n$, and hence between $\textrm{GL}(V)$ and $\textrm{GL}(n, \mathbb{R})$. On the other hand, the inner product $\langle \cdot, \cdot \rangle$ furnishes a canonical isomorphism between $V$ and its dual $V^*$.
-Following the arrows of an imaginary diagram, we have that any representation $\rho$ of $G$ corresponds uniquely to a representation of $G$ over $\mathbb{R}^n$, as well as to a representation of $G$ over the dual space $( \mathbb{R}^n)^*$.
-In either case, group elements can effectively be identified with $n \times n$ matrices.
-We will write coordinates of a vector $x \in V$ using raised indices, i.e. for
-$$
-x =  x^1e_1 + \dots + x^ne_n\, \equiv \,x^je_j
-$$the $x^j$ are the coordinates of $x$. We are adopting the usual summation convention for tensors.
-
-
-
-
-
-
-The basis $(e_j)$ allows us to identify the vector $x$ with the $n$-tuple $(x^1, \dots, x^n) \in \mathbb{R}^n$. It also gives rise to a canonical identification with a dual basis, through the inner product; this identification induces the isomorphism of $V$ and $V^*$ mentioned above.
-
-
-
-
-
-
-Given $e_j$, the associated dual basis vector $e^j$ is given by
-\begin{align}
-e^j &amp;= \langle e_j, \cdot \rangle 
-\end{align}
-
-
-
-
-
-Having assumed an orthogonal representation, the action of any group element, through the representation, takes the $(e^j)$ to some other orthonormal basis, say $(\tilde{e}_j)$.
-
-
-
-
-
-
-This leads to the question of how the dual basis $(e^j)$ transforms under mapping $e^j \mapsto \langle \tilde{e}_j, \cdot \rangle $, and of how coordinates $(x^j)_{j=1}^n$ describing vector $x$ transform under this change of basis, which is effectively the same question.
-
-
-
-
-
-
-We can express the basis $( \tilde{e}_j )$ in terms of the $( e_j)$ via
-$$
-\tilde{e}_j = S^i_je_i  \, ,
-$$
-where $S$ is called the direct transformation matrix from original basis to the new. Let $T$ denote $S^{-1}$, the direct transition matrix from the new basis to the old:
-$$
-e_i = T_i^j \tilde{e}_j 
-$$
-This inverse determines how the coordinates $x^j$ transform, namely coefficients transform contravariantly:
-$$
-\tilde{x}^j =  T_i^j x^i\,.
-$$
-To see this, one starts with the two equivalent expressions for $x$, namely $x^i e_i$ and $\tilde{x}^j \tilde{e}_j$, and then uses the identity $e_i = T_i^j \tilde{e}_j$ on the first expression.
-
-
-
-
-
-
-Let us now explain the form of the covector representation described above. We think of the action of group element $g$ as describing a change of coordinates. The vector representation describes this coordinate change directly, as an action on vectors.
-The covector representation encodes how covectors transform under the same change in coordinates. From the above discussion, we know that this transformation on covectors is contravariant, namely the induced action on covectors is given by
-$$
-\langle v , \cdot \rangle \mapsto \langle g^{-1}v, \cdot \rangle ,
-$$but the inner product allows us to transfer this to yet another action on vectors, through the relation
-$$
-\langle g^{-1} v, w \rangle = \langle v, g^{-T} w \rangle ,
-$$thus the covector representation describes how vectors see the induced contravariant transformation. Conveniently, in the orthogonal setting, the vector and covector representations coincide.
-
-
-
-
-
-
-... the abstract index notation 
-
-
-
-
-
-... tensors  
-
-
-
-
-
-Schwarz loosely defines tensors, with $k$ upper indices and $\ell$ lower indices, as quantities transforming like a product of $k$ vectors and $\ell$ covectors. More precisely, such a tensor $X$ has components $X_{ \quad j_1, \, \dots\, , \, j_\ell} ^ { i_1, \, \dots \, , \, i_k}$, where each index ranges from $1$ to $n$, and where each component, or entry, takes values in either $\mathbb{R}$ or $\mathbb{C}$.
-
-
-
-
-
-
-The space of such objects, denoted $\mathcal{T}(k,\ell)$ is isomorphic to either $\mathbb{R}^N$ or $\mathbb{C}^N$ where $N = n^{k + \ell}$. The transformation rules for tensors allow us to consider a family of induced representations over the vector spaces $\mathcal{T}(k, \ell)$, with $k,\ell = 0,1,2,\dots$, arising from the action of some group element $g$, represented as a matrix, on the original vector space $V \cong \mathbb{R}^n$. Writing this matrix as $g_i^j$, the induced action on given $X \in \mathcal{T}(k, \ell)$ is to transform it to the tensor $Y \in \mathcal{T}(k, \ell)$ with components
-$$
-Y_{ \quad j_1, \, \dots\, , \, j_k} ^ { i_1, \, \dots \, , \, i_\ell} = g_{i_1}^{m_1} \dots g_{i_\ell}^{m_\ell} \gamma_{n_1}^{j_1} \dots \gamma_{n_k}^{j_k} X_{ \quad m_1, \, \dots\, , \, m_\ell} ^ { n_1, \, \dots \, , \, n_k} \,,
-$$where above, $\gamma_i^j$ is the matrix corresponding to $g^{-1}$.
-
-
-
-
-
-
-The concept of a tensor is closely related to that of a tensor product of representations. Recall that the tensor product $V_1 \otimes V_2$ of two vector spaces $V_1$ and $V_2$, with respective bases $e_{(1), \,1}, \dots, e_{(1), \,m}$ and $e_{(2), \,1}, \dots, e_{(2), \,n}$, is the space of formal linear combinations of the symbols
-$$
- e_{(1), \,a} \otimes  e_{(2), \,b},
-$$meaning that each element of $V_1 \otimes V_2$ can be uniquely expressed in the form
-$$
-c^{ab} e_{(1), \,a} \otimes  e_{(2), \,b} 
-$$where $c^{ab}$ are the coefficients of the linear combination.
-Suppose $\rho_1$ is a representation of $G$ over $V_1$, and that $\rho_2$ is a representation of $G$ over $V_2$. Suppose that $A = (A^1, \dots, A^m) \in V_1$ and that $B = (B^1, \dots, B^m) \in V_2$, so that $A$ and $B$ are each transformed under the $G$ action on each space. By definition, the quantity with components $A^iB^j$ transforms according to the tensor product representation $\rho_1 \otimes \rho_2$ over $V_1 \otimes V_2$.
-The representation $\rho_1 \otimes \rho_2$, acting in $V \otimes V_2$, changes the coordinates $c^{ab}$ according to the following law; we denote the result of this transformation by $d^{ab}$
-$$
-d^{ab} = (\rho_1(g))_k^a(\rho_2(g))_\ell^b c^{k\ell},
-$$where $(\rho_1(g))_k^a$ is the matrix of $\rho_1(g)$ in the basis $e_{(1), \,1}, \dots, e_{(1), \,m}$, and analogously for the other matrix.
-
-
-
-
-
-
-The following is a coordinate-free definition of a tensor with $k$ upper indices and $\ell$ lower indices. We say such a tensor has valency $(k, \ell)$.
-
-
-
-
-
-
-
-Def $\quad$  A tensor of type, or valency $(k,\ell)$ over vector space $V$ is a multilinear map 
-$$
-A : \underbrace{V^* \times \, \dots \, \times V^*}_{ k \text{ copies }}  \,\times \, \underbrace{ V \times \, \dots \, \times V }_{ \ell \text{ copies }} \to \mathbb{R}
-$$
-
-
-
-
-
-
-
-tensor operations 
-
-
-
-
-
-Aside from the operations which give $\mathcal{T}(k, \ell)$ the structure of a vector space, there are two other operations worth mentioning.
-The first is called contraction with respect to the $i$th (dual vector) and $j$th (vector) slots. For $k, \ell \geq 1$, contraction is a map 
-$$
-\textsf{c} : \mathcal{T}(k, \ell) \to \mathcal{T}(k-1, \ell-1)
-$$
-given by
-$$
-\textsf{c} T = T( \dots, e^a,\dots ; \dots, e_a, \dots ), 
-$$where the repeated indexing denotes a sum indexed by $a$, which runs over the dimensions of $V$, and where $(e_a)$ is an orthonormal basis for $V$, with $(e^a)$ the corresponding orthonormal basis for $V^*$. The $e^a$ are in the $i$th slot of $T$, while the $e_a$ are in the $j$th slot of $T$.
-Note that the contraction of a tensor of type $(1,1)$, when viewed as a linear map from $V$ to itself, is just the trace of this map. Contraction thus generalizes trace, and both objects are independent of the choice of $e_a$.
-
-
-
-
-
-
-The second operation of tensors we define is the outer product of tensors $X \in \mathcal{T}(k, \ell)$ and $Y \in \mathcal{T}(k&#39;, \ell&#39;)$, denoted $X \otimes Y$. The tensor $X \otimes Y$ lies in $\mathcal{T}( k + k&#39;, \ell + \ell &#39;)$, and is defined as follows.
-Given $(k+k&#39;)$ dual vectors $v^{(1)}, \dots, v^{(k+k&#39;)}$ and $(\ell + \ell&#39;)$ vectors $w_{(1)}, \dots, w_{(\ell + \ell&#39;)}$, we define the action of $X \otimes Y$ on these objects to be the product
-$$
-X( v^{(1)}, \dots, v^{(k)} ; w_{(1)}, \dots, w_{(\ell)}) \cdot Y ( v^{(k+1)}, \dots, v^{(k + k&#39;)} ; w_{(\ell+1)}, \dots, w_{(\ell + \ell&#39;)} )
-$$
-
-
-
-
-
-todo
-
-refine, edit the above section
-
-follow Wald&#39;s discussion of abstract index notation
-
-
-
-
-
-
-
-
-1.5 ... GDL blueprint (fixed input domain) 
-
-
-
-
-
-... setup 
-
-
-
-
-
-Our formal treatment of a classification problem requires the following objects:
-
-A finite group $G$.
-
-A sequence of discrete domains, $( \Omega_j )_{j=0}^L$, with $\Omega \equiv \Omega_0$ the domain of input signals.
-
-A sequence of finite dimensional channel vector spaces $( \mathcal{C}_j )_{j=0}^L$, with $\mathcal{C}_0 \equiv \mathcal{C}$ the space of input channels.
-
-Each $\Omega_j$ is a homogeneous space with respect to $G$, meaning each domain admits a transitive $G$ action, denoted $\xi_j$. In particular, we can write $\Omega_j \cong G / H_j$ for some subgroup $H_j \subset G$.
-
-The representations $\xi_j$ induce representions $\rho_j$ over respective signal vector spaces $\mathcal{X}(\Omega_j, \mathcal{C}_j)$
-
-A collection of orthonormal bases for each signal vector space. Unless stated otherwise, for each $j$, these are  assumed to have the form 
-$$
-e_{(j),\, \textrm{space} , \,i} \otimes e_{(j),\, \textrm{channel}, \, a}
-$$
-where the index $i$ runs between $1$ and $\# \Omega_j$, while index $a$ runs between $1$ and $\textrm{dim}(\mathcal{C}_j)$.
-
-
-
-
-
-
-
-
-... three flavors of equivariant map 
-
-
-
-
-
-The essential components of the GDL blueprint are $G$-equivariant maps.
-These fall under three general cases, which we distinguish from one another. Each object below should be imagined as associated to some layer $j$, though we omit the subscripts for the time being. We consider at most two domains, $\Omega, \tilde{\Omega}$ and at most two channel spaces $\mathcal{C}, \tilde{\mathcal{C}}$. The signal domains are as described in the setup, and thus can be expressed as $\Omega \equiv G / H$ and $\tilde{\Omega} \equiv G / \tilde{H}$ for subgroups $H, \tilde{H} \subset G$. The cases are
-
-Affine, $G$-equivariant maps, 
-$$
-\tilde{B} : \mathcal{X}( \Omega, \mathcal{C}) \to \mathcal{X} ( \tilde{\Omega}, \tilde{\mathcal{C}})
-$$
-of the following form: first a generalized convolution with filter 
-$$
-\tilde{\theta} \in \mathcal{X}(H \backslash G / \tilde{H} , \, \mathcal{C} \otimes \tilde{\mathcal{C}}) \,,
-$$ followed by the addition of a bias vector $\tilde{b} \in \mathcal{X}( \tilde{\Omega}, \tilde{\mathcal{C}} )$. The convolution itself can be expressed as a matrix, with respect to basis
-$$
-e_{\textrm{space},\,\ell} \otimes \tilde{e}_{\textrm{space}, k} \otimes e_{\textrm{channel},\, a} \otimes \tilde{e}_{\textrm{channel},\,b},
-$$
-where $\ell$ = $1, \dots, \# \Omega$, $k$ = $1, \dots, \#\tilde{\Omega}$. Likewise, $a$ = $1, \dots, \textrm{dim}(\mathcal{C})$ and $b$ = $1, \dots, \textrm{dim}(\tilde{\mathcal{C}})$. The entries of this matrix, as well as those of the bias vector $\tilde{b}$ are all learned.
-
-Non-linear activation function 
-$$
-\mathbf{a} : \mathcal{X}( \Omega, \mathcal{C}) \to \mathcal{X}( \Omega, \mathcal{C})
-$$ 
-applied &quot;entrywise&quot; to a given input. This implicitly assumes that the input is expressed with respect to the basis
-$$
-e_{\textrm{space}, \ell}  \otimes e_{\textrm{channel},\,a},
-$$
-There are no learned parameters associated to this map. Despite its basis dependence, the entrywise application of the nonlinearity is the reason this map is equivariant.
-
-Equivariant local pooling operators, 
-$$
-P : \mathcal{X}(\Omega, \mathcal{C}) \to \mathcal{X}(\tilde{\Omega}, \tilde{\mathcal{C}} )
-$$
-which contain no learnable parameters. These perform a kind of renormalization (or coarse graining) of $\Omega$. These are not in general convolutions, because in particular they are not necessarily linear. In addition to the hope that such renormalization works as in its physics useage, washing away non-essential information, a smaller output layer usually means fewer learned parameters in the network overall. It is also a way to ensure that the successive map examines the preceding signal with an aperture of at least a certain width.
-
-
-
-
-
-
-
-
-Before discussing some examples of equivariant pooling in the sense of (3.) above, we remark that convolutional layers can effectively function as renormalization operations as well.
-We give three examples of equivariant pooling.
-
-
-
-
-
-
-
-
-... example: strideless $G$-pooling 
-
-
-
-
-
-
-
-Let $G$ be a finite group; an example we will bear in mind is the usual one for images, with $G \equiv \Omega \equiv \mathbb{T}_{2,\,n}$. In addition to the domain being the group acting on itself, we additionally identify $\mathbb{T}_{2,\,n}$ with its Cayley graph.
-Thus the graph distance in the Cayley graph endows $\mathbb{T}_{2, \,n}$ with a natural notion of distance. In general, we write $\textsf{d}_G$ to denote this graph distance, and we let $\textsf{B}_G(g,r)$ for $r \in \mathbb{N}$ denote the ball around $g \in G$ of radius $r$, with respect to $\textsf{d}_G$.
-
-
-
-
-
-
-Let us consider $\textsf{B}_G(e,r)$, the ball of radius $r$ centered at the group identity. Let us denote this neighborhood as $U$ for brevity. The following defines a pooling operation $P$ on signals $x \in \mathcal{X}(G, \mathcal{C})$:
-$$
-Px(g) = x \left( \textrm{argmax}_{h \, \in \, g U } \| x(h) \|_{\mathcal{C}} \right),
-$$
-where $\| \cdot \|_{\mathcal{C} }$ denotes some norm on the channel vector space $\mathcal{C}$.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-... example: subsampling 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-... example: coset pooling 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-... hypothesis space  
-
-
-
-
-
-... discussion  
-
-
-
-
-
-Shift-invariance arises naturally in vision and pattern recognition. In this case, the desired function $f \in \textsf{H}$, typically implemented as a CNN, inputs an image and outputs the probability of the image to contain an object from a certain class. It is often reasonably assumed that the classification result should not be affected by the position of the object in the image, i.e., the function $f$ must be shift-invariant.
-Multi-layer perceptrons lack this property, a reason why early (1970s) attempts to apply these architectures to pattern recognition problems failed. The development of NN architectures with local weight sharing, as epitomized by CNNs, was among other reasons motivated by the need for shift-invariant object classification.
-
-
-
-
-
-
-A prototypical application requiring shift-equivariance is image segmentation, where the output of $f$ is a pixel-wise image mask. This segmentation mask must follow shifts in the input image. In this example, the domains of the input and output are the same, but since the input has three color channels while the output has \emph{one channel per class}, the representations $(\rho, \mathcal{X}(\Omega, \mathcal{C}) )$ and $(\rho&#39;, \mathcal{Y} \equiv \mathcal{X}(\Omega, \mathcal{C}&#39;))$ are somewhat different.
-
-
-
-
-
-
-When $f$ is implemented as a CNN, it may be written as a composition of $L$ functions, where $L$ is determined by the depth and other hyperparameters:
-$$
-f = f_L \circ f_{L-1} \circ \dots \circ f_2 \circ f_1 .
-$$
-Examining the individual layer functions making up CNN, one finds they are not shift-invariant in general but rather shift-equivariant. The last function applied, namely $f_L$, is typically a ``global-pooling&quot; function that is genuinely shift-invariant, causing $f$ to be shift-invariant, but to focus on this ignores the structure we will leverage for purposes of expressivity and regularity.
-
-
-
-
-&lt;/div&gt;
- 
-
-</a></li>
+<li class="toc-entry toc-h3"><a href="#...-vectors-and-covectors,-in-coordinates">... vectors and covectors, in coordinates </a></li>
 <li class="toc-entry toc-h3"><a href="#...-the-abstract-index-notation">... the abstract index notation </a></li>
 <li class="toc-entry toc-h3"><a href="#...-tensors-">... tensors  </a></li>
 <li class="toc-entry toc-h3"><a href="#tensor-operations">tensor operations </a></li>
@@ -574,7 +177,7 @@ Examining the individual layer functions making up CNN, one finds they are not s
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021-10-4-GDL1.ipynb
+# file to edit: _notebooks/2021-10-21-GDL1.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -1571,14 +1174,15 @@ We will expand on this after introducing a basis.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3>
-<a class="anchor" href="#-vectors-and-covectors-in-coordinatesh3divdivdivthus-it-is-natural-to-assume-that-an-orthonormal-basis-e_j_j1n-for-some-n-dimensional-vector-space-v-is-always-given-alongside-v-and-it-is-through-the-lens-of-this-basis-that-we-explore-the-covector-representation-described-abovethe-basis-furnishes-a-canonical-isomorphism-between-v-and-mathbbrn-and-hence-between-textrmglv-and-textrmgln-mathbbr-on-the-other-hand-the-inner-product-langle-cdot-cdot-rangle-furnishes-a-canonical-isomorphism-between-v-and-its-dual-vfollowing-the-arrows-of-an-imaginary-diagram-we-have-that-any-representation-rho-of-g-corresponds-uniquely-to-a-representation-of-g-over-mathbbrn-as-well-as-to-a-representation-of-g-over-the-dual-space--mathbbrnin-either-case-group-elements-can-effectively-be-identified-with-n-times-n-matriceswe-will-write-coordinates-of-a-vector-x-in-v-using-raised-indices-ie-forx---x1e_1--dots--xne_n-equiv-xje_jthe-xj-are-the-coordinates-of-x-we-are-adopting-the-usual-summation-convention-for-tensorsthe-basis-e_j-allows-us-to-identify-the-vector-x-with-the-n-tuple-x1-dots-xn-in-mathbbrn-it-also-gives-rise-to-a-canonical-identification-with-a-dual-basis-through-the-inner-product-this-identification-induces-the-isomorphism-of-v-and-v-mentioned-abovegiven-e_j-the-associated-dual-basis-vector-ej-is-given-bybeginalignej--langle-e_j-cdot-rangle-endalignhaving-assumed-an-orthogonal-representation-the-action-of-any-group-element-through-the-representation-takes-the-ej-to-some-other-orthonormal-basis-say-tildee_jthis-leads-to-the-question-of-how-the-dual-basis-ej-transforms-under-mapping-ej-mapsto-langle-tildee_j-cdot-rangle--and-of-how-coordinates-xj_j1n-describing-vector-x-transform-under-this-change-of-basis-which-is-effectively-the-same-questionwe-can-express-the-basis--tildee_j--in-terms-of-the--e_j-viatildee_j--si_je_i---where-s-is-called-the-direct-transformation-matrix-from-original-basis-to-the-new-let-t-denote-s-1-the-direct-transition-matrix-from-the-new-basis-to-the-olde_i--t_ij-tildee_j-this-inverse-determines-how-the-coordinates-xj-transform-namely-coefficients-transform-contravariantlytildexj---t_ij-xito-see-this-one-starts-with-the-two-equivalent-expressions-for-x-namely-xi-e_i-and-tildexj-tildee_j-and-then-uses-the-identity-e_i--t_ij-tildee_j-on-the-first-expressionlet-us-now-explain-the-form-of-the-covector-representation-described-above-we-think-of-the-action-of-group-element-g-as-describing-a-change-of-coordinates-the-vector-representation-describes-this-coordinate-change-directly-as-an-action-on-vectorsthe-covector-representation-encodes-how-covectors-transform-under-the-same-change-in-coordinates-from-the-above-discussion-we-know-that-this-transformation-on-covectors-is-contravariant-namely-the-induced-action-on-covectors-is-given-bylangle-v--cdot-rangle-mapsto-langle-g-1v-cdot-rangle-but-the-inner-product-allows-us-to-transfer-this-to-yet-another-action-on-vectors-through-the-relationlangle-g-1-v-w-rangle--langle-v-g-t-w-rangle-thus-the-covector-representation-describes-how-vectors-see-the-induced-contravariant-transformation-conveniently-in-the-orthogonal-setting-the-vector-and-covector-representations-coincide-the-abstract-index-notation--tensors--schwarz-loosely-defines-tensors-with-k-upper-indices-and-ell-lower-indices-as-quantities-transforming-like-a-product-of-k-vectors-and-ell-covectors-more-precisely-such-a-tensor-x-has-components-x_-quad-j_1--dots---j_ell---i_1--dots----i_k-where-each-index-ranges-from-1-to-n-and-where-each-component-or-entry-takes-values-in-either-mathbbr-or-mathbbcthe-space-of-such-objects-denoted-mathcaltkell-is-isomorphic-to-either-mathbbrn-or-mathbbcn-where-n--nk--ell-the-transformation-rules-for-tensors-allow-us-to-consider-a-family-of-induced-representations-over-the-vector-spaces-mathcaltk-ell-with-kell--012dots-arising-from-the-action-of-some-group-element-g-represented-as-a-matrix-on-the-original-vector-space-v-cong-mathbbrn-writing-this-matrix-as-g_ij-the-induced-action-on-given-x-in-mathcaltk-ell-is-to-transform-it-to-the-tensor-y-in-mathcaltk-ell-with-componentsy_-quad-j_1--dots---j_k---i_1--dots----i_ell--g_i_1m_1-dots-g_i_ellm_ell-gamma_n_1j_1-dots-gamma_n_kj_k-x_-quad-m_1--dots---m_ell---n_1--dots----n_k-where-above-gamma_ij-is-the-matrix-corresponding-to-g-1the-concept-of-a-tensor-is-closely-related-to-that-of-a-tensor-product-of-representations-recall-that-the-tensor-product-v_1-otimes-v_2-of-two-vector-spaces-v_1-and-v_2-with-respective-bases-e_1-1-dots-e_1-m-and-e_2-1-dots-e_2-n-is-the-space-of-formal-linear-combinations-of-the-symbols-e_1-a-otimes--e_2-bmeaning-that-each-element-of-v_1-otimes-v_2-can-be-uniquely-expressed-in-the-formcab-e_1-a-otimes--e_2-b-where-cab-are-the-coefficients-of-the-linear-combinationsuppose-rho_1-is-a-representation-of-g-over-v_1-and-that-rho_2-is-a-representation-of-g-over-v_2-suppose-that-a--a1-dots-am-in-v_1-and-that-b--b1-dots-bm-in-v_2-so-that-a-and-b-are-each-transformed-under-the-g-action-on-each-space-by-definition-the-quantity-with-components-aibj-transforms-according-to-the-tensor-product-representation-rho_1-otimes-rho_2-over-v_1-otimes-v_2the-representation-rho_1-otimes-rho_2-acting-in-v-otimes-v_2-changes-the-coordinates-cab-according-to-the-following-law-we-denote-the-result-of-this-transformation-by-dabdab--rho_1g_karho_2g_ellb-ckellwhere-rho_1g_ka-is-the-matrix-of-rho_1g-in-the-basis-e_1-1-dots-e_1-m-and-analogously-for-the-other-matrixthe-following-is-a-coordinate-free-definition-of-a-tensor-with-k-upper-indices-and-ell-lower-indices-we-say-such-a-tensor-has-valency-k-elldef-quad--a-tensor-of-type-or-valency-kell-over-vector-space-v-is-a-multilinear-map-a--underbracev-times--dots--times-v_-k-text-copies---times--underbrace-v-times--dots--times-v-_-ell-text-copies--to-mathbbrtensor-operations-aside-from-the-operations-which-give-mathcaltk-ell-the-structure-of-a-vector-space-there-are-two-other-operations-worth-mentioningthe-first-is-called-contraction-with-respect-to-the-ith-dual-vector-and-jth-vector-slots-for-k-ell-geq-1-contraction-is-a-map-textsfc--mathcaltk-ell-to-mathcaltk-1-ell-1given-bytextsfc-t--t-dots-eadots--dots-e_a-dots--where-the-repeated-indexing-denotes-a-sum-indexed-by-a-which-runs-over-the-dimensions-of-v-and-where-e_a-is-an-orthonormal-basis-for-v-with-ea-the-corresponding-orthonormal-basis-for-v-the-ea-are-in-the-ith-slot-of-t-while-the-e_a-are-in-the-jth-slot-of-tnote-that-the-contraction-of-a-tensor-of-type-11-when-viewed-as-a-linear-map-from-v-to-itself-is-just-the-trace-of-this-map-contraction-thus-generalizes-trace-and-both-objects-are-independent-of-the-choice-of-e_athe-second-operation-of-tensors-we-define-is-the-outer-product-of-tensors-x-in-mathcaltk-ell-and-y-in-mathcaltk-ell-denoted-x-otimes-y-the-tensor-x-otimes-y-lies-in-mathcalt-k--k-ell--ell--and-is-defined-as-followsgiven-kk-dual-vectors-v1-dots-vkk-and-ell--ell-vectors-w_1-dots-w_ell--ell-we-define-the-action-of-x-otimes-y-on-these-objects-to-be-the-productx-v1-dots-vk--w_1-dots-w_ell-cdot-y--vk1-dots-vk--k--w_ell1-dots-w_ell--ell-todorefine-edit-the-above-sectionfollow-walds-discussion-of-abstract-index-notation15--gdl-blueprint-fixed-input-domain--setup-our-formal-treatment-of-a-classification-problem-requires-the-following-objectsa-finite-group-ga-sequence-of-discrete-domains--omega_j-_j0l-with-omega-equiv-omega_0-the-domain-of-input-signalsa-sequence-of-finite-dimensional-channel-vector-spaces--mathcalc_j-_j0l-with-mathcalc_0-equiv-mathcalc-the-space-of-input-channelseach-omega_j-is-a-homogeneous-space-with-respect-to-g-meaning-each-domain-admits-a-transitive-g-action-denoted-xi_j-in-particular-we-can-write-omega_j-cong-g--h_j-for-some-subgroup-h_j-subset-gthe-representations-xi_j-induce-representions-rho_j-over-respective-signal-vector-spaces-mathcalxomega_j-mathcalc_ja-collection-of-orthonormal-bases-for-each-signal-vector-space-unless-stated-otherwise-for-each-j-these-are--assumed-to-have-the-form-e_j-textrmspace--i-otimes-e_j-textrmchannel--awhere-the-index-i-runs-between-1-and--omega_j-while-index-a-runs-between-1-and-textrmdimmathcalc_j-three-flavors-of-equivariant-map-the-essential-components-of-the-gdl-blueprint-are-g-equivariant-mapsthese-fall-under-three-general-cases-which-we-distinguish-from-one-another-each-object-below-should-be-imagined-as-associated-to-some-layer-j-though-we-omit-the-subscripts-for-the-time-being-we-consider-at-most-two-domains-omega-tildeomega-and-at-most-two-channel-spaces-mathcalc-tildemathcalc-the-signal-domains-are-as-described-in-the-setup-and-thus-can-be-expressed-as-omega-equiv-g--h-and-tildeomega-equiv-g--tildeh-for-subgroups-h-tildeh-subset-g-the-cases-areaffine-g-equivariant-maps-tildeb--mathcalx-omega-mathcalc-to-mathcalx--tildeomega-tildemathcalcof-the-following-form-first-a-generalized-convolution-with-filter-tildetheta-in-mathcalxh-backslash-g--tildeh---mathcalc-otimes-tildemathcalc--followed-by-the-addition-of-a-bias-vector-tildeb-in-mathcalx-tildeomega-tildemathcalc--the-convolution-itself-can-be-expressed-as-a-matrix-with-respect-to-basise_textrmspaceell-otimes-tildee_textrmspace-k-otimes-e_textrmchannel-a-otimes-tildee_textrmchannelbwhere-ell--1-dots--omega-k--1-dots-tildeomega-likewise-a--1-dots-textrmdimmathcalc-and-b--1-dots-textrmdimtildemathcalc-the-entries-of-this-matrix-as-well-as-those-of-the-bias-vector-tildeb-are-all-learnednon-linear-activation-function-mathbfa--mathcalx-omega-mathcalc-to-mathcalx-omega-mathcalc-applied-entrywise-to-a-given-input-this-implicitly-assumes-that-the-input-is-expressed-with-respect-to-the-basise_textrmspace-ell--otimes-e_textrmchannelathere-are-no-learned-parameters-associated-to-this-map-despite-its-basis-dependence-the-entrywise-application-of-the-nonlinearity-is-the-reason-this-map-is-equivariantequivariant-local-pooling-operators-p--mathcalxomega-mathcalc-to-mathcalxtildeomega-tildemathcalc-which-contain-no-learnable-parameters-these-perform-a-kind-of-renormalization-or-coarse-graining-of-omega-these-are-not-in-general-convolutions-because-in-particular-they-are-not-necessarily-linear-in-addition-to-the-hope-that-such-renormalization-works-as-in-its-physics-useage-washing-away-non-essential-information-a-smaller-output-layer-usually-means-fewer-learned-parameters-in-the-network-overall-it-is-also-a-way-to-ensure-that-the-successive-map-examines-the-preceding-signal-with-an-aperture-of-at-least-a-certain-widthbefore-discussing-some-examples-of-equivariant-pooling-in-the-sense-of-3-above-we-remark-that-convolutional-layers-can-effectively-function-as-renormalization-operations-as-wellwe-give-three-examples-of-equivariant-pooling-example-strideless-g-pooling-let-g-be-a-finite-group-an-example-we-will-bear-in-mind-is-the-usual-one-for-images-with-g-equiv-omega-equiv-mathbbt_2n-in-addition-to-the-domain-being-the-group-acting-on-itself-we-additionally-identify-mathbbt_2n-with-its-cayley-graphthus-the-graph-distance-in-the-cayley-graph-endows-mathbbt_2-n-with-a-natural-notion-of-distance-in-general-we-write-textsfd_g-to-denote-this-graph-distance-and-we-let-textsfb_ggr-for-r-in-mathbbn-denote-the-ball-around-g-in-g-of-radius-r-with-respect-to-textsfd_glet-us-consider-textsfb_ger-the-ball-of-radius-r-centered-at-the-group-identity-let-us-denote-this-neighborhood-as-u-for-brevity-the-following-defines-a-pooling-operation-p-on-signals-x-in-mathcalxg-mathcalcpxg--x-left-textrmargmax_h--in--g-u---xh-_mathcalc-rightwhere--cdot-_mathcalc--denotes-some-norm-on-the-channel-vector-space-mathcalc-example-subsampling--example-coset-pooling--hypothesis-space---discussion--shift-invariance-arises-naturally-in-vision-and-pattern-recognition-in-this-case-the-desired-function-f-in-textsfh-typically-implemented-as-a-cnn-inputs-an-image-and-outputs-the-probability-of-the-image-to-contain-an-object-from-a-certain-class-it-is-often-reasonably-assumed-that-the-classification-result-should-not-be-affected-by-the-position-of-the-object-in-the-image-ie-the-function-f-must-be-shift-invariantmulti-layer-perceptrons-lack-this-property-a-reason-why-early-1970s-attempts-to-apply-these-architectures-to-pattern-recognition-problems-failed-the-development-of-nn-architectures-with-local-weight-sharing-as-epitomized-by-cnns-was-among-other-reasons-motivated-by-the-need-for-shift-invariant-object-classificationa-prototypical-application-requiring-shift-equivariance-is-image-segmentation-where-the-output-of-f-is-a-pixel-wise-image-mask-this-segmentation-mask-must-follow-shifts-in-the-input-image-in-this-example-the-domains-of-the-input-and-output-are-the-same-but-since-the-input-has-three-color-channels-while-the-output-has-emphone-channel-per-class-the-representations-rho-mathcalxomega-mathcalc--and-rho-mathcaly-equiv-mathcalxomega-mathcalc-are-somewhat-differentwhen-f-is-implemented-as-a-cnn-it-may-be-written-as-a-composition-of-l-functions-where-l-is-determined-by-the-depth-and-other-hyperparametersf--f_l-circ-f_l-1-circ-dots-circ-f_2-circ-f_1-examining-the-individual-layer-functions-making-up-cnn-one-finds-they-are-not-shift-invariant-in-general-but-rather-shift-equivariant-the-last-function-applied-namely-f_l-is-typically-a-global-pooling-function-that-is-genuinely-shift-invariant-causing-f-to-be-shift-invariant-but-to-focus-on-this-ignores-the-structure-we-will-leverage-for-purposes-of-expressivity-and-regularitydiv-" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... vectors and covectors, in coordinates&lt;/h3&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+<h3 id="...-vectors-and-covectors,-in-coordinates">
+<a class="anchor" href="#...-vectors-and-covectors,-in-coordinates" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... vectors and covectors, in coordinates</font><a class="anchor-link" href="#...-vectors-and-covectors,-in-coordinates"> </a>
+</h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2041,14 +1645,8 @@ $$</p>
 </div>
 </div>
 </div>
-&lt;/div&gt;
- 
+</div>
 
-</font>
-</h3>
-</div>
-</div></div>
-</div>
 
 
   </div><a class="u-url" href="/geometric-deep-learning/jupyter/2021/10/21/GDL1.html" hidden></a>
