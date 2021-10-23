@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      25 min read
+      24 min read
     
 </span></p>
 
@@ -168,12 +168,13 @@ window.onload = wrap_img;
 </li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#2.2-...-Learning-with-scalar-signals-on-a-cyclic-group">2.2 ... Learning with scalar signals on a cyclic group </a>
+<li class="toc-entry toc-h2"><a href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals">2.2 ... one-dimensional convolutions of scalar-valued signals </a></li>
+<li class="toc-entry toc-h2"><a href="#2.3-...-one-dimensional-convolutions-in-torch">2.3 ... one-dimensional convolutions in torch </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#torch.nn.Conv2d">torch.nn.Conv2d </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#2.2-...-A-simple-CNN">2.2 ... A simple CNN </a></li>
+<li class="toc-entry toc-h2"><a href="#...-A-simple-CNN">... A simple CNN </a></li>
 </ul>
 </li>
 </ul><!--
@@ -198,7 +199,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="2.1-...-tensors-in-pytorch">
-<a class="anchor" href="#2.1-...-tensors-in-pytorch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="green">2.1 ... tensors in pytorch</font><a class="anchor-link" href="#2.1-...-tensors-in-pytorch"> </a>
+<a class="anchor" href="#2.1-...-tensors-in-pytorch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.1 ... tensors in pytorch</font><a class="anchor-link" href="#2.1-...-tensors-in-pytorch"> </a>
 </h2>
 </div>
 </div>
@@ -226,8 +227,8 @@ window.onload = wrap_img;
 <pre>Requirement already satisfied: torch in /usr/local/lib/python3.7/dist-packages (1.9.0+cu111)
 Collecting torch
   Downloading torch-1.10.0-cp37-cp37m-manylinux1_x86_64.whl (881.9 MB)
-     |██████████████████████████████▎ | 834.1 MB 1.3 MB/s eta 0:00:38tcmalloc: large alloc 1147494400 bytes == 0x5560b83a0000 @  0x7fe0f2a0d615 0x55607f4604cc 0x55607f54047a 0x55607f4632ed 0x55607f554e1d 0x55607f4d6e99 0x55607f4d19ee 0x55607f464bda 0x55607f4d6d00 0x55607f4d19ee 0x55607f464bda 0x55607f4d3737 0x55607f555c66 0x55607f4d2daf 0x55607f555c66 0x55607f4d2daf 0x55607f555c66 0x55607f4d2daf 0x55607f465039 0x55607f4a8409 0x55607f463c52 0x55607f4d6c25 0x55607f4d19ee 0x55607f464bda 0x55607f4d3737 0x55607f4d19ee 0x55607f464bda 0x55607f4d2915 0x55607f464afa 0x55607f4d2c0d 0x55607f4d19ee
-     |████████████████████████████████| 881.9 MB 18 kB/s 
+     |██████████████████████████████▎ | 834.1 MB 1.2 MB/s eta 0:00:39tcmalloc: large alloc 1147494400 bytes == 0x55bad2e38000 @  0x7f020d191615 0x55ba992c24cc 0x55ba993a247a 0x55ba992c52ed 0x55ba993b6e1d 0x55ba99338e99 0x55ba993339ee 0x55ba992c6bda 0x55ba99338d00 0x55ba993339ee 0x55ba992c6bda 0x55ba99335737 0x55ba993b7c66 0x55ba99334daf 0x55ba993b7c66 0x55ba99334daf 0x55ba993b7c66 0x55ba99334daf 0x55ba992c7039 0x55ba9930a409 0x55ba992c5c52 0x55ba99338c25 0x55ba993339ee 0x55ba992c6bda 0x55ba99335737 0x55ba993339ee 0x55ba992c6bda 0x55ba99334915 0x55ba992c6afa 0x55ba99334c0d 0x55ba993339ee
+     |████████████████████████████████| 881.9 MB 19 kB/s 
 Requirement already satisfied: typing-extensions in /usr/local/lib/python3.7/dist-packages (from torch) (3.7.4.3)
 Installing collected packages: torch
   Attempting uninstall: torch
@@ -2696,8 +2697,8 @@ tensor     (b)
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2-...-Learning-with-scalar-signals-on-a-cyclic-group">
-<a class="anchor" href="#2.2-...-Learning-with-scalar-signals-on-a-cyclic-group" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 ... Learning with scalar signals on a cyclic group<a class="anchor-link" href="#2.2-...-Learning-with-scalar-signals-on-a-cyclic-group"> </a>
+<h2 id="2.2-...-one-dimensional-convolutions-of-scalar-valued-signals">
+<a class="anchor" href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 ... one-dimensional convolutions of scalar-valued signals<a class="anchor-link" href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals"> </a>
 </h2>
 </div>
 </div>
@@ -2705,7 +2706,8 @@ tensor     (b)
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the simplest setting we consider, the underlying domain is a one-dimensional grid, and the signals only have a single channel. We can identify this grid $\Omega$ with the Cayley graph of cyclic group
+<p>We now consider one of the simplest possible settings for learning, in which the underlying domain is a one-dimensional grid, and where signals over the domain have only a single channel.</p>
+<p>In this case, the signal domain is a group itself, the cyclic group of order $n$, 
 $$
 C_n = \langle \, a : a^n = 1 \, \rangle \equiv \{ \, 1, a, a^2, \dots, a^{n-1} \, \}.
 $$
@@ -2713,7 +2715,7 @@ It is convenient to parametrize the group, and hence the grid, through the expon
 $$
 C_n \equiv \{ 0, 1, \dots, n -1 \}
 $$
-as this indexing is consistent with the way most programming languages index vectors, reinterpreting the group operation as addition modulo $n$.</p>
+as this indexing is consistent with the way most python indexes vectors. In this setting, the group operation may be reinterpreted as addition modulo $n$.</p>
 
 </div>
 </div>
@@ -2721,11 +2723,11 @@ as this indexing is consistent with the way most programming languages index vec
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The vector space of single-channeled (i.e. real-valued) signals
+<p>As the input domain is fixed, it feels natural to consider the GDL group $G$ to be $C_n$ as well.</p>
+<p>We suppose that signals are scalar-valued, and are encoded in the natural basis, so that each $x \in \mathcal{X}(C_n, \mathbb{R})$ may be expressed as</p>
 $$
 \mathcal{X}(C_n,\mathbb{R}) = \{ x : C_n \to \mathbb{R} \} ,
-$$
-is finite dimensional, and each $x \in \mathcal{X}(C_n, \mathbb{R})$ may be expressed as 
+$$<p>is finite dimensional, and each $x \in \mathcal{X}(C_n, \mathbb{R})$ may be expressed as 
 $$
 x = 
 \left[ 
@@ -2735,18 +2737,6 @@ x_0\\
 \,x_{n-1}\,
 \end{matrix}
 \right] 
-$$
-with respect to some implicit coordinate system used by the computer, the <em>input coordinate system</em>. This is the same coordinate system used to express the representation $\rho$ of translation group $G \equiv C_n$, which we now describe.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Given a vector $\theta = (\theta_0 , \dots, \theta_{n-1})$, recall the associated <em>circulant matrix</em> is the $n \times n$ matrix with entries 
-$$
-\mathcal{C}(\theta) := \left( \, \theta_{ (u - v) \mod n} \right)_{ 0 \, \leq \,u,\,v \, \leq n-1 } 
 $$</p>
 
 </div>
@@ -2755,7 +2745,27 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Consider the case of $\theta_S := (0,1,0,\dots, 0)^T$, the associated circulant matrix, $\mathbf{S} := \mathbf{C}(\theta_S)$ acts on vectors by shifting the entries of vectors to the right by one position, modulo $n$. This is a shift or translation operator, which we denote $\mathbf{S}$.</p>
+<p>With this basis, we can describe the representation $\rho$ of $G \equiv C_n$ concretely, as a matrix.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given a vector $\theta = (\theta_0 , \dots, \theta_{n-1})$, recall the associated <font color="purple">_circulant matrix_</font> is the $n \times n$ matrix with entries 
+$$
+S(\theta) := \left( \, \theta_{ (u - v) \mod n} \right)_{ 0 \, \leq \,u,\,v \, \leq n-1 } 
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the specific case of $\theta_{+} := (0,1,0,\dots, 0)^T$, the associated circulant matrix, $S_{+} := S(\theta_{+})$ acts on vectors by shifting the entries of vectors to the right by one position, corresponding to addition by one, modulo $n$.</p>
+<p>We call $S_+$ the <em><font color="purple">(right) shift operator</font></em>.</p>
 
 </div>
 </div>
@@ -2765,7 +2775,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <p><strong>Lemma</strong> $\quad$
-A matrix is circulant if and only if it commutes with $\mathbf{S}$. Moreover, given any two vectors $\theta, \eta \in \mathbb{R}^n$, one has $\mathbf{C}(\theta) \mathbf{C}(\eta) = \mathbf{C}(\eta) \mathbf{C}(\theta)$.</p>
+A matrix is circulant if and only if it commutes with $S_+$. Moreover, given any two vectors $\theta, \eta \in \mathbb{R}^n$, one has $S(\theta) S(\eta) = S(\eta) S(\theta)$.</p>
 <hr>
 
 </div>
@@ -2774,11 +2784,28 @@ A matrix is circulant if and only if it commutes with $\mathbf{S}$. Moreover, gi
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The importance of $\mathbf{S}$ to the present discussion is that it generates a group isomorphic to the one-dimensional translation group $C_n$. This is to say, a natural representation of $C_n = \langle \, a : a^n = 1 \, \rangle$ to consider is the group isomorphism induced by mapping the generator $a$ of $C_n$ to $\mathbf{S}$. Specifically, the representation $\rho$ of $G$ over $\mathcal{X}( C_n, \mathbb{R})$ is given by
+<p>The importance of $S_+$ to the present discussion is that it generates a group isomorphic to the one-dimensional translation group $C_n$; the matrices $\{ I, S_+, S_+^2, \dots, S^{n-1} \}$ constitute a faithful representation of $C_n$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Circulant matrices are synonymous with discrete convolutions; given $x, \theta \in \mathcal{X}(\Omega,\mathbb{R}) \equiv \mathbb{R}^n$, their <em>convolution</em> $x \star \theta$ is defined by 
 $$
-\rho ( a^j ) := \mathbf{S}^j 
+( x \star \theta )_u := \sum_{v = 0}^{n-1} x_{v \mod n}\, \theta_{ (u-v) \mod n} \equiv S(\theta) x 
 $$</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.3-...-one-dimensional-convolutions-in-torch">
+<a class="anchor" href="#2.3-...-one-dimensional-convolutions-in-torch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.3 ... one-dimensional convolutions in torch</font><a class="anchor-link" href="#2.3-...-one-dimensional-convolutions-in-torch"> </a>
+</h2>
 </div>
 </div>
 </div>
@@ -2830,30 +2857,6 @@ $$
 $$
 This special multi-diagonal structure is sometimes referred to as ``weight sharing" in the machine learning literature.</p>
 <hr>
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Circulant matrices are synonymous with discrete convolutions; for $x \in \mathcal{X}(\Omega,\mathbb{R})$ and $\theta \in \mathbb{R}^n$, their <em>convolution</em> $x \star \theta$ is defined by 
-$$
-( x \star \theta )_u := \sum_{v = 0}^{n-1} x_{v \mod n}\, \theta_{ (u-v) \mod n}  \, ,
-$$
-$$
-\equiv \mathbf{C}(\theta) x 
-$$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<p><strong>Rmk</strong> $\quad$ This leads to an alternate, equivalent definition of convolution as a translation equivariant linear operation. Moreover by replacing translations by a more general group $G$, one can generalize convolution to settings whose domain has symmetry other than translational.</p>
 <hr>
 
 </div>
@@ -3044,8 +3047,8 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2-...-A-simple-CNN">
-<a class="anchor" href="#2.2-...-A-simple-CNN" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 ... A simple CNN<a class="anchor-link" href="#2.2-...-A-simple-CNN"> </a>
+<h2 id="...-A-simple-CNN">
+<a class="anchor" href="#...-A-simple-CNN" aria-hidden="true"><span class="octicon octicon-link"></span></a>... A simple CNN<a class="anchor-link" href="#...-A-simple-CNN"> </a>
 </h2>
 </div>
 </div>
