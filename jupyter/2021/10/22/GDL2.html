@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      24 min read
+      25 min read
     
 </span></p>
 
@@ -168,8 +168,13 @@ window.onload = wrap_img;
 </li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals">2.2 ... one-dimensional convolutions of scalar-valued signals </a></li>
-<li class="toc-entry toc-h2"><a href="#2.3-...-one-dimensional-convolutions-in-torch">2.3 ... one-dimensional convolutions in torch </a>
+<li class="toc-entry toc-h2"><a href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals">2.2 ... one-dimensional convolutions of scalar-valued signals </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#...example:-local-averaging-as-a-circulant-matrix">...example: local averaging as a circulant matrix </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#2.3-...-one-dimensional-convolutions-in-torch">2.3 ... one-dimensional convolutions in torch </a></li>
+<li class="toc-entry toc-h2"><a href="#2.4-...-two-dimensional-convolutions-in-torch">2.4 ... two-dimensional convolutions in torch </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#torch.nn.Conv2d">torch.nn.Conv2d </a></li>
 </ul>
@@ -2814,28 +2819,28 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.3-...-one-dimensional-convolutions-in-torch">
-<a class="anchor" href="#2.3-...-one-dimensional-convolutions-in-torch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.3 ... one-dimensional convolutions in torch</font><a class="anchor-link" href="#2.3-...-one-dimensional-convolutions-in-torch"> </a>
-</h2>
+<hr>
+<hr>
+<h3 id="...example:-local-averaging-as-a-circulant-matrix">
+<a class="anchor" href="#...example:-local-averaging-as-a-circulant-matrix" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">...example: local averaging as a circulant matrix</font><a class="anchor-link" href="#...example:-local-averaging-as-a-circulant-matrix"> </a>
+</h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<hr>
-<p><strong>Example</strong> $\quad$ 
-Our previous recipe for designing an equivariant function $F= \Phi( \mathbf{X}, \mathbf{A})$ using a local aggregation function $\varphi$. In this case, we can express
+<p>$\quad$ Recall a <a href="https://the-ninth-wave.github.io/geometric-deep-learning/jupyter/2021/10/21/GDL1.html#...-example:-permutations-and-local-averaging">previous recipe</a> for an equivariant function $F= \Phi( X, A)$ using a local aggregation function $\varphi$.</p>
+<p>In our present case of $\Omega \equiv G \equiv C_n$, we may write this local aggregation more concretely as
 $$
-\varphi ( \mathbf{x}_u, \mathbf{X}_{\mathcal{N}(u)} ) = \varphi( \mathbf{x}_{u-1}, \, \mathbf{x}_u, \, \mathbf{x}_{u+1} ),
+\varphi ( x_u, X_{\textsf{nbhd}(u)} ) = \varphi( x_{u-1}, \, x_u, \, x_{u+1} ),
 $$
-where the addition and subtraction in the indices above is understood to be modulo $n$.</p>
+with addition and subtraction in the indices above understood to be modulo $n$.</p>
 <p>If in addition, we insist that $\varphi$ is linear, then it has the form 
 $$
- \varphi( \mathbf{x}_{u-1}, \, \mathbf{x}_u, \, \mathbf{x}_{u+1} ) = \theta_{-1} \mathbf{x}_{u-1} + \theta_0 \mathbf{x}_u + \theta_1 \mathbf{x}_{u+1},
+ \varphi( x_{u-1}, \, x_u, \, x_{u+1} ) = \theta_{-1} x_{u-1} + \theta_0 x_u + \theta_1 x_{u+1},
 $$
-and in this case we can express $\mathbf{F} = \Phi (\mathbf{X}, \mathbf{A} )$ through the following matrix multiplication:
+and in this case we can express $F = \Phi (X, A )$ through the following matrix multiplication:
 $$
 \left[
 \begin{matrix}
@@ -2848,18 +2853,36 @@ $$
 \right]
 \left[
 \begin{matrix}
-\mathbf{x}_0 \\
-\mathbf{x}_1 \\
+x_0 \\
+x_1 \\
 \vdots \\
-\,\mathbf{x}_{n-2} \, \\
-\mathbf{x}_{n-1}  
+\,x_{n-2} \, \\
+x_{n-1}  
 \end{matrix}
 \right]
 $$
-This special multi-diagonal structure is sometimes referred to as ``weight sharing" in the machine learning literature.</p>
+This multi-diagonal structure is often synonymous with the concept of weight sharing in ML literature.</p>
 <hr>
 <hr>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.3-...-one-dimensional-convolutions-in-torch">
+<a class="anchor" href="#2.3-...-one-dimensional-convolutions-in-torch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.3 ... one-dimensional convolutions in torch</font><a class="anchor-link" href="#2.3-...-one-dimensional-convolutions-in-torch"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.4-...-two-dimensional-convolutions-in-torch">
+<a class="anchor" href="#2.4-...-two-dimensional-convolutions-in-torch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.4 ... two-dimensional convolutions in torch</font><a class="anchor-link" href="#2.4-...-two-dimensional-convolutions-in-torch"> </a>
+</h2>
 </div>
 </div>
 </div>
