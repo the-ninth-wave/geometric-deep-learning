@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      24 min read
+      25 min read
     
 </span></p>
 
@@ -173,7 +173,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#torch.nn.Conv2d">torch.nn.Conv2d </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#2.2-$\quad$-A-simple-CNN">2.2 $\quad$ A simple CNN </a></li>
+<li class="toc-entry toc-h2"><a href="#2.2-...-A-simple-CNN">2.2 ... A simple CNN </a></li>
 </ul>
 </li>
 </ul><!--
@@ -445,13 +445,24 @@ Successfully installed tabletext-0.1
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
-    <span class="n">display_obj_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">display_obj</span> <span class="p">)</span>
+    <span class="n">display_list</span> <span class="o">=</span> <span class="n">display_obj</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-    <span class="n">display_obj_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span> <span class="n">display_obj_np</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">display_list</span> <span class="p">)</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">display_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-    <span class="n">display_obj</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span> <span class="n">display_obj_np</span> <span class="p">)</span>
+    <span class="n">outer_list</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="nb">print</span><span class="p">(</span> <span class="n">to_text</span><span class="p">(</span> <span class="n">display_obj</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">J</span><span class="p">):</span>
+
+        <span class="n">inner_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+
+            <span class="n">inner_list</span> <span class="o">+=</span> <span class="p">[</span> <span class="nb">str</span><span class="p">(</span> <span class="n">display_list</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="p">)[:</span><span class="mi">4</span><span class="p">]</span> <span class="p">]</span>
+
+        <span class="n">outer_list</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">inner_list</span> <span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span> <span class="n">to_text</span><span class="p">(</span> <span class="n">outer_list</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -1117,9 +1128,9 @@ tensor     'X three (a) iii'
     shape            [3]
 
 
-┌──────────────────────┬────────────────────┬─────────────────────┐
-│ 0.009999999776482582 │ 0.6899999976158142 │ 0.23000000417232513 │
-└──────────────────────┴────────────────────┴─────────────────────┘
+┌──────┬──────┬──────┐
+│ 0.31 │ 0.62 │ 0.73 │
+└──────┴──────┴──────┘
 
 
 
@@ -1130,11 +1141,11 @@ tensor     X 3 (c)  ii
     shape            [2 3]
 
 
-┌─────────────────────┬─────────────────────┬─────────────────────┐
-│ 0.18000000715255737 │ 0.46000000834465027 │ 0.33000001311302185 │
-├─────────────────────┼─────────────────────┼─────────────────────┤
-│  0.3400000035762787 │  0.5199999809265137 │ 0.38999998569488525 │
-└─────────────────────┴─────────────────────┴─────────────────────┘
+┌──────┬──────┬──────┐
+│ 0.43 │ 0.30 │ 0.77 │
+├──────┼──────┼──────┤
+│ 0.10 │ 0.81 │ 0.30 │
+└──────┴──────┴──────┘
 
 
 
@@ -1145,11 +1156,11 @@ tensor     X 3 (c)  iii
     shape            [2 3]
 
 
-┌─────────────────────┬─────────────────────┬─────────────────────┐
-│ 0.33000001311302185 │ 0.25999999046325684 │ 0.09000000357627869 │
-├─────────────────────┼─────────────────────┼─────────────────────┤
-│  0.9200000166893005 │ 0.30000001192092896 │  0.6299999952316284 │
-└─────────────────────┴─────────────────────┴─────────────────────┘
+┌──────┬──────┬──────┐
+│ 0.50 │ 0.40 │ 0.56 │
+├──────┼──────┼──────┤
+│ 0.34 │ 0.86 │ 0.48 │
+└──────┴──────┴──────┘
 
 
 
@@ -1162,7 +1173,7 @@ tensor     X 3 (c)  iii
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAAAzCAYAAABR5bw6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAAuElEQVR4nO3cuQ3DMBAAQdNwjSxA3agqlUYX4CelgJ1JLzlgcQETjrXWg57n7gXYQ/go4aOEjxI+Svio17/hnPN2b73runav8NV5nrtX+HAcx/g1c/FRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV81PCXbZOLjxI+Svgo4aOEjxI+6g2xZw1h2TtEMQAAAABJRU5ErkJggg==%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAAAzCAYAAABR5bw6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAAs0lEQVR4nO3csQ0DIRAAQWO5/07I6Ioi+AZsp//SzqSXnLS6gIRxznnR8757Ae4hfJTwUcJHCR8lfNTn33Dv/bi33lrr7hW+euJec87xa+bio4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+KjhL9smFx8lfJTwUcJHCR8lfNQFvK0QYWkLuqsAAAAASUVORK5CYII=%0A">
 </div>
 
 </div>
@@ -1172,7 +1183,7 @@ tensor     X 3 (c)  iii
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABKElEQVR4nO3csW2EQBRFUWNtQKcUQGX0Qi0EJOMCvF55E4+le046yZOuvkTEMsb4oOdz9gDmED5K+Cjho4SPerx63Pf9333yr+s6e8JT53nOnvDNcRzLT28uPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI96+fOj+77/asevbds2e8JT13XNnvAWFx8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR+1jDFmb2ACFx8lfJTwUcJHCR8lfNQX2xgUstqhBdUAAAAASUVORK5CYII=%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABJ0lEQVR4nO3csW2EQBRFUWNteZRIDr3QAgmVjAvweuVNPJbuOekkT7r6EhHLGOODns/ZA5hD+Cjho4SPEj7q8erxvu9/98m/7/vsCU9d1zV7wjfbti0/vbn4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPurlz4+O4/irHb92nufsCU+t6zp7wltcfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfNQyxpi9gQlcfJTwUcJHCR8lfJTwUV/XbBXqvW4F4QAAAABJRU5ErkJggg==%0A">
 </div>
 
 </div>
@@ -1182,7 +1193,7 @@ tensor     X 3 (c)  iii
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABLElEQVR4nO3csW2EQBBAUWO5G4ogvpjS6INqaIE6cGzdHeme/N9LNxnpa6SNZrqu64ue79EDMIbwUcJHCR8lfNTP3eM8zx/35V/XdfQILx3HMXqEJ/u+T+/ebHyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfNd2dND3P8+OOH23bNnqElx6Px+gRnizL4vgRfwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCR91eveL/svFRwkcJHyV8lPBRwkf9Ara2F6d9CoXHAAAAAElFTkSuQmCC%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABK0lEQVR4nO3csW2EQBBAUWM5okOqu4gCKIUKaIMMx9bdke7J/710k5G+Rtpopuu6vuj5Hj0AYwgfJXyU8FHCR/3cPa7r+nFf/mVZRo/w0nmeo0d4Ms/z9O7NxkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBR091J023bPu740b7vo0d46fF4jB7hyXEcjh/xl/BRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV81O3VK/4vGx8lfJTwUcJHCR8lfNQvrVYap4dmmBYAAAAASUVORK5CYII=%0A">
 </div>
 
 </div>
@@ -1205,6 +1216,9 @@ tensor     X 3 (c)  iii
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1212,7 +1226,7 @@ tensor     X 3 (c)  iii
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">shape_dict</span><span class="p">:</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">key</span>
     <span class="n">X_3_d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">shape_dict</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
-    <span class="n">info</span><span class="p">(</span><span class="n">X_3_d</span><span class="p">,</span> <span class="s2">"'X three (d)'"</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">"'"</span> <span class="p">)</span>
+    <span class="n">info</span><span class="p">(</span><span class="n">X_3_d</span><span class="p">,</span> <span class="s2">"X 3 (d)"</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="p">)</span>
     <span class="n">viz_tens</span><span class="p">(</span> <span class="mi">25</span> <span class="o">*</span> <span class="n">X_3_d</span> <span class="p">)</span>
 </pre></div>
 
@@ -1220,52 +1234,53 @@ tensor     X 3 (c)  iii
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor     'X three (d) i' 
+<pre>tensor     X 3 (d) i 
 
     num. dims        1
     num. entries     3
     shape            [3]
 
 
-┌────────────────────┬────────────────────┬────────────────────┐
-│ 1.3849544525146484 │ -2.475163221359253 │ -0.931602954864502 │
-└────────────────────┴────────────────────┴────────────────────┘
+┌──────┬──────┬──────┐
+│ 0.91 │ 0.84 │ -0.0 │
+└──────┴──────┴──────┘
 
 
 
-tensor     'X three (d) ii' 
-
-    num. dims        2
-    num. entries     6
-    shape            [2 3]
-
-
-┌──────────────────────┬─────────────────────┬──────────────────────┐
-│ -0.13348686695098877 │ 0.34148848056793213 │ -0.07157137989997864 │
-├──────────────────────┼─────────────────────┼──────────────────────┤
-│ -0.09089037775993347 │ -1.3296922445297241 │   -0.542582631111145 │
-└──────────────────────┴─────────────────────┴──────────────────────┘
-
-
-
-tensor     'X three (d) iii' 
+tensor     X 3 (d) ii 
 
     num. dims        2
     num. entries     6
     shape            [2 3]
 
 
-┌─────────────────────┬──────────────────────┬─────────────────────┐
-│  0.5470984578132629 │   0.6430637240409851 │ -0.7904810905456543 │
-├─────────────────────┼──────────────────────┼─────────────────────┤
-│ -0.9058369994163513 │ -0.26072561740875244 │ -0.5465103983879089 │
-└─────────────────────┴──────────────────────┴─────────────────────┘
+┌──────┬──────┬──────┐
+│ 0.57 │ -0.9 │ -0.9 │
+├──────┼──────┼──────┤
+│ -0.2 │ -0.9 │ 1.85 │
+└──────┴──────┴──────┘
+
+
+
+tensor     X 3 (d) iii 
+
+    num. dims        2
+    num. entries     6
+    shape            [2 3]
+
+
+┌──────┬──────┬──────┐
+│ -0.2 │ 0.25 │ 1.49 │
+├──────┼──────┼──────┤
+│ 0.53 │ -0.1 │ 0.34 │
+└──────┴──────┴──────┘
 
 
 
@@ -1278,7 +1293,7 @@ tensor     'X three (d) iii'
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAAAzCAYAAABR5bw6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAAuElEQVR4nO3cuQ3DMBAAQdNwQyxNDahWdUIX4CelgJ1JLzlgcQETjrXWg57n7gXYQ/go4aOEjxI+Svio17/heZ63e+td17V7ha+O49i9woc55/g1c/FRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV81PCXbZOLjxI+Svgo4aOEjxI+6g3N2g1hWjRdJgAAAABJRU5ErkJggg==%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAAAzCAYAAABR5bw6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAAuElEQVR4nO3cuQ3DMBAAQdNwOyxHxaoA1UUX4CelgJ1JLzlgcQETjrXWg57n7gXYQ/go4aOEjxI+Svio17/heZ63e+sdx7F7ha+u69q9woc55/g1c/FRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV81PCXbZOLjxI+Svgo4aOEjxI+6g2sng1hoDkvEQAAAABJRU5ErkJggg==%0A">
 </div>
 
 </div>
@@ -1288,7 +1303,7 @@ tensor     'X three (d) iii'
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABJ0lEQVR4nO3csW2EQBRFUWNtTpP0R0oH5BTEuACvV97EY+mek07ypKsvEbGMMT7o+Zw9gDmEjxI+Svgo4aMerx73ff93n/zXdc2e8NRxHLMnfHOe5/LTm4uPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho4SPEj5K+Cjho17+/Ghd17/a8Wvbts2e8NR937MnvMXFRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRy1jjNkbmMDFRwkfJXyU8FHCRwkf9QVdARUAL1SkoAAAAABJRU5ErkJggg==%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABK0lEQVR4nO3csW2EQBBAUWO5KZoiuK7IaIBK6IMUx9bdke7J/710k5G+Rtpopuu6vuj5Hj0AYwgfJXyU8FHCR/3cPS7L8nFf/nVdR4/w0rZto0d4Ms/z9O7NxkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBR091J0+M4Pu740ePxGD3CS+d5jh7hyb7vjh/xl/BRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV81O3VK/4vGx8lfJTwUcJHCR8lfNQvTl4ap2sIn/cAAAAASUVORK5CYII=%0A">
 </div>
 
 </div>
@@ -1298,7 +1313,7 @@ tensor     'X three (d) iii'
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABKklEQVR4nO3cwW2EQBQFQWNtfERBHqRCBCRDBiQyDsDrlffisdRV17k8qfUlTixjjA96PmcPYA7ho4SPEj5K+KjHq8fjOP7dJ/+2bbMnPLWu6+wJ35znufz05uKjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4qJc/P7qu6692/Nq+77MnPHXf9+wJb3HxUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcJHCR8lfJTwUcsYY/YGJnDxUcJHCR8lfJTwUcJHfQHghBRJGPVeCAAAAABJRU5ErkJggg==%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABJ0lEQVR4nO3csWnEQBRFUctsqkTtqTU1MP2on3EBXi92smO456STPLh8UKRtzvlBz+fqAawhfJTwUcJHCR/1ePV4Xde/++QfY6ye8NRxHKsnfDPG2H56c/FRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV8lPBRwkcJHyV81MufH933/a4dv3ae5+oJT+37vnrCn7j4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4qG3OuXoDC7j4KOGjhI8SPkr4KOGjvgDNEhFhIv9kaAAAAABJRU5ErkJggg==%0A">
 </div>
 
 </div>
@@ -1321,12 +1336,15 @@ tensor     'X three (d) iii'
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_3_f</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span> 
-<span class="n">info</span><span class="p">(</span><span class="n">X_3_f</span><span class="p">,</span> <span class="s2">"'X three (f)'"</span><span class="p">)</span>
+<span class="n">info</span><span class="p">(</span><span class="n">X_3_f</span><span class="p">,</span> <span class="s2">"X 3 (f)"</span><span class="p">)</span>
 <span class="n">viz_tens</span><span class="p">(</span> <span class="mi">25</span> <span class="o">*</span> <span class="n">X_3_f</span> <span class="p">)</span> <span class="c1"># note the modular arith. being performed automatically</span>
 </pre></div>
 
@@ -1334,13 +1352,14 @@ tensor     'X three (d) iii'
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor     'X three (f)' 
+<pre>tensor     X 3 (f) 
 
     num. dims        1
     num. entries     10
@@ -1518,12 +1537,14 @@ n: [2. 2. 2. 2. 2.]
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-
 <span class="n">viz_tens_list</span><span class="p">(</span> <span class="p">[</span> <span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span> <span class="p">]</span> <span class="p">)</span>
 </pre></div>
 
@@ -1531,6 +1552,7 @@ n: [2. 2. 2. 2. 2.]
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1539,7 +1561,7 @@ n: [2. 2. 2. 2. 2.]
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV0AAAC1CAYAAAD86CzsAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAC90lEQVR4nO3asW3CYBhF0Tiy2IKSFWAzxqCmgGEYwCuYUcwCAZTmOgrntF/xXF39hYdlWb4AaHyv/QEAn0R0AUKiCxASXYCQ6AKExjd3vzYA/N7w7OClCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQGhc+wPWdLlc0r3r9ZrubTabdO92u6V7pcPhkO5tt9t0b5qmdO9+v6d7f4mXLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQGtf+gDXN85zunU6ndO98Pqd7/9nxeEz39vt9urfb7dK9T+alCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKEhmVZXt1fHgH40fDs4KULEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5AaHxzH5KvAPgQXroAIdEFCIkuQEh0AUKiCxASXYDQA8kyHevFJ1f6AAAAAElFTkSuQmCC%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV0AAAC1CAYAAAD86CzsAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAC/UlEQVR4nO3asW3CYBhF0ThySY0YwwuwCROwCyPQMQ2VW0ahchYIoDTXKJzTfsVzdfUXHpZl+QKg8b32BwB8EtEFCIkuQEh0AUKiCxAaX9z92gDwd8Ojg5cuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAIdEFCIkuQEh0AUKiCxASXYCQ6AKERBcgJLoAoXHtD1jTdrtN9263W7q32+3Svfv9nu6V5nlO9y6XS7p3OBzSvWma0r134qULEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoTGtT9gTdfrNd07nU7p3vF4TPf+s81mk+6dz+d0b7/fp3vTNKV778RLFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIiS5ASHQBQqILEBJdgJDoAoREFyAkugAh0QUIDcuyPLs/PQLwq+HRwUsXICS6ACHRBQiJLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQEl2AkOgChEQXICS6ACHRBQiJLkBIdAFCogsQEl2A0PjiPiRfAfAhvHQBQqILEBJdgJDoAoREFyAkugChH2q5HfH36JPyAAAAAElFTkSuQmCC%0A">
 </div>
 
 </div>
@@ -1553,6 +1575,9 @@ n: [2. 2. 2. 2. 2.]
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1565,6 +1590,7 @@ n: [2. 2. 2. 2. 2.]
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1573,7 +1599,7 @@ n: [2. 2. 2. 2. 2.]
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABJ0lEQVR4nO3csWnEQBRFUctsiapIlagOtTGZmhkX4PViJzuGe046yYPLB0Xa5pwf9HyuHsAawkcJHyV8lPBRj1ePY4x/98l/XdfqCU+NMVZP+OY8z+2nNxcfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCR738+dG+7+/a8WvHcaye8NR936sn/ImLjxI+Svgo4aOEjxI+Svgo4aOEjxI+Svgo4aOEjxI+Svgo4aOEjxI+Svgo4aOEjxI+Svgo4aOEjxI+Svgo4aOEjxI+Svgo4aOEjxI+Svgo4aOEj9rmnKs3sICLjxI+Svgo4aOEjxI+6gu2JhW9RmsJUQAAAABJRU5ErkJggg==%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAABYCAYAAAAz1kOjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAABLElEQVR4nO3cu22EUBRFUWO5GWiFdohpk4yMOnAB89FEfpb2WulLjrR1JSKm+76/6PkePYAxhI8SPkr4KOGjft49Xtf17z75930fPeGpbdtGT3gwz/P06s3FRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FHCRwkfJXyU8FFvf350HMdf7fjYsiyjJzy1ruvoCQ/O83z55uKjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjhI8SPkr4KOGjpvu+R29gABcfJXyU8FHCRwkfJXzUL5y0FCs2rBfAAAAAAElFTkSuQmCC%0A">
 </div>
 
 </div>
@@ -1596,6 +1622,9 @@ n: [2. 2. 2. 2. 2.]
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1611,6 +1640,7 @@ n: [2. 2. 2. 2. 2.]
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1656,6 +1686,9 @@ tensor     X 2
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1668,6 +1701,7 @@ tensor     X 2
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1682,7 +1716,7 @@ tensor     X 2
 
 
 ┌────┬────┬────┬────┬────┐
-│  5 │  6 │  7 │  8 │  9 │
+│ 5  │ 6  │ 7  │ 8  │ 9  │
 ├────┼────┼────┼────┼────┤
 │ 10 │ 11 │ 12 │ 13 │ 14 │
 └────┴────┴────┴────┴────┘
@@ -1730,6 +1764,9 @@ An example is shown below:</p>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1751,6 +1788,7 @@ An example is shown below:</p>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1766,11 +1804,11 @@ tensor     'X one'
     shape            [2 3]
 
 
-┌────────────────────┬────────────────────┬────────────────────┐
-│ 0.6161253452301025 │ 0.7582958936691284 │ 0.5906646847724915 │
-├────────────────────┼────────────────────┼────────────────────┤
-│ 0.3219376802444458 │ 0.7609710693359375 │ 0.7627565860748291 │
-└────────────────────┴────────────────────┴────────────────────┘
+┌──────┬──────┬──────┐
+│ 0.59 │ 0.60 │ 0.57 │
+├──────┼──────┼──────┤
+│ 0.63 │ 0.25 │ 0.43 │
+└──────┴──────┴──────┘
 
 
 
@@ -1781,11 +1819,11 @@ tensor     'X two'
     shape            [2 3]
 
 
-┌────────────────────┬─────────────────────┬─────────────────────┐
-│ 0.6869636178016663 │ 0.41213929653167725 │ 0.36759936809539795 │
-├────────────────────┼─────────────────────┼─────────────────────┤
-│ 0.5534904599189758 │  0.4116729497909546 │ 0.35099947452545166 │
-└────────────────────┴─────────────────────┴─────────────────────┘
+┌──────┬──────┬──────┐
+│ 0.97 │ 0.83 │ 0.48 │
+├──────┼──────┼──────┤
+│ 0.02 │ 0.52 │ 0.15 │
+└──────┴──────┴──────┘
 
 
 
@@ -1801,11 +1839,11 @@ tensor     'X one'
     shape            [2 3]
 
 
-┌────────────────────┬────────────────────┬────────────────────┐
-│ 0.6161253452301025 │ 0.7582958936691284 │ 0.5906646847724915 │
-├────────────────────┼────────────────────┼────────────────────┤
-│ 0.3219376802444458 │ 0.7609710693359375 │ 0.7627565860748291 │
-└────────────────────┴────────────────────┴────────────────────┘
+┌──────┬──────┬──────┐
+│ 0.59 │ 0.60 │ 0.57 │
+├──────┼──────┼──────┤
+│ 0.63 │ 0.25 │ 0.43 │
+└──────┴──────┴──────┘
 
 
 
@@ -1816,11 +1854,11 @@ tensor     'X two'
     shape            [2 3]
 
 
-┌────────────────────┬────────────────────┬────────────────────┐
-│  1.303088903427124 │ 1.1704351902008057 │ 0.9582640528678894 │
-├────────────────────┼────────────────────┼────────────────────┤
-│ 0.8754281401634216 │  1.172644019126892 │ 1.1137560606002808 │
-└────────────────────┴────────────────────┴────────────────────┘
+┌──────┬──────┬──────┐
+│ 1.56 │ 1.44 │ 1.05 │
+├──────┼──────┼──────┤
+│ 0.66 │ 0.78 │ 0.59 │
+└──────┴──────┴──────┘
 
 
 
@@ -1866,6 +1904,9 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1878,6 +1919,7 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1910,6 +1952,9 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1922,6 +1967,7 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1965,6 +2011,9 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1977,6 +2026,7 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2013,6 +2063,9 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -2025,6 +2078,7 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2068,6 +2122,9 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -2085,6 +2142,7 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2098,15 +2156,15 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     shape            [4 4]
 
 
-┌───────────────────────┬──────────────────────┬─────────────────────┬──────────────────────┐
-│ 0.0025978684425354004 │    0.834635317325592 │  0.8788173198699951 │   0.6822240948677063 │
-├───────────────────────┼──────────────────────┼─────────────────────┼──────────────────────┤
-│   0.15136289596557617 │ 0.006530046463012695 │ 0.09391051530838013 │   0.8728501200675964 │
-├───────────────────────┼──────────────────────┼─────────────────────┼──────────────────────┤
-│    0.7400528788566589 │    0.920752227306366 │  0.7619349360466003 │   0.6265460848808289 │
-├───────────────────────┼──────────────────────┼─────────────────────┼──────────────────────┤
-│     0.495103657245636 │  0.11974698305130005 │ 0.07161390781402588 │ 0.032325685024261475 │
-└───────────────────────┴──────────────────────┴─────────────────────┴──────────────────────┘
+┌──────┬──────┬──────┬──────┐
+│ 0.90 │ 0.19 │ 0.46 │ 0.38 │
+├──────┼──────┼──────┼──────┤
+│ 0.58 │ 0.97 │ 0.54 │ 0.78 │
+├──────┼──────┼──────┼──────┤
+│ 0.88 │ 0.90 │ 0.32 │ 0.38 │
+├──────┼──────┼──────┼──────┤
+│ 0.74 │ 0.36 │ 0.73 │ 0.39 │
+└──────┴──────┴──────┴──────┘
 
 
 
@@ -2117,9 +2175,9 @@ tensor     first row of X
     shape            [4]
 
 
-┌───────────────────────┬───────────────────┬────────────────────┬────────────────────┐
-│ 0.0025978684425354004 │ 0.834635317325592 │ 0.8788173198699951 │ 0.6822240948677063 │
-└───────────────────────┴───────────────────┴────────────────────┴────────────────────┘
+┌──────┬──────┬──────┬──────┐
+│ 0.90 │ 0.19 │ 0.46 │ 0.38 │
+└──────┴──────┴──────┴──────┘
 
 
 
@@ -2130,9 +2188,9 @@ tensor     first column of X
     shape            [4]
 
 
-┌───────────────────────┬─────────────────────┬────────────────────┬───────────────────┐
-│ 0.0025978684425354004 │ 0.15136289596557617 │ 0.7400528788566589 │ 0.495103657245636 │
-└───────────────────────┴─────────────────────┴────────────────────┴───────────────────┘
+┌──────┬──────┬──────┬──────┐
+│ 0.90 │ 0.58 │ 0.88 │ 0.74 │
+└──────┴──────┴──────┴──────┘
 
 
 
@@ -2143,9 +2201,9 @@ tensor     last column of X
     shape            [4]
 
 
-┌────────────────────┬────────────────────┬────────────────────┬──────────────────────┐
-│ 0.6822240948677063 │ 0.8728501200675964 │ 0.6265460848808289 │ 0.032325685024261475 │
-└────────────────────┴────────────────────┴────────────────────┴──────────────────────┘
+┌──────┬──────┬──────┬──────┐
+│ 0.38 │ 0.78 │ 0.38 │ 0.39 │
+└──────┴──────┴──────┴──────┘
 
 
 
@@ -2156,9 +2214,9 @@ tensor     First two rows, last column
     shape            [2]
 
 
-┌────────────────────┬────────────────────┐
-│ 0.6822240948677063 │ 0.8728501200675964 │
-└────────────────────┴────────────────────┘
+┌──────┬──────┐
+│ 0.38 │ 0.78 │
+└──────┴──────┘
 
 
 
@@ -2169,11 +2227,11 @@ tensor     Middle two rows
     shape            [2 4]
 
 
-┌─────────────────────┬──────────────────────┬─────────────────────┬────────────────────┐
-│ 0.15136289596557617 │ 0.006530046463012695 │ 0.09391051530838013 │ 0.8728501200675964 │
-├─────────────────────┼──────────────────────┼─────────────────────┼────────────────────┤
-│  0.7400528788566589 │    0.920752227306366 │  0.7619349360466003 │ 0.6265460848808289 │
-└─────────────────────┴──────────────────────┴─────────────────────┴────────────────────┘
+┌──────┬──────┬──────┬──────┐
+│ 0.58 │ 0.97 │ 0.54 │ 0.78 │
+├──────┼──────┼──────┼──────┤
+│ 0.88 │ 0.90 │ 0.32 │ 0.38 │
+└──────┴──────┴──────┴──────┘
 
 
 
@@ -2190,6 +2248,9 @@ tensor     Middle two rows
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -2202,6 +2263,7 @@ tensor     Middle two rows
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2215,15 +2277,15 @@ tensor     Middle two rows
     shape            [4 4]
 
 
-┌─────────────────────┬─────┬────────────────────┬─────────────────────┐
-│ 0.33701878786087036 │ 0.0 │ 0.8188108205795288 │  0.7308486700057983 │
-├─────────────────────┼─────┼────────────────────┼─────────────────────┤
-│ 0.05802798271179199 │ 0.0 │ 0.4210916757583618 │  0.9836747646331787 │
-├─────────────────────┼─────┼────────────────────┼─────────────────────┤
-│  0.5723287463188171 │ 0.0 │ 0.7068576216697693 │  0.3095592260360718 │
-├─────────────────────┼─────┼────────────────────┼─────────────────────┤
-│ 0.17637217044830322 │ 0.0 │ 0.2726491093635559 │ 0.39976662397384644 │
-└─────────────────────┴─────┴────────────────────┴─────────────────────┘
+┌──────┬─────┬──────┬──────┐
+│ 0.90 │ 0.0 │ 0.46 │ 0.38 │
+├──────┼─────┼──────┼──────┤
+│ 0.58 │ 0.0 │ 0.54 │ 0.78 │
+├──────┼─────┼──────┼──────┤
+│ 0.88 │ 0.0 │ 0.32 │ 0.38 │
+├──────┼─────┼──────┼──────┤
+│ 0.74 │ 0.0 │ 0.73 │ 0.39 │
+└──────┴─────┴──────┴──────┘
 
 
 
@@ -2275,6 +2337,9 @@ For higher dimensional inputs, the function supports broadcasting (for details s
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -2290,6 +2355,7 @@ For higher dimensional inputs, the function supports broadcasting (for details s
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2341,6 +2407,9 @@ tensor     Y
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -2353,6 +2422,7 @@ tensor     Y
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2408,6 +2478,9 @@ torch.matmul(X, X.T, out = Y_3)</code></pre>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -2420,6 +2493,7 @@ torch.matmul(X, X.T, out = Y_3)</code></pre>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2454,18 +2528,22 @@ torch.matmul(X, X.T, out = Y_3)</code></pre>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">info</span><span class="p">(</span> <span class="n">X</span> <span class="o">*</span> <span class="n">Y</span><span class="p">,</span> <span class="s2">"(a)"</span><span class="p">)</span>
-<span class="n">info</span><span class="p">(</span> <span class="n">X</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span> <span class="s2">"(b)"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">info</span><span class="p">(</span> <span class="n">X</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="s2">"(a)"</span><span class="p">)</span>
+<span class="n">info</span><span class="p">(</span> <span class="n">X</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="s2">"(b)"</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2480,7 +2558,7 @@ torch.matmul(X, X.T, out = Y_3)</code></pre>
 
 
 ┌───┬────┬────┐
-│ 0 │  1 │  4 │
+│ 0 │ 1  │ 4  │
 ├───┼────┼────┤
 │ 9 │ 16 │ 25 │
 └───┴────┴────┘
@@ -2495,7 +2573,7 @@ tensor     (b)
 
 
 ┌───┬────┬────┐
-│ 0 │  1 │  4 │
+│ 0 │ 1  │ 4  │
 ├───┼────┼────┤
 │ 9 │ 16 │ 25 │
 └───┴────┴────┘
@@ -2523,6 +2601,9 @@ tensor     (b)
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -2535,6 +2616,7 @@ tensor     (b)
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2577,6 +2659,9 @@ tensor     (b)
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -2590,6 +2675,7 @@ tensor     (b)
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -2958,8 +3044,8 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2-$\quad$-A-simple-CNN">
-<a class="anchor" href="#2.2-%24%5Cquad%24-A-simple-CNN" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2.2 $\quad$ A simple CNN</strong><a class="anchor-link" href="#2.2-%24%5Cquad%24-A-simple-CNN"> </a>
+<h2 id="2.2-...-A-simple-CNN">
+<a class="anchor" href="#2.2-...-A-simple-CNN" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 ... A simple CNN<a class="anchor-link" href="#2.2-...-A-simple-CNN"> </a>
 </h2>
 </div>
 </div>
