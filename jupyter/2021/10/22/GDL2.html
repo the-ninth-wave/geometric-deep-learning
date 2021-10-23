@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      25 min read
+      28 min read
     
 </span></p>
 
@@ -173,7 +173,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#...example:-local-averaging-as-a-circulant-matrix">...example: local averaging as a circulant matrix </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#2.3-...-one-dimensional-convolutions-in-torch">2.3 ... one-dimensional convolutions in torch </a></li>
+<li class="toc-entry toc-h2"><a href="#2.3-...-one-dimensional-convolutions-in-torch">2.3 ... one-dimensional convolutions in torch </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#class-...-torch.nn.Conv1d">class ... torch.nn.Conv1d </a></li>
+<li class="toc-entry toc-h3"><a href="#method-...-compute_num_out_channels">method ... compute_num_out_channels </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#2.4-...-two-dimensional-convolutions-in-torch">2.4 ... two-dimensional convolutions in torch </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#torch.nn.Conv2d">torch.nn.Conv2d </a></li>
@@ -2789,7 +2794,7 @@ A matrix is circulant if and only if it commutes with $S_+$. Moreover, given any
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The importance of $S_+$ to the present discussion is that it generates a group isomorphic to the one-dimensional translation group $C_n$; the matrices $\{ I, S_+, S_+^2, \dots, S^{n-1} \}$ constitute a faithful representation of $C_n$.</p>
+<p>The importance of $S_+$ to the present discussion is that it generates a group isomorphic to the one-dimensional translation group $C_n$; the matrices $\{ I, S_+, S_+^2, \dots, S_+^{n-1} \}$ constitute a faithful representation of $C_n$.</p>
 
 </div>
 </div>
@@ -2880,6 +2885,279 @@ This multi-diagonal structure is often synonymous with the concept of weight sha
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>The object in <code>torch</code> for executing convolutions of signals over $C_n$ is called <code>torch.nn.Conv1d</code>. We'll denote an instance of this object by $\tilde{B}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h4 id="class-...-torch.nn.Conv1d">
+<a class="anchor" href="#class-...-torch.nn.Conv1d" aria-hidden="true"><span class="octicon octicon-link"></span></a>class ... <code>torch.nn.Conv1d</code><a class="anchor-link" href="#class-...-torch.nn.Conv1d"> </a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>args</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>in_channels</code></td>
+<td><code>out_channels</code></td>
+<td><code>kernel_size</code></td>
+<td><code>stride = 1</code></td>
+</tr>
+<tr>
+<td><code>padding = 0</code></td>
+<td><code>dilation = 1</code></td>
+<td><code>groups = 1</code></td>
+<td><code>bias = True</code></td>
+</tr>
+<tr>
+<td><code>padding_mode = 'zeros'</code></td>
+<td><code>device = None</code></td>
+<td><code>dtype = None</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us now relate the shapes of the input and output to the parameters</p>
+<table>
+<thead>
+<tr>
+<th>input parameter</th>
+<th>LaTeX symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>in_channels</code></td>
+<td>$\text{dim}(\mathcal{C})$</td>
+</tr>
+<tr>
+<td><code>out_channels</code></td>
+<td>$\text{dim}(\tilde{\mathcal{C}})$</td>
+</tr>
+<tr>
+<td><code>kernel_size</code></td>
+<td>$k$</td>
+</tr>
+<tr>
+<td><code>stride</code></td>
+<td>$\lambda$</td>
+</tr>
+<tr>
+<td><code>padding</code></td>
+<td>$\rho$</td>
+</tr>
+<tr>
+<td><code>dilation</code></td>
+<td>$\delta$</td>
+</tr>
+<tr>
+<td><code>groups</code></td>
+<td>$M$        </td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This class specifies a <a href="https://pytorch.org/docs/stable/generated/torch.nn.Conv1d.html">one-dimensional convolution operation</a>.  Because of batching and the channel dimension, the input and output are $3$-tensors. We use $N$ to denote the batch size, and we will continue to use $n$ for the input length.</p>
+<p>In general, $\mathcal{C}$ and $\mathcal{C}_1$ are the vector spaces of input channels and output channels respectively. In our current setting, assuming that signals $x$ are scalar signals over the cyclic group, one has $\textrm{dim}(\mathcal{C}) = 1$. The shape of the input tensor is thus</p>
+$$
+(N, 1, n)
+$$<p>Even though we restrict ourselves to scalar-valued input signals, we will allow $\textrm{dim}(\tilde{\mathcal{C}}) &gt; 1$, and we will write $\tilde{n}$ to denote the length of the output, so that the shape of the output tensor is</p>
+$$
+(N, \textrm{dim}(\tilde{\mathcal{C}}), \tilde{n})
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the moment, we will also take $N=1$. Thus, inputs can be though of effectively as vectors, which we can easily visualize. We will think of the output as a length-$\textrm{dim}(\tilde{\mathcal{C}})$ list of vectors (with scalar entries).</p>
+<p>Our present goal is to try to understand how the number of learnable parameters depends on these shapes, as well as to visualize the effect of a convolutional layer in this simplest setting.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First, we remark that the relationship between $n_1$ and $n$, in terms of the input parameters, can be expressed as follows:</p>
+$$
+\tilde{n} = \left\lfloor \frac{ n + 2 \rho - \delta (k-1) -1 }{\lambda} + 1 \right\rfloor
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h3 id="method-...-compute_num_out_channels">
+<a class="anchor" href="#method-...-compute_num_out_channels" aria-hidden="true"><span class="octicon octicon-link"></span></a>method ... <code>compute_num_out_channels</code><a class="anchor-link" href="#method-...-compute_num_out_channels"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_num_out_channels</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span>
+                             <span class="n">padding</span><span class="p">,</span>
+                             <span class="n">dilation</span><span class="p">,</span>
+                             <span class="n">kernel_size</span><span class="p">,</span>
+                             <span class="n">stride</span><span class="p">):</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">in_channels</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">padding</span> <span class="o">-</span> <span class="n">dilation</span> <span class="o">*</span> <span class="p">(</span> <span class="n">kernel_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="n">arg_of_floor</span> <span class="o">=</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">/</span> <span class="n">stride</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span> <span class="n">arg_of_floor</span> <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For now, we will instantiate a parameters dictionary with <code>dilation = 1</code> and <code>padding = 0</code>. Let us use $n = 32$, equivalently <code>in_channels = 32</code>, so that</p>
+$$
+\tilde{n} = \left\lfloor \frac{n-k}{\lambda} + 1 \right\rfloor \equiv \left\lfloor \frac{32-k}{\lambda} + 1 \right\rfloor
+$$<p>For our example, we specialize to <code>kernel_size = 4</code> and <code>stride = 2</code>, in which case $\tilde{n} = 15$.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">odcp</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># one dimensional conv. parameters</span>
+
+<span class="n">odcp</span><span class="p">[</span><span class="s2">"in_channels"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">odcp</span><span class="p">[</span><span class="s2">"padding"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">odcp</span><span class="p">[</span><span class="s2">"dilation"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">odcp</span><span class="p">[</span><span class="s2">"kernel_size"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">odcp</span><span class="p">[</span><span class="s2">"stride"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compute_num_out_channels</span><span class="p">(</span><span class="n">in_channels</span> <span class="o">=</span> <span class="n">odcp</span><span class="p">[</span><span class="s2">"in_channels"</span><span class="p">],</span>
+                         <span class="n">padding</span> <span class="o">=</span> <span class="n">odcp</span><span class="p">[</span><span class="s2">"padding"</span><span class="p">],</span>
+                         <span class="n">dilation</span> <span class="o">=</span> <span class="n">odcp</span><span class="p">[</span><span class="s2">"dilation"</span><span class="p">],</span>
+                         <span class="n">kernel_size</span> <span class="o">=</span> <span class="n">odcp</span><span class="p">[</span><span class="s2">"kernel_size"</span><span class="p">],</span>
+                         <span class="n">stride</span> <span class="o">=</span> <span class="n">odcp</span><span class="p">[</span><span class="s2">"stride"</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The layer $\tilde{B}$ has two sets of learned parameters, these are respectively organized in the weight matrix $\tilde{\theta}$ and the bias vector $\tilde{b}$. For simplicity, at this point, we set $\tilde{b} \equiv 0$ through the option <code>bias = False</code>, so that the only learned parameters are those in the weight matrix.</p>
+<p>Recall that one has</p>
+$$
+\tilde{\theta} \in \mathcal{X} ( H \backslash G / \tilde{H}, \mathcal{C} \otimes \tilde{\mathcal{C}} ),
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>but let us reduce this further based on the assumptions we've made. Because $G \equiv \Omega \equiv C_n$, one has that $H$ must be the trivial subgroup $\{ e \}$. Moreover, having assumed that $\dim{\mathcal{C}} = 1$, one also has $\mathcal{C} \otimes \tilde{\mathcal{C}} \cong \tilde{\mathcal{C}}$, so we may write</p>
+$$
+\tilde{\theta} \in \mathcal{X} ( G / \tilde{H} ) , \tilde{\mathcal{C}} ),
+$$<p>with $C_{\tilde{n}} \cong G / \tilde{H}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="2.4-...-two-dimensional-convolutions-in-torch">
 <a class="anchor" href="#2.4-...-two-dimensional-convolutions-in-torch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.4 ... two-dimensional convolutions in torch</font><a class="anchor-link" href="#2.4-...-two-dimensional-convolutions-in-torch"> </a>
 </h2>
@@ -2889,9 +3167,16 @@ This multi-diagonal structure is often synonymous with the concept of weight sha
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 <h4 id="torch.nn.Conv2d">
 <a class="anchor" href="#torch.nn.Conv2d" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>torch.nn.Conv2d</code><a class="anchor-link" href="#torch.nn.Conv2d"> </a>
 </h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>The arguments:</p>
 <ul>
 <li>
