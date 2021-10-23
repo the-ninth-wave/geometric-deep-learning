@@ -2698,7 +2698,7 @@ tensor     (b)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="2.2-...-one-dimensional-convolutions-of-scalar-valued-signals">
-<a class="anchor" href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 ... one-dimensional convolutions of scalar-valued signals<a class="anchor-link" href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals"> </a>
+<a class="anchor" href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.2 ... one-dimensional convolutions of scalar-valued signals</font><a class="anchor-link" href="#2.2-...-one-dimensional-convolutions-of-scalar-valued-signals"> </a>
 </h2>
 </div>
 </div>
@@ -2796,6 +2796,17 @@ A matrix is circulant if and only if it commutes with $S_+$. Moreover, given any
 $$
 ( x \star \theta )_u := \sum_{v = 0}^{n-1} x_{v \mod n}\, \theta_{ (u-v) \mod n} \equiv S(\theta) x 
 $$</p>
+<p>Thus, the next corollary effectively follows from the much stronger theorem stated at the end of <a href="https://the-ninth-wave.github.io/geometric-deep-learning/jupyter/2021/10/21/GDL1.html#1.3-...-equivariance-in-neural-networks">section 1.3</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Corollary</strong> $\quad$ Any $f : \mathcal{X}(C_n, \mathbb{R}) \to \mathcal{X}(C_n,\mathbb{R})$ which is linear and $C_n$-equivariant can be expressed (in the input coordinate system) as an $n \times n$ circulant matrix $S(\theta)$ for some vector $\theta$.</p>
+<hr>
 
 </div>
 </div>
@@ -2806,16 +2817,6 @@ $$</p>
 <h2 id="2.3-...-one-dimensional-convolutions-in-torch">
 <a class="anchor" href="#2.3-...-one-dimensional-convolutions-in-torch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.3 ... one-dimensional convolutions in torch</font><a class="anchor-link" href="#2.3-...-one-dimensional-convolutions-in-torch"> </a>
 </h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<p><strong>Corollary</strong> $\quad$ Any $f : \mathcal{X}(C_n, \mathbb{R}) \to \mathcal{X}(C_n,\mathbb{R})$ which is linear and $C_n$-equivariant can be expressed ( in the input coordinate system ) as an $n \times n$ circulant matrix $\mathbf{C}(\theta)$ for some vector $\theta$.</p>
-<hr>
-
 </div>
 </div>
 </div>
