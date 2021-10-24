@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      32 min read
+      33 min read
     
 </span></p>
 
@@ -177,7 +177,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h4"><a href="#class-...-torch.nn.Conv1d">class ... torch.nn.Conv1d </a></li>
 <li class="toc-entry toc-h3"><a href="#method-...-compute_out_size">method ... compute_out_size </a></li>
-<li class="toc-entry toc-h3"><a href="#-example-concrete-layerh3divdivdivfor-now-we-will-instantiate-a-parameters-dictionary-with-dilation--1-and-padding--0-let-us-use-n--32-so-thattilden--leftlfloor-fracn-klambda--1-rightrfloor-equiv-leftlfloor-frac32-klambda--1-rightrfloorfor-our-example-we-specialize-to-kernel_size--4-and-stride--2-in-which-case-tilden--15------------odcp----one-dimensional-conv-parametersodcpin_size--32odcpin_channels--1odcppadding--0odcpdilation--1odcpkernel_size--4odcpstride--2odcpgroups--1odcpout_channels--16----------------------------------odcpout_size--compute_out_size----in_size--odcpin_size----padding--odcppadding----dilation--odcpdilation----kernel_size--odcpkernel_size----stride--odcpstride----print-odcpout_size---------150----one-of-the-important-free-parameters-we-can-choose-to-initialize-a-one-dimensional-convolutional-layer-is-the-number-of-out_channels-we-choose-out_channels--16-in-our-first-examplein-many-vision-related-cnns-the-first-layer-takes-in-a-grayscale-or-rgb-image-outputting-features-with-a-much-larger-number-of-channelsi-am-thinking-of-each-output-channel-as-a-separate-lint-roller-to-run-over-the-imagefrom-the-docs-the-parameter-groups-controls-the-connections-between-inputs-and-outputsboth-in_channels-and-out_channels-must-be-divisible-by-groupsat-groups--1-all-inputs-are-convolved-to-all-outputsat-groups--2-the-operation-becomes-equivalent-to-having-two-convolutional-layers-side-by-side-each-seeing-half-the-input-channels-and-producing-half-the-output-channels-and-both-subsequently-concatenatedat-groups--in_channels-each-input-channel-is-convolved-with-its-own-set-of-filters-of-size-out_channels--in_channelsby-taking-in_channels--1-we-must-have-groups--1-alsothe-learned-parameters-of-layer-tildeb-are-of-two-types-those-in-the-weight-tensor-tildetheta-and-those-in-the-bias-vector-tildeb-at-this-point-for-simplicity-we-set-tildeb-equiv-0-via-bias--false-so-that-the-only-learned-parameters-are-those-in-tildetheta------------from-torchnn-import-conv1d--------we-now-initialize-the-convolutional-layer------------b_tilde--conv1din_channels--odcpin_channels-----------------out_channels--odcpout_channels-----------------kernel_size--odcpkernel_size-----------------stride--odcpstride-----------------padding--odcppadding-----------------dilation--odcpdilation-----------------groups--odcpgroups-----------------bias--false------------------------let-us-initialize-a-few-possible-input-signals-x_1-x_2-x_3--------------------------x_1--torcharange032infox_1-x-1viz_tens-x_1-display_size--10-x_2--torchrand-32--infox_2-x-2viz_tens-x_2-display_size--10-x_3--torchrandn-32-infox_3-x-3viz_tens-x_3-display_size--10---------tensor-----x-1-----num-dims--------1----num-entries-----32----shape------------32-0--1--2--3--4--5--6--7--8--9--10--11--12--13--14--15--16--17--18--19--20--21--22--23--24--25--26--27--28--29--30--31-tensor-----x-2-----num-dims--------1----num-entries-----32----shape------------32-025--069--089--036--029--004--024--006--038--060--003--093--081--001--026--066--039--044--027--090--022--091--053--060--089--041--021--041--090--012--061--000-tensor-----x-3-----num-dims--------1----num-entries-----32----shape------------32--02--151--003--103--088---13---03--101---16---00---12--119---07--111--029--029---05--194---04---03--144---07--249---03--087--021--122---05---01---04---01---02-----to-apply-b_tilde-to-these-signals-we-must-augment-each-signal-with-batch-and-channel-dimensions--------------------------x_1--torchas_tensor-x_1-none-none---dtype-torchfloat32-x_2--torchas_tensor-x_2-none-none---dtype-torchfloat32-x_3--torchas_tensor-x_3-none-none---dtype-torchfloat32-------------each-output-has-shape--------------------------y_1--b_tilde-x_1-detachy_2--b_tilde-x_2-detachy_3--b_tilde-x_3-detachprint-nparray-y_1size-----------1-16-15----this-is-the-output-shape-which-we-predicted-the-last-entry-15-is-the-length-tilden-of-the-output-vector-at-each-channel-the-output-has-16-channels-and-our-batch-size-n-remains-1the-easiest-way-to-visualize-this-output-is-to-use-torchsqueeze-which-removes-all-dimensions-of-the-input-tensor-of-size-one-the-shape-of-each-y_1-y_2-y_3-after-this-squeezing-will-be-1615--------------------------y_1--torchsqueezey_1y_2--torchsqueezey_2y_3--torchsqueezey_3print-nparray-y_1size----------16-15----visualizing-x_1--------------------------viz_tenstorchsqueezex_1-display_size--10------------visualizing-y_1--------------------------y_1_list---y_1j-for-j-in-range16-list_y_1---tensnone-for-tens-in-y_1_list-viz_tens_listlist_y_1-display_size--10------------x_2--------------------------viz_tenstorchsqueezex_2-display_size--10------------y_2--------------------------y_2_list---y_2j-for-j-in-range16-list_y_2---tensnone-for-tens-in-y_2_list-viz_tens_listlist_y_2-display_size--10------------x_3--------------------------viz_tenstorchsqueezex_3-display_size--10------------y_3--------------------------y_3_list---y_3j-for-j-in-range16-list_y_3---tensnone-for-tens-in-y_3_list-viz_tens_listlist_y_3-display_size--10------------it-is-also-of-interest-to-say-something-about-the-size-and-shape-of-the-weight-tensor-tildetheta-that-effectively-constitutes-the-layer-b_tilde-equiv-tildeb-having-set-the-bias-of-this-layer-to-be-zerorecall-that-in-general-one-hastildetheta-in-mathcalx--h-backslash-g--tildeh-mathcalc-otimes-tildemathcalc-but-let-us-reduce-this-further-based-on-the-assumptions-made-because-g-equiv-omega-equiv-c_n-subgroup-h-must-be-the-trivial-subgroup--e--moreover-having-assumed-that-dimmathcalc--1-one-also-has-mathcalc-otimes-tildemathcalc-cong-tildemathcalc-so-we-may-writetildetheta-in-mathcalx--g--tildeh---tildemathcalc-with-c_tilden-cong-g--tildeh24--two-dimensional-convolutions-in-torch-torchnnconv2d-the-argumentsin_channelsout_channelskernel_sizestride-quad-controls-the-stride-for-the-cross-correlation-a-single-number-or-a-tuplepadding-quad-controls-amount-of-padding-applied-to-the-input-it-can-either-be-a-string-valid-or-same-or-a-tuple-of-ints-giving-the-amount-of-implicit-padding-applied-on-both-sidesdilation-quad-controls-the-spacing-between-kernel-points-also-known-as-the-a-trous-algorithmgroups-quad-controls-connections-between-inputs-and-outputs-the-in_channels-and-out_channels-must-be-divisible-by-groups-for-exampleat-groups--1-all-inputs-are-convolved-to-all-outputsat-groups--2-the-operation-becomes-equivalent-to-having-two-conv-layers-side-by-side-each-seeing-half-the-input-channels-and-producing-half-the-output-channels-and-both-subsequently-concatenatedat-groups--in_channels-each-input-channel-is-convolved-with-its-own-set-of-filters-of-size-out_channels--in_channelsbiaspadding_modedevicedtypelet-us-now-relate-the-shapes-of-the-input-and-output-to-the-parametersinput-parameterlatex-symbolin_channelstextdimmathcalcout_channelstextdimmathcalc_1kernel_sizekstridelambdapaddingrhodilationdeltagroupsm--------additionally-we-use-n-for-the-batch-size-of-the-input-n-we-also-let-hw-denote-the-height-width-pair-describing-the-shape-of-the-input-signal-domaincorrespondingly-we-write-h_1-w_1-for-the-height-width-pair-describing-the-shape-of-the-output-signal-domainwe-remark-that-the-stride-can-be-either-integer-or-a-2-tuple-whose-coordinates-describe-the-vertical-and-horizontal-stride-respectively-we-still-write-lambda-for-the-stride-when-it-is-a-tuple-and-use-lambda_h-equiv-lambda0-and-lambda_w-equiv-lambda1-to-denote-its-first-and-second-coordinate-in-this-case-likewise-the-padding-and-kernel-size-may-be-2-tuples-as-well-and-we-use-similar-notation-to-denote-their-entriesthe-full-shape-of-the-input-to-the-layer-includes-the-batch-dimension-and-is-thusn-textdimmathcalc-h-w-while-the-shape-of-the-output-isn--textdimmathcalc_1-h_1-w_1-these-shapes-in-particular-the-spatial-dimensions-of-each-are-related-as-followsbeginalignh_1--leftlfloor-frac----h--2-rho_h---delta_h--k_h--1--1-lambda_hrightrfloor-w_1--leftlfloor-frac----w--2-rho_w---delta_w--k_w--1--1-lambda_wrightrfloorendalignin-particular-the-batch-size-does-not-have-any-bearing-on-how-the-shapes-of-tensors-transformthe-parameters-to-be-learned-are-the-weights-w1-and-biases-b1-these-are-both-tensor-objects-accessed-from-the-layer-as-conv2dweight-and-conv2dbias-the-shape-of-the-weight-tensor-istextrmshapew1-left--textdimmathcalc_1---textdimmathcalc-big-m--k_h-k_w-rightthe-tensor-w1-thus-hastextrmsizew1--textrmdimmathcalc_1-textrmdim-mathcalc-k_h-k_w-big-mscalar-entriesthere-is-always-the-question-of-how-to-initialize-weights-in-the-case-of-the-conv2d-class-the-weights-are-initialized-to-be-iid-textunif---sqrt-alpha_1-sqrtalpha_1--random-variables-wherealpha_1--frac-textrmdimmathcalc_1-textrmsizew1the-bias-tensor-is-a-much-smaller-object-we-havebeginaligntextrmshapeb1---textrmdimmathcalc_1------quad-textrmsizeb1--textrmdimmathcalc_1endaligndespite-this-we-use-the-same-initialization-with-mutual-independence-of-all-random-variables-in-discussion-for-the-bias-entries-as-we-did-for-the-weights-a-simple-cnn-we-consider-possibly-the-simplest-neural-network-that-we-can-construct-through-the-above-blueprint-suppose-we-have-a-binary-classification-problem-with-the-following-hypothesis-space-let-textsfh_1-denote-the-hypothesis-space-of-functions-f--mathcalx-c_n-mathbbr-to-01-of-the-formf--a-circ-p-circ-mathbfa-circ-b-where-the-components-of-f-arewhere-the-components-of-f-areb---quad-a-c_n-equivariant-function-to-be-learned-it-is-represented-as-a-circulant-matrix-mathbfctheta-where-theta-is-a-vector-theta-equiv-theta_0-dots-theta_n-1-whose-entries-theta_j-are-parameters-to-be-learned-mathbfa---quad-we-consider-the-relu-activation-function-a--mathbbr-to-mathbbr_geq-0-defined-by-aw--max0w-for-w-in-mathbbr-the-bold-face-mathbfa-denotes-the-entry-wise-action-of-this-function-on-a-given-vectorfor-y-equiv-y_1-dots--y_n---in-mathcalxc_n-mathbbr-which-we-imagine-as-the-output-of-bx-for-some-input-signal-x-we-have-mathbfa-y------max0y_1---dots--max0y_n--there-are-no-learned-parameters-in-this-layerp--quad-a-coarsening-operator-in-this-case-let-us-say-it-is-a-zero-padded-group-homomorphismp--c_n-to-c_n--d--for-some-divisor-d-mid-n-footnotezero-padding--and-let-us-say-that-it-operates-through-max-pooling-on-the-signal-over-the-pre-images-of-each-element-of-c_n--da--quad-a-global-pooling-layer-we-assume-this-has-the-form-of-a-fully-connected-layer-followed-by-a-softmax-specificallydiv-">... example: concrete layer&lt;/h3&gt;
+<li class="toc-entry toc-h3"><a href="#-example-concrete-layerh3divdivdivfor-now-we-will-instantiate-a-parameters-dictionary-with-dilation--1-and-padding--0-let-us-use-n--32-so-thattilden--leftlfloor-fracn-klambda--1-rightrfloor-equiv-leftlfloor-frac32-klambda--1-rightrfloorfor-our-example-we-specialize-to-kernel_size--4-and-stride--2-in-which-case-tilden--15------------odcp----one-dimensional-conv-parametersodcpin_size--32odcpin_channels--1odcppadding--0odcpdilation--1odcpkernel_size--4odcpstride--2odcpgroups--1odcpout_channels--16----------------------------------odcpout_size--compute_out_size----in_size--odcpin_size----padding--odcppadding----dilation--odcpdilation----kernel_size--odcpkernel_size----stride--odcpstride----print-odcpout_size---------150----one-of-the-important-free-parameters-we-can-choose-to-initialize-a-one-dimensional-convolutional-layer-is-the-number-of-out_channels-we-choose-out_channels--16-in-our-first-examplein-many-vision-related-cnns-the-first-layer-takes-in-a-grayscale-or-rgb-image-outputting-features-with-a-much-larger-number-of-channelsi-am-thinking-of-each-output-channel-as-a-separate-lint-roller-to-run-over-the-imagefrom-the-docs-the-parameter-groups-controls-the-connections-between-inputs-and-outputsboth-in_channels-and-out_channels-must-be-divisible-by-groupsat-groups--1-all-inputs-are-convolved-to-all-outputsat-groups--2-the-operation-becomes-equivalent-to-having-two-convolutional-layers-side-by-side-each-seeing-half-the-input-channels-and-producing-half-the-output-channels-and-both-subsequently-concatenatedat-groups--in_channels-each-input-channel-is-convolved-with-its-own-set-of-filters-of-size-out_channels--in_channelsby-taking-in_channels--1-we-must-have-groups--1-alsothe-learned-parameters-of-layer-tildeb-are-of-two-types-those-in-the-weight-tensor-tildetheta-and-those-in-the-bias-vector-tildeb-at-this-point-for-simplicity-we-set-tildeb-equiv-0-via-bias--false-so-that-the-only-learned-parameters-are-those-in-tildetheta------------from-torchnn-import-conv1d--------we-now-initialize-the-convolutional-layer------------b_tilde--conv1din_channels--odcpin_channels-----------------out_channels--odcpout_channels-----------------kernel_size--odcpkernel_size-----------------stride--odcpstride-----------------padding--odcppadding-----------------dilation--odcpdilation-----------------groups--odcpgroups-----------------bias--false------------------------let-us-initialize-a-few-possible-input-signals-x_1-x_2-x_3--------------------------x_1--torcharange032infox_1-x-1viz_tens-x_1-display_size--10-x_2--torchrand-32--infox_2-x-2viz_tens-x_2-display_size--10-x_3--torchrandn-32-infox_3-x-3viz_tens-x_3-display_size--10---------tensor-----x-1-----num-dims--------1----num-entries-----32----shape------------32-0--1--2--3--4--5--6--7--8--9--10--11--12--13--14--15--16--17--18--19--20--21--22--23--24--25--26--27--28--29--30--31-tensor-----x-2-----num-dims--------1----num-entries-----32----shape------------32-025--069--089--036--029--004--024--006--038--060--003--093--081--001--026--066--039--044--027--090--022--091--053--060--089--041--021--041--090--012--061--000-tensor-----x-3-----num-dims--------1----num-entries-----32----shape------------32--02--151--003--103--088---13---03--101---16---00---12--119---07--111--029--029---05--194---04---03--144---07--249---03--087--021--122---05---01---04---01---02-----to-apply-b_tilde-to-these-signals-we-must-augment-each-signal-with-batch-and-channel-dimensions--------------------------x_1--torchas_tensor-x_1-none-none---dtype-torchfloat32-x_2--torchas_tensor-x_2-none-none---dtype-torchfloat32-x_3--torchas_tensor-x_3-none-none---dtype-torchfloat32-------------each-output-has-shape--------------------------y_1--b_tilde-x_1-detachy_2--b_tilde-x_2-detachy_3--b_tilde-x_3-detachprint-nparray-y_1size-----------1-16-15----this-is-the-output-shape-which-we-predicted-the-last-entry-15-is-the-length-tilden-of-the-output-vector-at-each-channel-the-output-has-16-channels-and-our-batch-size-n-remains-1the-easiest-way-to-visualize-this-output-is-to-use-torchsqueeze-which-removes-all-dimensions-of-the-input-tensor-of-size-one-the-shape-of-each-y_1-y_2-y_3-after-this-squeezing-will-be-1615--------------------------y_1--torchsqueezey_1y_2--torchsqueezey_2y_3--torchsqueezey_3print-nparray-y_1size----------16-15----visualizing-x_1--------------------------viz_tenstorchsqueezex_1-display_size--10------------visualizing-y_1--------------------------y_1_list---y_1j-for-j-in-range16-list_y_1---tensnone-for-tens-in-y_1_list-viz_tens_listlist_y_1-display_size--10------------x_2--------------------------viz_tenstorchsqueezex_2-display_size--10------------y_2--------------------------y_2_list---y_2j-for-j-in-range16-list_y_2---tensnone-for-tens-in-y_2_list-viz_tens_listlist_y_2-display_size--10------------x_3--------------------------viz_tenstorchsqueezex_3-display_size--10------------y_3--------------------------y_3_list---y_3j-for-j-in-range16-list_y_3---tensnone-for-tens-in-y_3_list-viz_tens_listlist_y_3-display_size--10------------it-is-also-of-interest-to-say-something-about-the-size-and-shape-of-the-weight-tensor-tildetheta-that-effectively-constitutes-the-layer-b_tilde-equiv-tildeb-having-set-the-bias-of-this-layer-to-be-zero--------------------------four_tuple_list---b_tildeweightj0detach-for-j-in-range16-four_tuple_list_prime---b_tildeweightjdetach-for-j-in-range16-weight_stack--torchstackfour_tuple_list------------we-can-view-this-weight-matrix-as-a-grid-of-images-each-of-which-is-effectively-a-4-tuple--------------------------viz_tens_list-four_tuple_list_prime-------------as-a-single-block--------------------------viz_tensweight_stack-display_size--5------------rmk-quad-the-next-thing-to-link-up-with-is-the-description-of-generalized-convolution-from-the-first-notebook-recall-that-in-general-one-hastildetheta-in-mathcalx--h-backslash-g--tildeh-mathcalc-otimes-tildemathcalc-but-let-us-reduce-this-further-based-on-the-assumptions-made-because-g-equiv-omega-equiv-c_n-subgroup-h-must-be-the-trivial-subgroup--e--moreover-having-assumed-that-dimmathcalc--1-one-also-has-mathcalc-otimes-tildemathcalc-cong-tildemathcalc-so-we-may-writetildetheta-in-mathcalx--g--tildeh---tildemathcalc-with-c_tilden-cong-g--tildeh-of-course-as-15-does-not-divide-32-we-cannot-interpret-this-as-true-directly-in-the-case-above-no-doubt-this-is-resolved-through-some-zero-padding-but-something-to-explore-a-little24--two-dimensional-convolutions-in-torch-torchnnconv2d-the-argumentsin_channelsout_channelskernel_sizestride-quad-controls-the-stride-for-the-cross-correlation-a-single-number-or-a-tuplepadding-quad-controls-amount-of-padding-applied-to-the-input-it-can-either-be-a-string-valid-or-same-or-a-tuple-of-ints-giving-the-amount-of-implicit-padding-applied-on-both-sidesdilation-quad-controls-the-spacing-between-kernel-points-also-known-as-the-a-trous-algorithmgroups-quad-controls-connections-between-inputs-and-outputs-the-in_channels-and-out_channels-must-be-divisible-by-groups-for-exampleat-groups--1-all-inputs-are-convolved-to-all-outputsat-groups--2-the-operation-becomes-equivalent-to-having-two-conv-layers-side-by-side-each-seeing-half-the-input-channels-and-producing-half-the-output-channels-and-both-subsequently-concatenatedat-groups--in_channels-each-input-channel-is-convolved-with-its-own-set-of-filters-of-size-out_channels--in_channelsbiaspadding_modedevicedtypelet-us-now-relate-the-shapes-of-the-input-and-output-to-the-parametersinput-parameterlatex-symbolin_channelstextdimmathcalcout_channelstextdimmathcalc_1kernel_sizekstridelambdapaddingrhodilationdeltagroupsm--------additionally-we-use-n-for-the-batch-size-of-the-input-n-we-also-let-hw-denote-the-height-width-pair-describing-the-shape-of-the-input-signal-domaincorrespondingly-we-write-h_1-w_1-for-the-height-width-pair-describing-the-shape-of-the-output-signal-domainwe-remark-that-the-stride-can-be-either-integer-or-a-2-tuple-whose-coordinates-describe-the-vertical-and-horizontal-stride-respectively-we-still-write-lambda-for-the-stride-when-it-is-a-tuple-and-use-lambda_h-equiv-lambda0-and-lambda_w-equiv-lambda1-to-denote-its-first-and-second-coordinate-in-this-case-likewise-the-padding-and-kernel-size-may-be-2-tuples-as-well-and-we-use-similar-notation-to-denote-their-entriesthe-full-shape-of-the-input-to-the-layer-includes-the-batch-dimension-and-is-thusn-textdimmathcalc-h-w-while-the-shape-of-the-output-isn--textdimmathcalc_1-h_1-w_1-these-shapes-in-particular-the-spatial-dimensions-of-each-are-related-as-followsbeginalignh_1--leftlfloor-frac----h--2-rho_h---delta_h--k_h--1--1-lambda_hrightrfloor-w_1--leftlfloor-frac----w--2-rho_w---delta_w--k_w--1--1-lambda_wrightrfloorendalignin-particular-the-batch-size-does-not-have-any-bearing-on-how-the-shapes-of-tensors-transformthe-parameters-to-be-learned-are-the-weights-w1-and-biases-b1-these-are-both-tensor-objects-accessed-from-the-layer-as-conv2dweight-and-conv2dbias-the-shape-of-the-weight-tensor-istextrmshapew1-left--textdimmathcalc_1---textdimmathcalc-big-m--k_h-k_w-rightthe-tensor-w1-thus-hastextrmsizew1--textrmdimmathcalc_1-textrmdim-mathcalc-k_h-k_w-big-mscalar-entriesthere-is-always-the-question-of-how-to-initialize-weights-in-the-case-of-the-conv2d-class-the-weights-are-initialized-to-be-iid-textunif---sqrt-alpha_1-sqrtalpha_1--random-variables-wherealpha_1--frac-textrmdimmathcalc_1-textrmsizew1the-bias-tensor-is-a-much-smaller-object-we-havebeginaligntextrmshapeb1---textrmdimmathcalc_1------quad-textrmsizeb1--textrmdimmathcalc_1endaligndespite-this-we-use-the-same-initialization-with-mutual-independence-of-all-random-variables-in-discussion-for-the-bias-entries-as-we-did-for-the-weights-a-simple-cnn-we-consider-possibly-the-simplest-neural-network-that-we-can-construct-through-the-above-blueprint-suppose-we-have-a-binary-classification-problem-with-the-following-hypothesis-space-let-textsfh_1-denote-the-hypothesis-space-of-functions-f--mathcalx-c_n-mathbbr-to-01-of-the-formf--a-circ-p-circ-mathbfa-circ-b-where-the-components-of-f-arewhere-the-components-of-f-areb---quad-a-c_n-equivariant-function-to-be-learned-it-is-represented-as-a-circulant-matrix-mathbfctheta-where-theta-is-a-vector-theta-equiv-theta_0-dots-theta_n-1-whose-entries-theta_j-are-parameters-to-be-learned-mathbfa---quad-we-consider-the-relu-activation-function-a--mathbbr-to-mathbbr_geq-0-defined-by-aw--max0w-for-w-in-mathbbr-the-bold-face-mathbfa-denotes-the-entry-wise-action-of-this-function-on-a-given-vectorfor-y-equiv-y_1-dots--y_n---in-mathcalxc_n-mathbbr-which-we-imagine-as-the-output-of-bx-for-some-input-signal-x-we-have-mathbfa-y------max0y_1---dots--max0y_n--there-are-no-learned-parameters-in-this-layerp--quad-a-coarsening-operator-in-this-case-let-us-say-it-is-a-zero-padded-group-homomorphismp--c_n-to-c_n--d--for-some-divisor-d-mid-n-footnotezero-padding--and-let-us-say-that-it-operates-through-max-pooling-on-the-signal-over-the-pre-images-of-each-element-of-c_n--da--quad-a-global-pooling-layer-we-assume-this-has-the-form-of-a-fully-connected-layer-followed-by-a-softmax-specificallydiv-">... example: concrete layer&lt;/h3&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -867,15 +867,125 @@ It is also of interest to say something about the size and shape of the weight t
 
 
 
+    
+    
 
 
-Recall that, in general, one has
+      
+        
+
+
+    
+four_tuple_list = [ B_tilde.weight[j][0].detach() for j in range(16) ]
+four_tuple_list_prime = [ B_tilde.weight[j].detach() for j in range(16) ]
+weight_stack = torch.stack(four_tuple_list)
+
+
+    
+
+
+
+    
+
+    
+
+
+
+We can view this weight matrix as a grid of &quot;images,&quot; each of which is effectively a $4$-tuple.
+
+
+
+
+    
+    
+
+
+      
+        
+
+
+    
+viz_tens_list( four_tuple_list_prime )
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+as a single block,
+
+
+
+
+    
+    
+
+
+      
+        
+
+
+    
+viz_tens(weight_stack, display_size = 5)
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+Rmk $\quad$ The next thing to link up with is the description of generalized convolution from the first notebook. Recall that, in general, one has
 $$
 \tilde{\theta} \in \mathcal{X} ( H \backslash G / \tilde{H}, \mathcal{C} \otimes \tilde{\mathcal{C}} ),
 $$but let us reduce this further based on the assumptions made. Because $G \equiv \Omega \equiv C_n$, subgroup $H$ must be the trivial subgroup $\{ e \}$. Moreover, having assumed that $\dim{\mathcal{C}} = 1$, one also has $\mathcal{C} \otimes \tilde{\mathcal{C}} \cong \tilde{\mathcal{C}}$, so we may write
 $$
 \tilde{\theta} \in \mathcal{X} ( G / \tilde{H} ) , \tilde{\mathcal{C}} ),
-$$with $C_{\tilde{n}} \cong G / \tilde{H}$.
+$$with $C_{\tilde{n}} \cong G / \tilde{H}$. Of course, as $15$ does not divide $32$, we cannot interpret this as true directly in the case above; no doubt this is resolved through some zero-padding, but something to explore a little.
+
 
 
 
@@ -3994,7 +4104,7 @@ $$
 <hr>
 <hr>
 <h3>
-<a class="anchor" href="#-example-concrete-layerh3divdivdivfor-now-we-will-instantiate-a-parameters-dictionary-with-dilation--1-and-padding--0-let-us-use-n--32-so-thattilden--leftlfloor-fracn-klambda--1-rightrfloor-equiv-leftlfloor-frac32-klambda--1-rightrfloorfor-our-example-we-specialize-to-kernel_size--4-and-stride--2-in-which-case-tilden--15------------odcp----one-dimensional-conv-parametersodcpin_size--32odcpin_channels--1odcppadding--0odcpdilation--1odcpkernel_size--4odcpstride--2odcpgroups--1odcpout_channels--16----------------------------------odcpout_size--compute_out_size----in_size--odcpin_size----padding--odcppadding----dilation--odcpdilation----kernel_size--odcpkernel_size----stride--odcpstride----print-odcpout_size---------150----one-of-the-important-free-parameters-we-can-choose-to-initialize-a-one-dimensional-convolutional-layer-is-the-number-of-out_channels-we-choose-out_channels--16-in-our-first-examplein-many-vision-related-cnns-the-first-layer-takes-in-a-grayscale-or-rgb-image-outputting-features-with-a-much-larger-number-of-channelsi-am-thinking-of-each-output-channel-as-a-separate-lint-roller-to-run-over-the-imagefrom-the-docs-the-parameter-groups-controls-the-connections-between-inputs-and-outputsboth-in_channels-and-out_channels-must-be-divisible-by-groupsat-groups--1-all-inputs-are-convolved-to-all-outputsat-groups--2-the-operation-becomes-equivalent-to-having-two-convolutional-layers-side-by-side-each-seeing-half-the-input-channels-and-producing-half-the-output-channels-and-both-subsequently-concatenatedat-groups--in_channels-each-input-channel-is-convolved-with-its-own-set-of-filters-of-size-out_channels--in_channelsby-taking-in_channels--1-we-must-have-groups--1-alsothe-learned-parameters-of-layer-tildeb-are-of-two-types-those-in-the-weight-tensor-tildetheta-and-those-in-the-bias-vector-tildeb-at-this-point-for-simplicity-we-set-tildeb-equiv-0-via-bias--false-so-that-the-only-learned-parameters-are-those-in-tildetheta------------from-torchnn-import-conv1d--------we-now-initialize-the-convolutional-layer------------b_tilde--conv1din_channels--odcpin_channels-----------------out_channels--odcpout_channels-----------------kernel_size--odcpkernel_size-----------------stride--odcpstride-----------------padding--odcppadding-----------------dilation--odcpdilation-----------------groups--odcpgroups-----------------bias--false------------------------let-us-initialize-a-few-possible-input-signals-x_1-x_2-x_3--------------------------x_1--torcharange032infox_1-x-1viz_tens-x_1-display_size--10-x_2--torchrand-32--infox_2-x-2viz_tens-x_2-display_size--10-x_3--torchrandn-32-infox_3-x-3viz_tens-x_3-display_size--10---------tensor-----x-1-----num-dims--------1----num-entries-----32----shape------------32-0--1--2--3--4--5--6--7--8--9--10--11--12--13--14--15--16--17--18--19--20--21--22--23--24--25--26--27--28--29--30--31-tensor-----x-2-----num-dims--------1----num-entries-----32----shape------------32-025--069--089--036--029--004--024--006--038--060--003--093--081--001--026--066--039--044--027--090--022--091--053--060--089--041--021--041--090--012--061--000-tensor-----x-3-----num-dims--------1----num-entries-----32----shape------------32--02--151--003--103--088---13---03--101---16---00---12--119---07--111--029--029---05--194---04---03--144---07--249---03--087--021--122---05---01---04---01---02-----to-apply-b_tilde-to-these-signals-we-must-augment-each-signal-with-batch-and-channel-dimensions--------------------------x_1--torchas_tensor-x_1-none-none---dtype-torchfloat32-x_2--torchas_tensor-x_2-none-none---dtype-torchfloat32-x_3--torchas_tensor-x_3-none-none---dtype-torchfloat32-------------each-output-has-shape--------------------------y_1--b_tilde-x_1-detachy_2--b_tilde-x_2-detachy_3--b_tilde-x_3-detachprint-nparray-y_1size-----------1-16-15----this-is-the-output-shape-which-we-predicted-the-last-entry-15-is-the-length-tilden-of-the-output-vector-at-each-channel-the-output-has-16-channels-and-our-batch-size-n-remains-1the-easiest-way-to-visualize-this-output-is-to-use-torchsqueeze-which-removes-all-dimensions-of-the-input-tensor-of-size-one-the-shape-of-each-y_1-y_2-y_3-after-this-squeezing-will-be-1615--------------------------y_1--torchsqueezey_1y_2--torchsqueezey_2y_3--torchsqueezey_3print-nparray-y_1size----------16-15----visualizing-x_1--------------------------viz_tenstorchsqueezex_1-display_size--10------------visualizing-y_1--------------------------y_1_list---y_1j-for-j-in-range16-list_y_1---tensnone-for-tens-in-y_1_list-viz_tens_listlist_y_1-display_size--10------------x_2--------------------------viz_tenstorchsqueezex_2-display_size--10------------y_2--------------------------y_2_list---y_2j-for-j-in-range16-list_y_2---tensnone-for-tens-in-y_2_list-viz_tens_listlist_y_2-display_size--10------------x_3--------------------------viz_tenstorchsqueezex_3-display_size--10------------y_3--------------------------y_3_list---y_3j-for-j-in-range16-list_y_3---tensnone-for-tens-in-y_3_list-viz_tens_listlist_y_3-display_size--10------------it-is-also-of-interest-to-say-something-about-the-size-and-shape-of-the-weight-tensor-tildetheta-that-effectively-constitutes-the-layer-b_tilde-equiv-tildeb-having-set-the-bias-of-this-layer-to-be-zerorecall-that-in-general-one-hastildetheta-in-mathcalx--h-backslash-g--tildeh-mathcalc-otimes-tildemathcalc-but-let-us-reduce-this-further-based-on-the-assumptions-made-because-g-equiv-omega-equiv-c_n-subgroup-h-must-be-the-trivial-subgroup--e--moreover-having-assumed-that-dimmathcalc--1-one-also-has-mathcalc-otimes-tildemathcalc-cong-tildemathcalc-so-we-may-writetildetheta-in-mathcalx--g--tildeh---tildemathcalc-with-c_tilden-cong-g--tildeh24--two-dimensional-convolutions-in-torch-torchnnconv2d-the-argumentsin_channelsout_channelskernel_sizestride-quad-controls-the-stride-for-the-cross-correlation-a-single-number-or-a-tuplepadding-quad-controls-amount-of-padding-applied-to-the-input-it-can-either-be-a-string-valid-or-same-or-a-tuple-of-ints-giving-the-amount-of-implicit-padding-applied-on-both-sidesdilation-quad-controls-the-spacing-between-kernel-points-also-known-as-the-a-trous-algorithmgroups-quad-controls-connections-between-inputs-and-outputs-the-in_channels-and-out_channels-must-be-divisible-by-groups-for-exampleat-groups--1-all-inputs-are-convolved-to-all-outputsat-groups--2-the-operation-becomes-equivalent-to-having-two-conv-layers-side-by-side-each-seeing-half-the-input-channels-and-producing-half-the-output-channels-and-both-subsequently-concatenatedat-groups--in_channels-each-input-channel-is-convolved-with-its-own-set-of-filters-of-size-out_channels--in_channelsbiaspadding_modedevicedtypelet-us-now-relate-the-shapes-of-the-input-and-output-to-the-parametersinput-parameterlatex-symbolin_channelstextdimmathcalcout_channelstextdimmathcalc_1kernel_sizekstridelambdapaddingrhodilationdeltagroupsm--------additionally-we-use-n-for-the-batch-size-of-the-input-n-we-also-let-hw-denote-the-height-width-pair-describing-the-shape-of-the-input-signal-domaincorrespondingly-we-write-h_1-w_1-for-the-height-width-pair-describing-the-shape-of-the-output-signal-domainwe-remark-that-the-stride-can-be-either-integer-or-a-2-tuple-whose-coordinates-describe-the-vertical-and-horizontal-stride-respectively-we-still-write-lambda-for-the-stride-when-it-is-a-tuple-and-use-lambda_h-equiv-lambda0-and-lambda_w-equiv-lambda1-to-denote-its-first-and-second-coordinate-in-this-case-likewise-the-padding-and-kernel-size-may-be-2-tuples-as-well-and-we-use-similar-notation-to-denote-their-entriesthe-full-shape-of-the-input-to-the-layer-includes-the-batch-dimension-and-is-thusn-textdimmathcalc-h-w-while-the-shape-of-the-output-isn--textdimmathcalc_1-h_1-w_1-these-shapes-in-particular-the-spatial-dimensions-of-each-are-related-as-followsbeginalignh_1--leftlfloor-frac----h--2-rho_h---delta_h--k_h--1--1-lambda_hrightrfloor-w_1--leftlfloor-frac----w--2-rho_w---delta_w--k_w--1--1-lambda_wrightrfloorendalignin-particular-the-batch-size-does-not-have-any-bearing-on-how-the-shapes-of-tensors-transformthe-parameters-to-be-learned-are-the-weights-w1-and-biases-b1-these-are-both-tensor-objects-accessed-from-the-layer-as-conv2dweight-and-conv2dbias-the-shape-of-the-weight-tensor-istextrmshapew1-left--textdimmathcalc_1---textdimmathcalc-big-m--k_h-k_w-rightthe-tensor-w1-thus-hastextrmsizew1--textrmdimmathcalc_1-textrmdim-mathcalc-k_h-k_w-big-mscalar-entriesthere-is-always-the-question-of-how-to-initialize-weights-in-the-case-of-the-conv2d-class-the-weights-are-initialized-to-be-iid-textunif---sqrt-alpha_1-sqrtalpha_1--random-variables-wherealpha_1--frac-textrmdimmathcalc_1-textrmsizew1the-bias-tensor-is-a-much-smaller-object-we-havebeginaligntextrmshapeb1---textrmdimmathcalc_1------quad-textrmsizeb1--textrmdimmathcalc_1endaligndespite-this-we-use-the-same-initialization-with-mutual-independence-of-all-random-variables-in-discussion-for-the-bias-entries-as-we-did-for-the-weights-a-simple-cnn-we-consider-possibly-the-simplest-neural-network-that-we-can-construct-through-the-above-blueprint-suppose-we-have-a-binary-classification-problem-with-the-following-hypothesis-space-let-textsfh_1-denote-the-hypothesis-space-of-functions-f--mathcalx-c_n-mathbbr-to-01-of-the-formf--a-circ-p-circ-mathbfa-circ-b-where-the-components-of-f-arewhere-the-components-of-f-areb---quad-a-c_n-equivariant-function-to-be-learned-it-is-represented-as-a-circulant-matrix-mathbfctheta-where-theta-is-a-vector-theta-equiv-theta_0-dots-theta_n-1-whose-entries-theta_j-are-parameters-to-be-learned-mathbfa---quad-we-consider-the-relu-activation-function-a--mathbbr-to-mathbbr_geq-0-defined-by-aw--max0w-for-w-in-mathbbr-the-bold-face-mathbfa-denotes-the-entry-wise-action-of-this-function-on-a-given-vectorfor-y-equiv-y_1-dots--y_n---in-mathcalxc_n-mathbbr-which-we-imagine-as-the-output-of-bx-for-some-input-signal-x-we-have-mathbfa-y------max0y_1---dots--max0y_n--there-are-no-learned-parameters-in-this-layerp--quad-a-coarsening-operator-in-this-case-let-us-say-it-is-a-zero-padded-group-homomorphismp--c_n-to-c_n--d--for-some-divisor-d-mid-n-footnotezero-padding--and-let-us-say-that-it-operates-through-max-pooling-on-the-signal-over-the-pre-images-of-each-element-of-c_n--da--quad-a-global-pooling-layer-we-assume-this-has-the-form-of-a-fully-connected-layer-followed-by-a-softmax-specificallydiv-" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... example: concrete layer&lt;/h3&gt;
+<a class="anchor" href="#-example-concrete-layerh3divdivdivfor-now-we-will-instantiate-a-parameters-dictionary-with-dilation--1-and-padding--0-let-us-use-n--32-so-thattilden--leftlfloor-fracn-klambda--1-rightrfloor-equiv-leftlfloor-frac32-klambda--1-rightrfloorfor-our-example-we-specialize-to-kernel_size--4-and-stride--2-in-which-case-tilden--15------------odcp----one-dimensional-conv-parametersodcpin_size--32odcpin_channels--1odcppadding--0odcpdilation--1odcpkernel_size--4odcpstride--2odcpgroups--1odcpout_channels--16----------------------------------odcpout_size--compute_out_size----in_size--odcpin_size----padding--odcppadding----dilation--odcpdilation----kernel_size--odcpkernel_size----stride--odcpstride----print-odcpout_size---------150----one-of-the-important-free-parameters-we-can-choose-to-initialize-a-one-dimensional-convolutional-layer-is-the-number-of-out_channels-we-choose-out_channels--16-in-our-first-examplein-many-vision-related-cnns-the-first-layer-takes-in-a-grayscale-or-rgb-image-outputting-features-with-a-much-larger-number-of-channelsi-am-thinking-of-each-output-channel-as-a-separate-lint-roller-to-run-over-the-imagefrom-the-docs-the-parameter-groups-controls-the-connections-between-inputs-and-outputsboth-in_channels-and-out_channels-must-be-divisible-by-groupsat-groups--1-all-inputs-are-convolved-to-all-outputsat-groups--2-the-operation-becomes-equivalent-to-having-two-convolutional-layers-side-by-side-each-seeing-half-the-input-channels-and-producing-half-the-output-channels-and-both-subsequently-concatenatedat-groups--in_channels-each-input-channel-is-convolved-with-its-own-set-of-filters-of-size-out_channels--in_channelsby-taking-in_channels--1-we-must-have-groups--1-alsothe-learned-parameters-of-layer-tildeb-are-of-two-types-those-in-the-weight-tensor-tildetheta-and-those-in-the-bias-vector-tildeb-at-this-point-for-simplicity-we-set-tildeb-equiv-0-via-bias--false-so-that-the-only-learned-parameters-are-those-in-tildetheta------------from-torchnn-import-conv1d--------we-now-initialize-the-convolutional-layer------------b_tilde--conv1din_channels--odcpin_channels-----------------out_channels--odcpout_channels-----------------kernel_size--odcpkernel_size-----------------stride--odcpstride-----------------padding--odcppadding-----------------dilation--odcpdilation-----------------groups--odcpgroups-----------------bias--false------------------------let-us-initialize-a-few-possible-input-signals-x_1-x_2-x_3--------------------------x_1--torcharange032infox_1-x-1viz_tens-x_1-display_size--10-x_2--torchrand-32--infox_2-x-2viz_tens-x_2-display_size--10-x_3--torchrandn-32-infox_3-x-3viz_tens-x_3-display_size--10---------tensor-----x-1-----num-dims--------1----num-entries-----32----shape------------32-0--1--2--3--4--5--6--7--8--9--10--11--12--13--14--15--16--17--18--19--20--21--22--23--24--25--26--27--28--29--30--31-tensor-----x-2-----num-dims--------1----num-entries-----32----shape------------32-025--069--089--036--029--004--024--006--038--060--003--093--081--001--026--066--039--044--027--090--022--091--053--060--089--041--021--041--090--012--061--000-tensor-----x-3-----num-dims--------1----num-entries-----32----shape------------32--02--151--003--103--088---13---03--101---16---00---12--119---07--111--029--029---05--194---04---03--144---07--249---03--087--021--122---05---01---04---01---02-----to-apply-b_tilde-to-these-signals-we-must-augment-each-signal-with-batch-and-channel-dimensions--------------------------x_1--torchas_tensor-x_1-none-none---dtype-torchfloat32-x_2--torchas_tensor-x_2-none-none---dtype-torchfloat32-x_3--torchas_tensor-x_3-none-none---dtype-torchfloat32-------------each-output-has-shape--------------------------y_1--b_tilde-x_1-detachy_2--b_tilde-x_2-detachy_3--b_tilde-x_3-detachprint-nparray-y_1size-----------1-16-15----this-is-the-output-shape-which-we-predicted-the-last-entry-15-is-the-length-tilden-of-the-output-vector-at-each-channel-the-output-has-16-channels-and-our-batch-size-n-remains-1the-easiest-way-to-visualize-this-output-is-to-use-torchsqueeze-which-removes-all-dimensions-of-the-input-tensor-of-size-one-the-shape-of-each-y_1-y_2-y_3-after-this-squeezing-will-be-1615--------------------------y_1--torchsqueezey_1y_2--torchsqueezey_2y_3--torchsqueezey_3print-nparray-y_1size----------16-15----visualizing-x_1--------------------------viz_tenstorchsqueezex_1-display_size--10------------visualizing-y_1--------------------------y_1_list---y_1j-for-j-in-range16-list_y_1---tensnone-for-tens-in-y_1_list-viz_tens_listlist_y_1-display_size--10------------x_2--------------------------viz_tenstorchsqueezex_2-display_size--10------------y_2--------------------------y_2_list---y_2j-for-j-in-range16-list_y_2---tensnone-for-tens-in-y_2_list-viz_tens_listlist_y_2-display_size--10------------x_3--------------------------viz_tenstorchsqueezex_3-display_size--10------------y_3--------------------------y_3_list---y_3j-for-j-in-range16-list_y_3---tensnone-for-tens-in-y_3_list-viz_tens_listlist_y_3-display_size--10------------it-is-also-of-interest-to-say-something-about-the-size-and-shape-of-the-weight-tensor-tildetheta-that-effectively-constitutes-the-layer-b_tilde-equiv-tildeb-having-set-the-bias-of-this-layer-to-be-zero--------------------------four_tuple_list---b_tildeweightj0detach-for-j-in-range16-four_tuple_list_prime---b_tildeweightjdetach-for-j-in-range16-weight_stack--torchstackfour_tuple_list------------we-can-view-this-weight-matrix-as-a-grid-of-images-each-of-which-is-effectively-a-4-tuple--------------------------viz_tens_list-four_tuple_list_prime-------------as-a-single-block--------------------------viz_tensweight_stack-display_size--5------------rmk-quad-the-next-thing-to-link-up-with-is-the-description-of-generalized-convolution-from-the-first-notebook-recall-that-in-general-one-hastildetheta-in-mathcalx--h-backslash-g--tildeh-mathcalc-otimes-tildemathcalc-but-let-us-reduce-this-further-based-on-the-assumptions-made-because-g-equiv-omega-equiv-c_n-subgroup-h-must-be-the-trivial-subgroup--e--moreover-having-assumed-that-dimmathcalc--1-one-also-has-mathcalc-otimes-tildemathcalc-cong-tildemathcalc-so-we-may-writetildetheta-in-mathcalx--g--tildeh---tildemathcalc-with-c_tilden-cong-g--tildeh-of-course-as-15-does-not-divide-32-we-cannot-interpret-this-as-true-directly-in-the-case-above-no-doubt-this-is-resolved-through-some-zero-padding-but-something-to-explore-a-little24--two-dimensional-convolutions-in-torch-torchnnconv2d-the-argumentsin_channelsout_channelskernel_sizestride-quad-controls-the-stride-for-the-cross-correlation-a-single-number-or-a-tuplepadding-quad-controls-amount-of-padding-applied-to-the-input-it-can-either-be-a-string-valid-or-same-or-a-tuple-of-ints-giving-the-amount-of-implicit-padding-applied-on-both-sidesdilation-quad-controls-the-spacing-between-kernel-points-also-known-as-the-a-trous-algorithmgroups-quad-controls-connections-between-inputs-and-outputs-the-in_channels-and-out_channels-must-be-divisible-by-groups-for-exampleat-groups--1-all-inputs-are-convolved-to-all-outputsat-groups--2-the-operation-becomes-equivalent-to-having-two-conv-layers-side-by-side-each-seeing-half-the-input-channels-and-producing-half-the-output-channels-and-both-subsequently-concatenatedat-groups--in_channels-each-input-channel-is-convolved-with-its-own-set-of-filters-of-size-out_channels--in_channelsbiaspadding_modedevicedtypelet-us-now-relate-the-shapes-of-the-input-and-output-to-the-parametersinput-parameterlatex-symbolin_channelstextdimmathcalcout_channelstextdimmathcalc_1kernel_sizekstridelambdapaddingrhodilationdeltagroupsm--------additionally-we-use-n-for-the-batch-size-of-the-input-n-we-also-let-hw-denote-the-height-width-pair-describing-the-shape-of-the-input-signal-domaincorrespondingly-we-write-h_1-w_1-for-the-height-width-pair-describing-the-shape-of-the-output-signal-domainwe-remark-that-the-stride-can-be-either-integer-or-a-2-tuple-whose-coordinates-describe-the-vertical-and-horizontal-stride-respectively-we-still-write-lambda-for-the-stride-when-it-is-a-tuple-and-use-lambda_h-equiv-lambda0-and-lambda_w-equiv-lambda1-to-denote-its-first-and-second-coordinate-in-this-case-likewise-the-padding-and-kernel-size-may-be-2-tuples-as-well-and-we-use-similar-notation-to-denote-their-entriesthe-full-shape-of-the-input-to-the-layer-includes-the-batch-dimension-and-is-thusn-textdimmathcalc-h-w-while-the-shape-of-the-output-isn--textdimmathcalc_1-h_1-w_1-these-shapes-in-particular-the-spatial-dimensions-of-each-are-related-as-followsbeginalignh_1--leftlfloor-frac----h--2-rho_h---delta_h--k_h--1--1-lambda_hrightrfloor-w_1--leftlfloor-frac----w--2-rho_w---delta_w--k_w--1--1-lambda_wrightrfloorendalignin-particular-the-batch-size-does-not-have-any-bearing-on-how-the-shapes-of-tensors-transformthe-parameters-to-be-learned-are-the-weights-w1-and-biases-b1-these-are-both-tensor-objects-accessed-from-the-layer-as-conv2dweight-and-conv2dbias-the-shape-of-the-weight-tensor-istextrmshapew1-left--textdimmathcalc_1---textdimmathcalc-big-m--k_h-k_w-rightthe-tensor-w1-thus-hastextrmsizew1--textrmdimmathcalc_1-textrmdim-mathcalc-k_h-k_w-big-mscalar-entriesthere-is-always-the-question-of-how-to-initialize-weights-in-the-case-of-the-conv2d-class-the-weights-are-initialized-to-be-iid-textunif---sqrt-alpha_1-sqrtalpha_1--random-variables-wherealpha_1--frac-textrmdimmathcalc_1-textrmsizew1the-bias-tensor-is-a-much-smaller-object-we-havebeginaligntextrmshapeb1---textrmdimmathcalc_1------quad-textrmsizeb1--textrmdimmathcalc_1endaligndespite-this-we-use-the-same-initialization-with-mutual-independence-of-all-random-variables-in-discussion-for-the-bias-entries-as-we-did-for-the-weights-a-simple-cnn-we-consider-possibly-the-simplest-neural-network-that-we-can-construct-through-the-above-blueprint-suppose-we-have-a-binary-classification-problem-with-the-following-hypothesis-space-let-textsfh_1-denote-the-hypothesis-space-of-functions-f--mathcalx-c_n-mathbbr-to-01-of-the-formf--a-circ-p-circ-mathbfa-circ-b-where-the-components-of-f-arewhere-the-components-of-f-areb---quad-a-c_n-equivariant-function-to-be-learned-it-is-represented-as-a-circulant-matrix-mathbfctheta-where-theta-is-a-vector-theta-equiv-theta_0-dots-theta_n-1-whose-entries-theta_j-are-parameters-to-be-learned-mathbfa---quad-we-consider-the-relu-activation-function-a--mathbbr-to-mathbbr_geq-0-defined-by-aw--max0w-for-w-in-mathbbr-the-bold-face-mathbfa-denotes-the-entry-wise-action-of-this-function-on-a-given-vectorfor-y-equiv-y_1-dots--y_n---in-mathcalxc_n-mathbbr-which-we-imagine-as-the-output-of-bx-for-some-input-signal-x-we-have-mathbfa-y------max0y_1---dots--max0y_n--there-are-no-learned-parameters-in-this-layerp--quad-a-coarsening-operator-in-this-case-let-us-say-it-is-a-zero-padded-group-homomorphismp--c_n-to-c_n--d--for-some-divisor-d-mid-n-footnotezero-padding--and-let-us-say-that-it-operates-through-max-pooling-on-the-signal-over-the-pre-images-of-each-element-of-c_n--da--quad-a-global-pooling-layer-we-assume-this-has-the-form-of-a-fully-connected-layer-followed-by-a-softmax-specificallydiv-" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... example: concrete layer&lt;/h3&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4716,16 +4826,131 @@ tensor     X 3
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">four_tuple_list</span> <span class="o">=</span> <span class="p">[</span> <span class="n">B_tilde</span><span class="o">.</span><span class="n">weight</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">four_tuple_list_prime</span> <span class="o">=</span> <span class="p">[</span> <span class="n">B_tilde</span><span class="o">.</span><span class="n">weight</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">weight_stack</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">four_tuple_list</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Recall that, in general, one has</p>
+<p>We can view this weight matrix as a grid of "images," each of which is effectively a $4$-tuple.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">viz_tens_list</span><span class="p">(</span> <span class="n">four_tuple_list_prime</span> <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV0AAADCCAYAAADqzxGVAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAE40lEQVR4nO3aoUtdfxzG8XN/3hVBcDCQ65JBsFhtmhYFV2y74LBocdUgmIXNtLEiyIIG19dsA9uqCor7B4xuGOT8/gG98rnIY9jrVb/n4ZxwefMNt9O2bQNAxn/P/QEA/xLRBQgSXYAg0QUIEl2AINEFCOo+cu7/ZAB1nYcO3HQBgkQXIEh0AYJEFyBIdAGCRBcgSHQBgkQXIEh0AYJEFyBIdAGCRBcgSHQBgkQXIEh0AYJEFyBIdAGCRBcgSHQBgkQXIEh0AYJEFyBIdAGCRBcgqPvcH9A0TbOyslLedLu1Tz89PS2/Y319vbx59+5deTOM4+Pj8mZmZqa8efHiRXkzNTVV3tzc3JQ3VR8/fixv9vb2ypvNzc3y5uXLl+XN0tJSeTOMr1+/ljfn5+el53u9XvkdZ2dn5c3+/n5589TcdAGCRBcgSHQBgkQXIEh0AYJEFyBIdAGCRBcgSHQBgkQXIEh0AYJEFyCo07btoPOBhwDcq/PQgZsuQJDoAgSJLkCQ6AIEiS5AkOgCBIkuQJDoAgSJLkCQ6AIEiS5AkOgCBIkuQJDoAgSJLkCQ6AIEiS5AkOgCBIkuQJDoAgSJLkCQ6AIEiS5AkOgCBIkuQFD3uT+gaZrm7u6uvPnz50/p+X6/X37H4eFheTM6OlreDOPt27flzdjYWHkzNzdX3uzv75c3v379Km+qer1eeTMyMlLe/P37t7wZHx8vby4vL8ubYfz8+bO8mZ2dLT2/s7NTfsfFxUV5c3R0VN48NTddgCDRBQgSXYAg0QUIEl2AINEFCBJdgCDRBQgSXYAg0QUIEl2AINEFCOq0bTvofOAhAPfqPHTgpgsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBB3ef+gKZpmru7u/Lm06dPpee3trbK7zg4OChvlpeXy5thrK2tlTeLi4vlzZs3b8qb6+vr8ub169flTdXExER58/79+/Lmy5cv5c38/Hx58+PHj/JmGKurq+VNt1tLy8bGRvkd4+Pj5U3id/YYN12AINEFCBJdgCDRBQgSXYAg0QUIEl2AINEFCBJdgCDRBQgSXYAg0QUI6rRtO+h84CEA9+o8dOCmCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxDUfe4PaJqmWVhYKG++fftWer7f75ffcXR0VN5MTk6WN8P4/v17ebOzs1Pe/P79u7yZnp4ub05OTsqbqu3t7fLm/Py8vJmamipvdnd3y5vb29vyZhifP38ub169elV6fnR0tPyOq6ur8ubDhw/lzVNz0wUIEl2AINEFCBJdgCDRBQgSXYAg0QUIEl2AINEFCBJdgCDRBQgSXYCgTtu2g84HHgJwr85DB266AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEGiCxAkugBBogsQJLoAQaILECS6AEHdR847ka8A+Ee46QIEiS5AkOgCBIkuQJDoAgSJLkDQ/xt0hH6St/L9AAAAAElFTkSuQmCC%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>as a single block,</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">viz_tens</span><span class="p">(</span><span class="n">weight_stack</span><span class="p">,</span> <span class="n">display_size</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAAEeCAYAAAAZwUI4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAEXUlEQVR4nO3coUqrYQCH8e2oZUOwGBYFhS14AYImEQyCwSQ4sMpuwFuYqPdg0OCCzWYwaXJFMKhgNYggqEl2ruB7GfwfOXB4fvWD/3t4eIN852P10WhUU+7Pv/4H/C8MCTEkxJAQQ0IMCZksPdzd3Y3/NpqcLB4xloeHh3hjb28v3tjZ2alXPfNGQgwJMSTEkBBDQgwJMSTEkBBDQgwJMSTEkBBDQgwJMSTEkJB66f+1r66u4he77XY7nahNTU3FG3Nzc/HG5+enL3Z/myEhhoQYEmJIiCEhhoQYEmJIiCEhhoQYEmJIiCEhhoQYElL8nHY4HMYH9Hq9eGN/fz/eODs7izdKvJEQQ0IMCTEkxJAQQ0IMCTEkxJAQQ0IMCTEkxJAQQ0IMCTEkpPhit9lsxgesr6/HG6+vr/HG9fV1vLG5uVn5zBsJMSTEkBBDQgwJMSTEkBBDQgwJMSTEkBBDQgwJMSTEkBBDQoo/xfDz8xP/FMPX11c6Uet2u/EG8cVuo9Hwpxh+myEhhoQYEmJIiCEhhoQYEmJIiCEhhoQYEmJIiCEhhoQYElL8Yndrays+YHp6Ot5YXV2NN5aXl+ONu7u7ymfeSIghIYaEGBJiSIghIYaEGBJiSIghIYaEGBJiSIghIYaEGBJS/GK31WrFX+xOTEykE7Xv7+94Y2ZmJt54fn72i93fZkiIISGGhBgSYkiIISGGhBgSYkiIISGGhBgSYkiIISGGhBS/2B0MBvEBi4uL8Ua/3483np6e4o0SbyTEkBBDQgwJMSTEkBBDQgwJMSTEkBBDQgwJMSTEkBBDQgwJKb7YXVpaig84OjqKNw4PD+ON09PTeKPEGwkxJMSQEENCDAkxJMSQEENCDAkxJMSQEENCDAkxJMSQEENCii92e71efMDGxka88fHxEW+8vb3FGyXeSIghIYaEGBJiSIghIYaEGBJiSIghIYaEGBJiSIghIYaEGBJSfLF7cXERH0D8tu329na8sbKyEm9cXl5WPvNGQgwJMSTEkBBDQgwJMSTEkBBDQgwJMSTEkBBDQgwJMSTEkJDii13ia9v39/d44/b2Nt4gXjCXeCMhhoQYEmJIiCEhhoQYEmJIiCEhhoQYEmJIiCEhhoQYEmJISPHF7uPjY3zAyclJvNHtduON8/PzeKPEGwkxJMSQEENCDAkxJMSQEENCDAkxJMSQEENCDAkxJMSQEENC6qPRqPLhYDCofjimfr+fTtReXl7ijYWFhXjj5uamXvXMGwkxJMSQEENCDAkxJMSQEENCDAkxJMSQEENCDAkxJMSQEENCil/s3t/fxwfMz8/HG2tra/HG8fFxvFHijYQYEmJIiCEhhoQYEmJIiCEhhoQYEmJIiCEhhoQYEmJIiCEhxRe7s7Oz8QGdTifeaDQa8cbBwUG8UeKNhBgSYkiIISGGhBgSYkiIISGGhBgSYkiIISGGhBgSYkiIISHFn2LQ+LyREENCDAkxJMSQEENC/gKWMoBIM/g6hwAAAABJRU5ErkJggg==%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Rmk</strong> $\quad$ The next thing to link up with is the description of generalized convolution from the first notebook. Recall that, in general, one has</p>
 $$
 \tilde{\theta} \in \mathcal{X} ( H \backslash G / \tilde{H}, \mathcal{C} \otimes \tilde{\mathcal{C}} ),
 $$<p>but let us reduce this further based on the assumptions made. Because $G \equiv \Omega \equiv C_n$, subgroup $H$ must be the trivial subgroup $\{ e \}$. Moreover, having assumed that $\dim{\mathcal{C}} = 1$, one also has $\mathcal{C} \otimes \tilde{\mathcal{C}} \cong \tilde{\mathcal{C}}$, so we may write</p>
 $$
 \tilde{\theta} \in \mathcal{X} ( G / \tilde{H} ) , \tilde{\mathcal{C}} ),
-$$<p>with $C_{\tilde{n}} \cong G / \tilde{H}$.</p>
+$$<p>with $C_{\tilde{n}} \cong G / \tilde{H}$. Of course, as $15$ does not divide $32$, we cannot interpret this as true directly in the case above; no doubt this is resolved through some zero-padding, but something to explore a little.</p>
+<hr>
 
 </div>
 </div>
