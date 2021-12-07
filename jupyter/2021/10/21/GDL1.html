@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      44 min read
+      48 min read
     
 </span></p>
 
@@ -132,45 +132,89 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#1.1-...-algebra-">1.1 ... algebra  </a>
+<li class="toc-entry toc-h1"><a href="#algebra">algebra </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#...-graphs,-categories,-groups">... graphs, categories, groups </a></li>
-<li class="toc-entry toc-h3"><a href="#...-group-representations">... group representations </a></li>
-<li class="toc-entry toc-h3"><a href="#...-example:-shifts-of-RGB-images">... example: shifts of RGB images </a></li>
-<li class="toc-entry toc-h3"><a href="#...-example:-one-hot-encoding">... example: one-hot encoding </a></li>
+<li class="toc-entry toc-h2"><a href="#...-graphs,-categories,-groups-...">... graphs, categories, groups ... </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-graph-)">Definition. ( graph ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-directed-graph-)">Definition. ( directed graph ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-domain-and-codomain-operations-)">Definition. ( domain and codomain operations ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-category-)">Definition. ( category ) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#1.2-...-equivariance">1.2 ... equivariance </a>
+<li class="toc-entry toc-h2"><a href="#...-group-representations-...">... group representations ... </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#...-example:-permutation-invariance-and-equivariance-in-data">... example: permutation invariance and equivariance in data </a></li>
-<li class="toc-entry toc-h3"><a href="#...-example:-permutations-and-local-averaging">... example: permutations and local averaging </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-linear-representation-)">Definition. ( linear representation ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-shifts-of-RGB-images-)">Example. ( shifts of RGB images ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-one-hot-encoding-)">Example. ( one-hot encoding ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-features-)">Definition. ( features ) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#1.3-...-equivariance-in-neural-networks">1.3 ... equivariance in neural networks </a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#...-feed-forward-neural-networks">... feed-forward neural networks </a></li>
-<li class="toc-entry toc-h3"><a href="#...-equivariant-neural-networks">... equivariant neural networks </a></li>
-<li class="toc-entry toc-h3"><a href="#...-convolution">... convolution </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#1.4-...-tensors-">1.4 ... tensors  </a>
+<li class="toc-entry toc-h1"><a href="#equivariance">equivariance </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#...-vectors-and-covectors,-through-the-lens-of-rep.-theory-">... vectors and covectors, through the lens of rep. theory  </a></li>
-<li class="toc-entry toc-h3"><a href="#...-vectors-and-covectors,-in-coordinates">... vectors and covectors, in coordinates </a></li>
-<li class="toc-entry toc-h3"><a href="#...-the-abstract-index-notation">... the abstract index notation </a></li>
-<li class="toc-entry toc-h3"><a href="#...-tensors-">... tensors  </a></li>
-<li class="toc-entry toc-h3"><a href="#tensor-operations">tensor operations </a></li>
+<li class="toc-entry toc-h2"><a href="#...-definitions-...">... definitions ... </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-group-invariance,-equivariance-)">Definition. ( group invariance, equivariance ) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#1.5-...-GDL-blueprint-(fixed-input-domain)">1.5 ... GDL blueprint (fixed input domain) </a>
+<li class="toc-entry toc-h2"><a href="#...-examples-...">... examples ... </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#...-setup">... setup </a></li>
-<li class="toc-entry toc-h3"><a href="#...-three-flavors-of-equivariant-map">... three flavors of equivariant map </a></li>
-<li class="toc-entry toc-h3"><a href="#...-example:-strideless-$G$-pooling">... example: strideless $G$-pooling </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-permutation-invariance-and-equivariance-in-data-)">Example. ( permutation invariance and equivariance in data ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-permutations-and-local-averaging-)">Example. ( permutations and local averaging ) </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#equivariance-in-neural-networks">equivariance in neural networks </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#...-feed-forward-neural-networks-...">... feed-forward neural networks ... </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-feed-forward-neural-network-)">Definition. ( feed-forward neural network ) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#...-equivariant-neural-networks-...">... equivariant neural networks ... </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-group-equivariant-neural-network-)">Definition. ( group equivariant neural network ) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#...-convolution-...">... convolution ... </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-convolution-)">Definition. ( convolution ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-projection,-lift-)">Definition. ( projection, lift ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-generalized-convolution-)">Definition. ( generalized convolution ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-group-convolutional-neural-network-)">Definition. ( group-convolutional neural network ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Theorem-(-Kondor-Trivedi-2018,-Theorem-1-)">Theorem ( Kondor-Trivedi 2018, Theorem 1 ) </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#tensors">tensors </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#...-vectors-and-covectors,-through-the-lens-of-rep.-theory-...">... vectors and covectors, through the lens of rep. theory ... </a></li>
+<li class="toc-entry toc-h2"><a href="#...-vectors-and-covectors,-in-coordinates-...">... vectors and covectors, in coordinates ... </a></li>
+<li class="toc-entry toc-h2"><a href="#...-tensors-...">... tensors ... </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Example.-(-changing-coordinates-with-a-$2$-tensor-)">Example. ( changing coordinates with a $2$-tensor ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Definition.-(-tensors-)">Definition. ( tensors ) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#...-tensor-operations-...">... tensor operations ... </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#GDL-blueprint">GDL blueprint </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#...-setup-...">... setup ... </a></li>
+<li class="toc-entry toc-h2"><a href="#...-three-flavors-of-equivariant-map-...">... three flavors of equivariant map ... </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Example.-(-strideless-group-pooling-)">Example. ( strideless group-pooling ) </a></li>
 <li class="toc-entry toc-h3"><a href="#...-example:-subsampling">... example: subsampling </a></li>
 <li class="toc-entry toc-h3"><a href="#...-example:-coset-pooling">... example: coset pooling </a></li>
 <li class="toc-entry toc-h3"><a href="#...-hypothesis-space-">... hypothesis space  </a></li>
 <li class="toc-entry toc-h3"><a href="#...-discussion-">... discussion  </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -185,9 +229,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Modern neural network (NN) design is built on two algorithmic principles: hierarchical feature learning (this concerns the architecture of the NN), and learning by local gradient-descent driven by backpropagation (concerning the learning dynamics undergone by the NN).</p>
-<p>An instance of training data is modeled as an element of some high-dimensional vector space, making a generic learning problem subject to the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>. Most tasks of interest are not generic; the data comes from the physical world, and so it inherits low-dimensional structure and symmetries. Requiring an NN to respect the symmetries of the data upon which it acts amounts to a prior.</p>
-<p>The notes [BBCV21] construct a blueprint for neural network architecture incorporating these priors, termed <em>geometric priors</em> throughout the notes. Importantly, this blueprint provides a unified perspective of the most successful neural network architectures, at least at the level of the building blocks chosen for the network.</p>
+<p>$\quad$ Modern neural network (NN) design is built on two algorithmic principles: hierarchical feature learning (concerning the NN architecture), and learning by local gradient-descent driven by backpropagation (concerning the dynamics undergone by the NN during its training). An instance of training data is modeled as an element of some high-dimensional vector space, making a generic learning problem subject to the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>. Most tasks of interest are not generic; the data comes from the physical world, and so it inherits low-dimensional structure and symmetries. Requiring an NN to respect the symmetries of the data upon which it acts amounts to a prior. The notes [BBCV21] construct a blueprint for neural network architecture incorporating these priors, termed <em>geometric priors</em> throughout the notes. Importantly, this blueprint provides a unified perspective of the most successful neural network architectures, at least at the level of the building blocks chosen for the network.</p>
 
 </div>
 </div>
@@ -195,9 +237,25 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.1-...-algebra-">
-<a class="anchor" href="#1.1-...-algebra-" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">1.1 ... algebra </font><a class="anchor-link" href="#1.1-...-algebra-"> </a>
-</h2>
+<p>$\quad$ I am choosing to start the notes with the definition of a category. This is in part because it leads to a definition of a group of symmetries acting on some general 'object', and the goal of GDL is to incorporate into the NN arhitecture the symmetries of (and which act on) input data. I am also trusting that it will come in handy, at some point, following <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Bartosz Milewski</a>'s book on category theory for programmers: <em>"...category theory is a treasure trove of extremely useful programming ideas... Composition is at the very root of category theory — it’s part of the definition of the category itself. And I will argue strongly that composition is the essence of programming."</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Moreover, the 'geometric' constraints in GDL are summed up in a property called <em>equivariance</em>. Functors are mathematical objects central to category theory, in a sense are characterized by equivariance. They could become a useful perspective for describing some things in the notes, eventually.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="algebra">
+<a class="anchor" href="#algebra" aria-hidden="true"><span class="octicon octicon-link"></span></a>algebra<a class="anchor-link" href="#algebra"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -220,17 +278,21 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-graphs,-categories,-groups">
-<a class="anchor" href="#...-graphs,-categories,-groups" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... graphs, categories, groups</font><a class="anchor-link" href="#...-graphs,-categories,-groups"> </a>
+<h2 id="...-graphs,-categories,-groups-...">
+<a class="anchor" href="#...-graphs,-categories,-groups-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... graphs, categories, groups ...<a class="anchor-link" href="#...-graphs,-categories,-groups-..."> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h3 id="Definition.-(-graph-)">
+<a class="anchor" href="#Definition.-(-graph-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( graph )<a class="anchor-link" href="#Definition.-(-graph-)"> </a>
 </h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ A <strong>graph</strong> is a pair $G = (\textrm{V}, \textrm{E})$, where $\textrm{V}$ is a set whose elements are called <strong>vertices</strong>. The set $\textrm{E}$ consists of <strong>edges</strong>, defined to be a multi-set of exactly two vertices in $\textrm{V}$, not necessarily distinct.</p>
 <hr>
-<p><strong>Def</strong> $\quad$ A <em><font color="purple">graph</font></em> is a pair $\mathcal{G} = (\mathcal{V}, \mathcal{E})$, where $\mathcal{V}$ is a set whose elements are called <em><font color="purple">vertices</font></em>. The set $\mathcal{E}$ consists of <em><font color="purple">edges</font></em>, defined to be a multi-set of exactly two vertices in $\mathcal{V}$, not necessarily distinct.</p>
 
 </div>
 </div>
@@ -239,7 +301,11 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ A <em><font color="purple">directed graph</font></em> is a pair of sets  $\mathcal{G} = (\mathcal{V}, \mathcal{A})$ of vertices and <em>arrows</em> (or equivalently, <em>directed edges</em>). An <em><font color="purple">arrow</font></em> is an ordered pair of vertices. Self-edges have no distinct orientations.</p>
+<h3 id="Definition.-(-directed-graph-)">
+<a class="anchor" href="#Definition.-(-directed-graph-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( directed graph )<a class="anchor-link" href="#Definition.-(-directed-graph-)"> </a>
+</h3>
+<p>$\quad$ A <strong>directed graph</strong> is a pair of sets  $G = (\textrm{V}, \textrm{A})$ of vertices and arrows (aka, directed edges). An <strong>arrow</strong> is an ordered pair of vertices. Self-edges have no distinct orientations.</p>
+<hr>
 
 </div>
 </div>
@@ -248,11 +314,14 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ Consider an arrow $f$ of a directed graph $\mathcal{G} = ( \mathcal{V}, \mathcal{A})$, specifically $f \equiv (a,b) \in \mathcal{A}$, with $a,b \in \mathcal{V}$. The operations $\textsf{dom}$ and $\textsf{cod}$ act on the arrows $f \in \mathcal{A}$ via 
+<h3 id="Definition.-(-domain-and-codomain-operations-)">
+<a class="anchor" href="#Definition.-(-domain-and-codomain-operations-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( domain and codomain operations )<a class="anchor-link" href="#Definition.-(-domain-and-codomain-operations-)"> </a>
+</h3>
+<p>$\quad$ Consider an arrow $f$ of a directed graph $G = ( \textrm{V}, \textrm{A})$, specifically $f \equiv (a,b) \in \textrm{A}$, with $a,b \in \textrm{V}$. The operations $\textsf{dom}$ and $\textsf{cod}$ act on the arrows $f \in \textrm{A}$ via 
 $$
 \textsf{dom}f = a,\, \textsf{cod} f = b\,,
 $$ 
-and are called the <em><font color="purple">domain</font></em> operation and <em><font color="purple">codomain</font></em> operation,  respectively.</p>
+and are called the <strong>domain</strong> operation and <strong>codomain</strong> operation,  respectively.</p>
 <hr>
 
 </div>
@@ -261,7 +330,7 @@ and are called the <em><font color="purple">domain</font></em> operation and <em
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Given arrows, $f$ and $g$ of some directed graph, say that the ordered pair $(g,f)$ is a <em><font color="purple">composable pair</font></em> if $\textsf{dom} g = \textsf{cod} f$. 
+<p>$\quad$ Given arrows, $f$ and $g$ of some directed graph, say that the ordered pair $(g,f)$ is a <strong>composable pair</strong> if $\textsf{dom} g = \textsf{cod} f$. 
 Going forward, we express the relations $a = \textsf{dom} f$ and $b = \textsf{cod} f$ equivalently as
 $$
 f : a \to b \, \quad \text { or  } \, \quad a \xrightarrow[\,]{ f} b  
@@ -275,16 +344,19 @@ $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ A <em><font color="purple">category</font></em> is a directed graph $\mathcal{C} = (\mathcal{O},\mathcal{A})$, whose vertices $\mathcal{O}$ we call <em><font color="purple">objects</font></em>, such that</p>
+<h3 id="Definition.-(-category-)">
+<a class="anchor" href="#Definition.-(-category-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( category )<a class="anchor-link" href="#Definition.-(-category-)"> </a>
+</h3>
+<p>$\quad$ A <strong>category</strong> is a directed graph $\textsf{C} = (\textrm{O},\textrm{A})$, whose vertices $\textrm{O}$ we call <strong>objects</strong>, such that</p>
 <ol>
 <li>
-<p>For each object $a \in \mathcal{O}$, there is a unique <em><font color="purple">identity</font></em> arrow $\textrm{id}_a \equiv \mathbf{1}_a : a \to a$, defined by the following property: for all arrows $f : b \to a$ and $g : a \to c$, composition with the identity arrow $\mathbf{1}_a $ gives
+<p>For each object $a \in \textrm{O}$, there is a unique <strong>identity</strong> arrow $\textrm{A} \ni \textrm{id}_a : a \to a$, defined by the following property: for all arrows $f : b \to a$ and $g : a \to c$, composition with the identity arrow $\textrm{id}_a $ gives
 $$
-\mathbf{1}_a \circ f = f \quad \text{ and } \quad g \circ \mathbf{1}_a = g
+\textrm{id}_a \circ f = f \quad \text{ and } \quad g \circ \textrm{id}_a = g
 $$</p>
 </li>
 <li>
-<p>For each composable pair $(g, f)$ of arrows, there is a unique arrow $g \circ f$ called their <em><font color="purple">composite</font></em>, with $g \circ f : \textsf{dom} f \to \textsf{cod} g$, such that the composition operation is associative. Namely, for given objects and arrows in the configuration 
+<p>For each composable pair $(g, f)$ of arrows, there is a unique arrow $g \circ f$ called their <strong>composite</strong>, with $g \circ f : \textsf{dom} f \to \textsf{cod} g$, such that the composition operation is associative. Namely, for given objects and arrows in the configuration 
 $$a \xrightarrow[\,]{ f} b \xrightarrow[\,]{ g} c \xrightarrow[\,]{ k} d \,,
 $$
 one always has the equality $k \circ (g \circ f) = (k \circ g ) \circ f$.</p>
@@ -298,11 +370,11 @@ one always has the equality $k \circ (g \circ f) = (k \circ g ) \circ f$.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Given a category $\mathcal{C} = (\mathcal{O},\mathcal{A})$, let
+<p>$\quad$ Given a category $\mathcal{C} = (\textrm{O},\textrm{A})$, let
 $$
-\textsf{hom} (b,c) := \{ \, f : f \in \mathcal{A},  \, \textsf{dom} f = b \in \mathcal{O}, \, \textsf{cod} f = c \in \mathcal{O} \, \}
+\textsf{hom} (b,c) := \{ \, f : f \in \textrm{A},  \, \textsf{dom} f = b \in \textrm{O}, \, \textsf{cod} f = c \in \textrm{O} \, \}
 $$
-denote the set of arrows from $b$ to $c$. We use the terms <em><font color="purple">morphism</font></em> and arrow interchangeably.</p>
+denote the set of arrows from $b$ to $c$. We use the terms <strong>morphism</strong> and arrow interchangeably.</p>
 
 </div>
 </div>
@@ -310,8 +382,7 @@ denote the set of arrows from $b$ to $c$. We use the terms <em><font color="purp
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Groups are collections of symmetries. A <em><font color="purple">group</font></em> $G$ is a category $\mathcal{C} = (\mathcal{O}, \mathcal{A})$ with $\mathcal{O} = \{ o \}$ ( so that we may identify $G$ with the collection of arrows $\mathcal{A}$ ) such that each arrow has a unique inverse: for $g \in \mathcal{A}$, there is an arrow $h$ such that $g \circ h = h \circ g = \mathbf{1}_o$.</p>
-<p>Each arrow $g \in \mathcal{A}$ thus has $\textsf{dom} g = \textsf{cod} g = o$. As remarked, the arrows $g \in \mathcal{A}$ correspond to group elements $g \in G$. The categorical interpretation suggests that the group acts on some abstract object $o \in \mathcal{O}$. In the present context, we care how groups act on data, and how this action is represented to a computer.</p>
+<p>$\quad$ Groups are collections of symmetries. A <strong>group</strong> $\textsf{G}$ is a category $\textsf{C} = (\textrm{O}, \textrm{A})$ with $\textrm{O} = \{ o \}$ ( so that we may identify $\textsf{G}$ with the collection of arrows $\textrm{A}$ ) such that each arrow has a unique inverse: for $g \in \textrm{A}$, there is an arrow $h$ such that $g \circ h = h \circ g = \textrm{id}_o$. Each arrow $g \in \textrm{A}$ thus has $\textsf{dom} g = \textsf{cod} g = o$. As remarked, the arrows $g \in \textrm{A}$ correspond to group elements $g \in \textsf{G}$. The categorical interpretation suggests that the group acts on some abstract object $o \in \textrm{O}$. In the present context, we care how groups act on data, and how this action is represented to a computer.</p>
 
 </div>
 </div>
@@ -319,45 +390,37 @@ denote the set of arrows from $b$ to $c$. We use the terms <em><font color="purp
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-group-representations">
-<a class="anchor" href="#...-group-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... group representations</font><a class="anchor-link" href="#...-group-representations"> </a>
+<h2 id="...-group-representations-...">
+<a class="anchor" href="#...-group-representations-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... group representations ...<a class="anchor-link" href="#...-group-representations-..."> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Linear representation theory uses linear algebra to study groups, by 'representing' group elements as self-maps on a vector space $V$. When $V$ is finite dimensional, and is given a coordinate basis, group elements correspond to square matrices. Consider a function $\varphi : \textsf{G} \times V \to V$, where $\textsf{G}$ is a group, and where $V$ is a vector space over $\mathbb{R}$. This function will encode how group elements $g$ are identified with self-maps of $V$. Filling in the first coordinate with $g$ produces the corresponding self-map $\varphi(g, \cdot) : V \to V$. When the map $\varphi$ is understood, or left general, we write $g.v$ in place of $\varphi(g,v)$, and we write $(g.)$ in place of $\varphi(g, \cdot)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ The 'representatives' $(g.)$ of these group elements $g$ can always be composed. If this compositional structure is compatible with the original group operation, we say $\varphi$ is a <strong>group action</strong> on $V$. Specifically, $\varphi$ should satisfy $e.v = v$ for all $v \in V$, where $e$ denotes the identity element of $\textsf{G}$, and in general one has $(gh).v  = g.(h.v)$. The group action $\varphi$ is <strong>$\mathbb{R}$-linear</strong> if it is compatible with the $\mathbb{R}$-vector space structure on $V$, i.e. additive and homogeneous. Specifically, if for all $v,w \in V$ and all scalars $\lambda \in \mathbb{R}$, one has $g.(v+w) = g.v + g.w$ and $g.(\lambda v) = \lambda \, g.v$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h3 id="Definition.-(-linear-representation-)">
+<a class="anchor" href="#Definition.-(-linear-representation-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( linear representation )<a class="anchor-link" href="#Definition.-(-linear-representation-)"> </a>
 </h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Linear representation theory allows uses linear algebra to study groups.</p>
-<p>Consider a function $\varphi : G \times V \to V$, where $G$ is a group, and where $V$ is a vector space over $\mathbb{R}$. Through this function, we can identify group elements $g$ with self-maps of $V$, namely $\varphi(g, \cdot) : V \to V$.</p>
-<p>When the map $\varphi$ is understood, or left general, we write $g.v$ in place of $\varphi(g,v)$, and we write $(g.)$ in place of $\varphi(g, \cdot)$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The "representatives" $(g.)$ of these group elements $g$ can always be composed. If this compositional structure is compatible with the original group operation, we say $\varphi$ is a <em><font color="purple">group action</font></em> on $V$.</p>
-<p>Specifically, $\varphi$ should satisfy $e.v = v$ for all $v \in V$, where $e$ denotes the identity element of $G$, and in general one has $(gh).v  = g.(h.v)$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The group action $\varphi$ is <em><font color="purple">$\mathbb{R}$-linear</font></em> if it is compatible with the $\mathbb{R}$-vector space structure on $V$, i.e. additive and homogeneous. Specifically, if for all $v,w \in V$ and all scalars $\lambda \in \mathbb{R}$, one has $g.(v+w) = g.v + g.w$ and $g.(\lambda v) = \lambda g.v$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<p><strong>Def</strong> $\quad$ 
-An <em><font color="purple">$\mathbb{R}$-linear representation</font></em> of group $G$ over $\mathbb{R}$-vector space $V$ is an $\mathbb{R}$-linear group action on $V$.</p>
+<p>$\quad$ 
+An <strong>$\mathbb{R}$-linear representation</strong> of group $\textsf{G}$ over $\mathbb{R}$-vector space $V$ is an $\mathbb{R}$-linear group action on $V$.</p>
 <hr>
 
 </div>
@@ -366,9 +429,7 @@ An <em><font color="purple">$\mathbb{R}$-linear representation</font></em> of gr
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The next example illustrates how linear group representations arise naturally when considering group actions on data.</p>
-<p>Input datum are modeled as members of some vector space $\mathcal{X}$, defined with respect to a domain $\Omega$ and a smaller vector space of <em><font color="purple">channels</font></em>, $\mathcal{C}$. We may assume all vector spaces discussed to be finite dimensional.</p>
-<p>Specifically, we consider the vector space of $\mathcal{C}$-valued signals over some finite, discrete domain $\Omega$, which perhaps has some graph structure. This vector space is denoted $\mathcal{X}(\Omega, \mathcal{C})$.</p>
+<p>$\quad$ The next example illustrates how linear group representations arise naturally when considering group actions on data. Input datum are modeled as members of some vector space $\mathcal{X}$, defined with respect to a domain $\Omega$ and a smaller <strong>channel vector space</strong> $\mathcal{C}$. We may assume all vector spaces discussed to be finite dimensional. Specifically, we consider the vector space of $\mathcal{C}$-valued signals over some finite, discrete domain $\Omega$, which perhaps has some graph structure. This vector space is denoted $\mathcal{X}(\Omega, \mathcal{C})$.</p>
 
 </div>
 </div>
@@ -378,19 +439,10 @@ An <em><font color="purple">$\mathbb{R}$-linear representation</font></em> of gr
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <hr>
-<h3 id="...-example:-shifts-of-RGB-images">
-<a class="anchor" href="#...-example:-shifts-of-RGB-images" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... example: shifts of RGB images</font><a class="anchor-link" href="#...-example:-shifts-of-RGB-images"> </a>
+<h3 id="Example.-(-shifts-of-RGB-images-)">
+<a class="anchor" href="#Example.-(-shifts-of-RGB-images-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( shifts of RGB images )<a class="anchor-link" href="#Example.-(-shifts-of-RGB-images-)"> </a>
 </h3>
-<p>$\quad$  Consider, for some $n \in \mathbb{N}$, a signal domain $\Omega = \mathbb{T}_n^2$, where $\mathbb{T}_n^2$ denotes the two-dimensional discrete torus of side-length $n$, namely $( \mathbb{Z} / n\mathbb{Z} )^2$. This domain has natural graph as well as group structures.</p>
-<p>If we imagine each vertex of $\Omega$ to be a pixel, we can express an $n \times n$-pixel color (RGB) image as a signal $x : \Omega \to \mathbb{R}^3$, with the first, second and third coordinates of $\mathbb{R}^3$ reporting R, G and B values of a given pixel.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We make two observations:</p>
+<p>$\quad$  Consider, for some $n \in \mathbb{N}$, a signal domain $\Omega = \mathbb{T}_n^2$, where $\mathbb{T}_n^2$ denotes the two-dimensional discrete torus of side-length $n$, namely $( \mathbb{Z} / n\mathbb{Z} )^2$. This domain has natural graph as well as group structures. If we imagine each vertex of $\Omega$ to be a pixel, we can express an $n \times n$-pixel color (RGB) image as a signal $x : \Omega \to \mathbb{R}^3$, with the first, second and third coordinates of $\mathbb{R}^3$ reporting Red, Green and Blue values of a given pixel. We make two observations:</p>
 <ol>
 <li>
 <p>As a vector space, $\mathcal{X}(\Omega)$ is isomorphic to $\mathbb{R}^d$, with $d$ typically very large. In the above example, $d = 3n^2$, which is thirty-thousand for a $n \times n \equiv 100 \times 100$ pixel image.</p>
@@ -406,14 +458,17 @@ An <em><font color="purple">$\mathbb{R}$-linear representation</font></em> of gr
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Expanding on the latter, consider a group action of $G$ on domain $\Omega$. As the torus $\Omega$ already has group structure, it is natural to think of it acting on itself through translations, i.e. we now additionally consider $G = \mathbb{T}_n^2$.</p>
-<p>The action of $G \equiv \mathbb{T}_n^2$ on itself $\Omega \equiv \mathbb{T}_n^2$ induces a $G$-action on $\mathcal{X}(\Omega)$ as follows: for $g \in G$ signal $x \in \mathcal{X}(\Omega)$, the action $(g, x) \mapsto \mathbf{g}.x \in \mathcal{X}(\Omega)$  is defined pointwise at each $u \in \Omega$:
+<p>$\quad$ Expanding on the latter, consider a group action of $\textsf{G}$ on domain $\Omega$. As the torus $\Omega$ already has group structure, it is natural to think of it acting on itself through translations, i.e. we now additionally consider $\textsf{G}\equiv \Omega$. The action of $\textsf{G}$ on itself $\Omega \equiv \mathbb{T}_n^2$ induces a $\textsf{G}$-action on $\mathcal{X}(\Omega)$ as follows: for $g \in G$ signal $x \in \mathcal{X}(\Omega)$, the action $(g, x) \mapsto \mathbf{g}.x \in \mathcal{X}(\Omega)$  is defined pointwise at each $u \in \Omega$:
 $$
-(\mathbf{g}.x)(u) := x(g.\omega),
+(\mathbf{g}.x)(u) := x(g.u),
 $$
 where the bold $(\mathbf{g}.)$ is used to distinguish the action on signals from the action on the domain.</p>
+<p>$\vdots$</p>
+<blockquote>
+<p>To summarize:any $\textsf{G}$-action on the domain $\Omega$ induces an $\mathbb{R}$-linear representation of $\textsf{G}$ over the vector space of signals on $\Omega$.</p>
 <hr>
 <hr>
+</blockquote>
 
 </div>
 </div>
@@ -421,25 +476,16 @@ where the bold $(\mathbf{g}.)$ is used to distinguish the action on signals from
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To summarize: any $G$-action on the domain $\Omega$ induces an $\mathbb{R}$-linear representation of $G$ over the vector space of signals on $\Omega$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <hr>
-<h3 id="...-example:-one-hot-encoding">
-<a class="anchor" href="#...-example:-one-hot-encoding" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... example: one-hot encoding</font><a class="anchor-link" href="#...-example:-one-hot-encoding"> </a>
+<h3 id="Example.-(-one-hot-encoding-)">
+<a class="anchor" href="#Example.-(-one-hot-encoding-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( one-hot encoding )<a class="anchor-link" href="#Example.-(-one-hot-encoding-)"> </a>
 </h3>
 <p>$\quad$  It seems like standard practice to encode the collection of classes associated to some ML classification problem as an orthonormal basis. These are given ( to the computer ) in the usual coordinate basis 
 $$
 e_1 \equiv (1, 0, \dots, 0),\, e_2 \equiv (0,1,\dots, 0),\, \dots, \, e_n \equiv (0,\dots, 0,1) \,,
 $$
-hence the nomenclature <em><font color="purple">one-hot</font></em>. In the preceding example, if one considers a one-hot encoding of the vertices of $\mathbb{T}_n^2$, we see that each signal is expressed with respect to this coordinate system, in the sense that $x = \sum_{j=1}^n x_j e_j$.</p>
-<p>This kind of encoding is useful for considering general symmetries of the domain. For instance, if permuting node labels is a relevant symmetry, the action of the symmetric group $\frak{S}_n$ is naturally represented by $n \times n$ permutation matrices.</p>
+hence the nomenclature <strong>one-hot</strong>. In the preceding example, if one considers a one-hot encoding of the vertices of $\mathbb{T}_n^2$, we see that each signal is expressed with respect to this coordinate system, in the sense that $x = \sum_{j=1}^n x_j e_j$. This kind of encoding is useful for considering general symmetries of the domain. For instance, if permuting node labels is a relevant symmetry, the action of the symmetric group $\frak{S}_n$ is naturally represented by $n \times n$ permutation matrices.</p>
 <hr>
 <hr>
 
@@ -449,7 +495,7 @@ hence the nomenclature <em><font color="purple">one-hot</font></em>. In the prec
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The following definition reformulates the notion of a signal.</p>
+<p>$\quad$ The following definition reformulates the notion of a signal.</p>
 
 </div>
 </div>
@@ -458,7 +504,10 @@ hence the nomenclature <em><font color="purple">one-hot</font></em>. In the prec
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ A graph $\mathcal{G} = ( \mathcal{V}, \mathcal{E} )$ is said to be equipped with <em><font color="purple">node features</font></em> if for each $v  \in \mathcal{V}$, one has the additional data of an $s$-dimensional vector $x(v) \in \mathbb{R}^s$, called the features of node $v$.</p>
+<h3 id="Definition.-(-features-)">
+<a class="anchor" href="#Definition.-(-features-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( features )<a class="anchor-link" href="#Definition.-(-features-)"> </a>
+</h3>
+<p>$\quad$ A graph $G = ( \textrm{V}, \textrm{E} )$ has <strong>features</strong> if for each $v  \in \textrm{V}$, one has the additional data of an $s$-dimensional vector $x(v) \in \mathbb{R}^s$, called the <strong>features of node $v$</strong>. Here, $\mathbb{R}^s$ is understood as the channel vector space $\mathcal{C}$ equipped with a coordinate basis.</p>
 <hr>
 
 </div>
@@ -467,8 +516,7 @@ hence the nomenclature <em><font color="purple">one-hot</font></em>. In the prec
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The term 'features' is compatible with the usage in ML, supposing that our input signal has domain some graph $\mathcal{G}$. In this case, we can think of a neural network as a sequence of node-layers built on top of the graph $\mathcal{G}$.</p>
-<p>An input signal endows the first node layer of a NN with features, and the weights of the neural network propagate these through to node features on the nodes of the rest of the network. The features on the last layer of the network can be read off as the output of the NN function.</p>
+<p>$\quad$ Above useage of the term <em>features</em> is compatible with its usage in ML. We can think of a neural network as a sequence of node-layers built on top of the signal domain graph $\Omega$, which forms the input layer of the network. An input signal endows the first node layer of a neural network with features, and the weights of the neural network propagate these through to node features on the nodes of successive layers of the network. The features on the last layer of the network can be read off as the output of the neural network.</p>
 
 </div>
 </div>
@@ -476,9 +524,9 @@ hence the nomenclature <em><font color="purple">one-hot</font></em>. In the prec
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2-...-equivariance">
-<a class="anchor" href="#1.2-...-equivariance" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">1.2 ... equivariance</font><a class="anchor-link" href="#1.2-...-equivariance"> </a>
-</h2>
+<h1 id="equivariance">
+<a class="anchor" href="#equivariance" aria-hidden="true"><span class="octicon octicon-link"></span></a>equivariance<a class="anchor-link" href="#equivariance"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -501,8 +549,16 @@ hence the nomenclature <em><font color="purple">one-hot</font></em>. In the prec
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We henceforth consider groups $G$ acting on some space of signals $\mathcal{X}(\Omega)$ through a given action on some fixed signal domain $\Omega$.</p>
-<p>The group action is encoded in a linear representation $\rho$, assumed to be described in a given input coordinate system, just as we would need to specify to a computer. Thus, if $\dim ( \mathcal{X} ) = n$, for each $g \in G$, the object $\rho(g)$ is an $n \times n$ matrix with real entries.</p>
+<h2 id="...-definitions-...">
+<a class="anchor" href="#...-definitions-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... definitions ...<a class="anchor-link" href="#...-definitions-..."> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ We henceforth consider groups $G$ acting on some space of signals $\mathcal{X}(\Omega)$ through a given action on some fixed signal domain $\Omega$. The group action is encoded in a linear representation $\rho$, assumed to be described in a given input coordinate system, just as we would need to specify to a computer. Thus, if $\dim ( \mathcal{X} ) = n$, for each $g \in G$, the object $\rho(g)$ is an $n \times n$ matrix with real entries.</p>
 
 </div>
 </div>
@@ -510,13 +566,11 @@ hence the nomenclature <em><font color="purple">one-hot</font></em>. In the prec
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The learning dynamics occur in the <em><font color="purple">hypothesis space</font></em> $\textsf{H}$, a collection of functions 
+<p>$\quad$ The training dynamics of the neural network take place in the <strong>hypothesis space</strong> $\mathcal{H}$, a collection of functions 
 $$
-\textsf{H} \subset \{\, F : \mathcal{X}(\Omega) \to \mathcal{Y}\, \} ,
+\mathcal{H} \subset \{\, F : \mathcal{X}(\Omega) \to \mathcal{Y}\, \} ,
 $$
-where $\mathcal{Y}$ is a vector space of output channels. The point of the learning blueprint is to be able to choose $\textsf{H}$ compatible with the symmetries of input data. The blueprint describes $\textsf{H}$ explicitly, up to hyperparameters such as depth and layer widths.</p>
-<p>A key aspect of this blueprint is that $F \in \textsf{H}$ should be expressed as a composition of functions, most of which are $G$-equivariant.</p>
-<p>The requirement of $G$-equivariance constitutes a geometric prior. From this prior, one can derive the architecture of a generic CNN when $G$ corresponds to translations, and a family of generalizations for other domains and group actions.</p>
+where $\mathcal{Y}$ is a vector space of output channels. The point of the learning blueprint is to be able to choose $\textsf{H}$ compatible with the symmetries of input data. The blueprint describes $\textsf{H}$ explicitly, up to hyperparameters such as depth and layer widths. A key aspect of this blueprint is that $F \in \textsf{H}$ should be expressed as a composition of functions, most of which are $G$-equivariant. The requirement of $G$-equivariance constitutes a geometric prior. From this prior, one can derive the architecture of a generic CNN when $G$ corresponds to translations, and a family of generalizations for other domains and group actions.</p>
 
 </div>
 </div>
@@ -525,29 +579,40 @@ where $\mathcal{Y}$ is a vector space of output channels. The point of the learn
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ Let $\rho$ be a representation of group $G$ over $\mathcal{X}(\Omega)$, and let $\rho'$ be a representation of the same group over the $\mathbb{R}$-vector space $\mathcal{Y}$. A function $F: \mathcal{X}(\Omega) \to \mathcal{Y}$ is <em><font color="purple">$G$-equivariant</font></em> if for all $g \in G$ and all $x \in \mathcal{X}(\Omega)$, we have $\rho'(g) F(x) = F ( \rho(g) x )$.</p>
-<p>We say $F$ is <em><font color="purple">$G$-invariant</font></em> if this holds when $\rho'$ is the trivial representation, which is to say $F ( \rho(g) x) = F(x)$ for all $g \in G$ and $x \in \mathcal{X}(\Omega)$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<hr>
-<h3 id="...-example:-permutation-invariance-and-equivariance-in-data">
-<a class="anchor" href="#...-example:-permutation-invariance-and-equivariance-in-data" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... example: permutation invariance and equivariance in data</font><a class="anchor-link" href="#...-example:-permutation-invariance-and-equivariance-in-data"> </a>
+<h3 id="Definition.-(-group-invariance,-equivariance-)">
+<a class="anchor" href="#Definition.-(-group-invariance,-equivariance-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( group invariance, equivariance )<a class="anchor-link" href="#Definition.-(-group-invariance,-equivariance-)"> </a>
 </h3>
-<p>$\quad$ Suppose we are given either a set $\mathcal{V}$, or more generally a graph $\mathcal{G} = ( \mathcal{V}, \mathcal{E} )$, with $\# \mathcal{V} = n$ in either case. As discussed, a signal over $\mathcal{V} = \{ v_1, \dots, v_n \}$ can be thought of as a collection of node features $\{ \, x(v_1), \dots, x(v_n) \, \}$, with $x(v_j) \in \mathbb{R}^s$.</p>
-<p>Let us stack the node features as rows of the $n \times s$ <em><font color="purple">design matrix</font></em></p>
+<p>$\quad$ Let $\rho$ be a representation of group $\textsf{G}$ over $\mathcal{X}(\Omega)$, and let $\rho'$ be a representation of the same group over the $\mathbb{R}$-vector space $\mathcal{Y}$. A function $F: \mathcal{X}(\Omega) \to \mathcal{Y}$ is <strong>$\textsf{G}$-equivariant</strong> if for all $g \in \textsf{G}$ and all $x \in \mathcal{X}(\Omega)$, we have $\rho'(g) F(x) = F ( \rho(g) x )$. Say $F$ is <strong>$\textsf{G}$-invariant</strong> if this holds when $\rho'$ is the trivial representation, i.e. $F ( \rho(g) x) = F(x)$ for all $g \in \textsf{G}$ and $x \in \mathcal{X}(\Omega)$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="...-examples-...">
+<a class="anchor" href="#...-examples-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... examples ...<a class="anchor-link" href="#...-examples-..."> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-permutation-invariance-and-equivariance-in-data-)">
+<a class="anchor" href="#Example.-(-permutation-invariance-and-equivariance-in-data-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( permutation invariance and equivariance in data )<a class="anchor-link" href="#Example.-(-permutation-invariance-and-equivariance-in-data-)"> </a>
+</h3>
+<p>$\quad$ Suppose we are given either a set $\textrm{V}$, or more generally a graph $G = ( \textrm{V}, \textrm{E} )$, with $\# \textrm{V} = n$ in either case. As discussed, a signal $x$ over $\textrm{V} = \{ v_1, \dots, v_n \}$ can be thought of as a collection of node features $\{ \, x(v_1), \dots, x(v_n) \, \}$, with $x(v_j) \in \mathbb{R}^s$. Let us stack the node features as rows of an $n \times s$ matrix called the <strong>design matrix</strong>, which we also refer to as $x$:</p>
 $$
-X = 
+x = 
 \left[ 
 \begin{matrix}
-x_1\\ 
+x(v_1)\\ 
 \vdots\\
-x_n
+x(v_n)
 \end{matrix}
 \right] ,
 $$<p>which is effectively the same object as signal $x$, provided the vertices are labeled as described. The action of $g \in \mathfrak{S}_n$ on this input data is naturally represented as an $n \times n$ permutation matrix, $P \equiv \rho(g)$.</p>
@@ -558,11 +623,11 @@ $$<p>which is effectively the same object as signal $x$, provided the vertices a
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>One standard way to construct a permutation invariant function $F$ in this setting is through the following recipe: a function $\psi$ is independently applied to every node's features, and $\varphi$ is applied on its sum-aggregated outputs.
+<p>$\quad$ One standard way to construct a permutation invariant function $F$ in this setting is through the following recipe: a function $\psi$ is independently applied to every node's features, and $\varphi$ is applied on its sum-aggregated outputs.
 $$
-    F( X) = \varphi \left( \, \sum_{j \, = \, 1}^n \psi(x_j) \, \right) .
+    F( X) = \varphi \left( \, \sum_{j \, = \, 1}^n \psi(x(v_j)) \, \right) .
 $$ 
-Such a function can be thought of as reporting some "global statistic" of signal $x$.</p>
+Such a function can be thought of as reporting some 'global statistic' of signal $x$.</p>
 
 </div>
 </div>
@@ -570,9 +635,7 @@ Such a function can be thought of as reporting some "global statistic" of signal
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Equivariance manifests even more naturally. Suppose we want to apply a function $F$ to the signal to "update" the node features to a set of <em><font color="purple">latent</font></em> node features.</p>
-<p>This is the case in which the NN outputs an image segmentation mask; the underlying domain does not change, but the features at each node are updated to the extent that they may not even agree on the number of channels.</p>
-<p>We can stack these latent features into another design matrix, $H = F(X)$. The order of the rows of $H$ should clearly be tied to the order of the rows of $X$, i.e. permutation equivariant: for any permutation matrix $P$, it holds that $F(P X ) = P F(X)$.</p>
+<p>$\quad$ Equivariance manifests even more naturally. Suppose we want to apply a function $F$ to the signal to 'update' the node features to a set of <strong>latent</strong> node features. This is the case when a neural network outputs an image segmentation mask; the underlying domain does not change, but the features at each node are updated to the extent that they may not even agree on the number of channels. We can stack these latent features into another design matrix, $F(x)$. The order of the rows of $F(x)$ should clearly be tied to the order of the rows of $x$, i.e. permutation equivariant: for any permutation matrix $P$, it holds that $F(P x ) = P F(x)$.</p>
 
 </div>
 </div>
@@ -580,9 +643,7 @@ Such a function can be thought of as reporting some "global statistic" of signal
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As a concrete example of a permutation equivariant function, consider a weight matrix $\theta \in \mathbb{R}^{s \, \times \, s'}$. This matrix can be used to map a length-$s$ feature vector at a given node to some new, updated feature vector with $s'$ channels.</p>
-<p>Applying this matrix to each row of the design matrix is an example of a <em><font color="purple">shared node-wise linear transform</font></em>, and constitutes a linear, $\mathfrak{S}_n$-equivariant map. Note that, if one wishes to express this map in coordinates, it seems the correct object to consider is a $3$-tensor constructed as a stack of $n$ copies of $\theta$.</p>
-<hr>
+<p>$\quad$ As a concrete example of a permutation equivariant function, consider a weight matrix $\theta \in \mathbb{R}^{s \, \times \, s'}$. This matrix can be used to map a length-$s$ feature vector at a given node to some new, updated feature vector with $s'$ channels. Applying this matrix to each row of the design matrix is an example of a <strong>shared node-wise linear transform</strong>, and constitutes a linear, $\mathfrak{S}_n$-equivariant map.</p>
 <hr>
 
 </div>
@@ -591,18 +652,10 @@ Such a function can be thought of as reporting some "global statistic" of signal
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The above example considered signals over the nodes of a graph only, thus label permutation symmetry applies equally well, regardless of the graph structure ( or lack of structure ) underlying such functions.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In the case that signals $x$ have a domain with graph structure, encoded by adjacency matrix $A$, it feels right to work with a hypothesis space recognizing this structure.</p>
-<p>This is to say that we wish to consider functions $F \in \textsf{H}$ with $F \equiv F( X, A )$. Such a function is (label) <em><font color="purple">permutation invariant</font></em> if $F( P X,\, P A P^{\textrm{T}} ) = F ( X, \mathbf{A})$, and is <em><font color="purple">permutation equivariant</font></em> if
+<p>$\quad$ The above example considered signals over the nodes of a graph only, thus label permutation symmetry applies equally well, regardless of the graph structure ( or lack of structure ) underlying such functions. In the case that signals $x$ have a domain with graph structure, encoded by adjacency matrix $\textrm{A}$, it feels right to work with a hypothesis space recognizing this structure.</p>
+<p>This is to say that we wish to consider functions $F \in \textsf{H}$ with $F \equiv F( x, \textrm{A} )$. Such a function is (label) <strong>permutation invariant</strong> if $F( Px,\, P \textrm{A} P^{\textrm{T}} ) = F ( x, \textrm{A})$, and is <strong>permutation equivariant</strong> if
 $$
-F( P X, P A P^T ) = PF( X, A)
+F( P x, P \textrm{A} P^T ) = PF( x, \textrm{A} )
 $$
 for any permutation matrix $P$.</p>
 
@@ -613,19 +666,9 @@ for any permutation matrix $P$.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Rmk</strong> $\quad$ One can characterize linear $\mathfrak{S}_n$-equivariant functions on nodes.</p>
-<blockquote>
-<p><a href="https://arxiv.org/abs/2104.13478">BBCV 21</a> : $\quad$ "One can verify any such map can be written as a linear combination of two generators, the identity and the average. As observed by <a href="https://arxiv.org/abs/1812.09902">Maron et al. 2018</a>, any linear permutation equivariant $F$ can be expressed as a linear combination of fifteen linear generators; remarkably, this family is independent of $n \equiv \# \mathcal{V}$."</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Rmk</strong> $\quad$ On a characterization of linear $\mathfrak{S}_n$-equivariant functions on nodes.
+<a href="https://arxiv.org/abs/2104.13478">BBCV 21</a>: <em>"One can verify any such map can be written as a linear combination of two generators, the identity and the average. As observed by <a href="https://arxiv.org/abs/1812.09902">Maron et al. 2018</a>, any linear permutation equivariant $F$ can be expressed as a linear combination of fifteen linear generators; remarkably, this family is independent of $n \equiv \# \mathcal{V}$."</em></p>
 <hr>
-<p>Amongst the generators discussed just above, the geometric learning blueprint "specifically advocates" for those that are also local, in the sense that the output on node $u$ directly depends on its neighboring nodes in the graph.</p>
 
 </div>
 </div>
@@ -633,13 +676,13 @@ for any permutation matrix $P$.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can formalize this constraint explicitly, by defining the <em><font color="purple">$1$-hop neighborhood</font></em> of node $u$ as
+<p>$\quad$ Among the generators described in the above remark, the geometric learning blueprint 'specifically advocates' for those that are also local, in the sense that the output on node $u$ directly depends on its neighboring nodes in the graph. We can formalize this constraint explicitly, by defining the <strong>$1$-hop neighborhood</strong> of node $u$ as
 $$
 \textsf{nbhd}(u) \equiv \textsf{nbhd}_1(u)  := \{ v : \{ u,v \} \in \mathcal{E} \} ,
 $$
-as well as the corresponding <em><font color="purple">neighborhood features</font></em>, 
+as well as the corresponding <strong>neighborhood features</strong>, 
 $$
-X_{\textsf{nbhd}(u)} := \{ \!\{ \, x_v : v \in \textsf{nbhd}(u) \, \} \!\} ,
+x({\textsf{nbhd}(u)}) := \{ \!\{ \, x(v) : v \in \textsf{nbhd}(u) \, \} \!\} ,
 $$
 which is a multiset, as indicated by double-brackets, as distinct nodes may be decorated with the same feature vector.</p>
 
@@ -651,14 +694,14 @@ which is a multiset, as indicated by double-brackets, as distinct nodes may be d
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <hr>
-<h3 id="...-example:-permutations-and-local-averaging">
-<a class="anchor" href="#...-example:-permutations-and-local-averaging" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... example: permutations and local averaging</font><a class="anchor-link" href="#...-example:-permutations-and-local-averaging"> </a>
+<h3 id="Example.-(-permutations-and-local-averaging-)">
+<a class="anchor" href="#Example.-(-permutations-and-local-averaging-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( permutations and local averaging )<a class="anchor-link" href="#Example.-(-permutations-and-local-averaging-)"> </a>
 </h3>
 <p>$\quad$ The node-wise linear transformation described in the previous example can be thought of as operating on $0$-hop neighborhoods of nodes. We generalize this with an example of a function operating on $1$-hop neighborhoods. Instead of a fixed map between feature spaces $\theta : \mathbb{R}^s \to \mathbb{R}^{s'}$, cloned to a pointwise map, we instead specify a <em>local</em> function 
 $$
-\varphi \equiv \varphi( \, x_u, \, X_{\textsf{nbhd}(u)} \, )
-$$</p>
-<p>operating on the features of a node as well as those of its $1$-hop neighborhood.</p>
+\varphi \equiv \varphi( \, x(u), \, x(\textsf{nbhd}(u)) \, )
+$$
+operating on the features of a node as well as those of its $1$-hop neighborhood.</p>
 
 </div>
 </div>
@@ -666,8 +709,8 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We may construct a permutation equivariant function $\Phi$ by applying $\varphi$ to each $1$-hop neighborhood in isolation, and then collecting these into a new feature matrix.</p>
-<p>As before, for $\mathcal{V} = \{ v_1, \dots, v_n \}$, we write $x_j$ in place of $x({v_j})$, and we similarly write $\textsf{nbhd}(j)$ instead of $\textsf{nbhd}( v_j )$.</p>
+<p>$\quad$ We may construct a permutation equivariant function $\mathbf{\phi}$ by applying $\varphi$ to each $1$-hop neighborhood in isolation, and then collecting these into a new feature matrix.</p>
+<p>As above, the vertices of the signal domain graph $\textrm{V} = \{ v_1, \dots, v_n \}$.</p>
 
 </div>
 </div>
@@ -676,16 +719,16 @@ $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 $$
-\Phi ( X, A ) = 
+\phi ( x, \textrm{A} ) = 
 \left[
 \begin{matrix}
-\varphi( \, x_1 , \, X_{\textsf{nbhd}(1)} \, ) \\
-\varphi( \, x_2 , \, X_{\textsf{nbhd}(2)} \, ) \\
+\varphi( \, x(v_1) , \, x(\,{\textsf{nbhd}(v_1)} \, ) \\
+\varphi( \, x(v_2) , \, x(\,\textsf{nbhd}(v_2) \, ) \\
 \vdots \\
-\varphi( \, x_n , \, X_{\textsf{nbhd}(n)} \, )
+\varphi( \, x(v_n) , \, x(\,\textsf{nbhd}(v_n) \, )
 \end{matrix}
 \right]
-$$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ being independent of the ordering of the nodes in $\textsf{nbhd}(u)$. Thus, if $\varphi$ is permutation invariant, as in a local averaging, this property is satisfied.</p>
+$$<p>The permutation equivariance of $\phi$ rests on the output of $\varphi$ being independent of the ordering of the nodes in each $\textsf{nbhd}v)$. Thus, if $\varphi$ is permutation invariant, as in a local averaging, this property is satisfied by $\phi$ as well. <a href="https://arxiv.org/abs/2104.13478">BBCV 21</a>: <em>"The choice of $\varphi$ plays a crucial role in the expressive power of the learning scheme."</em></p>
 <hr>
 <hr>
 
@@ -695,26 +738,7 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p><a href="https://arxiv.org/abs/2104.13478">BBCV 21</a> : $\quad$ "The choice of $\varphi$ plays a crucial role in the expressive power of the learning scheme."</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>When considering signals $x \equiv X$ over graphs, it is natural to consider a hypothesis space whose functions operate on the pair $( X, A)$, where $A$ is the adjacency matrix of the signal domain.</p>
-<p>Thus, for such signals the domain naturally becomes part of the input.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The GDL blueprint distinguishes between two contexts:</p>
+<p>$\quad$ For signals $x$ over graphs, it is natural to consider a hypothesis space whose functions operate on the pair $( x, \textrm{A})$, where $\textrm{A}$ is the adjacency matrix of the signal domain. Thus, for such signals the domain naturally becomes part of the input. The GDL blueprint distinguishes between two contexts:</p>
 <ol>
 <li>
 <p>one in which the input domain is fixed, and</p>
@@ -723,7 +747,7 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <p>another in which the input domain varies from signal to signal.</p>
 </li>
 </ol>
-<p>The preceding example demonstrates that, even in the former context, it can be essential that elements of $\textsf{H}$ treat the (fixed) domain as an argument.</p>
+<p>The preceding example demonstrates that, even in the former context, it can be essential that elements of $\textsf{H}$ treat the fixed domain as an argument.</p>
 
 </div>
 </div>
@@ -731,8 +755,7 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When the signal domain has geometric structure, it can often be leveraged to construct a <em><font color="purple">coarsening operator</font></em>, one of the components of a GDL block in the learning blueprint. Such an operator passes a signal $x \in \mathcal{X}(\Omega)$ to a signal $y \in \mathcal{X}( \Omega')$, where $\Omega'$ is a coarse-grained version of $\Omega$.</p>
-<p>The domain may be fixed for each input, but this domain changes as the signal passes through the layers of the NN, and it is natural that the functions the NN is built out of should pass this data forward.</p>
+<p>$\quad$ When the signal domain has geometric structure, it can often be leveraged to construct a <strong>coarsening operator</strong>, one of the components of a GDL block in the learning blueprint. Such an operator passes a signal $x \in \mathcal{X}(\Omega)$ to a signal $y \in \mathcal{X}( \Omega')$, where $\Omega'$ is a coarse-grained version of $\Omega$. The domain may be fixed for each input, but this domain changes as the signal passes through the layers of the NN, and it is natural that the functions the NN is built out of should pass this data forward. <a href="https://arxiv.org/abs/2104.13478">BBCV 21</a>: <em>"Due to their additional structure, graphs and grids, unlike sets, can be coarsened in a non-trivial way, giving rise to a variety of pooling operations... more precisely, we cannot define a non-trivial coarsening assuming set structure alone. There exist established approaches that infer topological structure from unordered sets, and those can admit non-trivial coarsening."</em></p>
 
 </div>
 </div>
@@ -740,19 +763,9 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p><a href="https://arxiv.org/abs/2104.13478">BBCV 21</a> : $\quad$ "Due to their additional structure, graphs and grids, unlike sets, can be coarsened in a non-trivial way, giving rise to a variety of pooling operations... more precisely, we cannot define a non-trivial coarsening assuming set structure alone. There exist established approaches that infer topological structure from unordered sets, and those can admit non-trivial coarsening"</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.3-...-equivariance-in-neural-networks">
-<a class="anchor" href="#1.3-...-equivariance-in-neural-networks" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">1.3 ... equivariance in neural networks</font><a class="anchor-link" href="#1.3-...-equivariance-in-neural-networks"> </a>
-</h2>
+<h1 id="equivariance-in-neural-networks">
+<a class="anchor" href="#equivariance-in-neural-networks" aria-hidden="true"><span class="octicon octicon-link"></span></a>equivariance in neural networks<a class="anchor-link" href="#equivariance-in-neural-networks"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -770,16 +783,16 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-feed-forward-neural-networks">
-<a class="anchor" href="#...-feed-forward-neural-networks" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... feed-forward neural networks</font><a class="anchor-link" href="#...-feed-forward-neural-networks"> </a>
-</h3>
+<h2 id="...-feed-forward-neural-networks-...">
+<a class="anchor" href="#...-feed-forward-neural-networks-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... feed-forward neural networks ...<a class="anchor-link" href="#...-feed-forward-neural-networks-..."> </a>
+</h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The building blocks of neural networks are tensor objects. It is convenient for now to present a definition of a neural network without introducing the notion of a tensor.</p>
+<p>$\quad$ The building blocks of neural networks are tensor objects. It is convenient for now to present a definition of a neural network without introducing the notion of a tensor.</p>
 
 </div>
 </div>
@@ -788,30 +801,32 @@ $$<p>The permutation equivariance of $\Phi$ rests on the output of $\varphi$ bei
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ A <em><font color="purple">feed-forward neural network</font></em> 
+<h3 id="Definition.-(-feed-forward-neural-network-)">
+<a class="anchor" href="#Definition.-(-feed-forward-neural-network-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( feed-forward neural network )<a class="anchor-link" href="#Definition.-(-feed-forward-neural-network-)"> </a>
+</h3>
+<p>$\quad$ A <strong>feed-forward neural network</strong> 
 $$
 (\textsf{N}, \textsf{S}, b, w, a )  
 $$ 
-is a directed graph $(\textsf{N},\textsf{S})$, called the <em><font color="purple">computation graph</font></em>, whose vertices $\textsf{N}$ and edges $\textsf{S}$ are equipped with weights, respectively $b$ and $w$, along with an <em><font color="purple">activation function</font></em> $a$. For simplicity, we assume a single activation function $a$ is used across the network.  The objects should satisfy the following:</p>
+is a directed graph $(\textsf{N},\textsf{S})$, called the <strong>computation graph</strong>, whose vertices $\textsf{N}$ and edges $\textsf{S}$ are equipped with weights, respectively $b$ and $w$, along with an <strong>activation function</strong> $a$. For simplicity, we assume a single activation function $a$ is used across the network.  The objects should satisfy the following:</p>
 <ul>
 <li>
-<p>The vertices $\textsf{N}$ of the computation graph, also called <em><font color="purple">neurons</font></em>, are partitioned into $L+1$ distinct <em><font color="purple">layers</font></em>, for some $L \in \mathbb{N}$. The collection of vertices in layer $\ell$ is denoted $\textsf{N}_\ell$. Layer $\textsf{N}_0$ is called the <em><font color="purple">input layer</font></em>, while $\textsf{N}_L$ is the <em><font color="purple">output layer</font></em>.</p>
+<p>The vertices $\textsf{N}$ of the computation graph, also called <strong>neurons</strong>, are partitioned into $L+1$ distinct <strong>layers</strong>, for some $L \in \mathbb{N}$. The collection of vertices in layer $\ell$ is denoted $\textsf{N}_\ell$. Layer $\textsf{N}_0$ is called the <strong>input layer</strong>, while $\textsf{N}_L$ is the <strong>output layer</strong>.</p>
 </li>
 <li>
-<p>We write $\mathfrak{n}_i^\ell$ for the $i$th neuron in layer $\ell$. Each neuron is equipped with a <em><font color="purple">bias</font></em> parameter, $b_i^\ell$. The vector of biases for neurons in a given layer $\ell$ is denoted $b^\ell$, and the collection of all bias parameters across all layers is denoted $b$.</p>
+<p>We write $\mathfrak{n}_i^\ell$ for the $i$th neuron in layer $\ell$. Each neuron is equipped with a <strong>bias</strong> parameter, $b_i^\ell$. The vector of biases for neurons in a given layer $\ell$ is denoted $b^\ell$, and the collection of all bias parameters across all layers is denoted $b$.</p>
 </li>
 <li>
-<p>The edges $\textsf{S}$ of the computation graph, called <em><font color="purple">synapses</font></em>, only join neurons in consecutive layers, and importantly, the orientation of each edge always points towards the larger layer. This is why the network is "feed-forward."</p>
+<p>The edges $\textsf{S}$ of the computation graph, called <strong>synapses</strong>, only join neurons in consecutive layers, and importantly, the orientation of each edge always points towards the larger layer. This is why the network is "feed-forward."</p>
 </li>
 <li>
 <p>This structure effectively partitions the synapses into layers, indexed by the largest layer among the two endpoints of the edges. We write $\textsf{S}_\ell$ for the $\ell$th layer of synapses, though we could also write $\textsf{S}_{\ell-1, \ell}$ to emphasize that the edges in $\textsf{S}_\ell$ join neurons in $\textsf{N}_{\ell-1}$ to those in $\textsf{N}_\ell$. The synapse in $\textsf{S}_\ell$ joining neuron $\mathfrak{n}_i^{\ell-1}$ to $\mathfrak{n}_j^\ell$ is denoted $\mathfrak{s}_{ij}^{\ell}$.</p>
 </li>
 <li>
-<p>Each synapse $\mathfrak{s}_{ij}^{\ell}$ is equipped with a <em><font color="purple">weight</font></em> parameter, $w_{ij}^{\ell}$. The collection of weights associated to neurons in layer $\ell$ is denoted $w^\ell$, and the collection of all weights across all layers, $w$.</p>
+<p>Each synapse $\mathfrak{s}_{ij}^{\ell}$ is equipped with a <strong>weight</strong> parameter, $w_{ij}^{\ell}$. The collection of weights associated to neurons in layer $\ell$ is denoted $w^\ell$, and the collection of all weights across all layers, $w$.</p>
 </li>
 <li>
-<p>For all layers but the input layer, and given an input vector $x$, we also denote the <em><font color="purple">activation at layer $\ell$</font></em> and the 
-<font color="purple">activation at neuron $\mathfrak{n}_j^\ell$</font> by $a^{\ell}$ and by $a_j^\ell$ respectively. The activations are defined inductively by
+<p>For all layer indices $\ell &gt;0$, and given an input vector $x$, let $a^\ell$ denote the <strong>activation at layer</strong> $\ell$. The activation at layer $\ell$ is a vector $a^\ell = ( a_1^\ell, \dots, a_{\# \textsf{N}_\ell }^\ell)$, the $j$th coordinate of which is called the <strong>activation at neuron $\mathfrak{n}_j^\ell$</strong>. These activations are defined inductively by
 $$
 a_j^\ell = a \left( \left( \sum_{i} w_{ij}^\ell a_i^{\ell-1} \right) + b_j^{\ell}\right) , 
 $$
@@ -826,28 +841,26 @@ with the activation at the $0$th layer, $a^0$ is defined as some input signal $x
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The parameter $L$, controlling the number of layers, is the <em><font color="purple">depth</font></em> of the network, while the <em><font color="purple">width of layer $\ell$</font></em> is the number of neurons in the layer.</p>
-<p>We will often abuse notation slightly, and write $\textsf{N}$ in place of the quintuple $(\textsf{N}, \textsf{S}, b, w, a )$. Each feed-forward neural network $\textsf{N}$ of depth $L$ is associated to a function 
+<p>$\quad$ The parameter $L$, deteremining the number of layers, is the <strong>depth</strong> of the network, while the <strong>width of layer $\ell$</strong> is the number of neurons in the layer. We will often abuse notation slightly, and write $\textsf{N}$ in place of the quintuple $(\textsf{N}, \textsf{S}, b, w, a )$. Each feed-forward neural network $\textsf{N}$ of depth $L$ is associated to a function 
 
-$$x \mapsto F_{\textsf{N}}(x) \equiv a^L(\textsf{N},x)$$
+$$x \mapsto F_{\textsf{N}}(x) \equiv a^L(x,\textsf{N})$$
 </p>
-<p>The function $F_{\textsf{N}}$ can be expressed as the the alternating composition of nonlinearities and transformations between layers</p>
+<p>So, $F_{\textsf{N}}$ can be expressed as the the alternating composition of nonlinearities and transformations between layers</p>
 $$
-\mathbf{a} \circ B_L \circ \mathbf{a} \circ B_{L-1} \circ \mathbf{a} \dots \circ  \mathbf{a} \circ B_1,
-$$<p>where $\mathbf{a}$ denotes the nonlinearity $a$ applied entrywise to its vector argument.</p>
-<p>In the present subsection, it is convenient to consider each layer of neurons as embedded in $\mathbb{N}$ through some enumeration. Signals in the input layer are thus compactly supported functions $x : \mathbb{N} \to \mathcal{C}$, where $\mathcal{C}$ is the input channel vector space.</p>
-<p>As signal $x$ is propagated forward in the network, its codomain may change to a different channel vector space, so that in general,</p>
-$$
-B_\ell : \mathcal{X}_c(\mathbb{N}, \mathcal{C}_{\ell-1} ) \to \mathcal{X}_c (\mathbb{N}, \mathcal{C}_\ell ), \quad z \mapsto w^\ell z + b^\ell
-$$
+\alpha \circ B_L \circ \alpha \circ B_{L-1} \circ \alpha \dots \circ  \alpha \circ B_1,
+$$<p>where $\alpha$ denotes the nonlinearity $a$ applied entrywise to its vector argument. In the present subsection, it is convenient to consider each layer of neurons as embedded in $\mathbb{N}$ through some enumeration. Signals in the input layer are thus compactly supported functions $x : \mathbb{N} \to \mathcal{C}$, where $\mathcal{C}$ is the input channel vector space.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We may thus express $F_{\textsf{N}}$ as</p>
-$$ \mathcal{X}_c( \mathbb{N}, \mathcal{C} ) \xrightarrow[\,]{ B_1} \mathcal{X}_c( \mathbb{N}, \mathcal{C}_1 )  \xrightarrow[\,]{ \mathbf{a}} \mathcal{X}_c( \mathbb{N}, \mathcal{C}_1 )  \xrightarrow[\,]{ B_2} \mathcal{X}_c(\mathbb{N}, \mathcal{C}_2) \xrightarrow[\,]{ \mathbf{a} }  \, \dots \, \xrightarrow[\,]{ B_L} \mathcal{X}_c(\mathbb{N}, \mathcal{C}_L) \xrightarrow[\,]{ \mathbf{a} } \mathcal{X}_c(\mathbb{N}, \mathcal{C}_L)
+<p>$\quad$ As signal $x$ is propagated through the network, its codomain may change to a different channel vector space, so that in general,</p>
+$$
+B_\ell : \mathcal{X}_c(\mathbb{N}, \mathcal{C}_{\ell-1} ) \to \mathcal{X}_c (\mathbb{N}, \mathcal{C}_\ell ), \quad z \mapsto w^\ell z + b^\ell
+$$<p>so that $F_{\textsf{N}}$ may also be expressed as</p>
+$$ \mathcal{X}_c( \mathbb{N}, \mathcal{C} ) \xrightarrow[\,]{ B_1} \mathcal{X}_c( \mathbb{N}, \mathcal{C}_1 )  \xrightarrow[\,]{ \alpha } \mathcal{X}_c( \mathbb{N}, \mathcal{C}_1 )  \xrightarrow[\,]{ B_2} \mathcal{X}_c(\mathbb{N}, \mathcal{C}_2) \xrightarrow[\,]{ \alpha }  \, \dots \, \xrightarrow[\,]{ B_L} \mathcal{X}_c(\mathbb{N}, \mathcal{C}_L) \xrightarrow[\,]{ \alpha } \mathcal{X}_c(\mathbb{N}, \mathcal{C}_L)
 $$
 </div>
 </div>
@@ -863,18 +876,16 @@ $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-equivariant-neural-networks">
-<a class="anchor" href="#...-equivariant-neural-networks" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... equivariant neural networks</font><a class="anchor-link" href="#...-equivariant-neural-networks"> </a>
-</h3>
+<h2 id="...-equivariant-neural-networks-...">
+<a class="anchor" href="#...-equivariant-neural-networks-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... equivariant neural networks ...<a class="anchor-link" href="#...-equivariant-neural-networks-..."> </a>
+</h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the present context, we suppose there is a group $G$ acting on each of the signal domains.</p>
-<p>As discussed, the signal domains have been obscured by embedding each domain into $\mathbb{N}$. We should keep in mind that these signal domains are changing, a priori, with each new layer. As such, the group $G$ may act differently on the signal domain at each layer, leading to different representations of $G$, which we wish to distinguish in our notation.</p>
-<p>For $\ell = 0, \dots, L$, let $\rho^\ell$ denote the representation of $G$ at the $\ell$th layer, so that for each $g \in G$, $\rho_g^\ell$ is an invertible linear map,</p>
+<p>$\quad$ In the present context, we suppose there is a group $\textsf{G}$ acting on each of the signal domains. As discussed, the signal domains have been obscured by embedding each domain into $\mathbb{N}$. We should keep in mind that these signal domains are changing, a priori, with each new layer. As such, the group $\textsf{G}$ may act differently on the signal domain at each layer, leading to different representations of $\textsf{G}$, which we wish to distinguish in our notation. For $\ell = 0, \dots, L$, let $\rho^\ell$ denote the representation of $\textsf{G}$ at the $\ell$th layer, so that for each $g \in \textsf{G}$, $\rho_g^\ell$ is an invertible linear map,</p>
 $$
 \rho_g^\ell : \mathcal{X}_c( \mathbb{N} , \mathcal{C}_\ell) \to  \mathcal{X}_c( \mathbb{N} , \mathcal{C}_\ell).
 $$
@@ -885,7 +896,10 @@ $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ Let $\textsf{N}$ be a feed-forward neural network of depth $L$. Let $G$ be a group acting on the signal domain of each layer of $\mathbb{N}$. The associated representation of this action on signals, at layer $\ell$, is denoted $\rho^\ell$ as above. The network $\textsf{N}$ is said to be <em><font color="purple">$G$-equivariant</font></em> if each $B_\ell$ is $G$-equivariant, in the sense that for all $g \in G$, and all appropriately supported $z \in \mathcal{X}_c(\mathbb{N}, \mathcal{C}_{\ell-1})$, one has</p>
+<h3 id="Definition.-(-group-equivariant-neural-network-)">
+<a class="anchor" href="#Definition.-(-group-equivariant-neural-network-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( group equivariant neural network )<a class="anchor-link" href="#Definition.-(-group-equivariant-neural-network-)"> </a>
+</h3>
+<p>$\quad$ Let $\textsf{N}$ be a feed-forward neural network of depth $L$. Let $\textsf{G}$ be a group acting on the signal domain of each layer of $\mathbb{N}$. The associated representation of this action on signals, at layer $\ell$, is denoted $\rho^\ell$ as above. The network $\textsf{N}$ is said to be <strong>$\textsf{G}$-equivariant</strong> if each $B_\ell$ is $\textsf{G}$-equivariant, in the sense that for all $g \in \textsf{G}$, and all appropriately supported $z \in \mathcal{X}_c(\mathbb{N}, \mathcal{C}_{\ell-1})$, one has</p>
 $$
 \rho_g^{\ell} B_\ell (z) = B_\ell (\rho_g^{\ell-1}z ) 
 $$<hr>
@@ -896,24 +910,16 @@ $$<hr>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The main result of <a href="https://arxiv.org/abs/1802.03690">KT 18</a> is a classification of equivariant neural networks: they show each $B_\ell$ corresponds to a "generalized" convolutional layer, which we now introduce.</p>
-
+<h2 id="...-convolution-...">
+<a class="anchor" href="#...-convolution-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... convolution ...<a class="anchor-link" href="#...-convolution-..."> </a>
+</h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-convolution">
-<a class="anchor" href="#...-convolution" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... convolution</font><a class="anchor-link" href="#...-convolution"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>According to the usual analytic definition, given $\varphi, \theta : \mathbb{R} \to \mathbb{R}$ sufficiently nice, their <em><font color="purple">convolution</font></em> $\varphi \star \theta$ is defined by
+<p>$\quad$ The main result of <a href="https://arxiv.org/abs/1802.03690">KT 18</a> is a classification of equivariant neural networks: they show each $B_\ell$ corresponds to a generalized convolutional layer, which we now introduce. According to the usual analytic definition, given $\varphi, \theta : \mathbb{R} \to \mathbb{R}$ sufficiently nice, their <strong>convolution</strong> $\varphi \star \theta$ is defined by
 $$
 ( \varphi \star \theta ) (u) = \int_{\mathbb{R}} \varphi(u-v) \theta (v) \, \textrm{d} v
 $$
@@ -927,9 +933,12 @@ This operation is commutative, and we can interchangeably think of $\varphi$ and
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong>  $\quad$ Letting $\mu_G$ denote the unique Haar probability measure of compact group $G$, we define the <em><font color="purple">convolution</font></em> of two functions $\varphi, \theta : G \to \mathbb{R}$ by
+<h3 id="Definition.-(-convolution-)">
+<a class="anchor" href="#Definition.-(-convolution-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( convolution )<a class="anchor-link" href="#Definition.-(-convolution-)"> </a>
+</h3>
+<p>$\quad$ Letting $\mu_{\textsf{G}}$ denote the unique Haar probability measure of compact group $\textsf{G}$, we define the <strong>convolution</strong> of two functions $\varphi, \theta : \textsf{G} \to \mathbb{R}$ by
 $$
-(\varphi \star \theta) (g) = \int_G \varphi(gh^{-1}) \theta(h) \, \textrm{d}\mu_G(h)
+(\varphi \star \theta) (g) = \int_{\textsf{G}} \varphi(gh^{-1}) \theta(h) \, \textrm{d}\mu_G(h)
 $$</p>
 <hr>
 
@@ -939,8 +948,7 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We have already seen an instance in which the signal domain is a compact group $-$ when modeling images, RGB or grayscale, we took the domain to be the discrete two-dimensional torus $\mathbb{T}_n^2$.</p>
-<p>The domains of the signals that propagate through the network aren't necessarily groups. In general, we require these domains to be <em><font color="purple">homogeneous spaces</font></em>, which means they are equipped with a <em><font color="purple">transitive</font></em> $G$-action. Going forward, we also assume that $G$ is some finite group, which is reasonable if $G$ is to be represented to a computer.</p>
+<p>$\quad$ We have already seen an instance in which the signal domain is a compact group $-$ when modeling images, RGB or grayscale, we took the domain to be the discrete two-dimensional torus $\mathbb{T}_n^2$. The domains of the signals that propagate through the network aren't necessarily groups. In general, we require these domains to be <strong>homogeneous spaces</strong>, which means they are equipped with a <strong>transitive</strong> $\textsf{G}$-action. Going forward, we also assume that $\textsf{G}$ is some finite group, which is reasonable if $\textsf{G}$ is to be represented to a computer.</p>
 
 </div>
 </div>
@@ -948,17 +956,23 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let $G$ be a compact group acting on homogeneous space $\Omega$. Let us fix a distinguished "basepoint" $\omega_* \in \Omega$.</p>
-<p>The basepoint allows us to index the space $\Omega$ using $G$, through the transitivity of its action. Any $\omega \in \Omega$ can be expressed as $g.\omega_\circ$ for some $g \in G$. Let us write
+<p>$\quad$ Let $\textsf{G}$ be a compact group acting on homogeneous space $\Omega$. Let us fix a distinguished 'basepoint' $v_e \in \Omega$. The basepoint allows us to index the space $\Omega$ using $\textsf{G}$, through the transitivity of its action. Any $v \in \Omega$ can be expressed as $g.v_e$ for some $g \in \textsf{G}$. Let us write
 $$
-[g]_{\Omega} := g.\omega_\circ
+v_g := g.v_e\,,
 $$
-to suppress the dependence of this indexing on the basepoint.</p>
-<p>Observe that group elements of $G$ which fix $\omega_0$ form a subgroup, the <em><font color="purple">stabilizer</font></em> of $\omega_\circ$, denoted $H$. The <em><font color="purple">(left) quotient space</font></em> $G / H$ is the collection of <em><font color="purple">left cosets</font></em></p>
+and observe that group elements of $\textsf{G}$ which fix $v_e$ form a subgroup, the <strong>stabilizer</strong> of $v_e$, denoted $\textsf{H}$. The <strong>(left) quotient space</strong> $\textsf{G} / \textsf{H}$ is the collection of <strong>left cosets</strong><br>
 $$
-gH := \{ gh : h \in H \},
-$$<p>and through the map $[ \cdot ]_\Omega$, this quotient space can be identified with the domain $\Omega$ itself.</p>
-<p>For each coset $gH$, we may pick a <em><font color="purple">coset representative</font></em> $g' \in gH$. For $\omega \in \Omega$, let $\bar{\omega}$ denote a coset representative of the coset of group elements which map $\omega_\circ$ to $\omega$.</p>
+g\textsf{H} := \{ gh : h \in \textsf{H} \},
+$$
+and through the map $g \mapsto v_g$, this quotient space can be identified with the domain $\Omega$ itself.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ The quotient map $g \mapsto g\textsf{H}$ is natural to consider, given a subgroup $\textsf{H} \subset \textsf{G}$. It is convenient to introduce another $\textsf{G} / \textsf{H} \to \textsf{G}$ which is effectively a one-sided inverse of the quotient map. This 'inverse' of the quotient map can be rephrased as a selection of a <strong>coset representative</strong> $[g] \in g \textsf{H}$. For $v \in \Omega$, let $[v]$ denote a coset representative of the coset of group elements which map $v_e$ to $v$. This leads to an identification of $v \in \Omega$ with $[v]\textsf{H} \in \textsf{G} / \textsf{H}$.</p>
 
 </div>
 </div>
@@ -967,13 +981,16 @@ $$<p>and through the map $[ \cdot ]_\Omega$, this quotient space can be identifi
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ Consider a function $\varphi : G \to \mathbb{R}$, and suppose that $G$ acts on some homogeneous space $\Omega$, with stabilizer $H$, so that $\Omega \cong G/H$. The <em><font color="purple">projection</font></em> of $\varphi$ to $\Omega$ is the function $\varphi_\downarrow : \Omega \to \mathbb{R}$ given by averaging $\varphi$ over the coset corresponding to a given $\omega \in \Omega$:
+<h3 id="Definition.-(-projection,-lift-)">
+<a class="anchor" href="#Definition.-(-projection,-lift-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( projection, lift )<a class="anchor-link" href="#Definition.-(-projection,-lift-)"> </a>
+</h3>
+<p>$\quad$ Consider a function $\varphi : \textsf{G} \to \mathbb{R}$, with $\textsf{G}$ a group acting (transitively) on some homogeneous space $\Omega$ with stabilizer $\textsf{H}$, so that $\Omega \cong \textsf{G}/\textsf{H}$. The <strong>projection</strong> of $\varphi$ to $\Omega$ is the function $\varphi_\downarrow : \Omega \to \mathbb{R}$ given by averaging $\varphi$ over the coset corresponding to a given $v \in \Omega$:
 $$
-\varphi_\downarrow (\omega) := \frac{1}{\# H} \sum_{g \in \bar{\omega}H} f(g).
+\varphi_\downarrow (v) := \frac{1}{\# \textsf{H}} \sum_{g \in [v]\textsf{H}} f(g).
 $$
-Conversely, given $\varphi : \Omega \to \mathbb{R}$, the <em><font color="purple">lift</font></em> of $\varphi$ to $G$ is the function $\varphi^\uparrow: G \to \mathbb{R}$ given by
+Conversely, given $\varphi : \Omega \to \mathbb{R}$, the <strong>lift</strong> of $\varphi$ to $\textsf{G}$ is the function $\varphi^\uparrow: \textsf{G} \to \mathbb{R}$ given by
 $$
-\varphi^\uparrow (g) := \varphi([g]_\Omega).
+\varphi^\uparrow (g) := \varphi([v_g]\textsf{H}).
 $$</p>
 <hr>
 
@@ -983,9 +1000,9 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The notion of a lift allows us to generalize convolution to pairs of functions whose domains are (perhaps distinct) quotient spaces of the group $G$. Let $\Omega$ and $\Omega'$ be such quotient spaces, and consider $\varphi: \Omega \to \mathbb{R}$ and $\theta : \Omega \to \mathbb{R}$; their <em><font color="purple">convolution</font></em> $\varphi \star \theta : G \to \mathbb{R}$ is defined by
+<p>$\quad$ The notion of a lift allows us to generalize the convolution operation to pairs of functions whose domains are perhaps distinct quotient spaces of group $\textsf{G}$. Let $\Omega$ and $\Omega'$ be such quotient spaces, and consider $\varphi: \Omega \to \mathbb{R}$ and $\theta : \Omega' \to \mathbb{R}$; their <strong>convolution</strong> $\varphi \star \theta : \textsf{G} \to \mathbb{R}$ is defined by
 $$
-(\varphi \star \theta) (g) = \sum_{h \in G} \varphi^\uparrow(gh^{-1}) \theta^\uparrow(h)
+(\varphi \star \theta) (g) = \sum_{h \in \textsf{G}} \varphi^\uparrow(gh^{-1}) \, \theta^\uparrow(h) \, .
 $$</p>
 
 </div>
@@ -994,15 +1011,15 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The definition of a lift generalizes to functions with domain some right quotient space $H \backslash G$, consisting of right cosets 
+<p>$\quad$ The definition of a lift clearly generalizes to functions whose domain is some <strong><em>right</em> quotient</strong> space $\textsf{H} \backslash \textsf{G}$, consisting of right cosets 
 $$
-Hg := \{ hg : h \in H \},
+\textsf{H}g := \{ hg : h \in \textsf{H} \},
 $$
-as well as to functions defined on the double quotient space $H \backslash G / K$, for some subgroups $H, K \subset G$, whose elements are the double cosets
+as well as to functions defined on the <strong>double quotient space</strong> $\textsf{H} \backslash \textsf{G} / \textsf{K}$, for some subgroups $\textsf{H}, \textsf{K} \subset \textsf{G}$, whose elements are the double cosets
 $$
-HgK := \{ hgk : h \in H, k \in K \}.
+\textsf{H}g\textsf{K} := \{ hgk : h \in \textsf{H}, k \in \textsf{K} \}.
 $$</p>
-<p>Thus, the definition of convolution can be extended to pairs of functions whose domains are any type of quotient space associated to $G$, and the two functions need not have the same type of domain.</p>
+<p>Thus, the definition of convolution can be extended to pairs of functions whose domains are any type of quotient space associated to $\textsf{G}$.</p>
 
 </div>
 </div>
@@ -1011,9 +1028,12 @@ $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ Let $G$ be a finite group, and consider two, perhaps distinct, associated homogeneous space $\Omega$ and $\Omega'$. Consider functions $\varphi : \Omega \to \mathbb{R}$ and $\theta : \Omega' \to \mathbb{R}$. The <em><font color="purple">generalized convolution</font></em> $\varphi \star \theta : G \to \mathbb{R}$ is 
+<h3 id="Definition.-(-generalized-convolution-)">
+<a class="anchor" href="#Definition.-(-generalized-convolution-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( generalized convolution )<a class="anchor-link" href="#Definition.-(-generalized-convolution-)"> </a>
+</h3>
+<p>$\quad$ Let $\textsf{G}$ be a finite group, and consider two, perhaps distinct, associated homogeneous space $\Omega$ and $\Omega'$. Consider functions $\varphi : \Omega \to \mathbb{R}$ and $\theta : \Omega' \to \mathbb{R}$. The <strong>generalized convolution</strong> $\varphi \star \theta : \textsf{G} \to \mathbb{R}$ is 
 $$
-(\varphi \star \theta) (g) = \sum_{h \in G} \varphi^\uparrow(gh^{-1}) \theta^\uparrow(h). 
+(\varphi \star \theta) (g) = \sum_{h \in \textsf{G}} \varphi^\uparrow(gh^{-1}) \, \theta^\uparrow(h). 
 $$</p>
 <hr>
 
@@ -1023,17 +1043,9 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that we have some understanding of the structural requirements we make of signal domains, we are more specific about the output $F_{\textsf{N}}$ of some neural network $\textsf{N}$; it can be expressed as</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-$$ \mathcal{X}( \Omega, \mathcal{C} ) \xrightarrow[\,]{ B_1} \mathcal{X}( \Omega_1, \mathcal{C}_1 )  \xrightarrow[\,]{ \mathbf{a}} \mathcal{X}( \Omega_1, \mathcal{C}_1 )  \xrightarrow[\,]{ B_2} \mathcal{X}(\Omega_2, \mathcal{C}_2) \xrightarrow[\,]{ \mathbf{a} }  \, \dots \, \xrightarrow[\,]{ B_L} \mathcal{X}(\Omega_L, \mathcal{C}_L) \xrightarrow[\,]{ \mathbf{a} } \mathcal{X}(\Omega_L, \mathcal{C}_L),
-$$<p>where $\Omega \equiv \Omega_0, \Omega_1, \dots, \Omega_L$ is a sequence of homogeneous spaces associated to $G$. In particular, we may identify each $\Omega_\ell$ with its stabilizer subgroup $H_\ell$ in $G$, so that $\Omega_\ell \cong G / H_\ell$.</p>
-<p>Let us remark that each affine block $B_\ell$ consists of a linear transformation $T_\ell : \mathcal{X}(\Omega_{\ell-1}, \mathcal{C}_{\ell-1}) \to \mathcal{X}(\Omega_\ell, \mathcal{C}_\ell)$, followed by addition of the bias vector $b^\ell$. Previously, $T_\ell$ appeared as the matrix $w^\ell \equiv [ w_{ij}^\ell ]_{i,j}$, but it may be most natural to reshape this into a tensor depending on the context.</p>
+<p>$\quad$ Now that we have some understanding of the structural requirements we make of signal domains, we are more specific about the output $F_{\textsf{N}}$ of some neural network $\textsf{N}$; it can be expressed as</p>
+$$ \mathcal{X}( \Omega, \mathcal{C} ) \xrightarrow[\,]{ B_1} \mathcal{X}( \Omega_1, \mathcal{C}_1 )  \xrightarrow[\,]{ \alpha } \mathcal{X}( \Omega_1, \mathcal{C}_1 )  \xrightarrow[\,]{ B_2} \mathcal{X}(\Omega_2, \mathcal{C}_2) \xrightarrow[\,]{ \alpha }  \, \dots \, \xrightarrow[\,]{ B_L} \mathcal{X}(\Omega_L, \mathcal{C}_L) \xrightarrow[\,]{ \alpha } \mathcal{X}(\Omega_L, \mathcal{C}_L) \, ,
+$$<p>where $\Omega \equiv \Omega_0, \Omega_1, \dots, \Omega_L$ is a sequence of homogeneous spaces associated to $\textsf{G}$. In particular, we may identify each $\Omega_\ell$ with its stabilizer subgroup $\textsf{H}_\ell$ in $G$, so that $\Omega_\ell \cong \textsf{G} / \textsf{H}_\ell$. Each affine block $B_\ell$ consists of a linear transformation $T_\ell : \mathcal{X}(\Omega_{\ell-1}, \mathcal{C}_{\ell-1}) \to \mathcal{X}(\Omega_\ell, \mathcal{C}_\ell)$, followed by addition of the bias vector $b^\ell$. The object $T_\ell$ is very similar to the weight matrix $w^\ell \equiv [ w_{ij}^\ell ]_{i,j}$. The linear transformation $T_\ell$ associated to this weight matrix may involve first reshaping it into a tensor, depending on the signal domain.</p>
 
 </div>
 </div>
@@ -1042,14 +1054,18 @@ $$<p>where $\Omega \equiv \Omega_0, \Omega_1, \dots, \Omega_L$ is a sequence of 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Def</strong> $\quad$ Let $\textsf{N}$ be a feed-forward neural network of depth $L$, whose layers $\Omega \equiv \Omega_0, \Omega_1, \dots, \Omega_L$ are homogeneous spaces associated to finite group $G$, with each $\Omega_\ell$ in correspondence with its stabilizer in $G$, denoted $H_\ell$. Let $(\mathcal{C}_j)_{j=0}^L$ denote the sequence of channel vector spaces associated to each layer. The affine blocks of $\textsf{N}$ are, as usual, denoted $B_\ell$ for $\ell \in \{1, \dots, L\}$, and the linear transformation within each block is denoted $T_\ell$. We call $\textsf{N}$ a <em><font color="purple">$G$-convolutional neural network ($G$-CNN)</font></em> if each $T_\ell$ may be expressed as
+<h3 id="Definition.-(-group-convolutional-neural-network-)">
+<a class="anchor" href="#Definition.-(-group-convolutional-neural-network-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( group-convolutional neural network )<a class="anchor-link" href="#Definition.-(-group-convolutional-neural-network-)"> </a>
+</h3>
+<p>$\quad$ Let $\textsf{N}$ be a feed-forward neural network of depth $L$, whose layers $\Omega \equiv \Omega_0, \Omega_1, \dots, \Omega_L$ are homogeneous spaces associated to finite group $\textsf{G}$. Each $\Omega_\ell$ corresponds to its stabilizer in $\textsf{G}$, denoted $\textsf{H}_\ell$. Let $(\mathcal{C}_j)_{j=0}^L$ denote the sequence of channel vector spaces associated to each layer. The affine blocks of $\textsf{N}$ are, as usual, denoted $B_\ell$ for $\ell \in \{1, \dots, L\}$, and the linear transformation within each block is denoted $T_\ell$. We call $\textsf{N}$ a <strong>$\textsf{G}$-convolutional neural network ($\textsf{G}$-CNN)</strong> if each $T_\ell$ may be expressed as
 $$
 T_\ell (z) = z \star \theta_\ell,
 $$
-for some <em><font color="purple">filter</font></em> $$
-\theta_\ell \in \mathcal{X} ( H_{\ell-1} \backslash G / H_\ell , \mathcal{C}_{\ell-1} \otimes \mathcal{C}_{\ell} ),
+for some <strong>filter</strong> 
 $$
-where $\otimes$ denotes the tensor product of vector spaces.</p>
+\theta_\ell \in \mathcal{X} ( \textsf{H}_{\ell-1} \backslash \textsf{G} / \textsf{H}_\ell , \,\mathcal{C}_{\ell-1} \otimes \mathcal{C}_{\ell} ),
+$$
+where the symbol $\otimes$ denotes the tensor product of vector spaces.</p>
 <hr>
 
 </div>
@@ -1058,7 +1074,7 @@ where $\otimes$ denotes the tensor product of vector spaces.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The relevance of $G$-CNN's to equivariance in neural networks is encapsulated in the following theorem.</p>
+<p>$\quad$ The tensor product will be defined in the next section. The relevance of $\textsf{G}$-CNN's to equivariance in neural networks is encapsulated in the following theorem: if we feel $\textsf{G}$-equivariance constitutes an important prior on the network structure, the notion of a $\textsf{G}$-CNN is fundamental.</p>
 
 </div>
 </div>
@@ -1067,7 +1083,10 @@ where $\otimes$ denotes the tensor product of vector spaces.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Theorem</strong> (<a href="https://arxiv.org/abs/1802.03690">KT 18</a>, Theorem 1) $\quad$ Let $G$ be a compact group with transitive action on each layer of the feed-forward neural network $\textsf{N}$. Then $\textsf{N}$ is $G$-equivariant, in the sense described <a href="https://colab.research.google.com/drive/13S7RUk6kP5SX8xUycbvJRm3rufkcTisN#scrollTo=ME1hkruixTRy&amp;line=1&amp;uniqifier=1">above</a>, if and only if it is a $G$-CNN.</p>
+<h3 id="Theorem-(-Kondor-Trivedi-2018,-Theorem-1-)">
+<a class="anchor" href="#Theorem-(-Kondor-Trivedi-2018,-Theorem-1-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Theorem</strong> ( <a href="https://arxiv.org/abs/1802.03690">Kondor-Trivedi 2018</a>, Theorem 1 )<a class="anchor-link" href="#Theorem-(-Kondor-Trivedi-2018,-Theorem-1-)"> </a>
+</h3>
+<p>$\quad$ Let $\textsf{G}$ be a compact group with transitive action on each layer of the feed-forward neural network $\textsf{N}$. Then $\textsf{N}$ is $\textsf{G}$-equivariant, in the sense described <a href="https://colab.research.google.com/drive/13S7RUk6kP5SX8xUycbvJRm3rufkcTisN#scrollTo=ME1hkruixTRy&amp;line=1&amp;uniqifier=1">above</a>, if and only if it is a $\textsf{G}$-CNN.</p>
 <hr>
 
 </div>
@@ -1076,17 +1095,9 @@ where $\otimes$ denotes the tensor product of vector spaces.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus, if we feel that $G$-equivariance constitutes an important prior on the network structure, the notion of a $G$-CNN is fundamental.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.4-...-tensors-">
-<a class="anchor" href="#1.4-...-tensors-" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">1.4 ... tensors </font><a class="anchor-link" href="#1.4-...-tensors-"> </a>
-</h2>
+<h1 id="tensors">
+<a class="anchor" href="#tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>tensors<a class="anchor-link" href="#tensors"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1096,10 +1107,10 @@ where $\otimes$ denotes the tensor product of vector spaces.</p>
 <p><em>references</em></p>
 <ul>
 <li>
-<p>Schwarz, Topology for Physicists</p>
+<p><a href="https://www.math.ucdavis.edu/~schwarz/">Schwarz</a>, <em>Topology for Physicists</em></p>
 </li>
 <li>
-<p>Wald, GR</p>
+<p>Wald, <em>General Relativity</em></p>
 </li>
 </ul>
 
@@ -1109,29 +1120,16 @@ where $\otimes$ denotes the tensor product of vector spaces.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-vectors-and-covectors,-through-the-lens-of-rep.-theory-">
-<a class="anchor" href="#...-vectors-and-covectors,-through-the-lens-of-rep.-theory-" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... vectors and covectors, through the lens of rep. theory </font><a class="anchor-link" href="#...-vectors-and-covectors,-through-the-lens-of-rep.-theory-"> </a>
-</h3>
+<h2 id="...-vectors-and-covectors,-through-the-lens-of-rep.-theory-...">
+<a class="anchor" href="#...-vectors-and-covectors,-through-the-lens-of-rep.-theory-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... vectors and covectors, through the lens of rep. theory ...<a class="anchor-link" href="#...-vectors-and-covectors,-through-the-lens-of-rep.-theory-..."> </a>
+</h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Consider the action of some finite group $G$ on discrete domain $\Omega$. Let $V$ denote the space of $\mathcal{C}$-valued signals, where $\mathcal{C}$ is itself a vector space over $\mathbb{R}$.</p>
-<p>In this case, $V$ also has the structure of a vector space over $\mathbb{R}$. The action of $G$ on $\Omega$ induces an action on $V$, putting elements $g$ of $G$ in correspondence with elements of $\textrm{GL}(V)$, which denotes the vector space of invertible linear endomorphisms of $V$.</p>
-<p>Let $\rho$ denote the $V$-representation of $G$ just described. A subspace $V' \subset V$ is called an <em><font color="purple">invariant subspace</font></em> of representation $\rho$ if all operators $\rho(g)$ map $V'$ to itself.</p>
-<p>Clearly, restricting $\rho$ to $V'$ is itself a representation of $G$ over vector space $V'$.</p>
-<p>The representation $\rho$ is called <em><font color="purple">irreducible</font></em> if there are no invariant subspaces of $V$ other than $V$ itself and the trivial subspace $\{0\}$.</p>
-<p>If $\rho_1$ and $\rho_2$ are representations of $G$ over $\mathbb{R}$-vector spaces $V_1$ and $V_2$, their <em><font color="purple">direct sum</font></em> is defined as the representation $\rho$ of $G$ over $V_1 \oplus V_2$ given by
-$$
-\rho(g)( v_1, v_2) = ( \rho_1(g) v_1, \rho_2(g) v_2 ),
-$$
-for any $v_1 \in V_1$ and $v_2 \in V_2$.</p>
-<p>Two representations $\rho_1$ and $\rho_2$ over $V_1$ and $V_2$ are <em><font color="purple">equivalent</font></em> if there is an isomorphism $\alpha : V_1 \to V_2$ so that</p>
-$$
-\alpha \rho_1(g) = \rho_2(g) \alpha
-$$<p>We say a representation $\rho$ is <em><font color="purple">orthogonal</font></em> if each $\rho(g)$ is an orthogonal linear transformation. If $W$ is an invariant subspace of an orthogonal representation $\rho$, so is its orthogonal complement $W^\perp$. Furthermore, $W$ and $W^\perp$ inherit representations of $G$ through restriction, and the original representation $G$ is equivalent to the direct sum of these restrictions.</p>
+<p>$\quad$ Consider the action of some finite group $\textsf{G}$ on discrete domain $\Omega$. Let $\mathcal{X}$ denote the space of $\mathcal{C}$-valued signals, where $\mathcal{C}$ is itself a vector space over $\mathbb{R}$. In this case, $\mathcal{X}$ also has the structure of a vector space over $\mathbb{R}$. The action of $\textsf{G}$ on $\Omega$ induces an action on $\mathcal{X}$, putting elements $g$ of $\textsf{G}$ in correspondence with elements of $\textrm{GL}(\mathcal{X})$, which denotes the vector space of invertible linear endomorphisms of $\mathcal{X}$.</p>
 
 </div>
 </div>
@@ -1139,7 +1137,7 @@ $$<p>We say a representation $\rho$ is <em><font color="purple">orthogonal</font
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For any representation $\rho$ of compact group $G$ over $V$, one can find a scalar product on $V$ that is invariant under $\rho$. This is equivalent to saying that for an appropriate choice of scalar product on $V$, in terms of $G$, every representation of $G$ over $V$ is orthogonal. One constructs this by taking any scalar product on $V$, and then by averaging its images under the $G$-action. The averaging done is with respect to Haar measure.</p>
+<p>$\quad$ Let $\rho$ denote the $\mathcal{X}$-representation of $\textsf{G}$ just described. A subspace $\mathcal{X}' \subset \mathcal{X}$ is called an <strong>invariant subspace</strong> of representation $\rho$ if all operators $\rho(g)$ map $\mathcal{X}'$ to itself. Clearly, restricting $\rho$ to $\mathcal{X}'$ is itself a representation of $\textsf{G}$ over vector space $\mathcal{X}'$. The representation $\rho$ is called <strong>irreducible</strong> if there are no invariant subspaces of $\mathcal{X}$ other than $\mathcal{X}$ itself and the trivial subspace $\{0\}$.</p>
 
 </div>
 </div>
@@ -1147,7 +1145,22 @@ $$<p>We say a representation $\rho$ is <em><font color="purple">orthogonal</font
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Crucially, the existence of this invariant scalar product implies that every finite-dimensional representation of a compact $G$ is equal to the direct sum of irreducible representations.</p>
+<p>$\quad$ If $\rho_1$ and $\rho_2$ are representations of $\textsf{G}$ over $\mathbb{R}$-vector spaces $\mathcal{X}_1$ and $\mathcal{X}_2$, their <strong>direct sum</strong> is defined as the representation $\rho$ of $\textsf{G}$ over $V_1 \oplus V_2$ given by
+$$
+[\rho(g)]\,( v_1, v_2) = ( \, \rho_1(g) v_1, \,\rho_2(g) v_2 \, ),
+$$
+for any $v_1 \in \mathcal{X}_1$ and $v_2 \in \mathcal{X}_2$.</p>
+<p>Two representations $\rho_1$ and $\rho_2$ over $\mathcal{X}_1$ and $\mathcal{X}_2$ are <strong>equivalent</strong> if there is an isomorphism $\varphi : \mathcal{X}_1 \to \mathcal{X}_2$ so that</p>
+$$
+\varphi \rho_1(g) = \rho_2(g) \varphi \,.
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ We say a representation $\rho$ is <strong>orthogonal</strong> if each $\rho(g)$ is an orthogonal linear transformation (it preserves the length of all unit vectors). If $\mathcal{Y}$ is an invariant subspace of an orthogonal representation $\rho$, so is its orthogonal complement $\mathcal{Y}^\perp$. Furthermore, $\mathcal{Y}$ and $\mathcal{Y}^\perp$ inherit representations of $\textsf{G}$ through restriction, and the original representation $\textsf{G}$ is equivalent to the direct sum of these restrictions.</p>
 
 </div>
 </div>
@@ -1155,12 +1168,42 @@ $$<p>We say a representation $\rho$ is <em><font color="purple">orthogonal</font
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let $\textrm{GL}(n, \mathbb{R})$ denote the space of $n \times n$ matrices with real entries. As the group $\textrm{GL}(\mathbb{R}^n)$ of linear transformations of $\mathbb{R}^n$ is isomorphic to $\textrm{GL}(n, \mathbb{R})$. Thus we can regard any group homomorphism $G \to \textrm{GL}(n, \mathbb{R})$ as an $n$-dimensional representation of $G$.</p>
-<p>In the case that $G$ is itself $\textrm{GL}(n, \mathbb{R})$, we have the natural representation $\rho(g) v \equiv g v$, called the <em><font color="purple">vector representation</font></em>. The <em><font color="purple">covector representation</font></em> is defined by $\rho(g) v$ = $(g^T)^{-1}v$, the latter matrix can be written unambiguously as $g^{-T}$ as inverse and transpose commute with one another.</p>
-<p>The elements of a space on which a matrix group acts via the vector representation are <em><font color="purple">vectors</font></em>, and:</p>
+<p>$\quad$ For any representation $\rho$ of compact group $\textsf{G}$ over $\mathcal{X}$, one can find a scalar product on $\mathcal{X}$ that is invariant under $\rho$. This is equivalent to saying that for an appropriate choice of scalar product on $\mathcal{X}$, in terms of $\textsf{G}$, every representation of $\textsf{G}$ over $\mathcal{X}$ is orthogonal. One constructs this by taking any scalar product on $\mathcal{X}$, and then by averaging its images under the $\textsf{G}$-action. The averaging done is with respect to Haar measure. Crucially, the existence of this invariant scalar product implies that every finite-dimensional representation of a compact $\textsf{G}$ is equal to the direct sum of irreducible representations.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Let $\textrm{GL}(n, \mathbb{R})$ denote the space of $n \times n$ matrices with real entries. As thee group $\textrm{GL}(\mathbb{R}^n)$ of linear transformations of $\mathbb{R}^n$ is isomorphic to $\textrm{GL}(n, \mathbb{R})$, one can regard any group homomorphism $\textsf{G} \to \textrm{GL}(n, \mathbb{R})$ as an $n$-dimensional representation of $\textsf{G}$. In the case that $\textsf{G}$ is itself $\textrm{GL}(n, \mathbb{R})$, we have the natural representation $\rho(g) v \equiv g v$, called the <strong>vector representation</strong>. The <strong>covector representation</strong> is defined by $\rho(g) v$ = $(g^T)^{-1}v$. The latter matrix can be written unambiguously as $g^{-T}$ as inverse and transpose commute with one another. The elements of a space on which a matrix group acts via the vector representation are <em>vectors</em>, and <em>covectors</em>  can be defined analogously. We expand on the discussion of vectors and covectors after introducing a basis in the next section.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ By the above discussion, we should feel no loss in generality working with orthogonal representations of groups over some signal $\mathbb{R}$-vector space $\mathcal{X}$. Moreover, as feeding any signal to a computer requires choosing a basis for $\mathcal{X}$, it is natural to expect this basis to be "maximally compatible" with the orthogonal representation, in the sense that the basis is orthonormal.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="...-vectors-and-covectors,-in-coordinates-...">
+<a class="anchor" href="#...-vectors-and-covectors,-in-coordinates-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... vectors and covectors, in coordinates ...<a class="anchor-link" href="#...-vectors-and-covectors,-in-coordinates-..."> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Thus it is natural to assume that an orthonormal basis $(e_j)_{j=1}^n$ for some $n$-dimensional vector space $\mathcal{X}$ is always given alongside $\mathcal{X}$, and it is through the lens of this basis that we explore the covector representation described above. The basis furnishes a canonical isomorphism between $\mathcal{X}$ and $\mathbb{R}^n$, and hence between $\textrm{GL}(\mathcal{X})$ and $\textrm{GL}(n, \mathbb{R})$. On the other hand, the inner product $\langle \cdot, \cdot \rangle$ furnishes a canonical isomorphism between $\mathcal{X}$ and its dual $\mathcal{X}^*$. Elements of $\mathcal{X}$ are <strong>vectors</strong> and elements of $\mathcal{X}^*$ are called <strong>covectors</strong>.</p>
 <blockquote>
-<p>Schwarz:<em>"covectors are defined analogously"</em> 
-We will expand on this after introducing a basis.</p>
+<p>The above is technically correct. But I can't help but wonder:if $\mathcal{X}$, as a vector space, has a further structure as a space of functions taking values in channel vector space $\mathcal{C}$, how should this be reflected in the basis for $\mathcal{X}$? Perhaps this structure means that it's proper to think of elements of the signal vector space as already having some tensor structure.</p>
 </blockquote>
 
 </div>
@@ -1169,31 +1212,10 @@ We will expand on this after introducing a basis.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By the above discussion, we should feel no loss in generality working with orthogonal representations of groups over some signal $\mathbb{R}$-vector space $V$. Moreover, as feeding any signal to a computer requires choosing a basis for $V$, it is natural to expect this basis to be "maximally compatible" with the orthogonal representation, in the sense that the basis is orthonormal.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-vectors-and-covectors,-in-coordinates">
-<a class="anchor" href="#...-vectors-and-covectors,-in-coordinates" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... vectors and covectors, in coordinates</font><a class="anchor-link" href="#...-vectors-and-covectors,-in-coordinates"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus it is natural to assume that an orthonormal basis $(e_j)_{j=1}^n$ for some $n$-dimensional vector space $V$ is always given alongside $V$, and it is through the lens of this basis that we explore the covector representation described above.</p>
-<p>The basis furnishes a canonical isomorphism between $V$ and $\mathbb{R}^n$, and hence between $\textrm{GL}(V)$ and $\textrm{GL}(n, \mathbb{R})$. On the other hand, the inner product $\langle \cdot, \cdot \rangle$ furnishes a canonical isomorphism between $V$ and its dual $V^*$.</p>
-<p>Following the arrows of an imaginary diagram, we have that any representation $\rho$ of $G$ corresponds uniquely to a representation of $G$ over $\mathbb{R}^n$, as well as to a representation of $G$ over the dual space $( \mathbb{R}^n)^*$.</p>
-<p>In either case, group elements can effectively be identified with $n \times n$ matrices.</p>
-<p>We will write coordinates of a vector $x \in V$ using raised indices, i.e. for</p>
+<p>$\quad$ Through the assumed basis, any representation $\rho$ of $\textsf{G}$ corresponds uniquely to a representation of $\textsf{G}$ over $\mathbb{R}^n$, as well as to a representation of $\textsf{G}$ over the dual space $( \mathbb{R}^n)^*$. In either case, group elements can effectively be identified with $n \times n$ matrices. We will write coordinates of a vector $x \in \mathcal{X}$ using raised indices, i.e. for</p>
 $$
 x =  x^1e_1 + \dots + x^ne_n\, \equiv \,x^je_j
-$$<p>the $x^j$ are the <em><font color="purple">coordinates</font></em> of $x$. We are adopting the usual summation convention for tensors.</p>
+$$<p>the $x^j$ are the <strong>$(e_j)$-coordinates</strong> of $x$. We are adopting the usual summation convention for tensors.</p>
 
 </div>
 </div>
@@ -1201,25 +1223,23 @@ $$<p>the $x^j$ are the <em><font color="purple">coordinates</font></em> of $x$. 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The basis $(e_j)$ allows us to identify the vector $x$ with the $n$-tuple $(x^1, \dots, x^n) \in \mathbb{R}^n$. It also gives rise to a canonical identification with a dual basis, through the inner product; this identification induces the isomorphism of $V$ and $V^*$ mentioned above.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Given $e_j$, the associated dual basis vector $e^j$ is given by</p>
+<p>$\quad$ The basis $(e_j)$ identifies the vector $x$ with the $n$-tuple $(x^1, \dots, x^n) \in \mathbb{R}^n$. It also gives rise to a canonical identification with a dual basis, through the inner product; this identification induces the isomorphism of $\mathcal{X}$ and $\mathcal{X}^*$ mentioned above. Given $e_j$, the associated dual basis vector $e^j$ is given by</p>
+$$
 \begin{align}
-e^j &amp;= \langle e_j, \cdot \rangle 
+e^j &amp;= \langle e_j, \cdot \rangle \,.
 \end{align}
+$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Having assumed an orthogonal representation, the action of any group element, through the representation, takes the $(e^j)$ to some other orthonormal basis, say $(\tilde{e}_j)$.</p>
+<p>$\quad$ Having assumed an orthogonal representation, the action of any group element, through the representation, takes the $(e^j)$ to some other orthonormal basis, say $(\tilde{e}_j)$. This leads to the questions of</p>
+<ul>
+<li>how the dual basis $(e^j)$ transforms under the mapping $e^j \mapsto \langle \tilde{e}_j, \cdot \rangle $, </li>
+<li>and of how coordinates $(x^j)_{j=1}^n$ describing vector $x$ transform under this change of basis, which is effectively the same question.   </li>
+</ul>
 
 </div>
 </div>
@@ -1227,23 +1247,15 @@ e^j &amp;= \langle e_j, \cdot \rangle
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This leads to the question of how the dual basis $(e^j)$ transforms under mapping $e^j \mapsto \langle \tilde{e}_j, \cdot \rangle $, and of how coordinates $(x^j)_{j=1}^n$ describing vector $x$ transform under this change of basis, which is effectively the same question.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can express the basis $( \tilde{e}_j )$ in terms of the $( e_j)$ via
+<p>$\quad$ We can express the basis $( \tilde{e}_j )$ in terms of the $( e_j)$ via
 $$
 \tilde{e}_j = S^i_je_i  \, ,
 $$
-where $S$ is called the <em><font color="purple">direct transformation matrix</font></em> from original basis to the new. Let $T$ denote $S^{-1}$, the direct transition matrix from the new basis to the old:
+where $S$ is called the <strong>direct transformation matrix</strong> from original basis to the new. Let $T$ denote $S^{-1}$, the direct transition matrix from the new basis to the old:
 $$
 e_i = T_i^j \tilde{e}_j 
 $$
-This inverse determines how the coordinates $x^j$ transform, namely coefficients transform <em><font color="purple">contravariantly</font></em>:
+This inverse determines how the coordinates $x^j$ transform. This is to say, coordinate objects themselves transform <strong>contravariantly</strong>:
 $$
 \tilde{x}^j =  T_i^j x^i\,.
 $$</p>
@@ -1255,14 +1267,13 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let us now explain the form of the covector representation described above. We think of the action of group element $g$ as describing a change of coordinates. The vector representation describes this coordinate change directly, as an action on vectors.</p>
-<p>The covector representation encodes how covectors transform under the same change in coordinates. From the above discussion, we know that this transformation on covectors is contravariant, namely the induced action on covectors is given by</p>
+<p>$\quad$ Let us discuss the form of the covector representation described above. We think of the action of group element $g$ as describing a change of coordinates. The vector representation describes this coordinate change directly, as an action on vectors. The covector representation encodes how covectors transform under the same change in coordinates. From the above discussion, we know that this transformation on covectors is contravariant, namely the induced action on covectors is given by</p>
 $$
 \langle v , \cdot \rangle \mapsto \langle g^{-1}v, \cdot \rangle ,
 $$<p>but the inner product allows us to transfer this to yet another action on vectors, through the relation</p>
 $$
 \langle g^{-1} v, w \rangle = \langle v, g^{-T} w \rangle ,
-$$<p>thus the covector representation describes how vectors <em>see</em> the induced contravariant transformation. Conveniently, in the orthogonal setting, the vector and covector representations coincide.</p>
+$$<p>thus the covector representation, defined in the previous section, describes how vectors <em>see</em> the induced contravariant transformation. Conveniently, in the orthogonal setting, the vector and covector representations coincide.</p>
 
 </div>
 </div>
@@ -1270,138 +1281,8 @@ $$<p>thus the covector representation describes how vectors <em>see</em> the ind
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-the-abstract-index-notation">
-<a class="anchor" href="#...-the-abstract-index-notation" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... the abstract index notation</font><a class="anchor-link" href="#...-the-abstract-index-notation"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-tensors-">
-<a class="anchor" href="#...-tensors-" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... tensors </font><a class="anchor-link" href="#...-tensors-"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Schwarz loosely defines tensors, with $k$ upper indices and $\ell$ lower indices, as quantities transforming like a product of $k$ vectors and $\ell$ covectors. More precisely, such a tensor $X$ has components $X_{ \quad j_1, \, \dots\, , \, j_\ell} ^ { i_1, \, \dots \, , \, i_k}$, where each index ranges from $1$ to $n$, and where each component, or entry, takes values in either $\mathbb{R}$ or $\mathbb{C}$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The space of such objects, denoted $\mathcal{T}(k,\ell)$ is isomorphic to either $\mathbb{R}^N$ or $\mathbb{C}^N$ where $N = n^{k + \ell}$. The transformation rules for tensors allow us to consider a family of induced representations over the vector spaces $\mathcal{T}(k, \ell)$, with $k,\ell = 0,1,2,\dots$, arising from the action of some group element $g$, represented as a matrix, on the original vector space $V \cong \mathbb{R}^n$. Writing this matrix as $g_i^j$, the induced action on given $X \in \mathcal{T}(k, \ell)$ is to transform it to the tensor $Y \in \mathcal{T}(k, \ell)$ with components</p>
-$$
-Y_{ \quad j_1, \, \dots\, , \, j_k} ^ { i_1, \, \dots \, , \, i_\ell} = g_{i_1}^{m_1} \dots g_{i_\ell}^{m_\ell} \gamma_{n_1}^{j_1} \dots \gamma_{n_k}^{j_k} X_{ \quad m_1, \, \dots\, , \, m_\ell} ^ { n_1, \, \dots \, , \, n_k} \,,
-$$<p>where above, $\gamma_i^j$ is the matrix corresponding to $g^{-1}$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The concept of a tensor is closely related to that of a tensor product of representations. Recall that the tensor product $V_1 \otimes V_2$ of two vector spaces $V_1$ and $V_2$, with respective bases $e_{(1), \,1}, \dots, e_{(1), \,m}$ and $e_{(2), \,1}, \dots, e_{(2), \,n}$, is the space of formal linear combinations of the symbols</p>
-$$
- e_{(1), \,a} \otimes  e_{(2), \,b},
-$$<p>meaning that each element of $V_1 \otimes V_2$ can be uniquely expressed in the form</p>
-$$
-c^{ab} e_{(1), \,a} \otimes  e_{(2), \,b} 
-$$<p>where $c^{ab}$ are the coefficients of the linear combination.</p>
-<p>Suppose $\rho_1$ is a representation of $G$ over $V_1$, and that $\rho_2$ is a representation of $G$ over $V_2$. Suppose that $A = (A^1, \dots, A^m) \in V_1$ and that $B = (B^1, \dots, B^m) \in V_2$, so that $A$ and $B$ are each transformed under the $G$ action on each space. By definition, the quantity with components $A^iB^j$ transforms according to the tensor product representation $\rho_1 \otimes \rho_2$ over $V_1 \otimes V_2$.</p>
-<p>The representation $\rho_1 \otimes \rho_2$, acting in $V \otimes V_2$, changes the coordinates $c^{ab}$ according to the following law; we denote the result of this transformation by $d^{ab}$</p>
-$$
-d^{ab} = (\rho_1(g))_k^a(\rho_2(g))_\ell^b c^{k\ell},
-$$<p>where $(\rho_1(g))_k^a$ is the matrix of $\rho_1(g)$ in the basis $e_{(1), \,1}, \dots, e_{(1), \,m}$, and analogously for the other matrix.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The following is a coordinate-free definition of a tensor with $k$ upper indices and $\ell$ lower indices. We say such a tensor has valency $(k, \ell)$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<p><strong>Def</strong> $\quad$  A <em><font color="purple">tensor of type</font></em>, or <em><font color="purple">valency $(k,\ell)$</font></em> over vector space $V$ is a multilinear map 
-$$
-A : \underbrace{V^* \times \, \dots \, \times V^*}_{ k \text{ copies }}  \,\times \, \underbrace{ V \times \, \dots \, \times V }_{ \ell \text{ copies }} \to \mathbb{R}
-$$</p>
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="tensor-operations">
-<a class="anchor" href="#tensor-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">tensor operations</font><a class="anchor-link" href="#tensor-operations"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Aside from the operations which give $\mathcal{T}(k, \ell)$ the structure of a vector space, there are two other operations worth mentioning.</p>
-<p>The first is called <em><font color="purple">contraction</font></em> with respect to the $i$th (dual vector) and $j$th (vector) slots. For $k, \ell \geq 1$, contraction is a map 
-$$
-\textsf{c} : \mathcal{T}(k, \ell) \to \mathcal{T}(k-1, \ell-1)
-$$</p>
-<p>given by</p>
-$$
-\textsf{c} T = T( \dots, e^a,\dots ; \dots, e_a, \dots ), 
-$$<p>where the repeated indexing denotes a sum indexed by $a$, which runs over the dimensions of $V$, and where $(e_a)$ is an orthonormal basis for $V$, with $(e^a)$ the corresponding orthonormal basis for $V^*$. The $e^a$ are in the $i$th slot of $T$, while the $e_a$ are in the $j$th slot of $T$.</p>
-<p>Note that the contraction of a tensor of type $(1,1)$, when viewed as a linear map from $V$ to itself, is just the trace of this map. Contraction thus generalizes trace, and both objects are independent of the choice of $e_a$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The second operation of tensors we define is the <em><font color="purple">outer product</font></em> of tensors $X \in \mathcal{T}(k, \ell)$ and $Y \in \mathcal{T}(k', \ell')$, denoted $X \otimes Y$. The tensor $X \otimes Y$ lies in $\mathcal{T}( k + k', \ell + \ell ')$, and is defined as follows.</p>
-<p>Given $(k+k')$ dual vectors $v^{(1)}, \dots, v^{(k+k')}$ and $(\ell + \ell')$ vectors $w_{(1)}, \dots, w_{(\ell + \ell')}$, we define the action of $X \otimes Y$ on these objects to be the product</p>
-$$
-X( v^{(1)}, \dots, v^{(k)} ; w_{(1)}, \dots, w_{(\ell)}) \cdot Y ( v^{(k+1)}, \dots, v^{(k + k')} ; w_{(\ell+1)}, \dots, w_{(\ell + \ell')} )
-$$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>todo</em></p>
-<ul>
-<li>
-<p>refine, edit the above section</p>
-</li>
-<li>
-<p>follow Wald's discussion of <em>abstract index notation</em></p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.5-...-GDL-blueprint-(fixed-input-domain)">
-<a class="anchor" href="#1.5-...-GDL-blueprint-(fixed-input-domain)" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">1.5 ... GDL blueprint (fixed input domain)</font><a class="anchor-link" href="#1.5-...-GDL-blueprint-(fixed-input-domain)"> </a>
+<h2 id="...-tensors-...">
+<a class="anchor" href="#...-tensors-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... tensors ...<a class="anchor-link" href="#...-tensors-..."> </a>
 </h2>
 </div>
 </div>
@@ -1409,8 +1290,25 @@ $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-setup">
-<a class="anchor" href="#...-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... setup</font><a class="anchor-link" href="#...-setup"> </a>
+<p>$\quad$ Recall that the tensor product $\mathcal{X}_1 \otimes \mathcal{X}_2$ of two vector spaces $\mathcal{X}_1$ and $\mathcal{X}_2$, with respective bases $e_{(1), \,1}, \dots, e_{(1), \,m}$ and $e_{(2), \,1}, \dots, e_{(2), \,n}$, is the space of formal linear combinations of the symbols
+$$
+ e_{(1), \,a} \otimes  e_{(2), \,b},
+$$
+meaning that each element of $\mathcal{X}_1 \otimes \mathcal{X}_2$ can be uniquely expressed in the form</p>
+$$
+C^{ab} e_{(1), \,a} \otimes  e_{(2), \,b} 
+$$<p>where $C^{ab}$ are the coordinates of an object we denote $c$, and which is an example of a <em>$2$-tensor</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-changing-coordinates-with-a-$2$-tensor-)">
+<a class="anchor" href="#Example.-(-changing-coordinates-with-a-%242%24-tensor-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( changing coordinates with a $2$-tensor )<a class="anchor-link" href="#Example.-(-changing-coordinates-with-a-%242%24-tensor-)"> </a>
 </h3>
 </div>
 </div>
@@ -1418,29 +1316,179 @@ $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Our formal treatment of a classification problem requires the following objects:</p>
+<p>$\quad$ Suppose $\rho_1$ is a representation of $\textsf{G}$ over $\mathcal{X}_1$, and that $\rho_2$ is a representation of $\textsf{G}$ over $\mathcal{X}_2$. Suppose that $x = (x^1, \dots, x^m) \in \mathcal{X}_1$ and that $y = (y^1, \dots, y^m) \in \mathcal{X}_2$, so that $x$ and $y$ are each transformed under the $\textsf{G}$ action on each space. By definition, the quantity with components $x^iy^j$ transforms according to the <strong>tensor product representation</strong> $\rho_1 \otimes \rho_2$ over $\mathcal{X}_1 \otimes \mathcal{X}_2$. The representation $\rho_1 \otimes \rho_2$, acting in $\mathcal{X}_1 \otimes \mathcal{X}_2$, changes the coordinates $C^{ab}$ according to the following rule; we denote the result of this transformation by $D^{ab}$
+$$
+D^{ab} = (\rho_1(g))_k^a \, (\rho_2(g))_\ell^b \, C^{k\ell},
+$$
+where $(\rho_1(g))_k^a$ is the matrix of $\rho_1(g)$ in the basis $e_{(1), \,1}, \dots, e_{(1), \,m}$, and analogously for the other matrix.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Let us consider this situation, specialized to the case $\mathcal{X}_1 = \mathcal{X}$, and $\mathcal{X}_2 = \mathcal{X}^*$. Using the above display, which relates the different coordinates representations of a tensor under a change of basis, along with the work of the previous section, one finds in this case
+$$
+D^{ab} = S_k^a \, T_\ell^b \,C^{k\ell},
+$$
+where $S$ and $T$ are the change of basis matrices previously discussed. The point is that, because the representation $\rho$ is orthogonal, and because all bases are orthonormal, the action of any $\rho(g)$ for $g \in \textsf{G}$ functions as a change of basis. We are imagining $\rho(g)$ as $S$. Importantly, the above display can be used to 'lift' the representation $\rho$ to the larger vector space $\mathcal{X} \otimes \mathcal{X}^*$. We index this induced representation by the <em>valency</em> of the tensors under consideration (defined just below). Here, the induced representation is denoted $\rho_{(1,1)}$, and for $g$ as above, $\rho_{(1,1)}(g)$ corresponds to the $4$-tensor $ST$ with entries $S_k^a \, T_\ell^b$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h3 id="Definition.-(-tensors-)">
+<a class="anchor" href="#Definition.-(-tensors-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Definition.</strong> ( tensors )<a class="anchor-link" href="#Definition.-(-tensors-)"> </a>
+</h3>
+<p>$\quad$  A <strong>tensor of type</strong>, or <strong>valency $(k,\ell)$</strong> over vector space $\mathcal{X}$ is a multilinear map 
+$$
+A : \underbrace{\mathcal{X}^* \times \, \dots \, \times \mathcal{X}^*}_{ k \text{ copies }}  \,\times \, \underbrace{ V \times \, \dots \, \times V }_{ \ell \text{ copies }} \to \mathbb{R} .
+$$
+In instances where the precise valancy is not required to identify $A$, we refer to $A$ as a <strong>$(k+\ell)$-tensor</strong>. The space of all such objects is denoted $\mathcal{X}[k,\ell]$. When expressed in coordinates, the integer $k$ is the number of <strong>upper indices</strong> and $\ell$ the number of <strong>lower indices</strong>.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ An orthonormal basis on $\mathcal{X}$ produces an orthonormal basis on any $\mathcal{X}[k, \ell]$. Through this induced basis, a tensor $A \in \mathcal{X}[k,\ell]$ has entries $A_{ \quad j_1, \, \dots\, , \, j_\ell} ^ { i_1, \, \dots \, , \, i_k}$, where each index ranges from $1$ to $n$, and where each <em>entry</em> or <em>component</em> takes values in $\mathbb{R}$. These entries are the <strong>$(e_j)$-coordinates</strong> of tensor $A$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ For coordinate representations of such objects, the transformation rules for coordinates above generalize. Indeed, Schwarz defines <em>tensors, with $k$ upper indices and $\ell$ lower indices</em>, as quantities transforming like a product of $k$ vectors and $\ell$ covectors. This is effectively the definition above. The space $\mathcal{X}[k,\ell]$ is isomorphic to $\mathbb{R}^N$, where $N = n^{k + \ell}$, and $\textrm{dim}(\mathcal{X}) = n$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ The relevance of transforming coordinates is, again, that $\rho(g)$ can be interpreted as a change of coordinates. For a change of coordinates matrix $S \equiv \rho(g)$ (and its 'dual' $T$), the generalized transformation rules are thus a recipe for obtaining the representation $\rho_{(k,\ell)}$ over $\mathcal{X}[k,\ell]$ from the original representation $\rho$ over $\mathcal{X}$. Here we use $S$ to denote the (orthogonal) direct transformation matrix from one orthonormal basis $(e_j)$ to another $(\tilde{e}_j)$, and we use $T$ to denote $S^{-1}$ as before.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Given a tensor $A \in \mathcal{X}[k,\ell]$, we us $A$ and $\tilde{A}$ with accompanying indices to denote the $(e_j)$- and $(\tilde{e}_j)$-coordinate representations of $A$. The relation between these coordinate representations is as follows:</p>
+$$
+\tilde{A}_{ \quad j_1, \, \dots\, , \, j_k} ^ { i_1, \, \dots \, , \, i_\ell} = S_{i_1}^{m_1} \dots S_{i_\ell}^{m_\ell} T_{n_1}^{j_1} \dots T_{n_k}^{j_k} A_{ \quad m_1, \, \dots\, , \, m_\ell} ^ { n_1, \, \dots \, , \, n_k} \,.
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Does anything need to be said about the endpoint case of $k = \ell = 0$?</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="...-tensor-operations-...">
+<a class="anchor" href="#...-tensor-operations-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... tensor operations ...<a class="anchor-link" href="#...-tensor-operations-..."> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Aside from the operations which give $\mathcal{X}[k, \ell]$ the structure of a vector space, there are two operations betwen such spaces to discuss, for now. The first is called <strong>contraction</strong> with respect to the $i$th (dual vector) and $j$th (vector) slots. For $k, \ell \geq 1$, contraction is a map 
+$$
+\textsf{c} : \mathcal{X}[k, \ell] \to \mathcal{X}[k-1, \ell-1]
+$$
+given by
+$$
+\textsf{c} A = A( \dots, e^a,\dots ; \dots, e_a, \dots ), 
+$$
+where the repeated indexing denotes a sum indexed by $a$, which runs over the dimensions of $\mathcal{X}$, and where $(e_a)$ is an orthonormal basis for $\mathcal{X}$, with $(e^a)$ the corresponding orthonormal basis for $\mathcal{X}^*$. The $e^a$ are in the $i$th slot of $T$, while the $e_a$ are in the $j$th slot of $T$. The contraction of a tensor of type $(1,1)$, when viewed as a linear map from $V$ to itself, is just the trace of this map. Contraction thus generalizes trace, and both objects are independent of the choice of $e_a$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ The second operation we discuss is the <strong>outer product</strong> of tensors $A \in \mathcal{X}[k, \ell]$ and $B \in \mathcal{X}[k', \ell']$, denoted $A \otimes B$. The tensor $A \otimes B$ is an element of $\mathcal{X}[ k + k', \ell + \ell ']$, defined as follows. Given $(k+k')$ dual vectors $v^{(1)}, \dots, v^{(k+k')}$ and $(\ell + \ell')$ vectors $w_{(1)}, \dots, w_{(\ell + \ell')}$, we define the action of $A \otimes B$ on these objects to be the product 
+$$
+A( v^{(1)}, \dots, v^{(k)} ; w_{(1)}, \dots, w_{(\ell)}) \cdot B ( v^{(k+1)}, \dots, v^{(k + k')} ; w_{(\ell+1)}, \dots, w_{(\ell + \ell')} )\,.
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="GDL-blueprint">
+<a class="anchor" href="#GDL-blueprint" aria-hidden="true"><span class="octicon octicon-link"></span></a>GDL blueprint<a class="anchor-link" href="#GDL-blueprint"> </a>
+</h1>
+<p><em>( signal domain fixed )</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="...-setup-...">
+<a class="anchor" href="#...-setup-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... setup ...<a class="anchor-link" href="#...-setup-..."> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our formal treatment of a classification problem requires:</p>
 <ul>
 <li>
-<p>A finite group $G$.</p>
+<p>A finite group $\textsf{G}$, the <strong>data symmetry group</strong>.</p>
 </li>
 <li>
 <p>A sequence of discrete domains, $( \Omega_j )_{j=0}^L$, with $\Omega \equiv \Omega_0$ the domain of input signals.</p>
+<ul>
+<li>Each $\Omega_j$ is a homogeneous space with respect to $\textsf{G}$, meaning each domain admits a transitive $\textsf{G}$ action, denoted $\xi_j$. In particular, we can write $\Omega_j \cong \textsf{G} / \textsf{H}_j$ for some subgroup $\textsf{H}_j \subset \textsf{G}$. </li>
+</ul>
 </li>
 <li>
 <p>A sequence of finite dimensional channel vector spaces $( \mathcal{C}_j )_{j=0}^L$, with $\mathcal{C}_0 \equiv \mathcal{C}$ the space of input channels.</p>
-</li>
-<li>
-<p>Each $\Omega_j$ is a homogeneous space with respect to $G$, meaning each domain admits a transitive $G$ action, denoted $\xi_j$. In particular, we can write $\Omega_j \cong G / H_j$ for some subgroup $H_j \subset G$.</p>
-</li>
-<li>
-<p>The representations $\xi_j$ induce representions $\rho_j$ over respective signal vector spaces $\mathcal{X}(\Omega_j, \mathcal{C}_j)$</p>
+<ul>
+<li>The $\xi_j$ induce representions $\rho_j$ over respective signal vector spaces $\mathcal{X}(\Omega_j, \mathcal{C}_j)$</li>
+</ul>
 </li>
 <li>
 <p>A collection of orthonormal bases for each signal vector space. Unless stated otherwise, for each $j$, these are  assumed to have the form 
 $$
-e_{(j),\, \textrm{space} , \,i} \otimes e_{(j),\, \textrm{channel}, \, a}
+e_{(j),\, \textrm{space} , \,i} \otimes e_{(j),\, \textrm{channel}, \, q}
 $$
-where the index $i$ runs between $1$ and $\# \Omega_j$, while index $a$ runs between $1$ and $\textrm{dim}(\mathcal{C}_j)$.</p>
+where the index $i$ runs between $1$ and $\# \Omega_j$, while index $q$ runs between $1$ and $\textrm{dim}(\mathcal{C}_j)$.</p>
 </li>
 </ul>
 
@@ -1450,40 +1498,39 @@ where the index $i$ runs between $1$ and $\# \Omega_j$, while index $a$ runs bet
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-three-flavors-of-equivariant-map">
-<a class="anchor" href="#...-three-flavors-of-equivariant-map" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... three flavors of equivariant map</font><a class="anchor-link" href="#...-three-flavors-of-equivariant-map"> </a>
-</h3>
+<h2 id="...-three-flavors-of-equivariant-map-...">
+<a class="anchor" href="#...-three-flavors-of-equivariant-map-..." aria-hidden="true"><span class="octicon octicon-link"></span></a>... three flavors of equivariant map ...<a class="anchor-link" href="#...-three-flavors-of-equivariant-map-..."> </a>
+</h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The essential components of the GDL blueprint are $G$-equivariant maps.</p>
-<p>These fall under three general cases, which we distinguish from one another. Each object below should be imagined as associated to some layer $j$, though we omit the subscripts for the time being. We consider at most two domains, $\Omega, \tilde{\Omega}$ and at most two channel spaces $\mathcal{C}, \tilde{\mathcal{C}}$. The signal domains are as described in the setup, and thus can be expressed as $\Omega \equiv G / H$ and $\tilde{\Omega} \equiv G / \tilde{H}$ for subgroups $H, \tilde{H} \subset G$. The cases are</p>
+<p>$\quad$ The essential components of the GDL blueprint are $\textsf{G}$-equivariant maps. These are separated into three 'types', discussed below. Each map below is imagined as associated to some layer $j$ of a neural network, though we omit the subscripts for the time being. We consider at most two domains, $\Omega, \tilde{\Omega}$ and at most two channel spaces $\mathcal{C}, \tilde{\mathcal{C}}$. The signal domains are as described in the setup, and thus can be expressed as $\Omega \equiv \textsf{G} / \textsf{H}$ and $\tilde{\Omega} \equiv \textsf{G} / \tilde{\textsf{H}}$ for subgroups $\textsf{H}, \tilde{\textsf{H}} \subset \textsf{G}$. The cases are</p>
 <ol>
 <li>
-<p>Affine, $G$-equivariant maps, 
+<p>Affine, $\textsf{G}$-equivariant maps, 
 $$
 \tilde{B} : \mathcal{X}( \Omega, \mathcal{C}) \to \mathcal{X} ( \tilde{\Omega}, \tilde{\mathcal{C}})
 $$
 of the following form: first a generalized convolution with filter 
 $$
-\tilde{\theta} \in \mathcal{X}(H \backslash G / \tilde{H} , \, \mathcal{C} \otimes \tilde{\mathcal{C}}) \,,
+\tilde{\theta} \in \mathcal{X}( \textsf{H} \backslash \textsf{G} / \tilde{\textsf{H}} , \, \mathcal{C} \otimes \tilde{\mathcal{C}}) \,,
 $$ followed by the addition of a bias vector $\tilde{b} \in \mathcal{X}( \tilde{\Omega}, \tilde{\mathcal{C}} )$. The convolution itself can be expressed as a matrix, with respect to basis
 $$
-e_{\textrm{space},\,\ell} \otimes \tilde{e}_{\textrm{space}, k} \otimes e_{\textrm{channel},\, a} \otimes \tilde{e}_{\textrm{channel},\,b},
+e_{\textrm{space},\,\ell} \otimes \tilde{e}_{\textrm{space}, k} \otimes e_{\textrm{channel},\, q} \otimes \tilde{e}_{\textrm{channel},\,r},
 $$
-where $\ell$ = $1, \dots, \# \Omega$, $k$ = $1, \dots, \#\tilde{\Omega}$. Likewise, $a$ = $1, \dots, \textrm{dim}(\mathcal{C})$ and $b$ = $1, \dots, \textrm{dim}(\tilde{\mathcal{C}})$. The entries of this matrix, as well as those of the bias vector $\tilde{b}$ are all <em>learned</em>.</p>
+where $\ell$ and $k$ range from $1$ to $\# \Omega$ and $\# \tilde{\Omega}$ respectively. Likewise, $q$ and $r$ range from $1$ to $\textrm{dim}(\mathcal{C})$ and $\textrm{dim}(\tilde{\mathcal{C}})$ respectively. The entries of this matrix, as well as those of the bias vector $\tilde{b}$ are all <em>learned</em>.</p>
 </li>
 <li>
 <p>Non-linear activation function 
 $$
-\mathbf{a} : \mathcal{X}( \Omega, \mathcal{C}) \to \mathcal{X}( \Omega, \mathcal{C})
+\alpha : \mathcal{X}( \Omega, \mathcal{C}) \to \mathcal{X}( \Omega, \mathcal{C})
 $$ 
-applied "entrywise" to a given input. This implicitly assumes that the input is expressed with respect to the basis
+applied 'entrywise' to a given input. This implicitly assumes that the input is expressed with respect to the basis
 $$
-e_{\textrm{space}, \ell}  \otimes e_{\textrm{channel},\,a},
+e_{\textrm{space}, \ell}  \otimes e_{\textrm{channel},\,q},
 $$
 There are no learned parameters associated to this map. Despite its basis dependence, the entrywise application of the nonlinearity is the reason this map is equivariant.</p>
 </li>
@@ -1492,7 +1539,7 @@ There are no learned parameters associated to this map. Despite its basis depend
 $$
 P : \mathcal{X}(\Omega, \mathcal{C}) \to \mathcal{X}(\tilde{\Omega}, \tilde{\mathcal{C}} )
 $$
-which contain no learnable parameters. These perform a kind of renormalization (or coarse graining) of $\Omega$. These are not in general convolutions, because in particular they are not necessarily linear. In addition to the hope that such renormalization works as in its physics useage, washing away non-essential information, a smaller output layer usually means fewer learned parameters in the network overall. It is also a way to ensure that the successive map examines the preceding signal with an aperture of at least a certain width.</p>
+which contain no learnable parameters. These perform a kind of renormalization (or coarse graining) of $\Omega$. These are not in general convolutions, because in particular they are not necessarily linear nor affine. In addition to the hope that such renormalization works as in its physics useage, washing away non-essential information, a smaller output layer usually means fewer learned parameters in the network overall. It is also a way to ensure that the successive map examines the preceding signal with effectively a larger field of view.</p>
 </li>
 </ol>
 
@@ -1513,11 +1560,16 @@ which contain no learnable parameters. These perform a kind of renormalization (
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <hr>
-<h3 id="...-example:-strideless-$G$-pooling">
-<a class="anchor" href="#...-example:-strideless-%24G%24-pooling" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... example: strideless $G$-pooling</font><a class="anchor-link" href="#...-example:-strideless-%24G%24-pooling"> </a>
+<h3 id="Example.-(-strideless-group-pooling-)">
+<a class="anchor" href="#Example.-(-strideless-group-pooling-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( strideless group-pooling )<a class="anchor-link" href="#Example.-(-strideless-group-pooling-)"> </a>
 </h3>
-<hr>
-<hr>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Let $\textsf{G}$ be a finite group; an example we will bear in mind is the usual one for images, with $\textsf{G} \equiv \Omega \equiv \mathbb{T}_{2,\,n}$. In addition to the domain being the group acting on itself, we additionally identify $\mathbb{T}_{2,\,n}$ with its Cayley graph. Thus the graph distance in the Cayley graph endows $\mathbb{T}_{2, \,n}$ with a natural notion of distance. In general, we write $\textsf{d}_\Omega$ to denote this domain graph-distance, and we let $\textsf{B}_\Omega(v_g,r)$ for $r \in \mathbb{N}$ denote the ball around $v_g \in \Omega$ of radius $r$, with respect to $\textsf{d}_\Omega$.</p>
 
 </div>
 </div>
@@ -1525,18 +1577,9 @@ which contain no learnable parameters. These perform a kind of renormalization (
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let $G$ be a finite group; an example we will bear in mind is the usual one for images, with $G \equiv \Omega \equiv \mathbb{T}_{2,\,n}$. In addition to the domain being the group acting on itself, we additionally identify $\mathbb{T}_{2,\,n}$ with its Cayley graph.</p>
-<p>Thus the graph distance in the Cayley graph endows $\mathbb{T}_{2, \,n}$ with a natural notion of distance. In general, we write $\textsf{d}_G$ to denote this graph distance, and we let $\textsf{B}_G(g,r)$ for $r \in \mathbb{N}$ denote the ball around $g \in G$ of radius $r$, with respect to $\textsf{d}_G$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let us consider $\textsf{B}_G(e,r)$, the ball of radius $r$ centered at the group identity. Let us denote this neighborhood as $U$ for brevity. The following defines a pooling operation $P$ on signals $x \in \mathcal{X}(G, \mathcal{C})$:
+<p>$\quad$ Consider $\textsf{B}_\Omega(v_e,r)$, the ball of radius $r$ centered at the 'basepoint' $v_e$ of $\Omega$ corresponding to the group identity $e$. Let us denote this neighborhood as $\textsf{B}_r$ for brevity. The following defines a pooling operation $P$ on signals $x \in \mathcal{X}(\Omega, \mathcal{C})$:
 $$
-Px(g) = x \left( \textrm{argmax}_{h \, \in \, g U } \| x(h) \|_{\mathcal{C}} \right),
+Px(v_g) = x \left( \textrm{argmax}_{h \, \in \, g.\textsf{B}_r } \| x(h) \|_{\mathcal{C}} \right),
 $$
 where $\| \cdot \|_{\mathcal{C} }$ denotes some norm on the channel vector space $\mathcal{C}$.</p>
 
