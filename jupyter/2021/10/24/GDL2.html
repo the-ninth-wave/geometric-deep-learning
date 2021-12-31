@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      34 min read
+      40 min read
     
 </span></p>
 
@@ -132,39 +132,37 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#geometric-deep-learning-models">geometric deep learning models </a>
+<li class="toc-entry toc-h1"><a href="#implementing-basic-GDL-models">implementing basic GDL models </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#2.1-...-tensors-in-pytorch">2.1 ... tensors in pytorch </a>
+<li class="toc-entry toc-h2"><a href="#helper-classes-and-functions">helper classes and functions </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#...-helper-classes-and-functions-">... helper classes and functions  </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#method-...-info_1d">method ... info_1d </a></li>
-<li class="toc-entry toc-h4"><a href="#method-...-mesh_helper">method ... mesh_helper </a></li>
-<li class="toc-entry toc-h4"><a href="#method-...-height_helper">method ... height_helper </a></li>
-<li class="toc-entry toc-h4"><a href="#method-...-viz_1d">method ... viz_1d </a></li>
-<li class="toc-entry toc-h4"><a href="#method-...-viz_list_of_1d">method ... viz_list_of_1d </a></li>
+<li class="toc-entry toc-h3"><a href="#info_1d">info_1d </a></li>
+<li class="toc-entry toc-h3"><a href="#info_2d">info_2d </a></li>
+<li class="toc-entry toc-h3"><a href="#mesh_helper">mesh_helper </a></li>
+<li class="toc-entry toc-h3"><a href="#height_helper">height_helper </a></li>
+<li class="toc-entry toc-h3"><a href="#viz_1d">viz_1d </a></li>
+<li class="toc-entry toc-h3"><a href="#viz_list_of_1d">viz_list_of_1d </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#...-initializing-tensors">... initializing tensors </a>
+<li class="toc-entry toc-h2"><a href="#initializing-tensors-in-PyTorch">initializing tensors in PyTorch </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#...-1.---from-lists">... 1.   from lists </a></li>
-<li class="toc-entry toc-h4"><a href="#...-2.-from-numpy">... 2. from numpy </a></li>
-<li class="toc-entry toc-h4"><a href="#...-3.-(a)-ones-of-given-shape">... 3. (a) ones of given shape </a></li>
-<li class="toc-entry toc-h4"><a href="#...-3.-(b)-zeros-of-given-shape">... 3. (b) zeros of given shape </a></li>
-<li class="toc-entry toc-h4"><a href="#...-3.-(c)-i.i.d.-uniform-of-given-shape">... 3. (c) i.i.d. uniform of given shape </a></li>
-<li class="toc-entry toc-h4"><a href="#...-3.-(d)-i.i.d.-standard-normal-of-given-shape">... 3. (d) i.i.d. standard normal of given shape </a></li>
-<li class="toc-entry toc-h4"><a href="#...-3.-(f)-sequence">... 3. (f) sequence </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-from-lists-)">Example. ( from lists ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-from-numpy-)">Example. ( from numpy ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-ones-or-zeros-of-given-shape-)">Example. ( ones or zeros of given shape ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-i.i.d.-of-given-shape-)">Example. ( i.i.d. of given shape ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-list-of-consecutive-integers-)">Example. ( list of consecutive integers ) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#numpy-objects-and-tensors">numpy objects and tensors </a></li>
-<li class="toc-entry toc-h3"><a href="#...-tensor-operations">... tensor operations </a>
+<li class="toc-entry toc-h2"><a href="#tensor-operations">tensor operations </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#...-adding-tensors">... adding tensors </a></li>
-<li class="toc-entry toc-h4"><a href="#...-stacking-tensors">... stacking tensors </a></li>
-<li class="toc-entry toc-h4"><a href="#...-in-place-operations">... in-place operations </a></li>
-<li class="toc-entry toc-h4"><a href="#...-reshaping-tensors">... reshaping tensors </a></li>
-<li class="toc-entry toc-h4"><a href="#...-transposing-tensors-(permuting-dimensions)">... transposing tensors (permuting dimensions) </a></li>
-<li class="toc-entry toc-h4"><a href="#...-numpy-like-indexing-and-slicing">... numpy-like indexing and slicing </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-numpy-objects-and-tensors-)">Example. ( numpy objects and tensors ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-adding-tensors-)">Example. ( adding tensors ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-stacking-tensors-)">Example. ( stacking tensors ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-in-place-operations-)">Example. ( in-place operations ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-reshaping-tensors-)">Example. ( reshaping tensors ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-transpose-)">Example. ( transpose ) </a></li>
+<li class="toc-entry toc-h3"><a href="#Example.-(-numpy-like-indexing-and-slicing-)">Example. ( numpy-like indexing and slicing ) </a>
+<ul>
 <li class="toc-entry toc-h4"><a href="#...-other-operations">... other operations </a></li>
 </ul>
 </li>
@@ -202,18 +200,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="geometric-deep-learning-models">
-<a class="anchor" href="#geometric-deep-learning-models" aria-hidden="true"><span class="octicon octicon-link"></span></a>geometric deep learning models<a class="anchor-link" href="#geometric-deep-learning-models"> </a>
+<h1 id="implementing-basic-GDL-models">
+<a class="anchor" href="#implementing-basic-GDL-models" aria-hidden="true"><span class="octicon octicon-link"></span></a>implementing basic GDL models<a class="anchor-link" href="#implementing-basic-GDL-models"> </a>
 </h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.1-...-tensors-in-pytorch">
-<a class="anchor" href="#2.1-...-tensors-in-pytorch" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="CornflowerBlue">2.1 ... tensors in pytorch</font><a class="anchor-link" href="#2.1-...-tensors-in-pytorch"> </a>
-</h2>
 </div>
 </div>
 </div>
@@ -237,11 +226,12 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>     |██████████████████████████████▎ | 834.1 MB 1.2 MB/s eta 0:00:39tcmalloc: large alloc 1147494400 bytes == 0x55fe2ed9a000 @  0x7fd01509a615 0x55fdc8c954cc 0x55fdc8d7547a 0x55fdc8c982ed 0x55fdc8d89e1d 0x55fdc8d0be99 0x55fdc8d069ee 0x55fdc8c99bda 0x55fdc8d0bd00 0x55fdc8d069ee 0x55fdc8c99bda 0x55fdc8d08737 0x55fdc8d8ac66 0x55fdc8d07daf 0x55fdc8d8ac66 0x55fdc8d07daf 0x55fdc8d8ac66 0x55fdc8d07daf 0x55fdc8c9a039 0x55fdc8cdd409 0x55fdc8c98c52 0x55fdc8d0bc25 0x55fdc8d069ee 0x55fdc8c99bda 0x55fdc8d08737 0x55fdc8d069ee 0x55fdc8c99bda 0x55fdc8d07915 0x55fdc8c99afa 0x55fdc8d07c0d 0x55fdc8d069ee
-     |████████████████████████████████| 881.9 MB 18 kB/s 
+<pre>     |██████████████████████████████▎ | 834.1 MB 1.2 MB/s eta 0:00:40tcmalloc: large alloc 1147494400 bytes == 0x558e8f6fc000 @  0x7f7ca0e76615 0x558e2a1404cc 0x558e2a22047a 0x558e2a1432ed 0x558e2a234e1d 0x558e2a1b6e99 0x558e2a1b19ee 0x558e2a144bda 0x558e2a1b6d00 0x558e2a1b19ee 0x558e2a144bda 0x558e2a1b3737 0x558e2a235c66 0x558e2a1b2daf 0x558e2a235c66 0x558e2a1b2daf 0x558e2a235c66 0x558e2a1b2daf 0x558e2a145039 0x558e2a188409 0x558e2a143c52 0x558e2a1b6c25 0x558e2a1b19ee 0x558e2a144bda 0x558e2a1b3737 0x558e2a1b19ee 0x558e2a144bda 0x558e2a1b2915 0x558e2a144afa 0x558e2a1b2c0d 0x558e2a1b19ee
+     |████████████████████████████████| 881.9 MB 15 kB/s 
 <span class="ansi-red-fg">ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
-torchvision 0.10.0+cu111 requires torch==1.9.0, but you have torch 1.10.0 which is incompatible.
-torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incompatible.</span>
+torchvision 0.11.1+cu111 requires torch==1.10.0, but you have torch 1.10.1 which is incompatible.
+torchtext 0.11.0 requires torch==1.10.0, but you have torch 1.10.1 which is incompatible.
+torchaudio 0.10.0+cu111 requires torch==1.10.0, but you have torch 1.10.1 which is incompatible.</span>
 </pre>
 </div>
 </div>
@@ -271,18 +261,14 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
-
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
 <span class="kn">import</span> <span class="nn">torch</span>
-
 <span class="kn">import</span> <span class="nn">torchvision</span>
-
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-
 <span class="kn">import</span> <span class="nn">torch.utils.data</span> <span class="k">as</span> <span class="nn">data</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
 </pre></div>
 
     </div>
@@ -296,24 +282,29 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Using torch"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#torch.manual_seed(42)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Using torch"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Using torch 1.10.0+cu102
+<pre>Using torch 1.10.1+cu102
 </pre>
 </div>
 </div>
@@ -327,30 +318,12 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-helper-classes-and-functions-">
-<a class="anchor" href="#...-helper-classes-and-functions-" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... helper classes and functions </font><a class="anchor-link" href="#...-helper-classes-and-functions-"> </a>
-</h3>
+<h2 id="helper-classes-and-functions">
+<a class="anchor" href="#helper-classes-and-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>helper classes and functions<a class="anchor-link" href="#helper-classes-and-functions"> </a>
+</h2>
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -403,9 +376,9 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="method-...-info_1d">
-<a class="anchor" href="#method-...-info_1d" aria-hidden="true"><span class="octicon octicon-link"></span></a>method ... <code>info_1d</code><a class="anchor-link" href="#method-...-info_1d"> </a>
-</h4>
+<h3 id="info_1d">
+<a class="anchor" href="#info_1d" aria-hidden="true"><span class="octicon octicon-link"></span></a>info_1d<a class="anchor-link" href="#info_1d"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -438,13 +411,114 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">info_1d</span><span class="p">(</span><span class="n">tens</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 
     <span class="c1"># tensor info starts</span>
-    <span class="n">delim</span> <span class="o">=</span> <span class="s2">"   "</span>
+    <span class="n">delim</span> <span class="o">=</span> <span class="s2">" "</span>
 
     <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">tens</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">tens</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="n">display_tens</span> <span class="o">=</span> <span class="n">tens</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span>
+
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">"tensor"</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"num. dims    "</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">tens</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> 
+          <span class="n">delim</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span> 
+          <span class="s2">"num. entries "</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">tens</span> <span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+          <span class="n">delim</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span> 
+          <span class="s2">"shape        "</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">tens</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span>
+
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"mean         "</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span>
+          <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> 
+          <span class="s2">"std          "</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span><span class="s2">" "</span><span class="p">,</span> <span class="n">std</span> <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">display_list</span> <span class="o">=</span> <span class="n">display_tens</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="n">J</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">display_list</span> <span class="p">)</span>
+
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">display_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">outer_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">J</span><span class="p">):</span>
+
+        <span class="n">inner_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+
+            <span class="n">inner_list</span> <span class="o">+=</span> <span class="p">[</span> <span class="nb">str</span><span class="p">(</span> <span class="n">display_list</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="p">)[:</span><span class="mi">4</span><span class="p">]</span> <span class="p">]</span>
+
+        <span class="n">outer_list</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">inner_list</span> <span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span> <span class="n">to_text</span><span class="p">(</span> <span class="n">outer_list</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h3 id="info_2d">
+<a class="anchor" href="#info_2d" aria-hidden="true"><span class="octicon octicon-link"></span></a>info_2d<a class="anchor-link" href="#info_2d"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>args</p>
+<ul>
+<li>
+<p><code>tens</code></p>
+</li>
+<li>
+<p><code>name</code></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">info_2d</span><span class="p">(</span><span class="n">tens</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+
+    <span class="c1"># tensor info starts</span>
+    <span class="n">delim</span> <span class="o">=</span> <span class="s2">"   "</span>
+
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">tens</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">tens</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="n">display_tens</span> <span class="o">=</span> <span class="n">tens</span>
 
     <span class="nb">print</span><span class="p">(</span> <span class="s2">"tensor"</span><span class="p">,</span> <span class="n">delim</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="p">)</span>
 
@@ -505,15 +579,18 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="method-...-mesh_helper">
-<a class="anchor" href="#method-...-mesh_helper" aria-hidden="true"><span class="octicon octicon-link"></span></a>method ... <code>mesh_helper</code><a class="anchor-link" href="#method-...-mesh_helper"> </a>
-</h4>
+<h3 id="mesh_helper">
+<a class="anchor" href="#mesh_helper" aria-hidden="true"><span class="octicon octicon-link"></span></a>mesh_helper<a class="anchor-link" href="#mesh_helper"> </a>
+</h3>
 </div>
 </div>
 </div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -539,6 +616,7 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 </div>
 </div>
 
+    </details>
 </div>
     
 
@@ -554,15 +632,18 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="method-...-height_helper">
-<a class="anchor" href="#method-...-height_helper" aria-hidden="true"><span class="octicon octicon-link"></span></a>method ... <code>height_helper</code><a class="anchor-link" href="#method-...-height_helper"> </a>
-</h4>
+<h3 id="height_helper">
+<a class="anchor" href="#height_helper" aria-hidden="true"><span class="octicon octicon-link"></span></a>height_helper<a class="anchor-link" href="#height_helper"> </a>
+</h3>
 </div>
 </div>
 </div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -638,6 +719,7 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 </div>
 </div>
 
+    </details>
 </div>
     
 
@@ -653,9 +735,9 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="method-...-viz_1d">
-<a class="anchor" href="#method-...-viz_1d" aria-hidden="true"><span class="octicon octicon-link"></span></a>method ... <code>viz_1d</code><a class="anchor-link" href="#method-...-viz_1d"> </a>
-</h4>
+<h3 id="viz_1d">
+<a class="anchor" href="#viz_1d" aria-hidden="true"><span class="octicon octicon-link"></span></a>viz_1d<a class="anchor-link" href="#viz_1d"> </a>
+</h3>
 <p>args</p>
 <ul>
 <li>
@@ -734,7 +816,6 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
     
     <span class="k">if</span> <span class="n">colorbar</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-    
 </pre></div>
 
     </div>
@@ -749,15 +830,18 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="method-...-viz_list_of_1d">
-<a class="anchor" href="#method-...-viz_list_of_1d" aria-hidden="true"><span class="octicon octicon-link"></span></a>method ... <code>viz_list_of_1d</code><a class="anchor-link" href="#method-...-viz_list_of_1d"> </a>
-</h4>
+<h3 id="viz_list_of_1d">
+<a class="anchor" href="#viz_list_of_1d" aria-hidden="true"><span class="octicon octicon-link"></span></a>viz_list_of_1d<a class="anchor-link" href="#viz_list_of_1d"> </a>
+</h3>
 </div>
 </div>
 </div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -850,6 +934,7 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 </div>
 </div>
 
+    </details>
 </div>
     
 
@@ -864,7 +949,19 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
+<h2 id="initializing-tensors-in-PyTorch">
+<a class="anchor" href="#initializing-tensors-in-PyTorch" aria-hidden="true"><span class="octicon octicon-link"></span></a>initializing tensors in PyTorch<a class="anchor-link" href="#initializing-tensors-in-PyTorch"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>resources</em></p>
+<ul>
+<li><a href="https://pytorch-lightning.readthedocs.io/en/latest/notebooks/course_UvA-DL/01-introduction-to-pytorch.html">lightning docs</a></li>
+</ul>
 
 </div>
 </div>
@@ -872,39 +969,22 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-initializing-tensors">
-<a class="anchor" href="#...-initializing-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... initializing tensors</font><a class="anchor-link" href="#...-initializing-tensors"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Tensors are similar to NumPy's <code>ndarrays</code>, except that tensors can run on GPUs or other hardware accelerators. Tensors and NumPy arrays can often share the same underlying memory, eliminating the need to copy data. Tensors are also optimized for automatic differentiation</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Here are some ways they can be initialized in torch.</p>
+<p>$\quad$ PyTorch's tensor objects are similar to NumPy's <code>ndarrays</code>, except that tensors can run on GPUs or other hardware accelerators. Tensors and NumPy arrays can often share the same underlying memory, eliminating the need to copy data. Tensors are also optimized for automatic differentiation. Here are some ways they can be initialized in PyTorch.</p>
 <ol>
 <li>
-<p>from lists: $\quad$ <code>X_1 = torch.tensor( list_object )</code></p>
+<p>From lists, $\quad$ <code>X_1 = torch.tensor( list_object )</code></p>
 </li>
 <li>
-<p>from a numpy array $\quad$ <code>X_2 = torch.from_numpy( array_object )</code></p>
+<p>From a numpy array, $\quad$ <code>X_2 = torch.from_numpy( array_object )</code></p>
 </li>
 <li>
-<p>with random or constant values, of a given shape. For example,</p>
-<p>a. entries all ones: $\quad$ <code>X_3_a = torch.ones( shape )</code></p>
-<p>b. entries all zeros $\quad$ <code>X_3_b = torch.zeros( shape )</code></p>
-<p>c. entries are i.i.d. $\text{Unif}(0,1)$ $\quad$ <code>X_3_c = torch.rand( shape )</code></p>
-<p>d. entries are i.i.d. standard normal $\quad$ <code>X_3_d = torch.randn( shape )</code></p>
-<p>e. from values stored in memory $\quad$ <code>X_3_e = torch.Tensor( shape )</code></p>
-<p>f. a list of consecutive integers between $N$ and $M$, inclusive, as tensor object $\quad$ <code>X_3_f = torch.arange(N,M)</code></p>
+<p>With random or constant values, of a given shape. For example,</p>
+<p>a. Entries all ones, $\quad$ <code>X_3_a = torch.ones( shape )</code></p>
+<p>b. Entries all zeros, $\quad$ <code>X_3_b = torch.zeros( shape )</code></p>
+<p>c. Entries are i.i.d. $\text{Unif}(0,1)$, $\quad$ <code>X_3_c = torch.rand( shape )</code></p>
+<p>d. Entries are i.i.d. standard normal, $\quad$ <code>X_3_d = torch.randn( shape )</code></p>
+<p>e. From values stored in memory, $\quad$ <code>X_3_e = torch.Tensor( shape )</code></p>
+<p>f. As a list of consecutive integers between $N$ and $M$ inclusive, $\quad$ <code>X_3_f = torch.arange(N,M)</code></p>
 </li>
 </ol>
 
@@ -914,9 +994,11 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-1.---from-lists">
-<a class="anchor" href="#...-1.---from-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>... 1.   from lists<a class="anchor-link" href="#...-1.---from-lists"> </a>
-</h4>
+<hr>
+<hr>
+<h3 id="Example.-(-from-lists-)">
+<a class="anchor" href="#Example.-(-from-lists-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( from lists )<a class="anchor-link" href="#Example.-(-from-lists-)"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -930,9 +1012,9 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">info_1d</span><span class="p">(</span> <span class="n">X_1</span><span class="p">,</span> <span class="s2">"X 1"</span> <span class="p">)</span>
-<span class="n">viz_1d</span><span class="p">(</span> <span class="n">X_1</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">info_1d</span><span class="p">(</span> <span class="n">X_1</span><span class="p">,</span> <span class="s2">"X_1"</span> <span class="p">)</span>
+<span class="c1">#viz_1d( X_1 )</span>
 </pre></div>
 
     </div>
@@ -946,35 +1028,20 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor     X 1 
-
-    num. dims           1
-    num. entries        2
-    shape               [2]
-
-
-    mean                2.5
-    std                 0.5
+<pre>tensor   X_1
+num. dims         1     num. entries      4     shape             [4]
+mean              4.25 
+ std               1.920286436967152
 
 
-┌───┬───┐
-│ 2 │ 3 │
-└───┴───┘
+┌───┬───┬───┬───┐
+│ 2 │ 3 │ 5 │ 7 │
+└───┴───┴───┴───┘
 
 
 
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
-</div>
-
 </div>
 
 </div>
@@ -986,9 +1053,20 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-2.-from-numpy">
-<a class="anchor" href="#...-2.-from-numpy" aria-hidden="true"><span class="octicon octicon-link"></span></a>... 2. from numpy<a class="anchor-link" href="#...-2.-from-numpy"> </a>
-</h4>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-from-numpy-)">
+<a class="anchor" href="#Example.-(-from-numpy-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( from numpy )<a class="anchor-link" href="#Example.-(-from-numpy-)"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -1003,8 +1081,8 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
-<span class="n">info_1d</span><span class="p">(</span><span class="n">X_2</span><span class="p">,</span> <span class="s2">"X 2"</span><span class="p">)</span>
-<span class="n">viz_1d</span><span class="p">(</span><span class="n">X_2</span><span class="p">)</span>
+<span class="n">info_1d</span><span class="p">(</span><span class="n">X_2</span><span class="p">,</span> <span class="s2">"X_2"</span><span class="p">)</span>
+<span class="c1">#viz_1d(X_2)</span>
 </pre></div>
 
     </div>
@@ -1018,7 +1096,7 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor     X 2 
+<pre>tensor     X_2 
 
     num. dims           1
     num. entries        3
@@ -1039,16 +1117,6 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 </div>
 </div>
 
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1058,7 +1126,16 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The next examples allow a shape to be provided as an argument.</p>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ The next examples allow a shape to be provided as an argument.</p>
 
 </div>
 </div>
@@ -1075,7 +1152,7 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">shape_dict</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="n">shape_dict</span><span class="p">[</span><span class="s2">"i"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="n">shape_dict</span><span class="p">[</span><span class="s2">"i"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span> <span class="p">)</span>
 
 <span class="c1"># shape_dict["ii"] = ( 2, 3 )</span>
 
@@ -1093,9 +1170,19 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-3.-(a)-ones-of-given-shape">
-<a class="anchor" href="#...-3.-(a)-ones-of-given-shape" aria-hidden="true"><span class="octicon octicon-link"></span></a>... 3. (a) ones of given shape<a class="anchor-link" href="#...-3.-(a)-ones-of-given-shape"> </a>
-</h4>
+<hr>
+<hr>
+<h3 id="Example.-(-ones-or-zeros-of-given-shape-)">
+<a class="anchor" href="#Example.-(-ones-or-zeros-of-given-shape-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( ones or zeros of given shape )<a class="anchor-link" href="#Example.-(-ones-or-zeros-of-given-shape-)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>ones</em></p>
+
 </div>
 </div>
 </div>
@@ -1112,8 +1199,8 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">shape_dict</span><span class="p">:</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">key</span>
     <span class="n">X_3_a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape_dict</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
-    <span class="n">info_1d</span><span class="p">(</span><span class="n">X_3_a</span><span class="p">,</span> <span class="s2">"X 3 (a)"</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="p">)</span>
-    <span class="n">viz_1d</span><span class="p">(</span> <span class="n">X_3_a</span> <span class="p">)</span>
+    <span class="n">info_1d</span><span class="p">(</span><span class="n">X_3_a</span><span class="p">,</span> <span class="s2">"X_3 (a)"</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="p">)</span>
+    <span class="c1">#viz_1d( X_3_a )</span>
 </pre></div>
 
     </div>
@@ -1127,35 +1214,25 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor     X 3 (a) i 
+<pre>tensor     X_3 (a) i 
 
     num. dims           1
-    num. entries        3
-    shape               [3]
+    num. entries        10
+    shape               [10]
 
 
     mean                1.0
     std                 0.0
 
 
-┌─────┬─────┬─────┐
-│ 1.0 │ 1.0 │ 1.0 │
-└─────┴─────┴─────┘
+┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+│ 1.0 │ 1.0 │ 1.0 │ 1.0 │ 1.0 │ 1.0 │ 1.0 │ 1.0 │ 1.0 │ 1.0 │
+└─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 
 
 
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
-</div>
-
 </div>
 
 </div>
@@ -1167,9 +1244,8 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-3.-(b)-zeros-of-given-shape">
-<a class="anchor" href="#...-3.-(b)-zeros-of-given-shape" aria-hidden="true"><span class="octicon octicon-link"></span></a>... 3. (b) zeros of given shape<a class="anchor-link" href="#...-3.-(b)-zeros-of-given-shape"> </a>
-</h4>
+<p><em>zeros</em></p>
+
 </div>
 </div>
 </div>
@@ -1186,8 +1262,8 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">shape_dict</span><span class="p">:</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">key</span>
     <span class="n">X_3_b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape_dict</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
-    <span class="n">info_1d</span><span class="p">(</span><span class="n">X_3_b</span><span class="p">,</span> <span class="s2">"X 3 (b)"</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="p">)</span>
-    <span class="n">viz_1d</span><span class="p">(</span> <span class="n">X_3_b</span> <span class="p">)</span>
+    <span class="n">info_1d</span><span class="p">(</span><span class="n">X_3_b</span><span class="p">,</span> <span class="s2">"X_3 (b)"</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="p">)</span>
+    <span class="c1">#viz_1d( X_3_b )</span>
 </pre></div>
 
     </div>
@@ -1201,35 +1277,25 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor     X 3 (b) i 
+<pre>tensor     X_3 (b) i 
 
     num. dims           1
-    num. entries        3
-    shape               [3]
+    num. entries        10
+    shape               [10]
 
 
     mean                0.0
     std                 0.0
 
 
-┌─────┬─────┬─────┐
-│ 0.0 │ 0.0 │ 0.0 │
-└─────┴─────┴─────┘
+┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+│ 0.0 │ 0.0 │ 0.0 │ 0.0 │ 0.0 │ 0.0 │ 0.0 │ 0.0 │ 0.0 │ 0.0 │
+└─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 
 
 
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
-</div>
-
 </div>
 
 </div>
@@ -1241,9 +1307,28 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-3.-(c)-i.i.d.-uniform-of-given-shape">
-<a class="anchor" href="#...-3.-(c)-i.i.d.-uniform-of-given-shape" aria-hidden="true"><span class="octicon octicon-link"></span></a>... 3. (c) i.i.d. uniform of given shape<a class="anchor-link" href="#...-3.-(c)-i.i.d.-uniform-of-given-shape"> </a>
-</h4>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-i.i.d.-of-given-shape-)">
+<a class="anchor" href="#Example.-(-i.i.d.-of-given-shape-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( i.i.d. of given shape )<a class="anchor-link" href="#Example.-(-i.i.d.-of-given-shape-)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\textrm{Unif}([0,1])$</p>
+
 </div>
 </div>
 </div>
@@ -1260,8 +1345,8 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">shape_dict</span><span class="p">:</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">key</span>
     <span class="n">X_3_c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">shape_dict</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
-    <span class="n">info_1d</span><span class="p">(</span><span class="n">X_3_c</span><span class="p">,</span> <span class="s2">"X 3 (c) "</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="p">)</span>
-    <span class="n">viz_1d</span><span class="p">(</span> <span class="n">X_3_c</span> <span class="p">)</span>
+    <span class="n">info_1d</span><span class="p">(</span><span class="n">X_3_c</span><span class="p">,</span> <span class="s2">"X_3 (c) "</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="p">)</span>
+    <span class="c1">#viz_1d( X_3_c )</span>
 </pre></div>
 
     </div>
@@ -1275,35 +1360,25 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor     X 3 (c)  i 
+<pre>tensor     X_3 (c)  i 
 
     num. dims           1
-    num. entries        3
-    shape               [3]
+    num. entries        10
+    shape               [10]
 
 
-    mean                0.4306812
-    std                 0.2719656
+    mean                0.55636114
+    std                 0.29058367
 
 
-┌──────┬──────┬──────┐
-│ 0.25 │ 0.81 │ 0.21 │
-└──────┴──────┴──────┘
+┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
+│ 0.37 │ 0.74 │ 0.86 │ 0.57 │ 0.34 │ 0.07 │ 0.13 │ 0.79 │ 0.72 │ 0.93 │
+└──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 
 
 
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
-</div>
-
 </div>
 
 </div>
@@ -1315,9 +1390,8 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-3.-(d)-i.i.d.-standard-normal-of-given-shape">
-<a class="anchor" href="#...-3.-(d)-i.i.d.-standard-normal-of-given-shape" aria-hidden="true"><span class="octicon octicon-link"></span></a>... 3. (d) i.i.d. standard normal of given shape<a class="anchor-link" href="#...-3.-(d)-i.i.d.-standard-normal-of-given-shape"> </a>
-</h4>
+<p><em>standard normal</em></p>
+
 </div>
 </div>
 </div>
@@ -1335,7 +1409,7 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
     <span class="n">s</span> <span class="o">=</span> <span class="n">key</span>
     <span class="n">X_3_d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">shape_dict</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
     <span class="n">info_1d</span><span class="p">(</span><span class="n">X_3_d</span><span class="p">,</span> <span class="s2">"X 3 (d)"</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">s</span> <span class="p">)</span>
-    <span class="n">viz_1d</span><span class="p">(</span> <span class="n">X_3_d</span> <span class="p">)</span>
+    <span class="c1">#viz_1d( X_3_d )</span>
 </pre></div>
 
     </div>
@@ -1352,32 +1426,22 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <pre>tensor     X 3 (d) i 
 
     num. dims           1
-    num. entries        3
-    shape               [3]
+    num. entries        10
+    shape               [10]
 
 
-    mean                -0.50956666
-    std                 0.51864845
+    mean                -0.23619552
+    std                 1.2433954
 
 
-┌──────┬──────┬──────┐
-│ -1.1 │ -0.3 │ 0.05 │
-└──────┴──────┴──────┘
+┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
+│ -0.0 │ 1.01 │ -0.6 │ 1.31 │ 1.37 │ -0.7 │ -2.7 │ -1.1 │ -1.0 │ 0.39 │
+└──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 
 
 
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
-</div>
-
 </div>
 
 </div>
@@ -1389,9 +1453,20 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-3.-(f)-sequence">
-<a class="anchor" href="#...-3.-(f)-sequence" aria-hidden="true"><span class="octicon octicon-link"></span></a>... 3. (f) sequence<a class="anchor-link" href="#...-3.-(f)-sequence"> </a>
-</h4>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-list-of-consecutive-integers-)">
+<a class="anchor" href="#Example.-(-list-of-consecutive-integers-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( list of consecutive integers )<a class="anchor-link" href="#Example.-(-list-of-consecutive-integers-)"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -1407,7 +1482,7 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_3_f</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span> 
 <span class="n">info_1d</span><span class="p">(</span><span class="n">X_3_f</span><span class="p">,</span> <span class="s2">"X 3 (f)"</span><span class="p">)</span>
-<span class="n">viz_1d</span><span class="p">(</span> <span class="n">X_3_f</span> <span class="p">)</span>
+<span class="c1">#viz_1d( X_3_f )</span>
 </pre></div>
 
     </div>
@@ -1442,16 +1517,6 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 </div>
 </div>
 
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1461,8 +1526,36 @@ torchtext 0.10.0 requires torch==1.9.0, but you have torch 1.10.0 which is incom
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="numpy-objects-and-tensors">
-<a class="anchor" href="#numpy-objects-and-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">numpy objects and tensors</font><a class="anchor-link" href="#numpy-objects-and-tensors"> </a>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="tensor-operations">
+<a class="anchor" href="#tensor-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>tensor operations<a class="anchor-link" href="#tensor-operations"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ We have seen above how to initialize a tensor from a numpy array. The next example illustrates how to go the other direction, and exhibits some memory properties.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-numpy-objects-and-tensors-)">
+<a class="anchor" href="#Example.-(-numpy-objects-and-tensors-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( numpy objects and tensors )<a class="anchor-link" href="#Example.-(-numpy-objects-and-tensors-)"> </a>
 </h3>
 </div>
 </div>
@@ -1497,6 +1590,9 @@ Hence, you get a line like <code>np_arr = tensor.cpu().numpy()</code>.</p>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1511,6 +1607,7 @@ Hence, you get a line like <code>np_arr = tensor.cpu().numpy()</code>.</p>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1532,6 +1629,9 @@ n: [1. 1. 1. 1. 1.]
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1545,6 +1645,7 @@ n: [1. 1. 1. 1. 1.]
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1566,27 +1667,8 @@ n: [2. 2. 2. 2. 2.]
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="...-tensor-operations">
-<a class="anchor" href="#...-tensor-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color="teal">... tensor operations</font><a class="anchor-link" href="#...-tensor-operations"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Most operations existing in numpy also exist in PyTorch. A full list of operations can be found in the <a href="https://pytorch.org/docs/stable/tensors.html#">PyTorch documentation</a>.</p>
-<ul>
-<li>
-<p>Each torch operation can be run on the GPU.</p>
-</li>
-<li>
-<p>By default, tensors are created on the CPU. Unless we are using a package like <code>pytorch-lightning</code>, we need to explicitly move tensors to the GPU using the <code>.to</code> method, after checking GPU availability.</p>
-</li>
-<li>
-<p>Copying large tensors across devices can be expensive in terms of time and memory.</p>
-</li>
-</ul>
+<hr>
+<hr>
 
 </div>
 </div>
@@ -1594,9 +1676,19 @@ n: [2. 2. 2. 2. 2.]
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-adding-tensors">
-<a class="anchor" href="#...-adding-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>... adding tensors<a class="anchor-link" href="#...-adding-tensors"> </a>
-</h4>
+<p>$\quad$ Most operations existing in numpy also exist in PyTorch. A full list of operations can be found in the <a href="https://pytorch.org/docs/stable/tensors.html#">PyTorch documentation</a>. Each Torch operation can be run on the GPU. By default, tensors are created on the CPU. Unless we are using a package like <code>pytorch-lightning</code>, we need to explicitly move tensors to the GPU using the <code>.to</code> method, after checking GPU availability. I've read that copying large tensors across devices can be expensive in terms of time and memory. Now we go through some operations common between tensors and numpy arrays.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-adding-tensors-)">
+<a class="anchor" href="#Example.-(-adding-tensors-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( adding tensors )<a class="anchor-link" href="#Example.-(-adding-tensors-)"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -1612,9 +1704,8 @@ n: [2. 2. 2. 2. 2.]
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="n">Y</span> <span class="o">=</span> <span class="n">X_1</span> <span class="o">+</span> <span class="n">X_2</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X_1</span><span class="p">,</span><span class="s2">"X_1"</span><span class="p">)</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X_2</span><span class="p">,</span><span class="s2">"X_2"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1628,8 +1719,99 @@ n: [2. 2. 2. 2. 2.]
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor([[1.1892, 1.2562, 1.1031],
-        [1.2336, 0.9848, 1.3801]])
+<pre>tensor     X_1 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
+
+
+    mean                0.46360818
+    std                 0.21094887
+
+
+┌──────┬──────┬──────┐
+│ 0.50 │ 0.10 │ 0.59 │
+├──────┼──────┼──────┤
+│ 0.77 │ 0.47 │ 0.32 │
+└──────┴──────┴──────┘
+
+
+
+tensor     X_2 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
+
+
+    mean                0.5031305
+    std                 0.27562448
+
+
+┌──────┬──────┬──────┐
+│ 0.90 │ 0.15 │ 0.14 │
+├──────┼──────┼──────┤
+│ 0.66 │ 0.61 │ 0.53 │
+└──────┴──────┴──────┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">X_1</span> <span class="o">+</span> <span class="n">X_2</span>
+
+<span class="n">info_2d</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="s2">"Y = X_1 + X_2"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     Y = X_1 + X_2 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
+
+
+    mean                0.96673864
+    std                 0.4079924
+
+
+┌──────┬──────┬──────┐
+│ 1.41 │ 0.25 │ 0.73 │
+├──────┼──────┼──────┤
+│ 1.43 │ 1.09 │ 0.86 │
+└──────┴──────┴──────┘
+
+
+
 </pre>
 </div>
 </div>
@@ -1643,9 +1825,20 @@ n: [2. 2. 2. 2. 2.]
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-stacking-tensors">
-<a class="anchor" href="#...-stacking-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>... stacking tensors<a class="anchor-link" href="#...-stacking-tensors"> </a>
-</h4>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-stacking-tensors-)">
+<a class="anchor" href="#Example.-(-stacking-tensors-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( stacking tensors )<a class="anchor-link" href="#Example.-(-stacking-tensors-)"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -1661,9 +1854,9 @@ n: [2. 2. 2. 2. 2.]
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
 
-<span class="n">info_1d</span><span class="p">(</span><span class="n">X_1</span><span class="p">,</span> <span class="s2">"X 1"</span><span class="p">)</span>
+<span class="n">info_1d</span><span class="p">(</span><span class="n">X_1</span><span class="p">,</span> <span class="s2">"X_1"</span><span class="p">)</span>
 
-<span class="n">info_1d</span><span class="p">(</span><span class="n">X_2</span><span class="p">,</span> <span class="s2">"X 2"</span><span class="p">)</span>
+<span class="n">info_1d</span><span class="p">(</span><span class="n">X_2</span><span class="p">,</span> <span class="s2">"X_2"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1677,7 +1870,7 @@ n: [2. 2. 2. 2. 2.]
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor     X 1 
+<pre>tensor     X_1 
 
     num. dims           1
     num. entries        5
@@ -1694,7 +1887,7 @@ n: [2. 2. 2. 2. 2.]
 
 
 
-tensor     X 2 
+tensor     X_2 
 
     num. dims           1
     num. entries        5
@@ -1731,81 +1924,9 @@ tensor     X 2
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span><span class="p">],</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span><span class="p">),</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="n">Y</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-    </details>
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>tensor([[ 5,  6,  7,  8,  9],
-        [10, 11, 12, 13, 14]])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-in-place-operations">
-<a class="anchor" href="#...-in-place-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>... in-place operations<a class="anchor-link" href="#...-in-place-operations"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Operations that store the result into the operand are called <em>in-place</em>. They are  usually marked with a underscore postfix, e.g. "<code>add_</code>" instead of "<code>add</code>". The operation <code>X.copy_(Y)</code> will change <code>X</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Calling <code>x1 + x2</code> creates a new tensor containing the sum of the two inputs.
-However, we can also use in-place operations that are applied directly on the memory of a tensor.
-We therefore change the values of <code>x2</code> without the chance to re-accessing the values of <code>x2</code> before the operation.
-An example is shown below:</p>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
-        <p></p>
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span><span class="s2">"before"</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">X_1</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">X_2</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n\n\n</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="n">X_2</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">X_1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span><span class="s2">"after"</span><span class="p">,</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">X_1</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">X_2</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n\n\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="s2">"Y = torch.stack([X_1, X_2], dim = 0)"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1819,24 +1940,22 @@ An example is shown below:</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>	 before 
- tensor([[0.3645, 0.4957, 0.4912],
-        [0.0512, 0.9726, 0.4387]]) 
+<pre>tensor     Y = torch.stack([X_1, X_2], dim = 0) 
 
- tensor([[0.4115, 0.2884, 0.3813],
-        [0.3939, 0.2245, 0.6431]]) 
-
+    num. dims           2
+    num. entries        10
+    shape               [2 5]
 
 
+    mean                9.5
+    std                 2.8722813232690143
 
 
-
-	 after 
- tensor([[0.3645, 0.4957, 0.4912],
-        [0.0512, 0.9726, 0.4387]]) 
-
- tensor([[0.7761, 0.7841, 0.8725],
-        [0.4451, 1.1971, 1.0818]]) 
+┌────┬────┬────┬────┬────┐
+│ 5  │ 6  │ 7  │ 8  │ 9  │
+├────┼────┼────┼────┼────┤
+│ 10 │ 11 │ 12 │ 13 │ 14 │
+└────┴────┴────┴────┴────┘
 
 
 
@@ -1853,9 +1972,8 @@ An example is shown below:</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p>In-place operations save some memory, but can be problematic when computing derivatives because of an immediate loss of history. For this reason, their use is discouraged.</p>
-</blockquote>
+<hr>
+<hr>
 
 </div>
 </div>
@@ -1863,19 +1981,229 @@ An example is shown below:</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-reshaping-tensors">
-<a class="anchor" href="#...-reshaping-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>... reshaping tensors<a class="anchor-link" href="#...-reshaping-tensors"> </a>
-</h4>
+<p>$\quad$ Operations that store the result into the operand are called <strong>in-place</strong>. They are  usually marked with a underscore postfix, e.g. "<code>add_</code>" instead of "<code>add</code>". Thus, the operation <code>X.copy_(Y)</code> will change <code>X</code>. We give another example below.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Another common operation aims at changing the shape of a tensor.
-A tensor of size <code>(2,3)</code> can be re-organized to any other shape with the same number of elements (e.g. a tensor of size <code>(6)</code>, or <code>(3,2)</code>, ...).</p>
-<p>In PyTorch, this reshaping operation is called <code>view</code>:</p>
+<hr>
+<hr>
+<h3 id="Example.-(-in-place-operations-)">
+<a class="anchor" href="#Example.-(-in-place-operations-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( in-place operations )<a class="anchor-link" href="#Example.-(-in-place-operations-)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Given PyTorch tensors <code>X_1</code> and <code>X_2</code>, calling <code>X_1 + X_2</code> creates a new tensor containing the sum of the two inputs.
+One can also use in-place operations that are applied directly on the memory of a tensor.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>before</em></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X_1</span><span class="p">,</span><span class="s2">"X_1"</span><span class="p">)</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X_2</span><span class="p">,</span><span class="s2">"X_2 (old)"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X_1 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
+
+
+    mean                0.4304365
+    std                 0.3225695
+
+
+┌──────┬──────┬──────┐
+│ 0.23 │ 0.06 │ 0.04 │
+├──────┼──────┼──────┤
+│ 0.70 │ 0.76 │ 0.76 │
+└──────┴──────┴──────┘
+
+
+
+tensor     X_2 (old) 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
+
+
+    mean                0.30377033
+    std                 0.20098853
+
+
+┌──────┬──────┬──────┐
+│ 0.70 │ 0.07 │ 0.35 │
+├──────┼──────┼──────┤
+│ 0.31 │ 0.16 │ 0.20 │
+└──────┴──────┴──────┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>after calling</em> <code>X_2.add_(X_1)</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_2</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">X_1</span><span class="p">)</span>
+
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X_1</span><span class="p">,</span><span class="s2">"X_1 (same as before)"</span><span class="p">)</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X_2</span><span class="p">,</span><span class="s2">"X_2 (new)"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X_1 (same as before) 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
+
+
+    mean                0.4304365
+    std                 0.3225695
+
+
+┌──────┬──────┬──────┐
+│ 0.23 │ 0.06 │ 0.04 │
+├──────┼──────┼──────┤
+│ 0.70 │ 0.76 │ 0.76 │
+└──────┴──────┴──────┘
+
+
+
+tensor     X_2 (new) 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
+
+
+    mean                0.73420686
+    std                 0.33801785
+
+
+┌──────┬──────┬──────┐
+│ 0.93 │ 0.13 │ 0.40 │
+├──────┼──────┼──────┤
+│ 1.02 │ 0.93 │ 0.96 │
+└──────┴──────┴──────┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Apparently, in-place operations save some memory, but can be problematic when computing derivatives because of an immediate loss of history. This is a reason their use is discouraged.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Another common operation changes the shape of a tensor. A tensor of size <code>(2,3)</code> can be re-organized to any other shape with the same number of elements (e.g. a tensor of size <code>(6)</code>, or <code>(3,2)</code>, ...). In PyTorch, this reshaping operation is called <code>view</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-reshaping-tensors-)">
+<a class="anchor" href="#Example.-(-reshaping-tensors-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( reshaping tensors )<a class="anchor-link" href="#Example.-(-reshaping-tensors-)"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -1943,7 +2271,7 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="n">X</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="s2">"X = X.view(2, 3)"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1956,13 +2284,28 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X = X.view(2, 3) 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>tensor([[0, 1, 2],
-        [3, 4, 5]])</pre>
+    mean                2.5
+    std                 1.707825127659933
+
+
+┌───┬───┬───┐
+│ 0 │ 1 │ 2 │
+├───┼───┼───┤
+│ 3 │ 4 │ 5 │
+└───┴───┴───┘
+
+
+
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -1974,9 +2317,97 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-transposing-tensors-(permuting-dimensions)">
-<a class="anchor" href="#...-transposing-tensors-(permuting-dimensions)" aria-hidden="true"><span class="octicon octicon-link"></span></a>... transposing tensors (permuting dimensions)<a class="anchor-link" href="#...-transposing-tensors-(permuting-dimensions)"> </a>
-</h4>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ We can also permute the dimensions of a tensor. For tensors which are matrices, this operation coincides with the matrix transpose.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-transpose-)">
+<a class="anchor" href="#Example.-(-transpose-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( transpose )<a class="anchor-link" href="#Example.-(-transpose-)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>before</em></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">info_2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s2">"X"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
+
+
+    mean                2.5
+    std                 1.707825127659933
+
+
+┌───┬───┬───┐
+│ 0 │ 1 │ 2 │
+├───┼───┼───┤
+│ 3 │ 4 │ 5 │
+└───┴───┴───┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>after</em></p>
+
 </div>
 </div>
 </div>
@@ -1992,7 +2423,7 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">X</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="s2">"X = X.permute(1,0)"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2005,14 +2436,30 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X = X.permute(1,0) 
+
+    num. dims           2
+    num. entries        6
+    shape               [3 2]
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>tensor([[0, 3],
-        [1, 4],
-        [2, 5]])</pre>
+    mean                2.5
+    std                 1.707825127659933
+
+
+┌───┬───┐
+│ 0 │ 3 │
+├───┼───┤
+│ 1 │ 4 │
+├───┼───┤
+│ 2 │ 5 │
+└───┴───┘
+
+
+
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -2021,6 +2468,14 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the case that <code>X</code> is a matrix, one can call <code>X.T</code> to perform an equivalent operation.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2033,7 +2488,7 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span>
 
-<span class="n">X</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s2">"X = X.T"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2046,13 +2501,28 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X = X.T 
+
+    num. dims           2
+    num. entries        6
+    shape               [2 3]
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>tensor([[0, 1, 2],
-        [3, 4, 5]])</pre>
+    mean                2.5
+    std                 1.707825127659933
+
+
+┌───┬───┬───┐
+│ 0 │ 1 │ 2 │
+├───┼───┼───┤
+│ 3 │ 4 │ 5 │
+└───┴───┴───┘
+
+
+
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -2064,9 +2534,36 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="...-numpy-like-indexing-and-slicing">
-<a class="anchor" href="#...-numpy-like-indexing-and-slicing" aria-hidden="true"><span class="octicon octicon-link"></span></a>... numpy-like indexing and slicing<a class="anchor-link" href="#...-numpy-like-indexing-and-slicing"> </a>
-</h4>
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ Torch also supports the same indexing and slicing as numpy.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h3 id="Example.-(-numpy-like-indexing-and-slicing-)">
+<a class="anchor" href="#Example.-(-numpy-like-indexing-and-slicing-)" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example.</strong> ( numpy-like indexing and slicing )<a class="anchor-link" href="#Example.-(-numpy-like-indexing-and-slicing-)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ We start by initializing a random $4 \times 4$ matrix, which we call <code>X</code>.</p>
+
 </div>
 </div>
 </div>
@@ -2081,12 +2578,8 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"X"</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"first row of X"</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"first column of X"</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"last column of X"</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"First two rows, last column"</span><span class="p">,</span> <span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Middle two rows"</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:],</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="p">)</span>
+
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s2">"X"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2100,21 +2593,28 @@ A tensor of size <code>(2,3)</code> can be re-organized to any other shape with 
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>X tensor([[0.7217, 0.0273, 0.9608, 0.5301],
-        [0.8714, 0.6135, 0.6256, 0.7594],
-        [0.3845, 0.4023, 0.6001, 0.4595],
-        [0.9586, 0.8263, 0.3179, 0.4732]]) 
+<pre>tensor     X 
 
-first row of X tensor([0.7217, 0.0273, 0.9608, 0.5301]) 
+    num. dims           2
+    num. entries        16
+    shape               [4 4]
 
-first column of X tensor([0.7217, 0.8714, 0.3845, 0.9586]) 
 
-last column of X tensor([0.5301, 0.7594, 0.4595, 0.4732]) 
+    mean                0.6176396
+    std                 0.2650224
 
-First two rows, last column tensor([0.5301, 0.7594]) 
 
-Middle two rows tensor([[0.8714, 0.6135, 0.6256, 0.7594],
-        [0.3845, 0.4023, 0.6001, 0.4595]]) 
+┌──────┬──────┬──────┬──────┐
+│ 0.55 │ 0.65 │ 0.66 │ 0.32 │
+├──────┼──────┼──────┼──────┤
+│ 0.52 │ 0.10 │ 0.38 │ 0.95 │
+├──────┼──────┼──────┼──────┤
+│ 0.85 │ 0.76 │ 0.61 │ 0.15 │
+├──────┼──────┼──────┼──────┤
+│ 0.98 │ 0.96 │ 0.54 │ 0.81 │
+└──────┴──────┴──────┴──────┘
+
+
 
 </pre>
 </div>
@@ -2126,6 +2626,340 @@ Middle two rows tensor([[0.8714, 0.6135, 0.6256, 0.7594],
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first row of <code>X</code> is given by <code>X[0]</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tens</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">info_1d</span><span class="p">(</span><span class="n">tens</span><span class="p">,</span><span class="s2">"X[0]"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X[0] 
+
+    num. dims           1
+    num. entries        4
+    shape               [4]
+
+
+    mean                0.5516057
+    std                 0.1402314
+
+
+┌──────┬──────┬──────┬──────┐
+│ 0.55 │ 0.65 │ 0.66 │ 0.32 │
+└──────┴──────┴──────┴──────┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first column of <code>X</code> is given by <code>X[:,0]</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tens</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tens</span> <span class="o">=</span> <span class="n">tens</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span>
+<span class="n">tens</span> <span class="o">=</span> <span class="n">tens</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">info_2d</span><span class="p">(</span><span class="n">tens</span><span class="p">,</span><span class="s2">"X[:,0]"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X[:,0] 
+
+    num. dims           2
+    num. entries        4
+    shape               [4 1]
+
+
+    mean                0.7297974
+    std                 0.19340122
+
+
+┌──────┐
+│ 0.55 │
+├──────┤
+│ 0.52 │
+├──────┤
+│ 0.85 │
+├──────┤
+│ 0.98 │
+└──────┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The last column of <code>X</code> is given by <code>X[...,-1]</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tens</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">tens</span> <span class="o">=</span> <span class="n">tens</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span>
+<span class="n">tens</span> <span class="o">=</span> <span class="n">tens</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">info_2d</span><span class="p">(</span><span class="n">tens</span><span class="p">,</span><span class="s2">"X[...,-1]"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X[...,-1] 
+
+    num. dims           2
+    num. entries        4
+    shape               [4 1]
+
+
+    mean                0.5609479
+    std                 0.33263853
+
+
+┌──────┐
+│ 0.32 │
+├──────┤
+│ 0.95 │
+├──────┤
+│ 0.15 │
+├──────┤
+│ 0.81 │
+└──────┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first two rows of <code>X</code>, restricted to the last column, is given by <code>X[:2,-1]</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tens</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">tens</span> <span class="o">=</span> <span class="n">tens</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span>
+<span class="n">tens</span> <span class="o">=</span> <span class="n">tens</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">info_2d</span><span class="p">(</span><span class="n">tens</span><span class="p">,</span><span class="s2">"X[:2,-1]"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X[:2,-1] 
+
+    num. dims           2
+    num. entries        2
+    shape               [2 1]
+
+
+    mean                0.6380327
+    std                 0.31738755
+
+
+┌──────┐
+│ 0.32 │
+├──────┤
+│ 0.95 │
+└──────┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The middle two rows of <code>X</code> are given by <code>X[1:3,:]</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tens</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,:]</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">tens</span><span class="p">,</span><span class="s2">"X[1:3,:]"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor     X[1:3,:] 
+
+    num. dims           2
+    num. entries        8
+    shape               [2 4]
+
+
+    mean                0.5452546
+    std                 0.29302517
+
+
+┌──────┬──────┬──────┬──────┐
+│ 0.52 │ 0.10 │ 0.38 │ 0.95 │
+├──────┼──────┼──────┼──────┤
+│ 0.85 │ 0.76 │ 0.61 │ 0.15 │
+└──────┴──────┴──────┴──────┘
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\quad$ The above slicing can be used to set a collection of entries of <code>X</code> to a certain value. Below, we modify <code>X</code> by calling <code>X[:,1] = 0</code>. This sets all entries in the <em>second</em> column of <code>X</code> to zero.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2137,7 +2971,7 @@ Middle two rows tensor([[0.8714, 0.6135, 0.6256, 0.7594],
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">info_2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s2">"after X[:,1] = 0"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2151,10 +2985,29 @@ Middle two rows tensor([[0.8714, 0.6135, 0.6256, 0.7594],
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor([[0.7217, 0.0000, 0.9608, 0.5301],
-        [0.8714, 0.0000, 0.6256, 0.7594],
-        [0.3845, 0.0000, 0.6001, 0.4595],
-        [0.9586, 0.0000, 0.3179, 0.4732]])
+<pre>tensor     after X[:,1] = 0 
+
+    num. dims           2
+    num. entries        16
+    shape               [4 4]
+
+
+    mean                0.46152157
+    std                 0.34013218
+
+
+┌──────┬─────┬──────┬──────┐
+│ 0.55 │ 0.0 │ 0.66 │ 0.32 │
+├──────┼─────┼──────┼──────┤
+│ 0.52 │ 0.0 │ 0.38 │ 0.95 │
+├──────┼─────┼──────┼──────┤
+│ 0.85 │ 0.0 │ 0.61 │ 0.15 │
+├──────┼─────┼──────┼──────┤
+│ 0.98 │ 0.0 │ 0.54 │ 0.81 │
+└──────┴─────┴──────┴──────┘
+
+
+
 </pre>
 </div>
 </div>
@@ -2165,6 +3018,15 @@ Middle two rows tensor([[0.8714, 0.6135, 0.6256, 0.7594],
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
